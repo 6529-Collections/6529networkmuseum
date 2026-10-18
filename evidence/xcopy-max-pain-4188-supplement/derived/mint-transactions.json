@@ -1,0 +1,184 @@
+{
+  "first_block": {
+    "hash": "0xbb8157c3c2348c5d274b6f5fa8f3b4d18910e7ad577f5fd31a08ea5dde4ae179",
+    "number": 14451975,
+    "timestamp": "2022-03-24T23:38:13Z"
+  },
+  "last_block": {
+    "hash": "0x344a54ec1037164be2efd6f83e1a5a05a59e01f290b3bfbe719051837f11f904",
+    "number": 14451998,
+    "timestamp": "2022-03-24T23:43:11Z"
+  },
+  "token_ids_covered": 7394,
+  "transaction_count": 21,
+  "transactions": [
+    {
+      "block_number": 14451975,
+      "from_token_id": 171000100001,
+      "log_index": 20,
+      "to_role": "nifty_gateway_platform_custody",
+      "to_token_id": 171000100364,
+      "transaction_hash": "0x37cf0a71cc5eff3a5425d7ad10072d1a5f04e9502543ee4efc883ee6bc48ce8e"
+    },
+    {
+      "block_number": 14451975,
+      "from_token_id": 171000100365,
+      "log_index": 21,
+      "to_role": "nifty_gateway_platform_custody",
+      "to_token_id": 171000100728,
+      "transaction_hash": "0x3051389b0206ff66ab4606eec0cd033b823a82362c81a22488c65a0782c76411"
+    },
+    {
+      "block_number": 14451975,
+      "from_token_id": 171000100729,
+      "log_index": 22,
+      "to_role": "nifty_gateway_platform_custody",
+      "to_token_id": 171000101092,
+      "transaction_hash": "0xfc582c6d939d2059bd850232d01af60f668fa5053b5cb512837bc1700e4bd440"
+    },
+    {
+      "block_number": 14451976,
+      "from_token_id": 171000101093,
+      "log_index": 3,
+      "to_role": "nifty_gateway_platform_custody",
+      "to_token_id": 171000101456,
+      "transaction_hash": "0xdbfde3cc47a216388822ca3bc5ca872e770421e57f17c182e64beca0d66b7797"
+    },
+    {
+      "block_number": 14451976,
+      "from_token_id": 171000101457,
+      "log_index": 4,
+      "to_role": "nifty_gateway_platform_custody",
+      "to_token_id": 171000101820,
+      "transaction_hash": "0xe73277c2010eaea9cec077f44ae2d92e54b190927d873ad74ce9ccd51e738064"
+    },
+    {
+      "block_number": 14451976,
+      "from_token_id": 171000101821,
+      "log_index": 5,
+      "to_role": "nifty_gateway_platform_custody",
+      "to_token_id": 171000102184,
+      "transaction_hash": "0xd50fb7ef04275593bd53c0f45387aaea75ca947bc8151ae64f313e2d80f8c95e"
+    },
+    {
+      "block_number": 14451979,
+      "from_token_id": 171000102185,
+      "log_index": 33,
+      "to_role": "nifty_gateway_platform_custody",
+      "to_token_id": 171000102548,
+      "transaction_hash": "0xe5c738cbbe4f5d5d82a8d3af0dbdbaa958a0fb8a3b75798304727e29d52b01b0"
+    },
+    {
+      "block_number": 14451979,
+      "from_token_id": 171000102549,
+      "log_index": 34,
+      "to_role": "nifty_gateway_platform_custody",
+      "to_token_id": 171000102912,
+      "transaction_hash": "0x30e2c8236b7234166c1b56a45108aaff941e287d8097d9ab6d09ecf9f3493f33"
+    },
+    {
+      "block_number": 14451979,
+      "from_token_id": 171000102913,
+      "log_index": 35,
+      "to_role": "nifty_gateway_platform_custody",
+      "to_token_id": 171000103276,
+      "transaction_hash": "0xdd2cdfae2cdebc1c1191835e9c07ab68edbb34922522a1710207cb56df4cdd36"
+    },
+    {
+      "block_number": 14451983,
+      "from_token_id": 171000103277,
+      "log_index": 28,
+      "to_role": "nifty_gateway_platform_custody",
+      "to_token_id": 171000103640,
+      "transaction_hash": "0x7dbc620f161b229b14af52402ddc3ff7db1b9520f427733cedbe4e3d49f338d1"
+    },
+    {
+      "block_number": 14451983,
+      "from_token_id": 171000103641,
+      "log_index": 29,
+      "to_role": "nifty_gateway_platform_custody",
+      "to_token_id": 171000104004,
+      "transaction_hash": "0x22ae4d1061a0875fd85426baead6d7c748345ecf50d33b3579fbadefed2488d0"
+    },
+    {
+      "block_number": 14451983,
+      "from_token_id": 171000104005,
+      "log_index": 30,
+      "to_role": "nifty_gateway_platform_custody",
+      "to_token_id": 171000104368,
+      "transaction_hash": "0x0b2da2a60e43772a73dc49383ca40da2d46ecf6ee9ba1669727aa03a78f3e6f8"
+    },
+    {
+      "block_number": 14451995,
+      "from_token_id": 171000104369,
+      "log_index": 52,
+      "to_role": "nifty_gateway_platform_custody",
+      "to_token_id": 171000104732,
+      "transaction_hash": "0xed5d456394a38dc03597fe8240108cb57e60029c923b9c7bfe47eaece5e2da70"
+    },
+    {
+      "block_number": 14451995,
+      "from_token_id": 171000104733,
+      "log_index": 53,
+      "to_role": "nifty_gateway_platform_custody",
+      "to_token_id": 171000105096,
+      "transaction_hash": "0xf017b94b73d1739aec8e9745c7448b70fd59c2f8e838cda1f85eb9ec91162439"
+    },
+    {
+      "block_number": 14451995,
+      "from_token_id": 171000105097,
+      "log_index": 54,
+      "to_role": "nifty_gateway_platform_custody",
+      "to_token_id": 171000105460,
+      "transaction_hash": "0x1d94931d1e4f12ed7b3eb9d5d1c0447c5525e55aa89ec16ae3420c986d087788"
+    },
+    {
+      "block_number": 14451997,
+      "from_token_id": 171000105461,
+      "log_index": 3,
+      "to_role": "nifty_gateway_platform_custody",
+      "to_token_id": 171000105824,
+      "transaction_hash": "0xccfa46b7a796bf62b271493840fad6c51f3a9a9b65676dc4c8deb7f1c103e6cb"
+    },
+    {
+      "block_number": 14451997,
+      "from_token_id": 171000105825,
+      "log_index": 4,
+      "to_role": "nifty_gateway_platform_custody",
+      "to_token_id": 171000106188,
+      "transaction_hash": "0x5479ef2d797f4b965f72e75786cfb1b6dfcc78219644efaea26f582a6854c233"
+    },
+    {
+      "block_number": 14451997,
+      "from_token_id": 171000106189,
+      "log_index": 5,
+      "to_role": "nifty_gateway_platform_custody",
+      "to_token_id": 171000106552,
+      "transaction_hash": "0x68959abc8aaf71b70187137f8c93ad78fe1565b2ed368eb9270ebbb95199a859"
+    },
+    {
+      "block_number": 14451997,
+      "from_token_id": 171000106553,
+      "log_index": 6,
+      "to_role": "nifty_gateway_platform_custody",
+      "to_token_id": 171000106666,
+      "transaction_hash": "0x2dedff759ccdb89d95b87587a9eb279e56ab5a534b67714aa564ff8fef7f907f"
+    },
+    {
+      "block_number": 14451998,
+      "from_token_id": 171000106667,
+      "log_index": 64,
+      "to_role": "nifty_gateway_platform_custody",
+      "to_token_id": 171000107030,
+      "transaction_hash": "0xdc4d566125e025e1947c32410bdb7a969f18396d465d47be0b6ca370e5c15fd2"
+    },
+    {
+      "block_number": 14451998,
+      "from_token_id": 171000107031,
+      "log_index": 65,
+      "to_role": "nifty_gateway_platform_custody",
+      "to_token_id": 171000107394,
+      "transaction_hash": "0xb47386e6d1ef827b70e7f46db5fc97644c5b4b350f835736286f49dd61475ec3"
+    }
+  ]
+}

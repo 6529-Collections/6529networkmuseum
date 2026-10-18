@@ -1,0 +1,1274 @@
+{
+  "accession_id": "6529NM.2026.005",
+  "acquisition_agent_address": "0xe84576bd68882e037d8e4df484ad9a15e2b855bc",
+  "balance_checkpoints": [
+    {
+      "balance_eth": "0.4646",
+      "balance_wei": "464600000000000000",
+      "block_number": 25889851,
+      "checkpoint": "before_purchase",
+      "nonce": 0
+    },
+    {
+      "balance_eth": "0.005561382947282304",
+      "balance_wei": "5561382947282304",
+      "block_number": 25889852,
+      "checkpoint": "after_purchase",
+      "nonce": 1
+    },
+    {
+      "balance_eth": "0.005533472687069084",
+      "balance_wei": "5533472687069084",
+      "block_number": 25889990,
+      "checkpoint": "after_museum_receipt",
+      "nonce": 2
+    },
+    {
+      "balance_eth": "0.068533472687069084",
+      "balance_wei": "68533472687069084",
+      "block_number": 25975417,
+      "checkpoint": "before_residual_transfer",
+      "nonce": 2
+    },
+    {
+      "balance_eth": "0.000028356754426649",
+      "balance_wei": "28356754426649",
+      "block_number": 25975418,
+      "checkpoint": "after_residual_transfer",
+      "nonce": 3
+    },
+    {
+      "balance_eth": "0.000028356754426649",
+      "balance_wei": "28356754426649",
+      "block_number": 26218159,
+      "checkpoint": "finalized",
+      "nonce": 3
+    }
+  ],
+  "derived_inflows": [
+    {
+      "balance_change_wei": "464600000000000000",
+      "derived_inflow_eth": "0.4646",
+      "derived_inflow_wei": "464600000000000000",
+      "interval": "through_block_before_purchase",
+      "known_outflow_wei": "0"
+    },
+    {
+      "balance_change_wei": "-459038617052717696",
+      "derived_inflow_eth": "0.0",
+      "derived_inflow_wei": "0",
+      "interval": "purchase_block",
+      "known_outflow_wei": "459038617052717696"
+    },
+    {
+      "balance_change_wei": "-27910260213220",
+      "derived_inflow_eth": "0.0",
+      "derived_inflow_wei": "0",
+      "interval": "purchase_to_museum_receipt",
+      "known_outflow_wei": "27910260213220"
+    },
+    {
+      "balance_change_wei": "63000000000000000",
+      "derived_inflow_eth": "0.063",
+      "derived_inflow_wei": "63000000000000000",
+      "interval": "museum_receipt_to_block_before_residual",
+      "known_outflow_wei": "0"
+    },
+    {
+      "balance_change_wei": "-68505115932642435",
+      "derived_inflow_eth": "0.0",
+      "derived_inflow_wei": "0",
+      "interval": "residual_block",
+      "known_outflow_wei": "68505115932642435"
+    },
+    {
+      "balance_change_wei": "0",
+      "derived_inflow_eth": "0.0",
+      "derived_inflow_wei": "0",
+      "interval": "after_residual_to_finalized",
+      "known_outflow_wei": "0"
+    }
+  ],
+  "finalized_block": {
+    "hash": "0x8101e2a73b4ea71a2156501bcb8d292d4183941f8213f779c80be7454f5e6f38",
+    "number": 26218159,
+    "timestamp": "2026-10-18T08:09:59Z"
+  },
+  "limitations": [
+    "These are chain observations of one wallet. They do not identify contributors, establish who paid what, or show whether any payment was a contribution.",
+    "The residual ETH transfer to the Museum Safe is recorded as an observed transaction; it is not accepted, restricted or designated by this evidence.",
+    "No valuation or tax characterization is made."
+  ],
+  "method": "eth_getBalance and eth_getTransactionCount for the agent wallet at each checkpoint block (archive reads), with the three outgoing receipts. Nonces show that no other outgoing transaction occurred between checkpoints, so each interval's inflow is its balance change plus its known outflows (value plus gasUsed x effectiveGasPrice).",
+  "museum_address": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+  "network": "Ethereum mainnet",
+  "observed_at": "2026-10-18T08:24:57.120Z",
+  "outgoing_transactions": [
+    {
+      "block_number": 25889852,
+      "gas_fee_wei": "38617152717696",
+      "nonce": 0,
+      "recipient_role": "seaport_1_6",
+      "role": "agent_purchase",
+      "transaction_hash": "0xdf8b07004bfed397920355ac80991a9dd592c896ca77b1fadb5655f8c85aa4d6",
+      "value_eth": "0.4589999999",
+      "value_wei": "458999999900000000"
+    },
+    {
+      "block_number": 25889990,
+      "gas_fee_wei": "27910260213220",
+      "nonce": 1,
+      "recipient_role": "token_contract",
+      "role": "museum_receipt_transfer",
+      "transaction_hash": "0xe7511598bbdabd1d4ff1c5bb7e6d1f9157a413fbcf305f0392cc30c92252ea03",
+      "value_eth": "0.0",
+      "value_wei": "0"
+    },
+    {
+      "block_number": 25975418,
+      "gas_fee_wei": "8204245573351",
+      "nonce": 2,
+      "recipient_role": "museum_safe",
+      "role": "residual_transfer_to_museum_safe",
+      "transaction_hash": "0x7d7b7733c696858dda93374395a978a4f7cb0cf4b631e2a81ab595f70d5debef",
+      "value_eth": "0.068496911687069084",
+      "value_wei": "68496911687069084"
+    }
+  ],
+  "privacy_boundary": "Incoming payments are aggregated by balance arithmetic only. No incoming transaction, sender, contributor or payer address is requested, derived or retained.",
+  "raw_json_rpc": [
+    {
+      "label": "chain-id",
+      "method": "eth_chainId",
+      "request_path": "raw/rpc/0001-chain-id-request.json",
+      "response_path": "raw/rpc/0001-chain-id-response.json",
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 48,
+        "byte_sha256": "c5c8bd35235e77d763d29fc5ee78916c39b0ae5c4816c075c2165b651d90651b",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 48,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:24:57.590Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:24:57.590Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    },
+    {
+      "label": "finalized-block",
+      "method": "eth_getBlockByNumber",
+      "request_path": "raw/rpc/0002-finalized-block-request.json",
+      "response_path": "raw/rpc/0002-finalized-block-response.json",
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 13820,
+        "byte_sha256": "d87b23057229e02d3c9d26236e2ef197df6b35a98b89b6b4e02463831252ddb3",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 13820,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:24:58.070Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:24:58.070Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    },
+    {
+      "label": "agent_purchase-transaction",
+      "method": "eth_getTransactionByHash",
+      "request_path": "raw/rpc/0003-agent_purchase-transaction-request.json",
+      "response_path": "raw/rpc/0003-agent_purchase-transaction-response.json",
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 2458,
+        "byte_sha256": "fbb23dfcfa60c8452f062ac79a40214905bea86f2e8f3c7803d504dc360dc90d",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 2458,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:24:58.527Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:24:58.527Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    },
+    {
+      "label": "agent_purchase-receipt",
+      "method": "eth_getTransactionReceipt",
+      "request_path": "raw/rpc/0004-agent_purchase-receipt-request.json",
+      "response_path": "raw/rpc/0004-agent_purchase-receipt-response.json",
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 4187,
+        "byte_sha256": "f9a36d67f04828eba4f6a1f3b93cb9709597568e8fde4be4288c429dcae565fd",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 4187,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:24:59.027Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:24:59.027Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    },
+    {
+      "label": "museum_receipt_transfer-transaction",
+      "method": "eth_getTransactionByHash",
+      "request_path": "raw/rpc/0005-museum_receipt_transfer-transaction-request.json",
+      "response_path": "raw/rpc/0005-museum_receipt_transfer-transaction-response.json",
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 972,
+        "byte_sha256": "f157be664dae025bff3350b3e6b0188f8746614598df7f2290861e33fab00b93",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 972,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:24:59.478Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:24:59.478Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    },
+    {
+      "label": "museum_receipt_transfer-receipt",
+      "method": "eth_getTransactionReceipt",
+      "request_path": "raw/rpc/0006-museum_receipt_transfer-receipt-request.json",
+      "response_path": "raw/rpc/0006-museum_receipt_transfer-receipt-response.json",
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 2345,
+        "byte_sha256": "ab78c47014fa3d85db3389203368a0c8a643cea0ba6cbd573489e88bd1a2000e",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 2345,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:24:59.946Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:24:59.946Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    },
+    {
+      "label": "residual_transfer_to_museum_safe-transaction",
+      "method": "eth_getTransactionByHash",
+      "request_path": "raw/rpc/0007-residual_transfer_to_museum_safe-transaction-request.json",
+      "response_path": "raw/rpc/0007-residual_transfer_to_museum_safe-transaction-response.json",
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 794,
+        "byte_sha256": "d86a7995c55c355686a6b9bbfa7ed3f03359499fd870598d89bc96bb22294b3e",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 794,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:25:00.450Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:25:00.450Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    },
+    {
+      "label": "residual_transfer_to_museum_safe-receipt",
+      "method": "eth_getTransactionReceipt",
+      "request_path": "raw/rpc/0008-residual_transfer_to_museum_safe-receipt-request.json",
+      "response_path": "raw/rpc/0008-residual_transfer_to_museum_safe-receipt-response.json",
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 1638,
+        "byte_sha256": "6f23ab3162c0a3a076a8edd5b68dece061237470e69ac01ff0e691725bafeb3a",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 1638,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:25:00.964Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:25:00.964Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    },
+    {
+      "label": "balance-before_purchase",
+      "method": "eth_getBalance",
+      "request_path": "raw/rpc/0009-balance-before_purchase-request.json",
+      "response_path": "raw/rpc/0009-balance-before_purchase-response.json",
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 77,
+        "byte_sha256": "18377eab0ff9c134b2be779fec58847bd289dd1f8c3ff8f01432135a956de676",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 77,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:25:01.427Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:25:01.427Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    },
+    {
+      "label": "nonce-before_purchase",
+      "method": "eth_getTransactionCount",
+      "request_path": "raw/rpc/0010-nonce-before_purchase-request.json",
+      "response_path": "raw/rpc/0010-nonce-before_purchase-response.json",
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 61,
+        "byte_sha256": "3463ca59037ddb8ef2c41e88d6a2024e815691bd0d3206aa4bd55bf567e76d4c",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 61,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:25:02.054Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:25:02.054Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    },
+    {
+      "label": "balance-after_purchase",
+      "method": "eth_getBalance",
+      "request_path": "raw/rpc/0011-balance-after_purchase-request.json",
+      "response_path": "raw/rpc/0011-balance-after_purchase-response.json",
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 75,
+        "byte_sha256": "be71e0ebaaa1f6ed802dfcaed3336d31668d3ddf1ba2b957853d0a0e30f97a74",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 75,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:25:02.521Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:25:02.521Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    },
+    {
+      "label": "nonce-after_purchase",
+      "method": "eth_getTransactionCount",
+      "request_path": "raw/rpc/0012-nonce-after_purchase-request.json",
+      "response_path": "raw/rpc/0012-nonce-after_purchase-response.json",
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 60,
+        "byte_sha256": "68de7eb71d4f33cef3c9cae48eef06039107c1f8573acd2866dff626aba6e46f",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 60,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:25:03.025Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:25:03.025Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    },
+    {
+      "label": "balance-after_museum_receipt",
+      "method": "eth_getBalance",
+      "request_path": "raw/rpc/0013-balance-after_museum_receipt-request.json",
+      "response_path": "raw/rpc/0013-balance-after_museum_receipt-response.json",
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 81,
+        "byte_sha256": "ad77f5e277aee9ed25031f295a8f0e207d3e9c0eb4d1a0f2e63dd75979d175d0",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 81,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:25:03.473Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:25:03.473Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    },
+    {
+      "label": "nonce-after_museum_receipt",
+      "method": "eth_getTransactionCount",
+      "request_path": "raw/rpc/0014-nonce-after_museum_receipt-request.json",
+      "response_path": "raw/rpc/0014-nonce-after_museum_receipt-response.json",
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 66,
+        "byte_sha256": "28783ee01c718374874163677875209d5c368e4bbc5ca6d2d85e78d493b3ed1d",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 66,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:25:03.937Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:25:03.937Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    },
+    {
+      "label": "balance-before_residual_transfer",
+      "method": "eth_getBalance",
+      "request_path": "raw/rpc/0015-balance-before_residual_transfer-request.json",
+      "response_path": "raw/rpc/0015-balance-before_residual_transfer-response.json",
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 85,
+        "byte_sha256": "9db77ce50f74d78b43b4db87fa476cb86362d1b00312993adcc988356d68dca1",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 85,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:25:04.397Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:25:04.397Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    },
+    {
+      "label": "nonce-before_residual_transfer",
+      "method": "eth_getTransactionCount",
+      "request_path": "raw/rpc/0016-nonce-before_residual_transfer-request.json",
+      "response_path": "raw/rpc/0016-nonce-before_residual_transfer-response.json",
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 70,
+        "byte_sha256": "cd83966386946a0965a77f54ddd738374f48db37baa8ae3ec2f8aeeb24b1f29a",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 70,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:25:04.874Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:25:04.874Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    },
+    {
+      "label": "balance-after_residual_transfer",
+      "method": "eth_getBalance",
+      "request_path": "raw/rpc/0017-balance-after_residual_transfer-request.json",
+      "response_path": "raw/rpc/0017-balance-after_residual_transfer-response.json",
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 82,
+        "byte_sha256": "ab49e72b8e2098a3f7b375c59040e8bd93bc6fd2c511e995d22e81ee10a22382",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 82,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:25:05.323Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:25:05.323Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    },
+    {
+      "label": "nonce-after_residual_transfer",
+      "method": "eth_getTransactionCount",
+      "request_path": "raw/rpc/0018-nonce-after_residual_transfer-request.json",
+      "response_path": "raw/rpc/0018-nonce-after_residual_transfer-response.json",
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 69,
+        "byte_sha256": "7e0c152b92f662956f4cbbd8d5e5693199e05f7fceac52a1cd2fa4311b735524",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 69,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:25:05.782Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:25:05.782Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    },
+    {
+      "label": "balance-finalized",
+      "method": "eth_getBalance",
+      "request_path": "raw/rpc/0019-balance-finalized-request.json",
+      "response_path": "raw/rpc/0019-balance-finalized-response.json",
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 68,
+        "byte_sha256": "38486f25191770d3bacd79f9f8a1ff2796048dc5def217a1120777821aa0d569",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 68,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:25:06.289Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:25:06.289Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    },
+    {
+      "label": "nonce-finalized",
+      "method": "eth_getTransactionCount",
+      "request_path": "raw/rpc/0020-nonce-finalized-request.json",
+      "response_path": "raw/rpc/0020-nonce-finalized-response.json",
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 55,
+        "byte_sha256": "cf65ee62cb551427e2a5c8caf6da3ce3f82da89f4d2c02b34d7257a3a2e03c92",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 55,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:25:06.748Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:25:06.748Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    }
+  ],
+  "record_id": "6529NM.2026.005.FUNDING-EVIDENCE-01",
+  "record_type": "XCOPY_MAX_PAIN_4188_FUNDING_AGGREGATE_OBSERVATION",
+  "rpc_endpoint": "https://eth.drpc.org",
+  "totals": {
+    "gas_fees_wei": "74731658504267",
+    "identity": "total_inflow = purchase value + residual transfer + gas fees + remaining balance",
+    "identity_holds": true,
+    "purchase_value_wei": "458999999900000000",
+    "remaining_balance_at_finalized_wei": "28356754426649",
+    "residual_transfer_wei": "68496911687069084",
+    "total_inflow_eth": "0.5276",
+    "total_inflow_wei": "527600000000000000"
+  }
+}

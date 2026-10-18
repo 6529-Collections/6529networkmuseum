@@ -1,0 +1,1 @@
+{"id":"burn-sample-00-receipt","jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["0x748071671dd39fd001a23ec06695ab7277b409c58039647c09f0175b8441a1dd"]}

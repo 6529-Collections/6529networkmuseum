@@ -1,0 +1,139 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xeec95f6f9deea40481c25fdff97fd26e314cc103b6a6efe2d1c34cf46b0e97b3"
+    },
+    "effectiveAt": 1792325700,
+    "recordType": "RIGHTS_STATEMENT",
+    "schemaId": "0xdfdea1c86219c12e182b4023d399be35bd5602461ef1dc727784c18d7742b967",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x7cddff4a2ff8728782f23e931ceabdb156b9a707b047dccd4b748790e71802f4",
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/rights/6529NM.2026.005.RIGHTS.01.json"
+  },
+  "payload": {
+    "basis": "XCOPY's Legal & Privacy page states that XCOPY artworks are released under a CC0 (Creative Commons Zero) dedication and that anyone may use, remix, reproduce, exhibit, or build upon the work without permission; XCOPY applied CC0 to all existing work on 1 August 2022. Condition: the same page states that independent uses imply no affiliation with or endorsement by XCOPY, and Museum use implies none. The token metadata carries no licence; the Museum asserts no copyright.",
+    "constructor": {
+      "id": "claude-code-task:max-pain-4188-accession-2026-10-18",
+      "observed_at": "2026-10-18T12:15:00Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-10-18T12:15:00Z",
+    "effective_at": "2026-10-18T12:15:00Z",
+    "events": [
+      {
+        "authority_reference": "6529NM.2026.005.AQA-01",
+        "event_id": "6529NM.2026.005.RIGHTS.01.EVENT.rights_assertion.26218064",
+        "event_type": "rights_assertion",
+        "evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "XCOPY Legal & Privacy page transcript (CC0 dedication and non-endorsement statement)",
+            "observed_at": "2026-10-18T08:15:44.903Z",
+            "sha256": "sha256:abab22b4c63d3b62b384e5505214548a859cb3e8e2831d99b2bceb87ee1941da",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-sources/raw/xcopy-art/xcopy-art-privacy.txt"
+          },
+          {
+            "evidence_class": "B",
+            "label": "XCOPY Creative Commons page transcript",
+            "observed_at": "2026-10-18T08:15:44.903Z",
+            "sha256": "sha256:11371480f1bd4ae8f3bb42b08ab961d25aca6760cab516aa194f94765248a2a2",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-sources/raw/xcopy-art/xcopy-art-creative-commons.txt"
+          },
+          {
+            "evidence_class": "A",
+            "label": "Token metadata (no licence field)",
+            "observed_at": "2026-10-18T08:15:44.903Z",
+            "sha256": "sha256:9ac7b505f0b5aaf8b0e81cfb3d9f3fc7b2fc0a80319ec7623dcbe0d8209d9886",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-sources/raw/token-metadata.json"
+          },
+          {
+            "evidence_class": "B",
+            "label": "XCOPY CC0 announcement, 1 August 2022",
+            "notes": "Read through a public mirror of the post; no capture is retained.",
+            "observed_at": "2026-10-18T00:00:00Z",
+            "uri": "https://x.com/XCOPYART/status/1554112748816109569"
+          }
+        ],
+        "occurred_at": "2026-10-18T12:15:00Z"
+      }
+    ],
+    "grants": {
+      "accessibility": {
+        "basis": "Accessibility derivatives granted under CC0 1.0. XCOPY's Legal & Privacy page states that XCOPY artworks are released under a CC0 (Creative Commons Zero) dedication and that anyone may use, remix, reproduce, exhibit, or build upon the work without permission; XCOPY applied CC0 to all existing work on 1 August 2022. Condition: the same page states that independent uses imply no affiliation with or endorsement by XCOPY, and Museum use implies none. The token metadata carries no licence; the Museum asserts no copyright.",
+        "grant_status": "granted",
+        "observed_at": "2026-10-18T12:15:00Z"
+      },
+      "ai_training": {
+        "basis": "Use as training or analysis material granted under CC0 1.0. XCOPY's Legal & Privacy page states that XCOPY artworks are released under a CC0 (Creative Commons Zero) dedication and that anyone may use, remix, reproduce, exhibit, or build upon the work without permission; XCOPY applied CC0 to all existing work on 1 August 2022. Condition: the same page states that independent uses imply no affiliation with or endorsement by XCOPY, and Museum use implies none. The token metadata carries no licence; the Museum asserts no copyright.",
+        "grant_status": "granted",
+        "observed_at": "2026-10-18T12:15:00Z"
+      },
+      "derivative_use": {
+        "basis": "Derivative use granted under CC0 1.0. XCOPY's Legal & Privacy page states that XCOPY artworks are released under a CC0 (Creative Commons Zero) dedication and that anyone may use, remix, reproduce, exhibit, or build upon the work without permission; XCOPY applied CC0 to all existing work on 1 August 2022. Condition: the same page states that independent uses imply no affiliation with or endorsement by XCOPY, and Museum use implies none. The token metadata carries no licence; the Museum asserts no copyright.",
+        "grant_status": "granted",
+        "observed_at": "2026-10-18T12:15:00Z"
+      },
+      "exhibition": {
+        "basis": "Exhibition and display granted under CC0 1.0. XCOPY's Legal & Privacy page states that XCOPY artworks are released under a CC0 (Creative Commons Zero) dedication and that anyone may use, remix, reproduce, exhibit, or build upon the work without permission; XCOPY applied CC0 to all existing work on 1 August 2022. Condition: the same page states that independent uses imply no affiliation with or endorsement by XCOPY, and Museum use implies none. The token metadata carries no licence; the Museum asserts no copyright.",
+        "grant_status": "granted",
+        "observed_at": "2026-10-18T12:15:00Z"
+      },
+      "migration_emulation": {
+        "basis": "Migration and emulation granted under CC0 1.0. XCOPY's Legal & Privacy page states that XCOPY artworks are released under a CC0 (Creative Commons Zero) dedication and that anyone may use, remix, reproduce, exhibit, or build upon the work without permission; XCOPY applied CC0 to all existing work on 1 August 2022. Condition: the same page states that independent uses imply no affiliation with or endorsement by XCOPY, and Museum use implies none. The token metadata carries no licence; the Museum asserts no copyright.",
+        "grant_status": "granted",
+        "observed_at": "2026-10-18T12:15:00Z"
+      },
+      "preservation": {
+        "basis": "Preservation copies granted under CC0 1.0. XCOPY's Legal & Privacy page states that XCOPY artworks are released under a CC0 (Creative Commons Zero) dedication and that anyone may use, remix, reproduce, exhibit, or build upon the work without permission; XCOPY applied CC0 to all existing work on 1 August 2022. Condition: the same page states that independent uses imply no affiliation with or endorsement by XCOPY, and Museum use implies none. The token metadata carries no licence; the Museum asserts no copyright.",
+        "grant_status": "granted",
+        "observed_at": "2026-10-18T12:15:00Z"
+      },
+      "print": {
+        "basis": "Print granted under CC0 1.0. XCOPY's Legal & Privacy page states that XCOPY artworks are released under a CC0 (Creative Commons Zero) dedication and that anyone may use, remix, reproduce, exhibit, or build upon the work without permission; XCOPY applied CC0 to all existing work on 1 August 2022. Condition: the same page states that independent uses imply no affiliation with or endorsement by XCOPY, and Museum use implies none. The token metadata carries no licence; the Museum asserts no copyright.",
+        "grant_status": "granted",
+        "observed_at": "2026-10-18T12:15:00Z"
+      },
+      "publication": {
+        "basis": "Publication granted under CC0 1.0. XCOPY's Legal & Privacy page states that XCOPY artworks are released under a CC0 (Creative Commons Zero) dedication and that anyone may use, remix, reproduce, exhibit, or build upon the work without permission; XCOPY applied CC0 to all existing work on 1 August 2022. Condition: the same page states that independent uses imply no affiliation with or endorsement by XCOPY, and Museum use implies none. The token metadata carries no licence; the Museum asserts no copyright.",
+        "grant_status": "granted",
+        "observed_at": "2026-10-18T12:15:00Z"
+      },
+      "reproduction": {
+        "basis": "Reproduction granted under CC0 1.0. XCOPY's Legal & Privacy page states that XCOPY artworks are released under a CC0 (Creative Commons Zero) dedication and that anyone may use, remix, reproduce, exhibit, or build upon the work without permission; XCOPY applied CC0 to all existing work on 1 August 2022. Condition: the same page states that independent uses imply no affiliation with or endorsement by XCOPY, and Museum use implies none. The token metadata carries no licence; the Museum asserts no copyright.",
+        "grant_status": "granted",
+        "observed_at": "2026-10-18T12:15:00Z"
+      }
+    },
+    "object_id": "6529NM.2026.005.01",
+    "observed_at": "2026-10-18T12:15:00Z",
+    "payload_sha256": "sha256:feee05e94d69e06ff954b582e71aebc43eac66866f6ab9c8543e6a8ff9b5ee62",
+    "record_id": "6529NM.2026.005.RIGHTS.01",
+    "record_status": "review_pending",
+    "record_type": "RIGHTS_STATEMENT",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM.2026.005",
+      "6529NM.2026.005.01"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "rights_holder_reference": "XCOPY; CC0 1.0 dedication stated by the artist; the Museum asserts no copyright",
+    "schema_id": "0xdfdea1c86219c12e182b4023d399be35bd5602461ef1dc727784c18d7742b967",
+    "source": {
+      "source_record_ids": [
+        "6529NM-PA-2026-001",
+        "6529NM.2026.005.AQA-01"
+      ]
+    },
+    "subject_id": "6529NM.2026.005.RIGHTS.01",
+    "visibility": "public"
+  }
+}

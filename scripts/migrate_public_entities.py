@@ -111,6 +111,110 @@ VERA_GENERATOR_URL = "https://generator.artblocks.io/1/0xe034bb2b1b9471e11cf1a0a
 VERA_PREVIEW_URL = "https://media-proxy.artblocks.io/1/0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210.png"
 VERA_TOKEN_URI = "https://token.artblocks.io/1/0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210"
 VERA_CAIP19 = "eip155:1/erc721:0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210"
+MAX_PAIN_CONSTRUCTOR_ID = "claude-code-task:max-pain-4188-accession-2026-10-18"
+MAX_PAIN_AT = "2026-10-18T12:15:00Z"
+MAX_PAIN_CONSTRUCTED_RECORD_IDS = {
+    "6529NM-ACC-ENT-0005",
+    "6529NM-ART-0025",
+    "6529NM-CA-2026-006",
+    "6529NM-MED-0060",
+    "6529NM-MED-0061",
+    "6529NM-PRJ-0009",
+    "6529NM-W-0036",
+    *(f"6529NM-REL-{index:04d}" for index in range(280, 288)),
+}
+MAX_PAIN_PROPOSAL_ID = "6529NM-PA-2026-001"
+MAX_PAIN_GOVERNANCE_ID = "6529NM-GOV-1336667"
+MAX_PAIN_POLICY_GOVERNANCE_ID = "6529NM-GOV-1282091"
+MAX_PAIN_ACCESSION_LOT = "6529NM.2026.005"
+MAX_PAIN_ACCESSION_CERTIFICATE_ID = "6529NM-ACC-2026-005"
+MAX_PAIN_AQA_ID = "6529NM.2026.005.AQA-01"
+MAX_PAIN_OBJECT_ID = "6529NM.2026.005.01"
+MAX_PAIN_RIGHTS_ID = "6529NM.2026.005.RIGHTS.01"
+MAX_PAIN_CONDITION_ID = "6529NM.2026.005.COND.01"
+MAX_PAIN_PROPOSAL_PATH = f"records/proposed-acquisitions/{MAX_PAIN_PROPOSAL_ID}/proposal.json"
+MAX_PAIN_GOVERNANCE_PATH = f"records/governance/{MAX_PAIN_GOVERNANCE_ID}.json"
+MAX_PAIN_POLICY_GOVERNANCE_PATH = f"records/governance/{MAX_PAIN_POLICY_GOVERNANCE_ID}.json"
+MAX_PAIN_ACCESSION_ROOT = "records/accessions/6529NM.2026.005"
+MAX_PAIN_ACCESSION_STATEMENT_PATH = f"{MAX_PAIN_ACCESSION_ROOT}/accession-statement.json"
+MAX_PAIN_ACCESSION_CERTIFICATE_PATH = f"{MAX_PAIN_ACCESSION_ROOT}/accession-certificate.json"
+MAX_PAIN_AQA_PATH = f"{MAX_PAIN_ACCESSION_ROOT}/acquisition-authorization.json"
+MAX_PAIN_OBJECT_PATH = f"{MAX_PAIN_ACCESSION_ROOT}/objects/{MAX_PAIN_OBJECT_ID}.json"
+MAX_PAIN_RIGHTS_PATH = f"{MAX_PAIN_ACCESSION_ROOT}/rights/{MAX_PAIN_RIGHTS_ID}.json"
+MAX_PAIN_TECHNICAL_PATH = f"{MAX_PAIN_ACCESSION_ROOT}/technical/{MAX_PAIN_OBJECT_ID}.json"
+MAX_PAIN_PUBLIC_ROOT = f"{MAX_PAIN_ACCESSION_ROOT}/public"
+MAX_PAIN_PRESENTATION_AUTHORITY_PATH = f"{MAX_PAIN_PUBLIC_ROOT}/web-presentation-authority.md"
+MAX_PAIN_CUSTODY_EVIDENCE_PATH = "evidence/xcopy-max-pain-4188-custody/summary.json"
+MAX_PAIN_SOURCE_MANIFEST_PATH = "evidence/xcopy-max-pain-4188-sources/manifest.json"
+MAX_PAIN_SOURCE_GIF_PATH = "evidence/xcopy-max-pain-4188-sources/raw/token-image.gif"
+MAX_PAIN_SOURCE_METADATA_PATH = "evidence/xcopy-max-pain-4188-sources/raw/token-metadata.json"
+MAX_PAIN_TECHNICAL_SUMMARY_PATH = "evidence/xcopy-max-pain-4188-technical/summary.json"
+MAX_PAIN_FUNDING_SUMMARY_PATH = "evidence/xcopy-max-pain-4188-funding/summary.json"
+MAX_PAIN_DISPLAY_EVIDENCE_PATH = "evidence/xcopy-max-pain-4188-display/manifest.json"
+MAX_PAIN_IMAGE_CID = "QmTcTzTPgCyvF933oeFvB4GkPgaXtF6dKuQgvg32qqLYGF"
+MAX_PAIN_TOKEN_URI = "ipfs://QmT9cJUe8NFwniMTjWHunf6YWgYRdACTyN7uAiZRuXP9ij/171000104188"
+MAX_PAIN_CAIP19 = "eip155:1/erc721:0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde/171000104188"
+MAX_PAIN_POSTER_WIDTH = 2400
+MAX_PAIN_MEDIA_ROOT = "media/accessions/6529NM.2026.005"
+MAX_PAIN_CDN_BASE = "https://d3lqz0a4bldqgf.cloudfront.net/museum/accessions/6529NM.2026.005"
+MAX_PAIN_TRANSFORM_PATH = "webp-v2-q82-m6-fixed-icc"
+MAX_PAIN_CREDIT = (
+    "XCOPY, MAX PAIN #4188/7394, 2022. Ethereum token "
+    "eip155:1/erc721:0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde/171000104188. Acquired through a community-funded "
+    "purchase organized by Shelby and authorized by the 6529 Network Museum Wave, 2026. CC0 1.0."
+)
+MAX_PAIN_PUBLIC_CREDIT = (
+    "Acquired through a community-funded purchase organized by Shelby and authorized by the 6529 Network Museum Wave, 2026"
+)
+
+# Per-accession data used by source resolution and record construction. A new
+# accession adds rows here; it never adds lot literals to the resolver code.
+#
+# Accession lots whose object, rights, and condition record IDs resolve to
+# repository paths. An unlisted lot fails closed in evidence classification.
+PUBLIC_GRAPH_ACCESSION_LOT_IDS: tuple[str, ...] = (
+    "6529NM.2026.001",
+    "6529NM.2026.002",
+    "6529NM.2026.003",
+    MAX_PAIN_ACCESSION_LOT,
+)
+# Exact accession-level record IDs (lot statement, certificate, authorization,
+# Wave status observation, and lot-specific evidence records) -> repository path.
+ACCESSION_SOURCE_RECORD_PATHS: dict[str, str] = {
+    "6529NM.2026.001": "records/accessions/6529NM.2026.001/accession-statement.json",
+    "6529NM-ACC-2026-001": "records/accessions/6529NM.2026.001/accession-certificate.json",
+    "6529NM.2026.001.VO-01": "records/accessions/6529NM.2026.001/visual-observation-record.json",
+    "6529NM.2026.001.DILIGENCE-01": "records/accessions/6529NM.2026.001/post-accession-diligence.json",
+    MAGNUM_ACCESSION_LOT: "records/accessions/6529NM.2026.002/accession-statement.json",
+    MAGNUM_ACCESSION_CERTIFICATE_ID: MAGNUM_ACCESSION_CERTIFICATE_PATH,
+    MAGNUM_GAA_ID: "records/accessions/6529NM.2026.002/gift-acceptance-authorization.json",
+    VERA_ACCESSION_LOT: VERA_ACCESSION_STATEMENT_PATH,
+    VERA_ACCESSION_CERTIFICATE_ID: VERA_ACCESSION_CERTIFICATE_PATH,
+    VERA_GAA_ID: VERA_GAA_PATH,
+    VERA_WAVE_OBSERVATION_ID: f"{VERA_PROPOSAL_ROOT}/wave-status-observation.json",
+    MAX_PAIN_ACCESSION_LOT: MAX_PAIN_ACCESSION_STATEMENT_PATH,
+    MAX_PAIN_ACCESSION_CERTIFICATE_ID: MAX_PAIN_ACCESSION_CERTIFICATE_PATH,
+    MAX_PAIN_AQA_ID: MAX_PAIN_AQA_PATH,
+}
+# Standalone GOVERNANCE_DECISION envelope records. Decisions without a row
+# resolve to the governed snapshot register records/governance/decisions.json.
+GOVERNANCE_RECORD_PATHS: dict[str, str] = {
+    MAX_PAIN_POLICY_GOVERNANCE_ID: MAX_PAIN_POLICY_GOVERNANCE_PATH,
+    MAX_PAIN_GOVERNANCE_ID: MAX_PAIN_GOVERNANCE_PATH,
+}
+# Proposal ID prefixes -> proposal source record, checked in order.
+PROPOSAL_SOURCE_PATHS: tuple[tuple[str, str], ...] = (
+    ("6529NM-PG-2026-001", "records/proposed-gifts/6529NM-PG-2026-001/proposal.json"),
+    (VERA_PROPOSAL_ID, f"{VERA_PROPOSAL_ROOT}/proposal.json"),
+    (MAX_PAIN_PROPOSAL_ID, MAX_PAIN_PROPOSAL_PATH),
+)
+# Records constructed by a later accession task keep that task's constructor
+# identity and construction time; every other generated record uses the
+# baseline graph constructor.
+ACCESSION_CONSTRUCTION_SCOPES: tuple[tuple[str, str, frozenset[str]], ...] = (
+    (VERA_CONSTRUCTOR_ID, VERA_AT, frozenset(VERA_CONSTRUCTED_RECORD_IDS)),
+    (MAX_PAIN_CONSTRUCTOR_ID, MAX_PAIN_AT, frozenset(MAX_PAIN_CONSTRUCTED_RECORD_IDS)),
+)
 MAGNUM_WORK_PUBLICATION_PATHS = {
     "6529NM-PG-2026-001.OBJ-001": f"{MAGNUM_SCHOLARSHIP_ROOT}/works/01-david-seymour-127.md",
     "6529NM-PG-2026-001.OBJ-002": f"{MAGNUM_SCHOLARSHIP_ROOT}/works/02-larry-towell-145.md",
@@ -345,40 +449,27 @@ def logical_record_uri(repository_path: str) -> str:
     return LOGICAL_RECORD_BASE + repository_path.replace("\\", "/")
 
 
+def _accession_lot_alternation() -> str:
+    """Regex alternation over the governed public-graph accession lots."""
+
+    return "|".join(re.escape(lot) for lot in PUBLIC_GRAPH_ACCESSION_LOT_IDS)
+
+
 def source_repository_path(source: str) -> str:
     if source.startswith(("records/", "evidence/", "schemas/", "docs/")):
         return source
-    if re.fullmatch(r"6529NM\.2026\.(001|002|003)\.\d{2}", source):
-        accession_year = source.split(".")[2]
-        return f"records/accessions/6529NM.2026.{accession_year}/objects/{source}.json"
-    match = re.fullmatch(r"6529NM\.2026\.(001|002|003)\.RIGHTS\.(\d{2})", source)
+    lots = _accession_lot_alternation()
+    match = re.fullmatch(rf"(?P<lot>{lots})\.\d{{2}}", source)
     if match:
-        return f"records/accessions/6529NM.2026.{match.group(1)}/rights/{source}.json"
-    match = re.fullmatch(r"6529NM\.2026\.(001|002|003)\.COND\.(\d{2})", source)
+        return f"records/accessions/{match.group('lot')}/objects/{source}.json"
+    match = re.fullmatch(rf"(?P<lot>{lots})\.RIGHTS\.(?P<item>\d{{2}})", source)
     if match:
-        return f"records/accessions/6529NM.2026.{match.group(1)}/technical/6529NM.2026.{match.group(1)}.{match.group(2)}.json"
-    if source == "6529NM.2026.001":
-        return "records/accessions/6529NM.2026.001/accession-statement.json"
-    if source == "6529NM-ACC-2026-001":
-        return "records/accessions/6529NM.2026.001/accession-certificate.json"
-    if source == "6529NM.2026.001.VO-01":
-        return "records/accessions/6529NM.2026.001/visual-observation-record.json"
-    if source == "6529NM.2026.001.DILIGENCE-01":
-        return "records/accessions/6529NM.2026.001/post-accession-diligence.json"
-    if source == MAGNUM_ACCESSION_LOT:
-        return "records/accessions/6529NM.2026.002/accession-statement.json"
-    if source == MAGNUM_ACCESSION_CERTIFICATE_ID:
-        return MAGNUM_ACCESSION_CERTIFICATE_PATH
-    if source == MAGNUM_GAA_ID:
-        return "records/accessions/6529NM.2026.002/gift-acceptance-authorization.json"
-    if source == VERA_ACCESSION_LOT:
-        return VERA_ACCESSION_STATEMENT_PATH
-    if source == VERA_ACCESSION_CERTIFICATE_ID:
-        return VERA_ACCESSION_CERTIFICATE_PATH
-    if source == VERA_GAA_ID:
-        return VERA_GAA_PATH
-    if source == VERA_WAVE_OBSERVATION_ID:
-        return f"{VERA_PROPOSAL_ROOT}/wave-status-observation.json"
+        return f"records/accessions/{match.group('lot')}/rights/{source}.json"
+    match = re.fullmatch(rf"(?P<lot>{lots})\.COND\.(?P<item>\d{{2}})", source)
+    if match:
+        return f"records/accessions/{match.group('lot')}/technical/{match.group('lot')}.{match.group('item')}.json"
+    if source in ACCESSION_SOURCE_RECORD_PATHS:
+        return ACCESSION_SOURCE_RECORD_PATHS[source]
     if source == WINNER_OBSERVATION_ID:
         return WINNER_SOURCE_PATH
     if source == WAVE_PUBLICATION_OBSERVATION_ID:
@@ -387,6 +478,8 @@ def source_repository_path(source: str) -> str:
         return MEDIA_DESCRIPTION_AMENDMENT_PATH
     if source == CASEY_MEDIA_AMENDMENT_ID:
         return CASEY_MEDIA_AMENDMENT_PATH
+    if source in GOVERNANCE_RECORD_PATHS:
+        return GOVERNANCE_RECORD_PATHS[source]
     if source.startswith("6529NM-GOV-"):
         return "records/governance/decisions.json"
     match = re.fullmatch(r"6529NM-AP-01-OUT-(\d{3})", source)
@@ -394,10 +487,9 @@ def source_repository_path(source: str) -> str:
         return f"records/programs/6529NM-AP-01/outcomes/OUT-{match.group(1)}.json"
     if source == "6529NM-AP-01":
         return "records/programs/6529NM-AP-01/program.json"
-    if source.startswith("6529NM-PG-2026-001"):
-        return "records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
-    if source.startswith(VERA_PROPOSAL_ID):
-        return f"{VERA_PROPOSAL_ROOT}/proposal.json"
+    for proposal_prefix, proposal_path in PROPOSAL_SOURCE_PATHS:
+        if source.startswith(proposal_prefix):
+            return proposal_path
     if re.fullmatch(r"6529NM-(?:I|C|AGT|ART|ORG|W|PRJ|CA|AP-ENT|ACC-ENT|RP|MED|REL)-[A-Za-z0-9.-]+", source):
         if source.startswith("6529NM-REL-"):
             return f"records/relations/{source}.json"
@@ -438,10 +530,10 @@ def source_record_evidence_class(source: str) -> str:
     if "/technical/" in repository_path or "condition" in repository_path or "visual-observation" in repository_path or "fixity" in repository_path or "diligence" in repository_path:
         return "C"
     if (
-        repository_path.startswith(("records/governance/", "records/programs/", "records/proposed-gifts/", "records/accessions/"))
+        repository_path.startswith(("records/governance/", "records/programs/", "records/proposed-gifts/", "records/proposed-acquisitions/", "records/accessions/"))
         or source_text.startswith("https://6529.io/")
         or re.fullmatch(r"6529NM-(?:GOV|AP|AP-01-OUT|PG|ACC|CA|WAVE|REL|MED|ORG|ART|AGT|PRJ|W)-[A-Za-z0-9.-]+", source)
-        or re.fullmatch(r"6529NM\.2026\.(?:001|002|003)(?:\.(?:RIGHTS|DILIGENCE)\.\d{2}|\.\d{2})?", source)
+        or re.fullmatch(rf"(?:{_accession_lot_alternation()})(?:\.(?:RIGHTS|DILIGENCE)\.\d{{2}}|\.\d{{2}})?", source)
     ):
         return "B"
     raise ValueError(f"unclassified evidence source family: source={source!r}")
@@ -596,10 +688,17 @@ def governed_typed_reference(
     return reference
 
 
+def construction_scope(record_id: str) -> tuple[str, str]:
+    """Return the constructor ID and construction time that own a generated record."""
+
+    for constructor_id, constructed_at, record_ids in ACCESSION_CONSTRUCTION_SCOPES:
+        if record_id in record_ids:
+            return constructor_id, constructed_at
+    return CONSTRUCTOR_ID, GENERATED_AT
+
+
 def common(record_type: str, record_id: str, effective_at: str, refs: list[str], evidence_refs: list[dict[str, Any]]) -> dict[str, Any]:
-    is_vera_record = record_id in VERA_CONSTRUCTED_RECORD_IDS
-    constructor_id = VERA_CONSTRUCTOR_ID if is_vera_record else CONSTRUCTOR_ID
-    constructed_at = VERA_AT if is_vera_record else GENERATED_AT
+    constructor_id, constructed_at = construction_scope(record_id)
     profile = {
         "record_id": record_id,
         "record_type": record_type,
@@ -934,6 +1033,13 @@ def build_records(
     vera_accession = fixed_id("ACCESSION", VERA_ACCESSION_LOT)
     vera_still_media = fixed_id("MEDIA_REFERENCE", "vera-molnar:6529NM.2026.003.01:official-preview")
     vera_live_media = fixed_id("MEDIA_REFERENCE", "vera-molnar:6529NM.2026.003.01:live-generator")
+    max_pain_artist = fixed_id("ARTIST", "xcopy")
+    max_pain_work = fixed_id("WORK", MAX_PAIN_OBJECT_ID)
+    max_pain_project = fixed_id("PROJECT_OR_SERIES", "xcopy:max-pain-and-frens")
+    max_pain_acquisition = fixed_id("CURATED_ACQUISITION", "a-community-funded-acquisition-of-max-pain-4188")
+    max_pain_accession = fixed_id("ACCESSION", MAX_PAIN_ACCESSION_LOT)
+    max_pain_animation_media = fixed_id("MEDIA_REFERENCE", "xcopy:6529NM.2026.005.01:token-image-gif")
+    max_pain_poster_media = fixed_id("MEDIA_REFERENCE", "xcopy:6529NM.2026.005.01:first-frame-poster")
 
     object_paths = sorted((ROOT / "records/accessions/6529NM.2026.001/objects").glob("*.json"))
     casey_objects = [load_json(path)["payload"] for path in object_paths]
@@ -967,7 +1073,7 @@ def build_records(
         "name_variants": names("6529 Network Museum", "museum_record", institution_refs), "collection_entity_id": collection,
     }, institution_refs, [source_evidence("Museum governance source", "6529NM-GOV-1052156", CASEY_AT)])
     add_entity(collection, "COLLECTION", "6529 Network Museum permanent Collection", None, "/museum/network/collection", CASEY_AT, {
-        "profile_type": "COLLECTION", "collection_kind": "permanent_collection", "institution_entity_id": institution, "membership_rule": "accession_only", "admitted_work_entity_ids": [*casey_work_ids, "6529NM-W-0024", "6529NM-W-0025", "6529NM-W-0026", "6529NM-W-0027", "6529NM-W-0028", vera_work],
+        "profile_type": "COLLECTION", "collection_kind": "permanent_collection", "institution_entity_id": institution, "membership_rule": "accession_only", "admitted_work_entity_ids": [*casey_work_ids, "6529NM-W-0024", "6529NM-W-0025", "6529NM-W-0026", "6529NM-W-0027", "6529NM-W-0028", vera_work, max_pain_work],
         "evidence_refs": [source_evidence("Casey accession register", "6529NM.2026.001", CASEY_AT), source_evidence("Magnum accession certificate", MAGNUM_ACCESSION_CERTIFICATE_ID, MAGNUM_CHAIN_AT)],
     }, [institution, *accession_refs], [source_evidence("Accession-only membership rule", "6529NM.2026.001", CASEY_AT), source_evidence("Magnum accession certificate", MAGNUM_ACCESSION_CERTIFICATE_ID, MAGNUM_CHAIN_AT)])
     add_entity(casey_agent, "AGENT", "Casey REAS", "casey-reas-agent", "/museum/network/agents/casey-reas-agent", CASEY_AT, {
@@ -1285,6 +1391,137 @@ def build_records(
         {"status": "unverified_not_retrieved", "algorithm": None, "digest": None, "verified_at": None, "basis": "The official Art Blocks generator is mutable external HTML. The Museum records the exact locator and technical observation but does not assert a digest for future generator responses."},
         ["interact_sandboxed", "open_token_source", "copy_citation"], token_source_locator={"uri": VERA_TOKEN_URI, "repository_path": None}, token_source_fixity={"status": "unverified_not_retrieved", "algorithm": None, "digest": None, "verified_at": None, "basis": "The live token source is mutable external HTML; no generator response bytes are retained in the public source package."}, rights_label="CC BY-NC 4.0", rights_evidence_refs=[vera_evidence("Rights statement", VERA_RIGHTS_PATH, "B")], source_observation_evidence_refs=[vera_evidence("Token metadata observation", VERA_OBJECT_PATH, "A"), vera_evidence("Technical evidence manifest", VERA_TECHNICAL_MANIFEST_PATH, "A")], accessibility_evidence_refs=[vera_evidence("Accession alt text", f"{VERA_ACCESSION_ROOT}/public/alt-text.md", "B")]
     ), [VERA_OBJECT_ID, VERA_CONDITION_ID, VERA_RIGHTS_ID, vera_work], [vera_evidence("Token metadata observation", VERA_OBJECT_PATH, "A"), vera_evidence("Technical evidence manifest", VERA_TECHNICAL_MANIFEST_PATH, "A")])
+
+    def max_pain_evidence(label: str, source: str, evidence_class: str = "B") -> dict[str, Any]:
+        return evidence(label, source, MAX_PAIN_AT, evidence_class)
+
+    max_pain_paths = {
+        "object_entry": f"{MAX_PAIN_PUBLIC_ROOT}/6529NM.2026.005.01.md",
+        "artist": f"{MAX_PAIN_PUBLIC_ROOT}/xcopy-artist-practice.md",
+        "project": f"{MAX_PAIN_PUBLIC_ROOT}/max-pain-and-frens-project.md",
+        "acquisition": f"{MAX_PAIN_PUBLIC_ROOT}/community-funded-acquisition.md",
+        "chronology": f"{MAX_PAIN_PUBLIC_ROOT}/source-and-chronology.md",
+        "alt_text": f"{MAX_PAIN_PUBLIC_ROOT}/alt-text.md",
+    }
+    max_pain_source_manifest = load_json(ROOT / MAX_PAIN_SOURCE_MANIFEST_PATH)
+    max_pain_gif_entry = next(entry for entry in max_pain_source_manifest["entries"] if entry.get("path") == "raw/token-image.gif")
+    max_pain_metadata_entry = next(entry for entry in max_pain_source_manifest["entries"] if entry.get("path") == "raw/token-metadata.json")
+    max_pain_poster_relative = (
+        f"{MAX_PAIN_MEDIA_ROOT}/{max_pain_work}/{max_pain_gif_entry['sha256']}/{MAX_PAIN_TRANSFORM_PATH}/{MAX_PAIN_POSTER_WIDTH}.webp"
+    )
+    max_pain_poster_path = ROOT / max_pain_poster_relative
+    max_pain_source_records = [
+        MAX_PAIN_PROPOSAL_ID,
+        MAX_PAIN_GOVERNANCE_ID,
+        MAX_PAIN_ACCESSION_LOT,
+        MAX_PAIN_AQA_ID,
+        MAX_PAIN_ACCESSION_CERTIFICATE_ID,
+        MAX_PAIN_OBJECT_ID,
+        MAX_PAIN_RIGHTS_ID,
+        MAX_PAIN_CONDITION_ID,
+    ]
+    max_pain_artist_evidence = [
+        max_pain_evidence("XCOPY artist study", max_pain_paths["artist"], "E"),
+        max_pain_evidence("Artist work page transcript", "evidence/xcopy-max-pain-4188-sources/raw/xcopy-art/xcopy-art-works-max-pain.txt", "B"),
+    ]
+    max_pain_project_evidence = [
+        max_pain_evidence("MAX PAIN AND FRENS project study", max_pain_paths["project"], "E"),
+        max_pain_evidence("Artist series page transcript", "evidence/xcopy-max-pain-4188-sources/raw/xcopy-art/xcopy-art-series-max-pain-and-frens.txt", "B"),
+        max_pain_evidence("On-chain supply, burn, and provenance evidence", MAX_PAIN_TECHNICAL_SUMMARY_PATH, "A"),
+    ]
+    max_pain_work_evidence = [
+        max_pain_evidence("MAX PAIN #4188/7394 object entry", max_pain_paths["object_entry"], "E"),
+        max_pain_evidence("Accession object record", MAX_PAIN_OBJECT_PATH, "B"),
+        max_pain_evidence("Finalized custody summary", MAX_PAIN_CUSTODY_EVIDENCE_PATH, "A"),
+        max_pain_evidence("On-chain technical evidence", MAX_PAIN_TECHNICAL_SUMMARY_PATH, "A"),
+    ]
+    max_pain_acquisition_evidence = [
+        max_pain_evidence("Community-funded acquisition essay", max_pain_paths["acquisition"], "E"),
+        max_pain_evidence("Acquisition authorization", MAX_PAIN_AQA_PATH, "B"),
+        max_pain_evidence("Accession certificate", MAX_PAIN_ACCESSION_CERTIFICATE_PATH, "B"),
+    ]
+
+    add_entity(max_pain_artist, "ARTIST", "XCOPY", "xcopy", "/museum/network/artists/xcopy", MAX_PAIN_AT, {
+        "profile_type": "ARTIST",
+        "authority": {"authority_status": "established", "authority_record_ids": [], "evidence_refs": max_pain_artist_evidence},
+        "practice": {
+            "summary": "XCOPY makes short looping animations and releases them as tokens, chiefly on Ethereum, under a pseudonym. In the releases the Museum has examined, the looping GIF remains the unit of release, while edition size, destruction, and copyright have become terms the artist works with.",
+            "areas": ["looping animation", "GIF", "glitch", "tokenized editions", "CC0"],
+            "evidence_refs": max_pain_artist_evidence,
+        },
+        "name_variants": names("XCOPY", "museum_record", [MAX_PAIN_OBJECT_ID, MAX_PAIN_PROPOSAL_ID], MAX_PAIN_AT),
+    }, [MAX_PAIN_PROPOSAL_ID, MAX_PAIN_OBJECT_ID], max_pain_artist_evidence)
+    add_entity(max_pain_project, "PROJECT_OR_SERIES", "MAX PAIN AND FRENS", "max-pain-and-frens", "/museum/network/projects/max-pain-and-frens", MAX_PAIN_AT, {
+        "profile_type": "PROJECT_OR_SERIES",
+        "project_type": "project",
+        "project_relation_basis": "source_project_record",
+        "scope_statement": "MAX PAIN AND FRENS is a 2022 release by XCOPY on Nifty Gateway: the open edition MAX PAIN, sold for ten minutes on 24 March 2022 and minted as 7,394 tokens, beside three variant editions of unique works. Burns for the artist's DAMAGE CONTROL redemptions and later burns by a third-party contract left 4,847 MAX PAIN tokens on 18 October 2026.",
+        "agent_entity_ids": [max_pain_artist],
+        "work_entity_ids": [max_pain_work],
+        "ownership_boundary": "The project is the artist's release and its platform context. The Museum holds one token of the open edition through a separate purchase accession.",
+        "source_record_ids": [MAX_PAIN_OBJECT_ID, MAX_PAIN_CONDITION_ID],
+        "evidence_refs": max_pain_project_evidence,
+    }, [max_pain_artist, max_pain_work, MAX_PAIN_OBJECT_ID, MAX_PAIN_CONDITION_ID], max_pain_project_evidence)
+    max_pain_acquisition_facts = {
+        "mint": fact("verified", MAX_PAIN_AT, [MAX_PAIN_CONDITION_ID], "Nifty Gateway minted the token on 24 March 2022, long before the Museum's purchase; mint and purchase are separate facts.", evidence_refs=[max_pain_evidence("On-chain technical evidence", MAX_PAIN_TECHNICAL_SUMMARY_PATH, "A")]),
+        "payment": fact("verified", MAX_PAIN_AT, [MAX_PAIN_AQA_ID], "The organizer's acquisition wallet paid 0.4589999999 ETH through Seaport 1.6 from pooled contributions; the authorization makes no valuation or tax claim.", evidence_refs=[max_pain_evidence("Acquisition authorization", MAX_PAIN_AQA_PATH, "B"), max_pain_evidence("Finalized custody summary", MAX_PAIN_CUSTODY_EVIDENCE_PATH, "A")]),
+        "title": fact("verified", MAX_PAIN_AT, [MAX_PAIN_ACCESSION_CERTIFICATE_ID], "The accession certificate's purchase title declaration passes the executing agent's transferable token interest to the Museum; copyright is a separate matter.", evidence_refs=[max_pain_evidence("Accession certificate", MAX_PAIN_ACCESSION_CERTIFICATE_PATH, "B")]),
+        "custody": fact("verified", MAX_PAIN_AT, [MAX_PAIN_CUSTODY_EVIDENCE_PATH], "Finalized Ethereum evidence records the token in the Museum custody address.", evidence_refs=[max_pain_evidence("Finalized custody summary", MAX_PAIN_CUSTODY_EVIDENCE_PATH, "A")]),
+        "rights": fact("verified_with_conditions", MAX_PAIN_AT, [MAX_PAIN_RIGHTS_ID], "XCOPY's CC0 1.0 dedication covers the work; Museum use implies no affiliation with or endorsement by XCOPY, and the Museum asserts no copyright.", evidence_refs=[max_pain_evidence("Rights statement", MAX_PAIN_RIGHTS_PATH, "B")]),
+        "technical": fact("verified_with_conditions", MAX_PAIN_AT, [MAX_PAIN_CONDITION_ID], "The token, its IPFS-bound GIF, supply, and provenance were recorded at finalized blocks; the metadata's CDN image URL is mutable and the animation flashes.", evidence_refs=[max_pain_evidence("Technical and condition record", MAX_PAIN_TECHNICAL_PATH, "B"), max_pain_evidence("On-chain technical evidence", MAX_PAIN_TECHNICAL_SUMMARY_PATH, "A")]),
+        "preservation": fact("in_progress", MAX_PAIN_AT, [MAX_PAIN_OBJECT_ID, MAX_PAIN_CONDITION_ID], "The Museum retains the GIF, metadata, and fixity; replication of the IPFS objects outside the platform CDN continues.", evidence_refs=[max_pain_evidence("Source-evidence manifest", MAX_PAIN_SOURCE_MANIFEST_PATH, "A")]),
+        "display": fact("verified_with_conditions", MAX_PAIN_AT, [MAX_PAIN_OBJECT_ID, MAX_PAIN_RIGHTS_ID], "The Museum shows a first-frame poster and plays the animation only on request, after a flashing warning, no larger than 512 CSS pixels and never enlarged; under reduced motion it shows only the poster.", evidence_refs=[max_pain_evidence("Web presentation authority", MAX_PAIN_PRESENTATION_AUTHORITY_PATH, "B"), max_pain_evidence("Flash-analysis evidence", MAX_PAIN_DISPLAY_EVIDENCE_PATH, "C")]),
+    }
+    add_entity(max_pain_work, "WORK", "XCOPY, MAX PAIN #4188/7394", "6529NM-W-0036", "/museum/network/works/6529NM-W-0036", MAX_PAIN_AT, {
+        "profile_type": "WORK",
+        "creator_entity_ids": [max_pain_artist],
+        "title": "MAX PAIN #4188/7394",
+        "creation_date": {"display": "2022", "status": "established", "earliest": "2022-01-01", "latest": "2022-12-31", "evidence_refs": [max_pain_evidence("Artist work page transcript", "evidence/xcopy-max-pain-4188-sources/raw/xcopy-art/xcopy-art-works-max-pain.txt", "B")]},
+        "medium": "Animated GIF; Ethereum ERC-721 token; Nifty Gateway open edition",
+        "work_lifecycle_status": "accessioned",
+        "current_museum_relation": {"museum_entity_id": institution, "relation_status": "permanent_collection", "as_of": MAX_PAIN_AT, "evidence_refs": [max_pain_evidence("Accession certificate", MAX_PAIN_ACCESSION_CERTIFICATE_PATH, "B")]},
+        "mint_fact": max_pain_acquisition_facts["mint"],
+        "collection_membership": {"status": "permanent_collection", "collection_entity_id": collection, "accession_entity_ids": [max_pain_accession], "source_record_ids": [MAX_PAIN_ACCESSION_LOT, MAX_PAIN_ACCESSION_CERTIFICATE_ID], "evidence_refs": [max_pain_evidence("Accession certificate", MAX_PAIN_ACCESSION_CERTIFICATE_PATH, "B")]},
+        "project_or_series_entity_ids": [max_pain_project],
+        "acquisition_entity_ids": [max_pain_acquisition],
+        "program_entity_ids": [],
+        "accession_entity_ids": [max_pain_accession],
+        "lifecycle_observations": [lifecycle_observation(fixed_observation_id(max_pain_work, "accessioned"), "accessioned_into_permanent_collection", "accessioned", MAX_PAIN_AT, [MAX_PAIN_ACCESSION_CERTIFICATE_ID, MAX_PAIN_OBJECT_ID], "The exact token was bought under the Museum Wave authorization, received, formally accepted, and accessioned into the permanent Collection.", [max_pain_evidence("Accession certificate", MAX_PAIN_ACCESSION_CERTIFICATE_PATH, "B")])],
+        "component_references": [authoritative_typed_reference("component", MAX_PAIN_OBJECT_ID, "WORK_DESCRIPTION", [max_pain_evidence("Accession object record", MAX_PAIN_OBJECT_PATH, "B")])],
+        "manifestation_references": [governed_typed_reference(identity_inventory, "manifestation", "6529NM.2026.005.01.TOKEN", MAX_PAIN_OBJECT_ID, [max_pain_evidence("Token manifestation", MAX_PAIN_OBJECT_PATH, "A")], source_status="verified")],
+        "identity_boundary": "This Work is one token, edition 4188, of the MAX PAIN open edition. Its token, custody, title, rights, retained GIF, poster derivatives, and Museum accession are recorded as separate facts.",
+        "evidence_refs": max_pain_work_evidence,
+    }, max_pain_source_records + [max_pain_project, max_pain_acquisition, max_pain_accession], max_pain_work_evidence, media_entity_ids=[max_pain_poster_media, max_pain_animation_media])
+    add_entity(max_pain_accession, "ACCESSION", "XCOPY accession 6529NM.2026.005", None, None, MAX_PAIN_AT, {
+        "profile_type": "ACCESSION", "accession_number": MAX_PAIN_ACCESSION_LOT, "accession_status": "complete", "admitted_work_entity_ids": [max_pain_work], "source_accession_record_id": MAX_PAIN_ACCESSION_LOT, "evidence_refs": [max_pain_evidence("Accession statement", MAX_PAIN_ACCESSION_STATEMENT_PATH, "B"), max_pain_evidence("Accession certificate", MAX_PAIN_ACCESSION_CERTIFICATE_PATH, "B"), max_pain_evidence("Finalized custody summary", MAX_PAIN_CUSTODY_EVIDENCE_PATH, "A")],
+    }, [MAX_PAIN_ACCESSION_LOT, MAX_PAIN_ACCESSION_CERTIFICATE_ID, MAX_PAIN_AQA_ID, max_pain_work], [max_pain_evidence("Accession statement", MAX_PAIN_ACCESSION_STATEMENT_PATH, "B"), max_pain_evidence("Accession certificate", MAX_PAIN_ACCESSION_CERTIFICATE_PATH, "B"), max_pain_evidence("Finalized custody summary", MAX_PAIN_CUSTODY_EVIDENCE_PATH, "A")])
+    add_entity(max_pain_acquisition, "CURATED_ACQUISITION", "A Community-Funded Acquisition of MAX PAIN #4188/7394", "a-community-funded-acquisition-of-max-pain-4188", "/museum/network/acquisitions/a-community-funded-acquisition-of-max-pain-4188", MAX_PAIN_AT, {
+        "profile_type": "CURATED_ACQUISITION", "title": "A Community-Funded Acquisition of MAX PAIN #4188/7394", "thesis": "Twenty-five members of the network voted to buy one edition of XCOPY's MAX PAIN for the Museum and paid for it in equal shares. The organizer bought edition 4188/7394 and transferred it to the Museum, which accessioned the token and retains the GIF its token names by IPFS hash.", "acquisition_method": "purchase", "program_or_pathway": {"kind": "museum_wave_proposal", "entity_ids": [], "source_record_ids": [MAX_PAIN_PROPOSAL_ID, MAX_PAIN_GOVERNANCE_ID]}, "work_entity_ids": [max_pain_work], "source_work_record_ids": [MAX_PAIN_OBJECT_ID], "lifecycle": {"status": "accessioned_into_permanent_collection", "as_of": MAX_PAIN_AT, "evidence_refs": [max_pain_evidence("Accession certificate", MAX_PAIN_ACCESSION_CERTIFICATE_PATH, "B"), max_pain_evidence("Acquisition authorization", MAX_PAIN_AQA_PATH, "B")]}, "lifecycle_observations": [lifecycle_observation("6529NM-CA-OBS-0007", "accessioned_into_permanent_collection", "accessioned", MAX_PAIN_AT, [MAX_PAIN_ACCESSION_CERTIFICATE_ID, MAX_PAIN_AQA_ID], "The Wave-authorized purchase was received, formally accepted, and accessioned into the permanent Collection.", [max_pain_evidence("Acquisition authorization", MAX_PAIN_AQA_PATH, "B"), max_pain_evidence("Accession certificate", MAX_PAIN_ACCESSION_CERTIFICATE_PATH, "B")])], "collection_effect": "permanent_collection", "independent_acquisition_facts": max_pain_acquisition_facts, "public_credit": MAX_PAIN_PUBLIC_CREDIT, "evidence_refs": max_pain_acquisition_evidence,
+    }, [max_pain_accession, max_pain_work, MAX_PAIN_PROPOSAL_ID, MAX_PAIN_GOVERNANCE_ID, MAX_PAIN_AQA_ID, MAX_PAIN_ACCESSION_CERTIFICATE_ID], max_pain_acquisition_evidence)
+    add_entity(max_pain_animation_media, "MEDIA_REFERENCE", "Token image: MAX PAIN #4188/7394 animated GIF", None, None, MAX_PAIN_AT, media_profile(
+        "token_linked_source_media", f"ipfs://{MAX_PAIN_IMAGE_CID}", MAX_PAIN_SOURCE_GIF_PATH, "image/gif", True, 4000, 4000,
+        "Flashing animated loop of a teal head on black: its pink band flickers to magenta, mint flames boil above two black eyes, checkered streaks flash.", "provided", max_pain_work,
+        MAX_PAIN_CREDIT, "cleared", "retrieved", [MAX_PAIN_OBJECT_ID, MAX_PAIN_RIGHTS_ID, MAX_PAIN_CONDITION_ID], MAX_PAIN_AT,
+        {"status": "verified", "algorithm": "sha256", "digest": sha256_file(ROOT / MAX_PAIN_SOURCE_GIF_PATH), "verified_at": MAX_PAIN_AT, "basis": "The token's GIF, downloaded byte-identical from the Nifty Gateway CDN and an IPFS gateway, is retained in the Museum source-evidence package; the IPFS CIDv0 recomputed from these bytes equals the token's image_hash."},
+        ["play", "alt_text", "open_token_source", "copy_citation"], source_byte_size=max_pain_gif_entry["size"],
+        token_source_locator={"uri": MAX_PAIN_TOKEN_URI, "repository_path": MAX_PAIN_SOURCE_METADATA_PATH},
+        token_source_fixity={"status": "verified", "algorithm": "sha256", "digest": "sha256:" + max_pain_metadata_entry["sha256"], "verified_at": MAX_PAIN_AT, "basis": "The token metadata at the on-chain tokenURI is retained in the Museum source-evidence package; its image_hash names this GIF."},
+        rights_label="CC0 1.0", rights_evidence_refs=[max_pain_evidence("Rights statement", MAX_PAIN_RIGHTS_PATH, "B")],
+        source_observation_evidence_refs=[max_pain_evidence("Retained token GIF", MAX_PAIN_SOURCE_GIF_PATH, "A"), max_pain_evidence("Source-evidence manifest", MAX_PAIN_SOURCE_MANIFEST_PATH, "A"), max_pain_evidence("Web presentation authority", MAX_PAIN_PRESENTATION_AUTHORITY_PATH, "B"), max_pain_evidence("Flash-analysis evidence", MAX_PAIN_DISPLAY_EVIDENCE_PATH, "C")],
+        accessibility_evidence_refs=[max_pain_evidence("Accession alt text", max_pain_paths["alt_text"], "B")],
+    ), [MAX_PAIN_OBJECT_ID, MAX_PAIN_RIGHTS_ID, MAX_PAIN_CONDITION_ID, max_pain_work], [max_pain_evidence("Retained token GIF", MAX_PAIN_SOURCE_GIF_PATH, "A"), max_pain_evidence("Source-evidence manifest", MAX_PAIN_SOURCE_MANIFEST_PATH, "A")])
+    add_entity(max_pain_poster_media, "MEDIA_REFERENCE", "First-frame poster: MAX PAIN #4188/7394", None, None, MAX_PAIN_AT, media_profile(
+        "museum_generated_public_derivative", f"{MAX_PAIN_CDN_BASE}/{max_pain_work}/{max_pain_gif_entry['sha256']}/{MAX_PAIN_TRANSFORM_PATH}/{MAX_PAIN_POSTER_WIDTH}.webp", max_pain_poster_relative, "image/webp", True, MAX_PAIN_POSTER_WIDTH, MAX_PAIN_POSTER_WIDTH,
+        "Still from a looping animation: a teal head on black, a hot-pink band across two black eyes under mint flames, checkered streaks falling through it.", "provided", max_pain_work,
+        MAX_PAIN_CREDIT, "cleared", "retrieved", [MAX_PAIN_OBJECT_ID, MAX_PAIN_RIGHTS_ID], MAX_PAIN_AT,
+        {"status": "verified", "algorithm": "sha256", "digest": sha256_file(max_pain_poster_path), "verified_at": MAX_PAIN_AT, "basis": "Deterministic Museum WebP poster of the first of the GIF's eight frames, retained under media/accessions and bound by the accession presentation manifest."},
+        ["view", "thumbnail", "hero", "alt_text", "zoom", "fullscreen", "copy_citation"], source_byte_size=max_pain_poster_path.stat().st_size,
+        derived_from=max_pain_animation_media, transform="6529NM_WEB_PRESENTATION_WEBP_V2_Q82_M6_FIXED_ICC; first displayed frame of eight; resized proportionally without crop, retouching, or watermark",
+        rights_label="CC0 1.0", rights_evidence_refs=[max_pain_evidence("Rights statement", MAX_PAIN_RIGHTS_PATH, "B")],
+        source_observation_evidence_refs=[max_pain_evidence("Web presentation authority", MAX_PAIN_PRESENTATION_AUTHORITY_PATH, "B"), max_pain_evidence("Retained token GIF", MAX_PAIN_SOURCE_GIF_PATH, "A")],
+        accessibility_evidence_refs=[max_pain_evidence("Accession alt text", max_pain_paths["alt_text"], "B")],
+    ), [MAX_PAIN_OBJECT_ID, MAX_PAIN_RIGHTS_ID, max_pain_work], [max_pain_evidence("Poster derivative", max_pain_poster_relative, "C"), max_pain_evidence("Web presentation authority", MAX_PAIN_PRESENTATION_AUTHORITY_PATH, "B")])
+
 
     acquisition_facts_casey = {"mint": fact("verified", CASEY_AT, ["6529NM-ACC-2026-001"], "Existing accession records contain the token identity and receipt evidence."), "payment": fact("not_applicable", CASEY_AT, ["6529NM.2026.001"], "The completed gift is recorded as a donation."), "title": fact("verified", CASEY_AT, ["6529NM-ACC-2026-001"], "Title binding is recorded separately and is not copyright."), "custody": fact("verified", CASEY_AT, ["6529NM-ACC-2026-001"], "Custody receipt is recorded separately."), "rights": fact("verified_with_conditions", CASEY_AT, ["6529NM.2026.001.RIGHTS.01"], "Rights are recorded per object with attribution and noncommercial conditions."), "technical": fact("verified_with_conditions", CASEY_AT, ["6529NM.2026.001.COND.01"], "Technical and condition review passed with conditions."), "preservation": fact("in_progress", CASEY_AT, ["6529NM.2026.001.DILIGENCE-01"], "Autonomous generator preservation remains active stewardship."), "display": fact("verified_with_conditions", CASEY_AT, ["6529NM.2026.001.COND.01"], "Display is ready with conditions where the object record says so.")}
     acquisition_facts_keys = {key: fact(status, KEYS_AT, [keys_program_source], note) for key, status, note in [("mint", "not_established", "No primary mint evidence is recorded."), ("payment", "planned", "Program terms describe a planned purchase price only."), ("title", "not_established", "No title binding is recorded."), ("custody", "unverified", "Planned custody reference is not custody evidence."), ("rights", "unverified", "Conditional program terms are not an effective rights grant."), ("technical", "not_started", "No completed technical review is recorded."), ("preservation", "not_started", "No preservation completion is recorded."), ("display", "not_started", "No display authorization is recorded.")]}
@@ -1871,6 +2108,22 @@ def build_records(
     add_relation(f"6529NM-REL-{relation_number:04d}", "AGENT_PLAYS_ROLE", vera_artist, vera_project, {"role": "creator"}, VERA_AT, [VERA_PROPOSAL_ID, VERA_OBJECT_ID], [vera_evidence("Vera Molnár project credit", vera_profile_paths["work"], "E")])
     relation_number += 1
     add_relation(f"6529NM-REL-{relation_number:04d}", "AGENT_PLAYS_ROLE", martin_grasser_artist, vera_project, {"role": "creator"}, VERA_AT, [VERA_PROPOSAL_ID, VERA_OBJECT_ID], [vera_evidence("Martin Grasser project credit", vera_profile_paths["work"], "E")])
+    relation_number += 1
+    add_relation(f"6529NM-REL-{relation_number:04d}", "ARTIST_CREATES_WORK", max_pain_artist, max_pain_work, {"role": "creator"}, MAX_PAIN_AT, [MAX_PAIN_OBJECT_ID], [max_pain_evidence("XCOPY creator credit", max_pain_paths["object_entry"], "E")])
+    relation_number += 1
+    add_relation(f"6529NM-REL-{relation_number:04d}", "PROJECT_CONTEXTUALIZES_WORK", max_pain_project, max_pain_work, {"scope": "source_project"}, MAX_PAIN_AT, [MAX_PAIN_OBJECT_ID, MAX_PAIN_CONDITION_ID], [max_pain_evidence("MAX PAIN AND FRENS project context", max_pain_paths["project"], "E"), max_pain_evidence("On-chain supply and provenance evidence", MAX_PAIN_TECHNICAL_SUMMARY_PATH, "A")])
+    relation_number += 1
+    add_relation(f"6529NM-REL-{relation_number:04d}", "CURATED_ACQUISITION_BRINGS_TOGETHER_WORK", max_pain_acquisition, max_pain_work, {"display_order": 1, "selection_status": "selected", "scope": "museum_curatorial_grouping"}, MAX_PAIN_AT, [MAX_PAIN_ACCESSION_CERTIFICATE_ID, MAX_PAIN_OBJECT_ID], [max_pain_evidence("Community-funded acquisition essay", max_pain_paths["acquisition"], "E"), max_pain_evidence("Accession certificate", MAX_PAIN_ACCESSION_CERTIFICATE_PATH, "B")])
+    relation_number += 1
+    add_relation(f"6529NM-REL-{relation_number:04d}", "ACCESSION_ADMITS_WORK", max_pain_accession, max_pain_work, {"accession_object_id": MAX_PAIN_OBJECT_ID}, MAX_PAIN_AT, [MAX_PAIN_ACCESSION_CERTIFICATE_ID, MAX_PAIN_OBJECT_ID], [max_pain_evidence("Accession certificate", MAX_PAIN_ACCESSION_CERTIFICATE_PATH, "B"), max_pain_evidence("Finalized custody summary", MAX_PAIN_CUSTODY_EVIDENCE_PATH, "A")])
+    relation_number += 1
+    add_relation(f"6529NM-REL-{relation_number:04d}", "COLLECTION_CONTAINS_WORK", collection, max_pain_work, {"collection_membership_status": "permanent_collection"}, MAX_PAIN_AT, [MAX_PAIN_ACCESSION_CERTIFICATE_ID, MAX_PAIN_OBJECT_ID], [max_pain_evidence("Permanent Collection accession relation", MAX_PAIN_ACCESSION_CERTIFICATE_PATH, "B")])
+    relation_number += 1
+    add_relation(f"6529NM-REL-{relation_number:04d}", "ENTITY_HAS_MEDIA", max_pain_work, max_pain_poster_media, {"media_context": "primary", "display_order": 1}, MAX_PAIN_AT, [MAX_PAIN_OBJECT_ID, MAX_PAIN_RIGHTS_ID], [max_pain_evidence("First-frame poster relation", MAX_PAIN_PRESENTATION_AUTHORITY_PATH, "B"), max_pain_evidence("Poster derivative", max_pain_poster_relative, "C")])
+    relation_number += 1
+    add_relation(f"6529NM-REL-{relation_number:04d}", "ENTITY_HAS_MEDIA", max_pain_work, max_pain_animation_media, {"media_context": "source", "display_order": 2}, MAX_PAIN_AT, [MAX_PAIN_OBJECT_ID, MAX_PAIN_CONDITION_ID, MAX_PAIN_RIGHTS_ID], [max_pain_evidence("Token-linked animation relation", MAX_PAIN_PRESENTATION_AUTHORITY_PATH, "B"), max_pain_evidence("Retained token GIF", MAX_PAIN_SOURCE_GIF_PATH, "A")])
+    relation_number += 1
+    add_relation(f"6529NM-REL-{relation_number:04d}", "AGENT_PLAYS_ROLE", max_pain_artist, max_pain_project, {"role": "creator"}, MAX_PAIN_AT, [MAX_PAIN_OBJECT_ID], [max_pain_evidence("XCOPY project credit", max_pain_paths["project"], "E")])
     relation_number += 1
     for target in ["6529NM-CA-2026-001", *projects.values(), *casey_work_ids]:
         add_relation(f"6529NM-REL-{relation_number:04d}", "PUBLICATION_INTERPRETS_ENTITY", publication, target, {"role": "subject"}, CASEY_AT, ["6529NM.2026.001"], [source_evidence("The System in Seven States", "records/accessions/6529NM.2026.001/public/casey-reas-collection-essay.md", CASEY_AT)])

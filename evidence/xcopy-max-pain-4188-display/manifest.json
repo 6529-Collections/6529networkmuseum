@@ -1,0 +1,123 @@
+{
+  "byte_mode": "raw",
+  "entries": [
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "addendum-01-summary.json",
+      "sha256": "960b3f21fbe420e00fa9cab709683725eadc4aebc2f7af35228ad085b7231a06",
+      "size": 7226,
+      "source_id": "addendum-01-summary"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "close-looking-census.json",
+      "sha256": "eb9eec804d38e8d5aa9c69dfe5ae3356a93183f0fe29822af700cfd1451368a6",
+      "size": 7907,
+      "source_id": "close-looking-census"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "flash-analysis-all-steps.json",
+      "sha256": "ac28b4306d188be5e965c10e3503ed283340bda4b92e271efecc0e4af357304c",
+      "size": 15524,
+      "source_id": "flash-analysis-all-steps"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "flash-analysis.json",
+      "sha256": "08e501309390c973a67b88426d362f951bcba14ea848a5c4f506a5c3f142e808",
+      "size": 17346,
+      "source_id": "flash-analysis"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "flash-windows-presentation-widths.json",
+      "sha256": "9b5b9c6a9bd2d5a05b5f126be52a497f4c4364340becc798ce01652f9fde345d",
+      "size": 240,
+      "source_id": "flash-windows-presentation-widths"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "text/x-python; charset=utf-8",
+      "path": "method/close_looking_census.py.txt",
+      "sha256": "ecde7f1b4e665f7ff80433b651dca19adccd3ec3e66f647807d41482e383f768",
+      "size": 5868,
+      "source_id": "close_looking_census"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "text/x-python; charset=utf-8",
+      "path": "method/flash.py.txt",
+      "sha256": "db1ebaa9dfa5279e6999ec726eb8ee407276aeb45bdf38ac2c74c2cbb215eb0b",
+      "size": 11303,
+      "source_id": "flash"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "text/x-python; charset=utf-8",
+      "path": "method/flash_all_steps.py.txt",
+      "sha256": "81a04151740078607ef919725ce5aea7c2ccce029f03ea013fb12f9df339b906",
+      "size": 10084,
+      "source_id": "flash_all_steps"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "text/x-python; charset=utf-8",
+      "path": "method/flash_windows.py.txt",
+      "sha256": "d63601fc394c40921ca7db7cba8b7ec26b54c9dfbe01878a4033411446208b2b",
+      "size": 1084,
+      "source_id": "flash_windows"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "text/x-python; charset=utf-8",
+      "path": "method/gif_structure.py.txt",
+      "sha256": "e179be0a21851dfc446a58a0bcdb9e32ae4a21771d37644621df44f4a5ad3b1d",
+      "size": 12931,
+      "source_id": "gif_structure"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "image/png",
+      "path": "raw/flash-concurrent-0-1-1000.png",
+      "sha256": "7111cd6ed55e8b9e00da93fd6e80410eef0df7f269a843612e1aa5a4a30aad8b",
+      "size": 28859,
+      "source_id": "flash-concurrent-0-1-1000"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "image/png",
+      "path": "raw/flash-concurrent-1-2-1000.png",
+      "sha256": "52d21ec29c4d54b2200cb2d5fdd960dafda0584ecf500726da908f9ac83fb1f5",
+      "size": 28806,
+      "source_id": "flash-concurrent-1-2-1000"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "image/png",
+      "path": "raw/flash-mask-general-1000.png",
+      "sha256": "5837b3beb8a367480e2a610ea078e274042cb268eda7c8836936e7d6198ca417",
+      "size": 30372,
+      "source_id": "flash-mask-general-1000"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "summary.json",
+      "sha256": "fabc2641dc5d7d85430c562851757c0131506113a5205a2621d13367d7a62e14",
+      "size": 3909,
+      "source_id": "summary"
+    }
+  ],
+  "hash_algorithm": "sha256",
+  "manifest_type": "6529NM_XCOPY_MAX_PAIN_4188_DISPLAY_EVIDENCE",
+  "manifest_version": "1.1.0",
+  "observed_at": "2026-10-18T07:03:26Z",
+  "record_id": "6529NM.2026.005.DISPLAY-EVIDENCE-01",
+  "subject_id": "6529NM.2026.005.01"
+}

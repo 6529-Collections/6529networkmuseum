@@ -1,0 +1,173 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "recordType": "ACCESSION",
+    "subjectId": "0x02addf77af16f7c3f8a1b77ea89ddbfdb594d858cb613e0343ce69a9769f7ddc",
+    "contentHash": {
+      "algorithm": 1,
+      "digest": "0xc416b6584ab602b934e7b370bd900c764fcf8d3b1634ab127cc751c529410bd7",
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
+    },
+    "uri": "ipfs://bafybeigdyrzt5examplepurchaseaccession",
+    "schemaId": "0xc04bb48f95c8db4fe7f26a20106533f987003843f2fed36fd6d89f207ddfbd86",
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "signatureHash": {
+      "algorithm": 2,
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
+    },
+    "effectiveAt": 1785542400
+  },
+  "payload": {
+    "record_id": "6529NM-ACC-2026-001",
+    "record_type": "ACCESSION",
+    "schema_id": "0xc04bb48f95c8db4fe7f26a20106533f987003843f2fed36fd6d89f207ddfbd86",
+    "subject_id": "6529NM-ACC-2026-001",
+    "visibility": "public",
+    "record_version": "1.0.0",
+    "created_at": "2026-08-01T00:00:00Z",
+    "observed_at": "2026-08-01T00:00:00Z",
+    "effective_at": "2026-08-01T00:00:00Z",
+    "constructor": {
+      "id": "registrar",
+      "role": "registrar",
+      "observed_at": "2026-08-01T00:00:00Z"
+    },
+    "reviewer": {
+      "id": "museum-reviewer",
+      "role": "reviewer",
+      "reviewed_at": "2026-08-01T00:00:00Z"
+    },
+    "references": [
+      "6529NM.2026.001",
+      "6529NM.2026.001.1",
+      "6529NM.2026.001.AQA-01"
+    ],
+    "accession_number": "6529NM.2026.001",
+    "acquiring_institution": "6529 Network Museum",
+    "object_ids": [
+      "6529NM.2026.001.1"
+    ],
+    "title_bindings": [
+      {
+        "object_id": "6529NM.2026.001.1",
+        "status": "executed",
+        "instrument_sha256": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "custodian_reference": "networkmuseum.6529.eth",
+        "transfer_transaction": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "block_number": 12345678,
+        "from": "0x4444444444444444444444444444444444444444",
+        "to": "0x2222222222222222222222222222222222222222",
+        "bound_at": "2026-08-01T00:00:00Z",
+        "basis": "Fixture institutional purchase title declaration bound to the agent-to-Museum transfer."
+      }
+    ],
+    "acquisition_method": "purchase",
+    "acceptance_date": "2026-07-29T00:00:00Z",
+    "events": [
+      {
+        "event_type": "receipt",
+        "occurred_at": "2026-07-28T00:00:00Z",
+        "authority_reference": "6529NM.2026.001.AQA-01",
+        "evidence_refs": [
+          {
+            "label": "Donor receipt",
+            "uri": "ipfs://bafybeigdyrzt5examplereceipt",
+            "observed_at": "2026-07-28T00:00:00Z",
+            "evidence_class": "B"
+          }
+        ]
+      },
+      {
+        "event_type": "acceptance",
+        "occurred_at": "2026-07-29T00:00:00Z",
+        "authority_reference": "museum:accession-committee",
+        "evidence_refs": [
+          {
+            "label": "Acceptance decision",
+            "uri": "ipfs://bafybeigdyrzt5exampleacceptance",
+            "observed_at": "2026-07-29T00:00:00Z",
+            "evidence_class": "B"
+          }
+        ]
+      },
+      {
+        "event_type": "acquisition",
+        "occurred_at": "2026-07-30T00:00:00Z",
+        "authority_reference": "6529NM.2026.001.AQA-01",
+        "evidence_refs": [
+          {
+            "label": "Acquisition register",
+            "uri": "ipfs://bafybeigdyrzt5exampleacquisition",
+            "observed_at": "2026-07-30T00:00:00Z",
+            "evidence_class": "B"
+          }
+        ],
+        "event_name": "community_funded_purchase_registration",
+        "source_occurred_at": "2026-07-27T00:00:00Z",
+        "event_semantics": "The executing agent's purchase preceded Museum receipt; this event registers that purchase for the Museum."
+      },
+      {
+        "event_type": "title_passage",
+        "occurred_at": "2026-07-30T12:00:00Z",
+        "authority_reference": "6529NM.2026.001.AQA-01",
+        "evidence_refs": [
+          {
+            "label": "Off-chain title instrument",
+            "uri": "ipfs://bafybeigdyrzt5exampleinstrument",
+            "observed_at": "2026-07-30T12:00:00Z",
+            "evidence_class": "B"
+          }
+        ],
+        "instrument": {
+          "kind": "institutional_purchase_title_declaration",
+          "reference": "6529NM-ACC-2026-001",
+          "sha256": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "custodian_reference": "networkmuseum.6529.eth"
+        }
+      },
+      {
+        "event_type": "custody_receipt",
+        "occurred_at": "2026-07-31T00:00:00Z",
+        "authority_reference": "museum:registrar",
+        "evidence_refs": [
+          {
+            "label": "Custody receipt",
+            "uri": "ipfs://bafybeigdyrzt5examplecustody",
+            "observed_at": "2026-07-31T00:00:00Z",
+            "evidence_class": "A"
+          }
+        ],
+        "custody_paths": [
+          {
+            "kind": "onchain_token",
+            "object_id": "6529NM.2026.001.1",
+            "from": "0x4444444444444444444444444444444444444444",
+            "to": "0x2222222222222222222222222222222222222222",
+            "custodian_reference": "networkmuseum.6529.eth"
+          }
+        ]
+      },
+      {
+        "event_type": "accession",
+        "occurred_at": "2026-08-01T00:00:00Z",
+        "authority_reference": "museum:registrar",
+        "evidence_refs": [
+          {
+            "label": "Accession register entry",
+            "uri": "ipfs://bafybeigdyrzt5exampleaccession",
+            "observed_at": "2026-08-01T00:00:00Z",
+            "evidence_class": "C"
+          }
+        ]
+      }
+    ],
+    "record_status": "reviewed",
+    "review_status": "reviewed",
+    "review_outcomes": {
+      "fixture": "pass"
+    },
+    "ongoing_stewardship_actions": [],
+    "payload_sha256": "sha256:6cf3de2be83b8941e764fd0a7c731a9101544c6de74d2b4a5410accf43aba751"
+  }
+}

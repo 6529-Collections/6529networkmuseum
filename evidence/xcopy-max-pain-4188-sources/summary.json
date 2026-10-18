@@ -1,0 +1,1607 @@
+{
+  "accession_id": "6529NM.2026.005",
+  "artist_site": [
+    {
+      "evidence_class": "B",
+      "expected_phrases": [
+        {
+          "found_verbatim": true,
+          "text": "MAX PAIN AND FRENS"
+        },
+        {
+          "found_verbatim": true,
+          "text": "1 of 4849"
+        },
+        {
+          "found_verbatim": true,
+          "text": "Released March 24, 2022."
+        },
+        {
+          "found_verbatim": true,
+          "text": "No rights reserved."
+        }
+      ],
+      "final_url": "https://xcopy.art/works/max-pain",
+      "raw_response": {
+        "media_type": "text/html",
+        "reason": "Raw HTML embeds executable script elements, which the public evidence validator rejects; the extracted visible text is retained.",
+        "retained": false,
+        "sha256": "sha256:4384566f28c4321ef0702f3fdec443a3fc141af0006d3fe50cbf2cfe721ff226",
+        "size": 223242
+      },
+      "source_id": "xcopy-art-works-max-pain",
+      "transcript": {
+        "email_redactions": 0,
+        "method": "visible text via Python html.parser; script, style, noscript, template, svg, head, iframe, object and canvas content omitted; whitespace collapsed per line; e-mail addresses replaced",
+        "path": "raw/xcopy-art/xcopy-art-works-max-pain.txt",
+        "sha256": "sha256:75f2e7b3981dd30270ffcc38d47d2e9321388b969ae13e5f520dbaebb9776203",
+        "size": 189
+      },
+      "transport": {
+        "address_set": [
+          "5.254.6.18"
+        ],
+        "address_set_sha256": "6a4738343b5632a3634d2f094c1e4e93a6763e978b77718f314b38ded5e4baf6",
+        "attempts": 1,
+        "byte_length": 223242,
+        "byte_sha256": "4384566f28c4321ef0702f3fdec443a3fc141af0006d3fe50cbf2cfe721ff226",
+        "canonical_url": "https://xcopy.art/works/max-pain",
+        "hops": [
+          {
+            "address_set": [
+              "5.254.6.18"
+            ],
+            "address_set_sha256": "6a4738343b5632a3634d2f094c1e4e93a6763e978b77718f314b38ded5e4baf6",
+            "byte_length": 223242,
+            "canonical_url": "https://xcopy.art/works/max-pain",
+            "media_type": "text/html",
+            "observed_at": "2026-10-18T08:16:09.674Z",
+            "peer_ip": "5.254.6.18",
+            "response_headers": [
+              [
+                "content-type",
+                "text/html; charset=utf-8"
+              ],
+              [
+                "content-length",
+                "223242"
+              ]
+            ],
+            "selected_ip": "5.254.6.18",
+            "status": 200
+          }
+        ],
+        "media_type": "text/html",
+        "observed_at": "2026-10-18T08:16:09.674Z",
+        "peer_ip": "5.254.6.18",
+        "redirect_chain": [
+          "https://xcopy.art/works/max-pain"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "text/html; charset=utf-8"
+          ],
+          [
+            "content-length",
+            "223242"
+          ]
+        ],
+        "selected_ip": "5.254.6.18",
+        "status": 200
+      },
+      "url": "https://xcopy.art/works/max-pain"
+    },
+    {
+      "evidence_class": "B",
+      "expected_phrases": [
+        {
+          "found_verbatim": true,
+          "text": "MAX PAIN #4188/7394"
+        },
+        {
+          "found_verbatim": true,
+          "text": "1 of 7394"
+        },
+        {
+          "found_verbatim": true,
+          "text": "No rights reserved."
+        }
+      ],
+      "final_url": "https://xcopy.art/works/max-pain/max-pain-41887394",
+      "raw_response": {
+        "media_type": "text/html",
+        "reason": "Raw HTML embeds executable script elements, which the public evidence validator rejects; the extracted visible text is retained.",
+        "retained": false,
+        "sha256": "sha256:fc9bf1d522e84b4b5bb10b0df3ca7993c8c3586316c5960dedd804fb0e2bd463",
+        "size": 67667
+      },
+      "source_id": "xcopy-art-works-max-pain-4188",
+      "transcript": {
+        "email_redactions": 0,
+        "method": "visible text via Python html.parser; script, style, noscript, template, svg, head, iframe, object and canvas content omitted; whitespace collapsed per line; e-mail addresses replaced",
+        "path": "raw/xcopy-art/xcopy-art-works-max-pain-4188.txt",
+        "sha256": "sha256:d5560919c5f47cb50032e5d60ec59be677bc7acff274c86bb45139186a474a9c",
+        "size": 234
+      },
+      "transport": {
+        "address_set": [
+          "5.254.6.18"
+        ],
+        "address_set_sha256": "6a4738343b5632a3634d2f094c1e4e93a6763e978b77718f314b38ded5e4baf6",
+        "attempts": 1,
+        "byte_length": 67667,
+        "byte_sha256": "fc9bf1d522e84b4b5bb10b0df3ca7993c8c3586316c5960dedd804fb0e2bd463",
+        "canonical_url": "https://xcopy.art/works/max-pain/max-pain-41887394",
+        "hops": [
+          {
+            "address_set": [
+              "5.254.6.18"
+            ],
+            "address_set_sha256": "6a4738343b5632a3634d2f094c1e4e93a6763e978b77718f314b38ded5e4baf6",
+            "byte_length": 67667,
+            "canonical_url": "https://xcopy.art/works/max-pain/max-pain-41887394",
+            "media_type": "text/html",
+            "observed_at": "2026-10-18T08:16:10.281Z",
+            "peer_ip": "5.254.6.18",
+            "response_headers": [
+              [
+                "content-type",
+                "text/html; charset=utf-8"
+              ],
+              [
+                "content-length",
+                "67667"
+              ]
+            ],
+            "selected_ip": "5.254.6.18",
+            "status": 200
+          }
+        ],
+        "media_type": "text/html",
+        "observed_at": "2026-10-18T08:16:10.281Z",
+        "peer_ip": "5.254.6.18",
+        "redirect_chain": [
+          "https://xcopy.art/works/max-pain/max-pain-41887394"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "text/html; charset=utf-8"
+          ],
+          [
+            "content-length",
+            "67667"
+          ]
+        ],
+        "selected_ip": "5.254.6.18",
+        "status": 200
+      },
+      "url": "https://xcopy.art/works/max-pain/max-pain-41887394"
+    },
+    {
+      "evidence_class": "B",
+      "expected_phrases": [
+        {
+          "found_verbatim": true,
+          "text": "Nifty Gateway smart contracts"
+        }
+      ],
+      "final_url": "https://xcopy.art/series/max-pain-and-frens",
+      "raw_response": {
+        "media_type": "text/html",
+        "reason": "Raw HTML embeds executable script elements, which the public evidence validator rejects; the extracted visible text is retained.",
+        "retained": false,
+        "sha256": "sha256:8d91da2288ea869d3403a941512fa937bc220c404c72a24982f38bc384f97bd6",
+        "size": 50672
+      },
+      "source_id": "xcopy-art-series-max-pain-and-frens",
+      "transcript": {
+        "email_redactions": 0,
+        "method": "visible text via Python html.parser; script, style, noscript, template, svg, head, iframe, object and canvas content omitted; whitespace collapsed per line; e-mail addresses replaced",
+        "path": "raw/xcopy-art/xcopy-art-series-max-pain-and-frens.txt",
+        "sha256": "sha256:1adb97c286952d7544b728519e9d8dccc0735c82d63e5520db12dd4178351476",
+        "size": 279
+      },
+      "transport": {
+        "address_set": [
+          "5.254.6.18"
+        ],
+        "address_set_sha256": "6a4738343b5632a3634d2f094c1e4e93a6763e978b77718f314b38ded5e4baf6",
+        "attempts": 1,
+        "byte_length": 50672,
+        "byte_sha256": "8d91da2288ea869d3403a941512fa937bc220c404c72a24982f38bc384f97bd6",
+        "canonical_url": "https://xcopy.art/series/max-pain-and-frens",
+        "hops": [
+          {
+            "address_set": [
+              "5.254.6.18"
+            ],
+            "address_set_sha256": "6a4738343b5632a3634d2f094c1e4e93a6763e978b77718f314b38ded5e4baf6",
+            "byte_length": 50672,
+            "canonical_url": "https://xcopy.art/series/max-pain-and-frens",
+            "media_type": "text/html",
+            "observed_at": "2026-10-18T08:16:10.777Z",
+            "peer_ip": "5.254.6.18",
+            "response_headers": [
+              [
+                "content-type",
+                "text/html; charset=utf-8"
+              ],
+              [
+                "content-length",
+                "50672"
+              ]
+            ],
+            "selected_ip": "5.254.6.18",
+            "status": 200
+          }
+        ],
+        "media_type": "text/html",
+        "observed_at": "2026-10-18T08:16:10.777Z",
+        "peer_ip": "5.254.6.18",
+        "redirect_chain": [
+          "https://xcopy.art/series/max-pain-and-frens"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "text/html; charset=utf-8"
+          ],
+          [
+            "content-length",
+            "50672"
+          ]
+        ],
+        "selected_ip": "5.254.6.18",
+        "status": 200
+      },
+      "url": "https://xcopy.art/series/max-pain-and-frens"
+    },
+    {
+      "evidence_class": "B",
+      "expected_phrases": [
+        {
+          "found_verbatim": true,
+          "text": "Manifold smart contracts"
+        }
+      ],
+      "final_url": "https://xcopy.art/series/damage-control",
+      "raw_response": {
+        "media_type": "text/html",
+        "reason": "Raw HTML embeds executable script elements, which the public evidence validator rejects; the extracted visible text is retained.",
+        "retained": false,
+        "sha256": "sha256:426d9ab73ebb7d0ed6bc984c8d0ac5aa9bf267949bd6179ed82af1396b4fbcb5",
+        "size": 231025
+      },
+      "source_id": "xcopy-art-series-damage-control",
+      "transcript": {
+        "email_redactions": 0,
+        "method": "visible text via Python html.parser; script, style, noscript, template, svg, head, iframe, object and canvas content omitted; whitespace collapsed per line; e-mail addresses replaced",
+        "path": "raw/xcopy-art/xcopy-art-series-damage-control.txt",
+        "sha256": "sha256:56185fccc41a1d45ffa02c83e186766d073b2f8bff057b077d11aebeb52ffb97",
+        "size": 228
+      },
+      "transport": {
+        "address_set": [
+          "5.254.6.18"
+        ],
+        "address_set_sha256": "6a4738343b5632a3634d2f094c1e4e93a6763e978b77718f314b38ded5e4baf6",
+        "attempts": 1,
+        "byte_length": 231025,
+        "byte_sha256": "426d9ab73ebb7d0ed6bc984c8d0ac5aa9bf267949bd6179ed82af1396b4fbcb5",
+        "canonical_url": "https://xcopy.art/series/damage-control",
+        "hops": [
+          {
+            "address_set": [
+              "5.254.6.18"
+            ],
+            "address_set_sha256": "6a4738343b5632a3634d2f094c1e4e93a6763e978b77718f314b38ded5e4baf6",
+            "byte_length": 231025,
+            "canonical_url": "https://xcopy.art/series/damage-control",
+            "media_type": "text/html",
+            "observed_at": "2026-10-18T08:16:11.283Z",
+            "peer_ip": "5.254.6.18",
+            "response_headers": [
+              [
+                "content-type",
+                "text/html; charset=utf-8"
+              ],
+              [
+                "content-length",
+                "231025"
+              ]
+            ],
+            "selected_ip": "5.254.6.18",
+            "status": 200
+          }
+        ],
+        "media_type": "text/html",
+        "observed_at": "2026-10-18T08:16:11.283Z",
+        "peer_ip": "5.254.6.18",
+        "redirect_chain": [
+          "https://xcopy.art/series/damage-control"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "text/html; charset=utf-8"
+          ],
+          [
+            "content-length",
+            "231025"
+          ]
+        ],
+        "selected_ip": "5.254.6.18",
+        "status": 200
+      },
+      "url": "https://xcopy.art/series/damage-control"
+    },
+    {
+      "evidence_class": "B",
+      "expected_phrases": [],
+      "final_url": "https://xcopy.art/creative-commons",
+      "raw_response": {
+        "media_type": "text/html",
+        "reason": "Raw HTML embeds executable script elements, which the public evidence validator rejects; the extracted visible text is retained.",
+        "retained": false,
+        "sha256": "sha256:aa163ffa53999d28517a2f8c61b9661413eae5176c82be78403c8dde47dd5340",
+        "size": 117478
+      },
+      "source_id": "xcopy-art-creative-commons",
+      "transcript": {
+        "email_redactions": 0,
+        "method": "visible text via Python html.parser; script, style, noscript, template, svg, head, iframe, object and canvas content omitted; whitespace collapsed per line; e-mail addresses replaced",
+        "path": "raw/xcopy-art/xcopy-art-creative-commons.txt",
+        "sha256": "sha256:11371480f1bd4ae8f3bb42b08ab961d25aca6760cab516aa194f94765248a2a2",
+        "size": 417
+      },
+      "transport": {
+        "address_set": [
+          "5.254.6.18"
+        ],
+        "address_set_sha256": "6a4738343b5632a3634d2f094c1e4e93a6763e978b77718f314b38ded5e4baf6",
+        "attempts": 1,
+        "byte_length": 117478,
+        "byte_sha256": "aa163ffa53999d28517a2f8c61b9661413eae5176c82be78403c8dde47dd5340",
+        "canonical_url": "https://xcopy.art/creative-commons",
+        "hops": [
+          {
+            "address_set": [
+              "5.254.6.18"
+            ],
+            "address_set_sha256": "6a4738343b5632a3634d2f094c1e4e93a6763e978b77718f314b38ded5e4baf6",
+            "byte_length": 117478,
+            "canonical_url": "https://xcopy.art/creative-commons",
+            "media_type": "text/html",
+            "observed_at": "2026-10-18T08:16:11.900Z",
+            "peer_ip": "5.254.6.18",
+            "response_headers": [
+              [
+                "content-type",
+                "text/html; charset=utf-8"
+              ],
+              [
+                "content-length",
+                "117478"
+              ]
+            ],
+            "selected_ip": "5.254.6.18",
+            "status": 200
+          }
+        ],
+        "media_type": "text/html",
+        "observed_at": "2026-10-18T08:16:11.900Z",
+        "peer_ip": "5.254.6.18",
+        "redirect_chain": [
+          "https://xcopy.art/creative-commons"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "text/html; charset=utf-8"
+          ],
+          [
+            "content-length",
+            "117478"
+          ]
+        ],
+        "selected_ip": "5.254.6.18",
+        "status": 200
+      },
+      "url": "https://xcopy.art/creative-commons"
+    },
+    {
+      "evidence_class": "B",
+      "expected_phrases": [
+        {
+          "found_verbatim": true,
+          "text": "CC0 (Creative Commons Zero)"
+        },
+        {
+          "found_verbatim": true,
+          "text": "do not imply affiliation, endorsement, or partnership"
+        }
+      ],
+      "final_url": "https://xcopy.art/privacy",
+      "raw_response": {
+        "media_type": "text/html",
+        "reason": "Raw HTML embeds executable script elements, which the public evidence validator rejects; the extracted visible text is retained.",
+        "retained": false,
+        "sha256": "sha256:f185bb24886c091b16bd75f2839c613503ce8bf42712f276c52a55e9a45b806d",
+        "size": 37555
+      },
+      "source_id": "xcopy-art-privacy",
+      "transcript": {
+        "email_redactions": 1,
+        "method": "visible text via Python html.parser; script, style, noscript, template, svg, head, iframe, object and canvas content omitted; whitespace collapsed per line; e-mail addresses replaced",
+        "path": "raw/xcopy-art/xcopy-art-privacy.txt",
+        "sha256": "sha256:abab22b4c63d3b62b384e5505214548a859cb3e8e2831d99b2bceb87ee1941da",
+        "size": 1395
+      },
+      "transport": {
+        "address_set": [
+          "5.254.6.18"
+        ],
+        "address_set_sha256": "6a4738343b5632a3634d2f094c1e4e93a6763e978b77718f314b38ded5e4baf6",
+        "attempts": 1,
+        "byte_length": 37555,
+        "byte_sha256": "f185bb24886c091b16bd75f2839c613503ce8bf42712f276c52a55e9a45b806d",
+        "canonical_url": "https://xcopy.art/privacy",
+        "hops": [
+          {
+            "address_set": [
+              "5.254.6.18"
+            ],
+            "address_set_sha256": "6a4738343b5632a3634d2f094c1e4e93a6763e978b77718f314b38ded5e4baf6",
+            "byte_length": 37555,
+            "canonical_url": "https://xcopy.art/privacy",
+            "media_type": "text/html",
+            "observed_at": "2026-10-18T08:16:12.494Z",
+            "peer_ip": "5.254.6.18",
+            "response_headers": [
+              [
+                "content-type",
+                "text/html; charset=utf-8"
+              ],
+              [
+                "content-length",
+                "37555"
+              ]
+            ],
+            "selected_ip": "5.254.6.18",
+            "status": 200
+          }
+        ],
+        "media_type": "text/html",
+        "observed_at": "2026-10-18T08:16:12.494Z",
+        "peer_ip": "5.254.6.18",
+        "redirect_chain": [
+          "https://xcopy.art/privacy"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "text/html; charset=utf-8"
+          ],
+          [
+            "content-length",
+            "37555"
+          ]
+        ],
+        "selected_ip": "5.254.6.18",
+        "status": 200
+      },
+      "url": "https://xcopy.art/privacy"
+    }
+  ],
+  "assertions": {
+    "image_cidv0_recomputes_to_image_hash": true,
+    "image_copies_byte_identical": true,
+    "image_structure_admitted": true,
+    "metadata_image_hash_equals_onchain_token_ipfs_hash": true,
+    "metadata_reached_from_token_uri_root_by_verified_ipfs_path": true,
+    "token_uri_matches_expected_ipfs_path": true,
+    "wave_drop_is_signed_winner": true
+  },
+  "limitations": [
+    "These are point-in-time public-source observations. They do not establish legal title, copyright ownership, display rights or accession.",
+    "The metadata image URL is a mutable CDN location; the IPFS image_hash CID, set once on-chain through tokenIPFSHash, is the content binding.",
+    "The retained GIF is preservation evidence of the token's image bytes; presentation derivatives are generated separately under media/.",
+    "Wave projections omit voter and author identities; per-person contribution or wallet facts are not recorded here.",
+    "xcopy.art and Nifty Gateway statements are issuer or platform sources (class B) and are recorded as observed, not as Museum determinations."
+  ],
+  "media": {
+    "admission": {
+      "acquired_at": "2026-10-18T06:52:23Z",
+      "copies": [
+        {
+          "etag_equals_md5_of_bytes": true,
+          "mutable_location": true,
+          "response": {
+            "headers": {
+              "age": "34796",
+              "content-length": "4541937",
+              "content-type": "image/gif",
+              "date": "Sat, 17 Oct 2026 21:12:21 GMT",
+              "etag": "\"8ca9eb1a40c8f193ccb8fecabad09e45\"",
+              "last-modified": "Thu, 14 May 2026 22:35:34 GMT",
+              "x-amz-version-id": "xCv1Lxbd4FXrz3JsZnGBRNDQyOpscls_",
+              "x-cache": "Hit from cloudfront"
+            },
+            "status_line": "HTTP/1.1 200 OK"
+          },
+          "role": "token_metadata_image_url",
+          "url": "https://media.niftygateway.com/image/upload/v1647441828/AA/XCOPY/OpenEdition/MAX_PAIN_1_bhtyc0.gif"
+        },
+        {
+          "response": {
+            "headers": {
+              "cache-control": "public, max-age=29030400",
+              "content-length": "4541937",
+              "content-type": "image/gif",
+              "date": "Sun, 18 Oct 2026 06:52:23 GMT",
+              "etag": "\"QmTcTzTPgCyvF933oeFvB4GkPgaXtF6dKuQgvg32qqLYGF\"",
+              "x-ipfs-path": "/ipfs/QmTcTzTPgCyvF933oeFvB4GkPgaXtF6dKuQgvg32qqLYGF",
+              "x-ipfs-roots": "QmTcTzTPgCyvF933oeFvB4GkPgaXtF6dKuQgvg32qqLYGF"
+            },
+            "status_line": "HTTP/1.1 200 OK"
+          },
+          "role": "token_metadata_image_hash_via_ipfs_gateway",
+          "url": "https://gateway.pinata.cloud/ipfs/QmTcTzTPgCyvF933oeFvB4GkPgaXtF6dKuQgvg32qqLYGF",
+          "x_ipfs_roots_equals_image_hash": true
+        }
+      ],
+      "copies_byte_identical": true,
+      "method": "out_of_band_download_admitted_by_hash",
+      "precedent": "Magnum source-directory admission by SHA-256 and size",
+      "reason": "The 4,541,937-byte image exceeds the 1 MiB safe-fetch response cap and Range requests are not admitted; both copies were downloaded separately and admitted here only after the checks below."
+    },
+    "animation": {
+      "frame_count": 8,
+      "frame_duration_ms": 50,
+      "loop": "infinite",
+      "total_duration_ms": 400
+    },
+    "ipfs_cid_recomputation": {
+      "chunk_count": 18,
+      "chunker": "size-262144",
+      "cid": "QmTcTzTPgCyvF933oeFvB4GkPgaXtF6dKuQgvg32qqLYGF",
+      "cid_version": 0,
+      "dag_cumulative_size": 4543062,
+      "dag_depth": 1,
+      "expected": "QmTcTzTPgCyvF933oeFvB4GkPgaXtF6dKuQgvg32qqLYGF",
+      "filesize": 4541937,
+      "hash": "sha2-256",
+      "last_chunk_bytes": 85489,
+      "leaf_format": "dag-pb UnixFS File (no raw leaves)",
+      "match": true,
+      "max_links_per_node": 174
+    },
+    "md5": "8ca9eb1a40c8f193ccb8fecabad09e45",
+    "media_type": "image/gif",
+    "path": "raw/token-image.gif",
+    "pillow_cross_check": {
+      "background": 44,
+      "format": "GIF",
+      "frame_0_mode": "P",
+      "frame_durations_ms": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
+      ],
+      "height": 4000,
+      "is_animated": true,
+      "loop": 0,
+      "n_frames": 8,
+      "transparency": 44,
+      "version": "12.3.0",
+      "width": 4000
+    },
+    "sha256": "sha256:3ba2c6c6a7b7da940b5780da8fe301e61366a0b5c738be16e537ee122630be2e",
+    "sha3_256": "aa59ad8c0b5009778d50d2adbdfe61f8bc82acc55bbdc7e2e4e19e2ec87b3bf6",
+    "size": 4541937,
+    "source_id": "token-image",
+    "structure": {
+      "application_extensions": [
+        "NETSCAPE2.0",
+        "XMP DataXMP"
+      ],
+      "byte_length": 4541937,
+      "comment_extension_count": 0,
+      "frame_count": 8,
+      "frames": [
+        {
+          "byte_offset": 1383,
+          "data_sub_block_bytes": 1046980,
+          "delay_centiseconds": 5,
+          "disposal_method": 1,
+          "height": 4000,
+          "index": 0,
+          "interlaced": false,
+          "left": 0,
+          "local_colour_table_entries": 0,
+          "lzw_minimum_code_size": 6,
+          "top": 0,
+          "transparent_index": 44,
+          "user_input": false,
+          "width": 4000
+        },
+        {
+          "byte_offset": 1052489,
+          "data_sub_block_bytes": 491426,
+          "delay_centiseconds": 5,
+          "disposal_method": 1,
+          "height": 3829,
+          "index": 1,
+          "interlaced": false,
+          "left": 0,
+          "local_colour_table_entries": 0,
+          "lzw_minimum_code_size": 6,
+          "top": 170,
+          "transparent_index": 44,
+          "user_input": false,
+          "width": 3843
+        },
+        {
+          "byte_offset": 1545863,
+          "data_sub_block_bytes": 502864,
+          "delay_centiseconds": 5,
+          "disposal_method": 1,
+          "height": 3829,
+          "index": 2,
+          "interlaced": false,
+          "left": 0,
+          "local_colour_table_entries": 0,
+          "lzw_minimum_code_size": 6,
+          "top": 170,
+          "transparent_index": 44,
+          "user_input": false,
+          "width": 3843
+        },
+        {
+          "byte_offset": 2050720,
+          "data_sub_block_bytes": 496636,
+          "delay_centiseconds": 5,
+          "disposal_method": 1,
+          "height": 3829,
+          "index": 3,
+          "interlaced": false,
+          "left": 0,
+          "local_colour_table_entries": 0,
+          "lzw_minimum_code_size": 6,
+          "top": 170,
+          "transparent_index": 44,
+          "user_input": false,
+          "width": 3843
+        },
+        {
+          "byte_offset": 2549324,
+          "data_sub_block_bytes": 504903,
+          "delay_centiseconds": 5,
+          "disposal_method": 1,
+          "height": 3829,
+          "index": 4,
+          "interlaced": false,
+          "left": 0,
+          "local_colour_table_entries": 0,
+          "lzw_minimum_code_size": 6,
+          "top": 170,
+          "transparent_index": 44,
+          "user_input": false,
+          "width": 3843
+        },
+        {
+          "byte_offset": 3056228,
+          "data_sub_block_bytes": 495219,
+          "delay_centiseconds": 5,
+          "disposal_method": 1,
+          "height": 3829,
+          "index": 5,
+          "interlaced": false,
+          "left": 0,
+          "local_colour_table_entries": 0,
+          "lzw_minimum_code_size": 6,
+          "top": 170,
+          "transparent_index": 44,
+          "user_input": false,
+          "width": 3843
+        },
+        {
+          "byte_offset": 3553410,
+          "data_sub_block_bytes": 499864,
+          "delay_centiseconds": 5,
+          "disposal_method": 1,
+          "height": 3829,
+          "index": 6,
+          "interlaced": false,
+          "left": 0,
+          "local_colour_table_entries": 0,
+          "lzw_minimum_code_size": 6,
+          "top": 170,
+          "transparent_index": 44,
+          "user_input": false,
+          "width": 3843
+        },
+        {
+          "byte_offset": 4055255,
+          "data_sub_block_bytes": 484767,
+          "delay_centiseconds": 5,
+          "disposal_method": 1,
+          "height": 3829,
+          "index": 7,
+          "interlaced": false,
+          "left": 0,
+          "local_colour_table_entries": 0,
+          "lzw_minimum_code_size": 6,
+          "top": 170,
+          "transparent_index": 44,
+          "user_input": false,
+          "width": 3843
+        }
+      ],
+      "logical_screen": {
+        "background_index": 44,
+        "colour_resolution_bits": 6,
+        "global_colour_table_entries": 64,
+        "height": 4000,
+        "pixel_aspect_ratio_byte": 0,
+        "width": 4000
+      },
+      "loop_count": 0,
+      "plain_text_extension_count": 0,
+      "reader": "scripts/gif_structure.py strict block walk",
+      "total_delay_centiseconds": 40,
+      "trailer_offset": 4541936,
+      "version": "GIF89a"
+    }
+  },
+  "metadata": {
+    "absent_fields": [
+      "license",
+      "animation_url",
+      "attributes",
+      "properties"
+    ],
+    "fields": {
+      "background_color": "ffffff",
+      "description": "MAX PAIN by XCOPY",
+      "external_url": "https://niftygateway.com/collections/xcopy-oe",
+      "image": "https://media.niftygateway.com/image/upload/v1647441828/AA/XCOPY/OpenEdition/MAX_PAIN_1_bhtyc0.gif",
+      "image_hash": "QmTcTzTPgCyvF933oeFvB4GkPgaXtF6dKuQgvg32qqLYGF",
+      "name": "MAX PAIN #4188/7394"
+    },
+    "file_cidv0": "QmRF5jKUG5trdmEV6zJnVgnLR6QPefhSiQWjhyyC4F2BfE",
+    "ipfs_path_verification": {
+      "blocks": [
+        {
+          "byte_length": 11568,
+          "cid": "QmT9cJUe8NFwniMTjWHunf6YWgYRdACTyN7uAiZRuXP9ij",
+          "fanout": 256,
+          "followed_link": {
+            "cid": "Qme1Ro4RdPRtsVSqmmKJfL9ePijLVBCwt9DAwHydDmWun8",
+            "kind": "shard",
+            "name": "63"
+          },
+          "hamt_prefix": "63",
+          "link_count": 256,
+          "sha256": "sha256:477652dc588e0615605e8b48ef2ddff02a250c19d877a12fed3127ce56d8a764",
+          "sha256_multihash_matches_cid": true,
+          "transport": {
+            "address_set": [
+              "104.18.35.135",
+              "172.64.152.121"
+            ],
+            "address_set_sha256": "2c481754544a9cb4dfc32498aaebe206f10b5a1bd7c4095beb0b5783ce591972",
+            "attempts": 1,
+            "byte_length": 11568,
+            "byte_sha256": "477652dc588e0615605e8b48ef2ddff02a250c19d877a12fed3127ce56d8a764",
+            "canonical_url": "https://gateway.pinata.cloud/ipfs/QmT9cJUe8NFwniMTjWHunf6YWgYRdACTyN7uAiZRuXP9ij?format=raw",
+            "hops": [
+              {
+                "address_set": [
+                  "104.18.35.135",
+                  "172.64.152.121"
+                ],
+                "address_set_sha256": "2c481754544a9cb4dfc32498aaebe206f10b5a1bd7c4095beb0b5783ce591972",
+                "byte_length": 11568,
+                "canonical_url": "https://gateway.pinata.cloud/ipfs/QmT9cJUe8NFwniMTjWHunf6YWgYRdACTyN7uAiZRuXP9ij?format=raw",
+                "media_type": "application/vnd.ipld.raw",
+                "observed_at": "2026-10-18T08:15:57.396Z",
+                "peer_ip": "104.18.35.135",
+                "response_headers": [
+                  [
+                    "content-type",
+                    "application/vnd.ipld.raw"
+                  ],
+                  [
+                    "content-length",
+                    "11568"
+                  ]
+                ],
+                "selected_ip": "104.18.35.135",
+                "status": 200
+              }
+            ],
+            "media_type": "application/vnd.ipld.raw",
+            "observed_at": "2026-10-18T08:15:57.396Z",
+            "peer_ip": "104.18.35.135",
+            "redirect_chain": [
+              "https://gateway.pinata.cloud/ipfs/QmT9cJUe8NFwniMTjWHunf6YWgYRdACTyN7uAiZRuXP9ij?format=raw"
+            ],
+            "resolver_profile": "system_getaddrinfo",
+            "resolver_revision": "python-socket.getaddrinfo-v1",
+            "response_headers": [
+              [
+                "content-type",
+                "application/vnd.ipld.raw"
+              ],
+              [
+                "content-length",
+                "11568"
+              ]
+            ],
+            "selected_ip": "104.18.35.135",
+            "status": 200
+          },
+          "unixfs_type": "HAMTShard"
+        },
+        {
+          "byte_length": 1888,
+          "cid": "Qme1Ro4RdPRtsVSqmmKJfL9ePijLVBCwt9DAwHydDmWun8",
+          "fanout": 256,
+          "followed_link": {
+            "cid": "Qmc28kw46VVTa2341BYY4VCTNQSNkd5hUPk2MLWaQnDqcX",
+            "kind": "shard",
+            "name": "CC"
+          },
+          "hamt_prefix": "CC",
+          "link_count": 33,
+          "sha256": "sha256:e8ce5a5559ccdf37afc33759754f0384092284ca208df5835462ddfef098cb51",
+          "sha256_multihash_matches_cid": true,
+          "transport": {
+            "address_set": [
+              "104.18.35.135",
+              "172.64.152.121"
+            ],
+            "address_set_sha256": "2c481754544a9cb4dfc32498aaebe206f10b5a1bd7c4095beb0b5783ce591972",
+            "attempts": 1,
+            "byte_length": 1888,
+            "byte_sha256": "e8ce5a5559ccdf37afc33759754f0384092284ca208df5835462ddfef098cb51",
+            "canonical_url": "https://gateway.pinata.cloud/ipfs/Qme1Ro4RdPRtsVSqmmKJfL9ePijLVBCwt9DAwHydDmWun8?format=raw",
+            "hops": [
+              {
+                "address_set": [
+                  "104.18.35.135",
+                  "172.64.152.121"
+                ],
+                "address_set_sha256": "2c481754544a9cb4dfc32498aaebe206f10b5a1bd7c4095beb0b5783ce591972",
+                "byte_length": 1888,
+                "canonical_url": "https://gateway.pinata.cloud/ipfs/Qme1Ro4RdPRtsVSqmmKJfL9ePijLVBCwt9DAwHydDmWun8?format=raw",
+                "media_type": "application/vnd.ipld.raw",
+                "observed_at": "2026-10-18T08:16:00.509Z",
+                "peer_ip": "104.18.35.135",
+                "response_headers": [
+                  [
+                    "content-type",
+                    "application/vnd.ipld.raw"
+                  ],
+                  [
+                    "content-length",
+                    "1888"
+                  ]
+                ],
+                "selected_ip": "104.18.35.135",
+                "status": 200
+              }
+            ],
+            "media_type": "application/vnd.ipld.raw",
+            "observed_at": "2026-10-18T08:16:00.509Z",
+            "peer_ip": "104.18.35.135",
+            "redirect_chain": [
+              "https://gateway.pinata.cloud/ipfs/Qme1Ro4RdPRtsVSqmmKJfL9ePijLVBCwt9DAwHydDmWun8?format=raw"
+            ],
+            "resolver_profile": "system_getaddrinfo",
+            "resolver_revision": "python-socket.getaddrinfo-v1",
+            "response_headers": [
+              [
+                "content-type",
+                "application/vnd.ipld.raw"
+              ],
+              [
+                "content-length",
+                "1888"
+              ]
+            ],
+            "selected_ip": "104.18.35.135",
+            "status": 200
+          },
+          "unixfs_type": "HAMTShard"
+        },
+        {
+          "byte_length": 151,
+          "cid": "Qmc28kw46VVTa2341BYY4VCTNQSNkd5hUPk2MLWaQnDqcX",
+          "fanout": 256,
+          "followed_link": {
+            "cid": "QmRF5jKUG5trdmEV6zJnVgnLR6QPefhSiQWjhyyC4F2BfE",
+            "kind": "entry",
+            "name": "01171000104188"
+          },
+          "hamt_prefix": "01",
+          "link_count": 2,
+          "sha256": "sha256:cb454be061b7756ccecb19731229bdac434b2d60ac317606cf0e8b98b018cb9c",
+          "sha256_multihash_matches_cid": true,
+          "transport": {
+            "address_set": [
+              "104.18.35.135",
+              "172.64.152.121"
+            ],
+            "address_set_sha256": "2c481754544a9cb4dfc32498aaebe206f10b5a1bd7c4095beb0b5783ce591972",
+            "attempts": 1,
+            "byte_length": 151,
+            "byte_sha256": "cb454be061b7756ccecb19731229bdac434b2d60ac317606cf0e8b98b018cb9c",
+            "canonical_url": "https://gateway.pinata.cloud/ipfs/Qmc28kw46VVTa2341BYY4VCTNQSNkd5hUPk2MLWaQnDqcX?format=raw",
+            "hops": [
+              {
+                "address_set": [
+                  "104.18.35.135",
+                  "172.64.152.121"
+                ],
+                "address_set_sha256": "2c481754544a9cb4dfc32498aaebe206f10b5a1bd7c4095beb0b5783ce591972",
+                "byte_length": 151,
+                "canonical_url": "https://gateway.pinata.cloud/ipfs/Qmc28kw46VVTa2341BYY4VCTNQSNkd5hUPk2MLWaQnDqcX?format=raw",
+                "media_type": "application/vnd.ipld.raw",
+                "observed_at": "2026-10-18T08:16:06.783Z",
+                "peer_ip": "104.18.35.135",
+                "response_headers": [
+                  [
+                    "content-type",
+                    "application/vnd.ipld.raw"
+                  ],
+                  [
+                    "content-length",
+                    "151"
+                  ]
+                ],
+                "selected_ip": "104.18.35.135",
+                "status": 200
+              }
+            ],
+            "media_type": "application/vnd.ipld.raw",
+            "observed_at": "2026-10-18T08:16:06.783Z",
+            "peer_ip": "104.18.35.135",
+            "redirect_chain": [
+              "https://gateway.pinata.cloud/ipfs/Qmc28kw46VVTa2341BYY4VCTNQSNkd5hUPk2MLWaQnDqcX?format=raw"
+            ],
+            "resolver_profile": "system_getaddrinfo",
+            "resolver_revision": "python-socket.getaddrinfo-v1",
+            "response_headers": [
+              [
+                "content-type",
+                "application/vnd.ipld.raw"
+              ],
+              [
+                "content-length",
+                "151"
+              ]
+            ],
+            "selected_ip": "104.18.35.135",
+            "status": 200
+          },
+          "unixfs_type": "HAMTShard"
+        }
+      ],
+      "entry_name": "171000104188",
+      "method": "Each raw dag-pb block was fetched with ?format=raw, hashed with sha2-256 against its CID, parsed, and the go-unixfs HAMT shard prefix for the entry name (murmur3-x64-64, 256-way) was followed to the entry link, whose CID equals the CIDv0 recomputed from the metadata bytes.",
+      "root_cid": "QmT9cJUe8NFwniMTjWHunf6YWgYRdACTyN7uAiZRuXP9ij",
+      "verified": true
+    },
+    "sha256": "sha256:9ac7b505f0b5aaf8b0e81cfb3d9f3fc7b2fc0a80319ec7623dcbe0d8209d9886",
+    "size": 337,
+    "source_id": "token-metadata",
+    "token_uri": "ipfs://QmT9cJUe8NFwniMTjWHunf6YWgYRdACTyN7uAiZRuXP9ij/171000104188",
+    "url": "https://gateway.pinata.cloud/ipfs/QmT9cJUe8NFwniMTjWHunf6YWgYRdACTyN7uAiZRuXP9ij/171000104188"
+  },
+  "object": {
+    "caip19": "eip155:1/erc721:0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde/171000104188",
+    "contract": "0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde",
+    "token_id": 171000104188,
+    "token_name": "MAX PAIN #4188/7394"
+  },
+  "object_id": "6529NM.2026.005.01",
+  "observed_at": "2026-10-18T08:15:44.903Z",
+  "onchain": {
+    "calls": [
+      {
+        "label": "chain-id",
+        "method": "eth_chainId",
+        "request_path": "raw/rpc/0001-chain-id-request.json",
+        "response_path": "raw/rpc/0001-chain-id-response.json",
+        "transport": {
+          "address_set": [
+            "104.20.46.180",
+            "172.66.146.203"
+          ],
+          "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+          "attempts": 1,
+          "byte_length": 48,
+          "byte_sha256": "c5c8bd35235e77d763d29fc5ee78916c39b0ae5c4816c075c2165b651d90651b",
+          "canonical_url": "https://eth.drpc.org/",
+          "endpoint": "https://eth.drpc.org",
+          "hops": [
+            {
+              "address_set": [
+                "104.20.46.180",
+                "172.66.146.203"
+              ],
+              "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+              "byte_length": 48,
+              "canonical_url": "https://eth.drpc.org/",
+              "media_type": "application/json",
+              "observed_at": "2026-10-18T08:15:45.371Z",
+              "peer_ip": "104.20.46.180",
+              "response_headers": [
+                [
+                  "content-type",
+                  "application/json"
+                ]
+              ],
+              "selected_ip": "104.20.46.180",
+              "status": 200
+            }
+          ],
+          "media_type": "application/json",
+          "observed_at": "2026-10-18T08:15:45.371Z",
+          "peer_ip": "104.20.46.180",
+          "redirect_chain": [
+            "https://eth.drpc.org/"
+          ],
+          "resolver_profile": "system_getaddrinfo",
+          "resolver_revision": "python-socket.getaddrinfo-v1",
+          "response_headers": [
+            [
+              "content-type",
+              "application/json"
+            ]
+          ],
+          "selected_ip": "104.20.46.180",
+          "status": 200
+        }
+      },
+      {
+        "label": "finalized-block",
+        "method": "eth_getBlockByNumber",
+        "request_path": "raw/rpc/0002-finalized-block-request.json",
+        "response_path": "raw/rpc/0002-finalized-block-response.json",
+        "transport": {
+          "address_set": [
+            "104.20.46.180",
+            "172.66.146.203"
+          ],
+          "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+          "attempts": 1,
+          "byte_length": 21209,
+          "byte_sha256": "89731529110a7146ed6ce6019ac475a17c4474a699babf825eb6f3732bca8740",
+          "canonical_url": "https://eth.drpc.org/",
+          "endpoint": "https://eth.drpc.org",
+          "hops": [
+            {
+              "address_set": [
+                "104.20.46.180",
+                "172.66.146.203"
+              ],
+              "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+              "byte_length": 21209,
+              "canonical_url": "https://eth.drpc.org/",
+              "media_type": "application/json",
+              "observed_at": "2026-10-18T08:15:45.838Z",
+              "peer_ip": "104.20.46.180",
+              "response_headers": [
+                [
+                  "content-type",
+                  "application/json"
+                ]
+              ],
+              "selected_ip": "104.20.46.180",
+              "status": 200
+            }
+          ],
+          "media_type": "application/json",
+          "observed_at": "2026-10-18T08:15:45.838Z",
+          "peer_ip": "104.20.46.180",
+          "redirect_chain": [
+            "https://eth.drpc.org/"
+          ],
+          "resolver_profile": "system_getaddrinfo",
+          "resolver_revision": "python-socket.getaddrinfo-v1",
+          "response_headers": [
+            [
+              "content-type",
+              "application/json"
+            ]
+          ],
+          "selected_ip": "104.20.46.180",
+          "status": 200
+        }
+      },
+      {
+        "label": "token-uri",
+        "method": "eth_call",
+        "request_path": "raw/rpc/0003-token-uri-request.json",
+        "response_path": "raw/rpc/0003-token-uri-response.json",
+        "transport": {
+          "address_set": [
+            "104.20.46.180",
+            "172.66.146.203"
+          ],
+          "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+          "attempts": 1,
+          "byte_length": 368,
+          "byte_sha256": "f5fe0240c7e7cd59e15a148a9a78bedd44aede5e500dc448202c80950184d9da",
+          "canonical_url": "https://eth.drpc.org/",
+          "endpoint": "https://eth.drpc.org",
+          "hops": [
+            {
+              "address_set": [
+                "104.20.46.180",
+                "172.66.146.203"
+              ],
+              "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+              "byte_length": 368,
+              "canonical_url": "https://eth.drpc.org/",
+              "media_type": "application/json",
+              "observed_at": "2026-10-18T08:15:46.298Z",
+              "peer_ip": "104.20.46.180",
+              "response_headers": [
+                [
+                  "content-type",
+                  "application/json"
+                ]
+              ],
+              "selected_ip": "104.20.46.180",
+              "status": 200
+            }
+          ],
+          "media_type": "application/json",
+          "observed_at": "2026-10-18T08:15:46.298Z",
+          "peer_ip": "104.20.46.180",
+          "redirect_chain": [
+            "https://eth.drpc.org/"
+          ],
+          "resolver_profile": "system_getaddrinfo",
+          "resolver_revision": "python-socket.getaddrinfo-v1",
+          "response_headers": [
+            [
+              "content-type",
+              "application/json"
+            ]
+          ],
+          "selected_ip": "104.20.46.180",
+          "status": 200
+        }
+      },
+      {
+        "label": "token-ipfs-hash",
+        "method": "eth_call",
+        "request_path": "raw/rpc/0004-token-ipfs-hash-request.json",
+        "response_path": "raw/rpc/0004-token-ipfs-hash-response.json",
+        "transport": {
+          "address_set": [
+            "104.20.46.180",
+            "172.66.146.203"
+          ],
+          "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+          "attempts": 1,
+          "byte_length": 310,
+          "byte_sha256": "b6726c14870b0e8feffa56bac197bef13abc3f4129b0ee3ff6a7ef80823b54e6",
+          "canonical_url": "https://eth.drpc.org/",
+          "endpoint": "https://eth.drpc.org",
+          "hops": [
+            {
+              "address_set": [
+                "104.20.46.180",
+                "172.66.146.203"
+              ],
+              "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+              "byte_length": 310,
+              "canonical_url": "https://eth.drpc.org/",
+              "media_type": "application/json",
+              "observed_at": "2026-10-18T08:15:46.770Z",
+              "peer_ip": "104.20.46.180",
+              "response_headers": [
+                [
+                  "content-type",
+                  "application/json"
+                ]
+              ],
+              "selected_ip": "104.20.46.180",
+              "status": 200
+            }
+          ],
+          "media_type": "application/json",
+          "observed_at": "2026-10-18T08:15:46.770Z",
+          "peer_ip": "104.20.46.180",
+          "redirect_chain": [
+            "https://eth.drpc.org/"
+          ],
+          "resolver_profile": "system_getaddrinfo",
+          "resolver_revision": "python-socket.getaddrinfo-v1",
+          "response_headers": [
+            [
+              "content-type",
+              "application/json"
+            ]
+          ],
+          "selected_ip": "104.20.46.180",
+          "status": 200
+        }
+      }
+    ],
+    "finalized_block": {
+      "hash": "0x2c5a9f5e32b87a106776cb75cf271781221baa245638f0a970e224e7971ec476",
+      "number": 26218096,
+      "timestamp": "2026-10-18T07:57:11Z"
+    },
+    "rpc_endpoint": "https://eth.drpc.org",
+    "state_selector": {
+      "blockHash": "0x2c5a9f5e32b87a106776cb75cf271781221baa245638f0a970e224e7971ec476",
+      "requireCanonical": true
+    },
+    "token_ipfs_hash": "QmTcTzTPgCyvF933oeFvB4GkPgaXtF6dKuQgvg32qqLYGF",
+    "token_ipfs_hash_equals_metadata_image_hash": true,
+    "token_uri": "ipfs://QmT9cJUe8NFwniMTjWHunf6YWgYRdACTyN7uAiZRuXP9ij/171000104188"
+  },
+  "platform_sources": [
+    {
+      "evidence_class": "B",
+      "path": "raw/nifty-gateway/nifty-gateway-drop-page-wayback-20250905.json",
+      "sha256": "sha256:15fc22d2744cdb050bfd256b0e24f7b2f659b5aeb8ac4d0f527281cf058d4200",
+      "source_id": "nifty-gateway-drop-page-wayback-20250905",
+      "url": "https://web.archive.org/web/20250905032040id_/https://www.niftygateway.com/marketplace/collection/0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde/1/"
+    },
+    {
+      "evidence_class": "B",
+      "path": "raw/nifty-gateway/nifty-gateway-medium-announcement-wayback-20220518.json",
+      "sha256": "sha256:11c00059c172c12c2c772e958c7aef56d2f4a855907da5a0c0fdebd3d867da2f",
+      "source_id": "nifty-gateway-medium-announcement-wayback-20220518",
+      "url": "https://web.archive.org/web/20220518011554if_/https://medium.com/nifty-gateway/max-pain-and-frens-by-xcopy-959350e0fc70"
+    },
+    {
+      "evidence_class": "B",
+      "path": "raw/nifty-gateway/nifty-gateway-live-collection-page.json",
+      "sha256": "sha256:6809e1ea79a624052806d5e804e19f11468997878a911cee957e63f02e803645",
+      "source_id": "nifty-gateway-live-collection-page",
+      "url": "https://niftygateway.com/collections/xcopy-oe"
+    }
+  ],
+  "record_id": "6529NM.2026.005.SOURCE-EVIDENCE-01",
+  "record_type": "DIGITAL_ART_SOURCE_OBSERVATION",
+  "unretained_sources": [
+    {
+      "observation": "Not fetched: X/Twitter content is outside this package's fetch policy; posts are cited by URL in research notes only.",
+      "retained": false,
+      "source_id": "x-twitter-posts",
+      "url": "https://x.com/"
+    }
+  ],
+  "wave": {
+    "drop": {
+      "path": "raw/wave/drop-public-safe.json",
+      "payload_sha256": "sha256:1d59c96baf18f7d65f88eac839dfeb93bb04226b0dbea004c264fea1c99b336c",
+      "raw_response": {
+        "media_type": "application/json",
+        "reason": "The raw response embeds profile objects with handles and primary wallet addresses; only this projection is retained.",
+        "retained": false,
+        "sha256": "sha256:3c24f36845ba95d1c7ca3dca7664fe07566a497b0344b3a43d9a1402fa6fb779",
+        "size": 13949
+      },
+      "transport": {
+        "address_set": [
+          "32.195.176.140",
+          "100.49.88.244",
+          "184.194.234.43"
+        ],
+        "address_set_sha256": "c07b8275567594a440b0fcd43ddbd893e0ee1bccf166098cdcce7948d82255cb",
+        "attempts": 1,
+        "byte_length": 13949,
+        "byte_sha256": "3c24f36845ba95d1c7ca3dca7664fe07566a497b0344b3a43d9a1402fa6fb779",
+        "canonical_url": "https://api.6529.io/api/drops/87e1fc3a-deef-4d1d-bf36-b2a44507f17b",
+        "hops": [
+          {
+            "address_set": [
+              "32.195.176.140",
+              "100.49.88.244",
+              "184.194.234.43"
+            ],
+            "address_set_sha256": "c07b8275567594a440b0fcd43ddbd893e0ee1bccf166098cdcce7948d82255cb",
+            "byte_length": 13949,
+            "canonical_url": "https://api.6529.io/api/drops/87e1fc3a-deef-4d1d-bf36-b2a44507f17b",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:16:08.332Z",
+            "peer_ip": "32.195.176.140",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json; charset=utf-8"
+              ],
+              [
+                "content-length",
+                "13949"
+              ]
+            ],
+            "selected_ip": "32.195.176.140",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:16:08.332Z",
+        "peer_ip": "32.195.176.140",
+        "redirect_chain": [
+          "https://api.6529.io/api/drops/87e1fc3a-deef-4d1d-bf36-b2a44507f17b"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json; charset=utf-8"
+          ],
+          [
+            "content-length",
+            "13949"
+          ]
+        ],
+        "selected_ip": "32.195.176.140",
+        "status": 200
+      },
+      "url": "https://api.6529.io/api/drops/87e1fc3a-deef-4d1d-bf36-b2a44507f17b"
+    },
+    "drop_id": "87e1fc3a-deef-4d1d-bf36-b2a44507f17b",
+    "observations": {
+      "cast_total_at_decision_time": 101689216,
+      "created_at": "2026-08-24T10:51:34.091Z",
+      "decision_time": "2026-08-27T18:30:18.491Z",
+      "distinct_voters": 25,
+      "drop_type": "WINNER",
+      "first_threshold_crossing_at": "2026-08-26T08:11:13.000Z",
+      "is_signed": true,
+      "proposal_content_sha256": "sha256:04b55a28c990f66a14d469fad9a01dcba9bcf1dc8f85c462bc09f1443844e170",
+      "raters_count": 25,
+      "rating": 97358417,
+      "serial_no": 1336667,
+      "winning_threshold": 69000000
+    },
+    "serial_no": 1336667,
+    "vote_log": {
+      "path": "raw/wave/vote-log-public-safe.json",
+      "payload_sha256": "sha256:e3fded8c37e79ad2f526513c33822857e7890b316133da7d534a035d75549113",
+      "raw_response": {
+        "media_type": "application/json",
+        "reason": "The raw response embeds profile objects with handles and primary wallet addresses; only this projection is retained.",
+        "retained": false,
+        "sha256": "sha256:f3b80f553fd6dfa5adfaffbdc906e013282a13aa0f670ba368e78cd428594ae0",
+        "size": 16484
+      },
+      "transport": {
+        "address_set": [
+          "32.195.176.140",
+          "100.49.88.244",
+          "184.194.234.43"
+        ],
+        "address_set_sha256": "c07b8275567594a440b0fcd43ddbd893e0ee1bccf166098cdcce7948d82255cb",
+        "attempts": 1,
+        "byte_length": 16484,
+        "byte_sha256": "f3b80f553fd6dfa5adfaffbdc906e013282a13aa0f670ba368e78cd428594ae0",
+        "canonical_url": "https://api.6529.io/api/v2/drops/87e1fc3a-deef-4d1d-bf36-b2a44507f17b/votes/logs?limit=100",
+        "hops": [
+          {
+            "address_set": [
+              "32.195.176.140",
+              "100.49.88.244",
+              "184.194.234.43"
+            ],
+            "address_set_sha256": "c07b8275567594a440b0fcd43ddbd893e0ee1bccf166098cdcce7948d82255cb",
+            "byte_length": 16484,
+            "canonical_url": "https://api.6529.io/api/v2/drops/87e1fc3a-deef-4d1d-bf36-b2a44507f17b/votes/logs?limit=100",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:16:09.230Z",
+            "peer_ip": "32.195.176.140",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json; charset=utf-8"
+              ],
+              [
+                "content-length",
+                "16484"
+              ]
+            ],
+            "selected_ip": "32.195.176.140",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:16:09.230Z",
+        "peer_ip": "32.195.176.140",
+        "redirect_chain": [
+          "https://api.6529.io/api/v2/drops/87e1fc3a-deef-4d1d-bf36-b2a44507f17b/votes/logs?limit=100"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json; charset=utf-8"
+          ],
+          [
+            "content-length",
+            "16484"
+          ]
+        ],
+        "selected_ip": "32.195.176.140",
+        "status": 200
+      },
+      "url": "https://api.6529.io/api/v2/drops/87e1fc3a-deef-4d1d-bf36-b2a44507f17b/votes/logs?limit=100"
+    },
+    "votes": {
+      "path": "raw/wave/votes-public-safe.json",
+      "payload_sha256": "sha256:3679fdaa945481a4a656ba54adf5dd8f8cdb191586fb9621c420455d181288cf",
+      "raw_response": {
+        "media_type": "application/json",
+        "reason": "The raw response embeds profile objects with handles and primary wallet addresses; only this projection is retained.",
+        "retained": false,
+        "sha256": "sha256:a7fe401920841efe59711c5702766fd7e0a0846ebe05f90e0855e354f745334a",
+        "size": 11900
+      },
+      "transport": {
+        "address_set": [
+          "32.195.176.140",
+          "100.49.88.244",
+          "184.194.234.43"
+        ],
+        "address_set_sha256": "c07b8275567594a440b0fcd43ddbd893e0ee1bccf166098cdcce7948d82255cb",
+        "attempts": 1,
+        "byte_length": 11900,
+        "byte_sha256": "a7fe401920841efe59711c5702766fd7e0a0846ebe05f90e0855e354f745334a",
+        "canonical_url": "https://api.6529.io/api/v2/drops/87e1fc3a-deef-4d1d-bf36-b2a44507f17b/votes?page=1&page_size=50",
+        "hops": [
+          {
+            "address_set": [
+              "32.195.176.140",
+              "100.49.88.244",
+              "184.194.234.43"
+            ],
+            "address_set_sha256": "c07b8275567594a440b0fcd43ddbd893e0ee1bccf166098cdcce7948d82255cb",
+            "byte_length": 11900,
+            "canonical_url": "https://api.6529.io/api/v2/drops/87e1fc3a-deef-4d1d-bf36-b2a44507f17b/votes?page=1&page_size=50",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:16:08.983Z",
+            "peer_ip": "32.195.176.140",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json; charset=utf-8"
+              ],
+              [
+                "content-length",
+                "11900"
+              ]
+            ],
+            "selected_ip": "32.195.176.140",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:16:08.983Z",
+        "peer_ip": "32.195.176.140",
+        "redirect_chain": [
+          "https://api.6529.io/api/v2/drops/87e1fc3a-deef-4d1d-bf36-b2a44507f17b/votes?page=1&page_size=50"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json; charset=utf-8"
+          ],
+          [
+            "content-length",
+            "11900"
+          ]
+        ],
+        "selected_ip": "32.195.176.140",
+        "status": 200
+      },
+      "url": "https://api.6529.io/api/v2/drops/87e1fc3a-deef-4d1d-bf36-b2a44507f17b/votes?page=1&page_size=50"
+    },
+    "wave": {
+      "path": "raw/wave/wave-public-safe.json",
+      "payload_sha256": "sha256:57a640cd74f1729807cc8ad6fce71e81a5fc871caacb6b9a99b96cdc8206ae5b",
+      "raw_response": {
+        "media_type": "application/json",
+        "reason": "The raw response embeds profile objects with handles and primary wallet addresses; only this projection is retained.",
+        "retained": false,
+        "sha256": "sha256:d8737d2d77ad2f5c2281f120adf8010f08d816e787fe80f7195496e7111a5c73",
+        "size": 15924
+      },
+      "transport": {
+        "address_set": [
+          "32.195.176.140",
+          "100.49.88.244",
+          "184.194.234.43"
+        ],
+        "address_set_sha256": "c07b8275567594a440b0fcd43ddbd893e0ee1bccf166098cdcce7948d82255cb",
+        "attempts": 1,
+        "byte_length": 15924,
+        "byte_sha256": "d8737d2d77ad2f5c2281f120adf8010f08d816e787fe80f7195496e7111a5c73",
+        "canonical_url": "https://api.6529.io/api/waves/5f207393-5418-4a75-8738-e40edb44a94d",
+        "hops": [
+          {
+            "address_set": [
+              "32.195.176.140",
+              "100.49.88.244",
+              "184.194.234.43"
+            ],
+            "address_set_sha256": "c07b8275567594a440b0fcd43ddbd893e0ee1bccf166098cdcce7948d82255cb",
+            "byte_length": 15924,
+            "canonical_url": "https://api.6529.io/api/waves/5f207393-5418-4a75-8738-e40edb44a94d",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:16:08.782Z",
+            "peer_ip": "32.195.176.140",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json; charset=utf-8"
+              ],
+              [
+                "content-length",
+                "15924"
+              ]
+            ],
+            "selected_ip": "32.195.176.140",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:16:08.782Z",
+        "peer_ip": "32.195.176.140",
+        "redirect_chain": [
+          "https://api.6529.io/api/waves/5f207393-5418-4a75-8738-e40edb44a94d"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json; charset=utf-8"
+          ],
+          [
+            "content-length",
+            "15924"
+          ]
+        ],
+        "selected_ip": "32.195.176.140",
+        "status": 200
+      },
+      "url": "https://api.6529.io/api/waves/5f207393-5418-4a75-8738-e40edb44a94d"
+    },
+    "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d"
+  }
+}

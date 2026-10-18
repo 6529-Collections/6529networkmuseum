@@ -1,0 +1,298 @@
+{
+  "byte_mode": "raw",
+  "entries": [
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0001-chain-id-request.json",
+      "sha256": "1a25b5b295c80a29b39e8379f9ad3250f1a30a1214b77cd7adbdc7c884ac1034",
+      "size": 68
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0001-chain-id-response.json",
+      "sha256": "c5c8bd35235e77d763d29fc5ee78916c39b0ae5c4816c075c2165b651d90651b",
+      "size": 48
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0002-finalized-block-request.json",
+      "sha256": "ed1f522d2f966b4969eb6cbacbc6e96a2a53c932961b568a03b486b49c6d578b",
+      "size": 101
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0002-finalized-block-response.json",
+      "sha256": "d87b23057229e02d3c9d26236e2ef197df6b35a98b89b6b4e02463831252ddb3",
+      "size": 13820
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0003-agent_purchase-transaction-request.json",
+      "sha256": "af3a1356c381242680eceb5eec7580dc18fd2542fa637d0acffe26449110087b",
+      "size": 167
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0003-agent_purchase-transaction-response.json",
+      "sha256": "fbb23dfcfa60c8452f062ac79a40214905bea86f2e8f3c7803d504dc360dc90d",
+      "size": 2458
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0004-agent_purchase-receipt-request.json",
+      "sha256": "ee8d764fe00c48ac2f04fb509d5c2c8f002112de7b7631cece603847b1e50952",
+      "size": 164
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0004-agent_purchase-receipt-response.json",
+      "sha256": "f9a36d67f04828eba4f6a1f3b93cb9709597568e8fde4be4288c429dcae565fd",
+      "size": 4187
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0005-museum_receipt_transfer-transaction-request.json",
+      "sha256": "66a43329959999c01eb89a8fa9f8685d775c21f1fd11466fc447f3b54fbfd2e0",
+      "size": 176
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0005-museum_receipt_transfer-transaction-response.json",
+      "sha256": "f157be664dae025bff3350b3e6b0188f8746614598df7f2290861e33fab00b93",
+      "size": 972
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0006-museum_receipt_transfer-receipt-request.json",
+      "sha256": "91104a4757a7bdd2ac4235f9257cc1265ad5105ac2cc83f91a318bbb3a027349",
+      "size": 173
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0006-museum_receipt_transfer-receipt-response.json",
+      "sha256": "ab78c47014fa3d85db3389203368a0c8a643cea0ba6cbd573489e88bd1a2000e",
+      "size": 2345
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0007-residual_transfer_to_museum_safe-transaction-request.json",
+      "sha256": "6bb3bcb545fcefa9144183c4e207b4220cc7e4956b3992e7ab2a67a0966d559a",
+      "size": 185
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0007-residual_transfer_to_museum_safe-transaction-response.json",
+      "sha256": "d86a7995c55c355686a6b9bbfa7ed3f03359499fd870598d89bc96bb22294b3e",
+      "size": 794
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0008-residual_transfer_to_museum_safe-receipt-request.json",
+      "sha256": "e39e9f686a3b742bcdece2587a71b0854fa2cd00a5df281786e5ed6cad4b0354",
+      "size": 182
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0008-residual_transfer_to_museum_safe-receipt-response.json",
+      "sha256": "6f23ab3162c0a3a076a8edd5b68dece061237470e69ac01ff0e691725bafeb3a",
+      "size": 1638
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0009-balance-before_purchase-request.json",
+      "sha256": "d9c9c1009b52820c245dc69e1b6416f35291fba5186096d28b2ed30f17f9c8e9",
+      "size": 142
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0009-balance-before_purchase-response.json",
+      "sha256": "18377eab0ff9c134b2be779fec58847bd289dd1f8c3ff8f01432135a956de676",
+      "size": 77
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0010-nonce-before_purchase-request.json",
+      "sha256": "edf424c7dd48114c07148d3a4d048e702d51621c82e5a90fc6a3870dab157c8b",
+      "size": 149
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0010-nonce-before_purchase-response.json",
+      "sha256": "3463ca59037ddb8ef2c41e88d6a2024e815691bd0d3206aa4bd55bf567e76d4c",
+      "size": 61
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0011-balance-after_purchase-request.json",
+      "sha256": "b3d4d1aad06bee0db391cdd39a314771f2ac017fb489d72073cc55b47187ca1e",
+      "size": 141
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0011-balance-after_purchase-response.json",
+      "sha256": "be71e0ebaaa1f6ed802dfcaed3336d31668d3ddf1ba2b957853d0a0e30f97a74",
+      "size": 75
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0012-nonce-after_purchase-request.json",
+      "sha256": "ce65432cfa29a42f043a0a8cbf687586eaf06e67c71c7ea02b7d640f6a0bd229",
+      "size": 148
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0012-nonce-after_purchase-response.json",
+      "sha256": "68de7eb71d4f33cef3c9cae48eef06039107c1f8573acd2866dff626aba6e46f",
+      "size": 60
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0013-balance-after_museum_receipt-request.json",
+      "sha256": "b59894ba92566124959b86d0a7d44207439f40c2200fb31c2df158e84d3a23cb",
+      "size": 147
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0013-balance-after_museum_receipt-response.json",
+      "sha256": "ad77f5e277aee9ed25031f295a8f0e207d3e9c0eb4d1a0f2e63dd75979d175d0",
+      "size": 81
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0014-nonce-after_museum_receipt-request.json",
+      "sha256": "f8d66fb306ac7833e2764300a409721b38788916a5d7b4be3b0edaa75a96f6bc",
+      "size": 154
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0014-nonce-after_museum_receipt-response.json",
+      "sha256": "28783ee01c718374874163677875209d5c368e4bbc5ca6d2d85e78d493b3ed1d",
+      "size": 66
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0015-balance-before_residual_transfer-request.json",
+      "sha256": "861129c5dc439a1c02ab2e0fa98c60d9686c42d057c6aa4c229f769b9b71b7b2",
+      "size": 151
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0015-balance-before_residual_transfer-response.json",
+      "sha256": "9db77ce50f74d78b43b4db87fa476cb86362d1b00312993adcc988356d68dca1",
+      "size": 85
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0016-nonce-before_residual_transfer-request.json",
+      "sha256": "3feb9427f70cf14052194a7977c6651953b1fc86d666034258a30b929c81d178",
+      "size": 158
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0016-nonce-before_residual_transfer-response.json",
+      "sha256": "cd83966386946a0965a77f54ddd738374f48db37baa8ae3ec2f8aeeb24b1f29a",
+      "size": 70
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0017-balance-after_residual_transfer-request.json",
+      "sha256": "e59063a5888c3b0ec1727bbf73f15f65e1a1194a94318ad7d965cc4dcfd9f302",
+      "size": 150
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0017-balance-after_residual_transfer-response.json",
+      "sha256": "ab49e72b8e2098a3f7b375c59040e8bd93bc6fd2c511e995d22e81ee10a22382",
+      "size": 82
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0018-nonce-after_residual_transfer-request.json",
+      "sha256": "d6ea57e6802a04b39e0efa036a590382e17c5f5431eb59cfa778243d83a2a634",
+      "size": 157
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0018-nonce-after_residual_transfer-response.json",
+      "sha256": "7e0c152b92f662956f4cbbd8d5e5693199e05f7fceac52a1cd2fa4311b735524",
+      "size": 69
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0019-balance-finalized-request.json",
+      "sha256": "e43f4eae8ef81979574fa55ee528a3a216448c0c7a7969691dfba5d45d374a00",
+      "size": 136
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0019-balance-finalized-response.json",
+      "sha256": "38486f25191770d3bacd79f9f8a1ff2796048dc5def217a1120777821aa0d569",
+      "size": 68
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0020-nonce-finalized-request.json",
+      "sha256": "4f494200de322c9c7abb0e65040ac90a228d6a9ed1cfeb14628b405b8e41f28c",
+      "size": 143
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0020-nonce-finalized-response.json",
+      "sha256": "cf65ee62cb551427e2a5c8caf6da3ce3f82da89f4d2c02b34d7257a3a2e03c92",
+      "size": 55
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "summary.json",
+      "sha256": "500be67c506f4cac8b38ccad0c386173f971593c2f5ee29e4c78b526b74c12df",
+      "size": 43789
+    }
+  ],
+  "hash_algorithm": "sha256",
+  "manifest_type": "6529NM_XCOPY_MAX_PAIN_4188_FUNDING_AGGREGATE_EVIDENCE",
+  "manifest_version": "1.0.0",
+  "observed_at": "2026-10-18T08:24:57.120Z",
+  "record_id": "6529NM.2026.005.FUNDING-EVIDENCE-01",
+  "subject_id": "6529NM.2026.005"
+}

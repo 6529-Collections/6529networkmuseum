@@ -1,0 +1,234 @@
+{
+  "byte_mode": "raw",
+  "entries": [
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0001-chain-id-request.json",
+      "sha256": "1a25b5b295c80a29b39e8379f9ad3250f1a30a1214b77cd7adbdc7c884ac1034",
+      "size": 68,
+      "source_id": "rpc-chain-id-request"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0001-chain-id-response.json",
+      "sha256": "c5c8bd35235e77d763d29fc5ee78916c39b0ae5c4816c075c2165b651d90651b",
+      "size": 48,
+      "source_id": "rpc-chain-id-response",
+      "url": "https://eth.drpc.org"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0002-finalized-block-request.json",
+      "sha256": "ed1f522d2f966b4969eb6cbacbc6e96a2a53c932961b568a03b486b49c6d578b",
+      "size": 101,
+      "source_id": "rpc-finalized-block-request"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0002-finalized-block-response.json",
+      "sha256": "89731529110a7146ed6ce6019ac475a17c4474a699babf825eb6f3732bca8740",
+      "size": 21209,
+      "source_id": "rpc-finalized-block-response",
+      "url": "https://eth.drpc.org"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0003-token-uri-request.json",
+      "sha256": "331f8bc8b8b7e6c0cb14cff4b4543191f64c2a267e6048d752085b1b94458764",
+      "size": 308,
+      "source_id": "rpc-token-uri-request"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0003-token-uri-response.json",
+      "sha256": "f5fe0240c7e7cd59e15a148a9a78bedd44aede5e500dc448202c80950184d9da",
+      "size": 368,
+      "source_id": "rpc-token-uri-response",
+      "url": "https://eth.drpc.org"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0004-token-ipfs-hash-request.json",
+      "sha256": "5a1922e67d206475591a90a6ee61b0656172293327d6ca15eb6b4340bd835c7a",
+      "size": 314,
+      "source_id": "rpc-token-ipfs-hash-request"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/rpc/0004-token-ipfs-hash-response.json",
+      "sha256": "b6726c14870b0e8feffa56bac197bef13abc3f4129b0ee3ff6a7ef80823b54e6",
+      "size": 310,
+      "source_id": "rpc-token-ipfs-hash-response",
+      "url": "https://eth.drpc.org"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/token-metadata.json",
+      "sha256": "9ac7b505f0b5aaf8b0e81cfb3d9f3fc7b2fc0a80319ec7623dcbe0d8209d9886",
+      "size": 337,
+      "source_id": "token-metadata",
+      "url": "https://gateway.pinata.cloud/ipfs/QmT9cJUe8NFwniMTjWHunf6YWgYRdACTyN7uAiZRuXP9ij/171000104188"
+    },
+    {
+      "alternate_urls": [
+        "https://gateway.pinata.cloud/ipfs/QmTcTzTPgCyvF933oeFvB4GkPgaXtF6dKuQgvg32qqLYGF"
+      ],
+      "byte_mode": "raw",
+      "ipfs_cid": "QmTcTzTPgCyvF933oeFvB4GkPgaXtF6dKuQgvg32qqLYGF",
+      "media_type": "image/gif",
+      "path": "raw/token-image.gif",
+      "sha256": "3ba2c6c6a7b7da940b5780da8fe301e61366a0b5c738be16e537ee122630be2e",
+      "size": 4541937,
+      "source_id": "token-image",
+      "url": "https://media.niftygateway.com/image/upload/v1647441828/AA/XCOPY/OpenEdition/MAX_PAIN_1_bhtyc0.gif"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/wave/drop-public-safe.json",
+      "raw_response_sha256": "3c24f36845ba95d1c7ca3dca7664fe07566a497b0344b3a43d9a1402fa6fb779",
+      "raw_response_size": 13949,
+      "sha256": "cd3a477774413a43e6f3a083a658f00b29fa126433dfe4fa1aa341ab87471991",
+      "size": 6218,
+      "source_id": "wave-drop-public-safe-projection",
+      "url": "https://api.6529.io/api/drops/87e1fc3a-deef-4d1d-bf36-b2a44507f17b"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/wave/wave-public-safe.json",
+      "raw_response_sha256": "d8737d2d77ad2f5c2281f120adf8010f08d816e787fe80f7195496e7111a5c73",
+      "raw_response_size": 15924,
+      "sha256": "6702b312f494af30a275e1c13a6ced1c9e13947062f155d5685f7e2ce71affb0",
+      "size": 3051,
+      "source_id": "wave-wave-public-safe-projection",
+      "url": "https://api.6529.io/api/waves/5f207393-5418-4a75-8738-e40edb44a94d"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/wave/votes-public-safe.json",
+      "raw_response_sha256": "a7fe401920841efe59711c5702766fd7e0a0846ebe05f90e0855e354f745334a",
+      "raw_response_size": 11900,
+      "sha256": "2ae161b31c38953f9a3066c83aab1ce361057fa719741aa765ea83b77c953bc0",
+      "size": 2036,
+      "source_id": "wave-votes-public-safe-projection",
+      "url": "https://api.6529.io/api/v2/drops/87e1fc3a-deef-4d1d-bf36-b2a44507f17b/votes?page=1&page_size=50"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/wave/vote-log-public-safe.json",
+      "raw_response_sha256": "f3b80f553fd6dfa5adfaffbdc906e013282a13aa0f670ba368e78cd428594ae0",
+      "raw_response_size": 16484,
+      "sha256": "ec1f7280ddf063c244bb8505ee9d8d68e34a7bc08cfd462c1bb4053886547bb6",
+      "size": 7855,
+      "source_id": "wave-vote-log-public-safe-projection",
+      "url": "https://api.6529.io/api/v2/drops/87e1fc3a-deef-4d1d-bf36-b2a44507f17b/votes/logs?limit=100"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "text/plain",
+      "path": "raw/xcopy-art/xcopy-art-works-max-pain.txt",
+      "sha256": "75f2e7b3981dd30270ffcc38d47d2e9321388b969ae13e5f520dbaebb9776203",
+      "size": 189,
+      "source_id": "xcopy-art-works-max-pain",
+      "url": "https://xcopy.art/works/max-pain"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "text/plain",
+      "path": "raw/xcopy-art/xcopy-art-works-max-pain-4188.txt",
+      "sha256": "d5560919c5f47cb50032e5d60ec59be677bc7acff274c86bb45139186a474a9c",
+      "size": 234,
+      "source_id": "xcopy-art-works-max-pain-4188",
+      "url": "https://xcopy.art/works/max-pain/max-pain-41887394"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "text/plain",
+      "path": "raw/xcopy-art/xcopy-art-series-max-pain-and-frens.txt",
+      "sha256": "1adb97c286952d7544b728519e9d8dccc0735c82d63e5520db12dd4178351476",
+      "size": 279,
+      "source_id": "xcopy-art-series-max-pain-and-frens",
+      "url": "https://xcopy.art/series/max-pain-and-frens"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "text/plain",
+      "path": "raw/xcopy-art/xcopy-art-series-damage-control.txt",
+      "sha256": "56185fccc41a1d45ffa02c83e186766d073b2f8bff057b077d11aebeb52ffb97",
+      "size": 228,
+      "source_id": "xcopy-art-series-damage-control",
+      "url": "https://xcopy.art/series/damage-control"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "text/plain",
+      "path": "raw/xcopy-art/xcopy-art-creative-commons.txt",
+      "sha256": "11371480f1bd4ae8f3bb42b08ab961d25aca6760cab516aa194f94765248a2a2",
+      "size": 417,
+      "source_id": "xcopy-art-creative-commons",
+      "url": "https://xcopy.art/creative-commons"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "text/plain",
+      "path": "raw/xcopy-art/xcopy-art-privacy.txt",
+      "sha256": "abab22b4c63d3b62b384e5505214548a859cb3e8e2831d99b2bceb87ee1941da",
+      "size": 1395,
+      "source_id": "xcopy-art-privacy",
+      "url": "https://xcopy.art/privacy"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/nifty-gateway/nifty-gateway-drop-page-wayback-20250905.json",
+      "sha256": "15fc22d2744cdb050bfd256b0e24f7b2f659b5aeb8ac4d0f527281cf058d4200",
+      "size": 6169,
+      "source_id": "nifty-gateway-drop-page-wayback-20250905",
+      "url": "https://web.archive.org/web/20250905032040id_/https://www.niftygateway.com/marketplace/collection/0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde/1/"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/nifty-gateway/nifty-gateway-medium-announcement-wayback-20220518.json",
+      "sha256": "11c00059c172c12c2c772e958c7aef56d2f4a855907da5a0c0fdebd3d867da2f",
+      "size": 3218,
+      "source_id": "nifty-gateway-medium-announcement-wayback-20220518",
+      "url": "https://web.archive.org/web/20220518011554if_/https://medium.com/nifty-gateway/max-pain-and-frens-by-xcopy-959350e0fc70"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/nifty-gateway/nifty-gateway-live-collection-page.json",
+      "sha256": "6809e1ea79a624052806d5e804e19f11468997878a911cee957e63f02e803645",
+      "size": 4926,
+      "source_id": "nifty-gateway-live-collection-page",
+      "url": "https://niftygateway.com/collections/xcopy-oe"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "summary.json",
+      "sha256": "a2de844d3d6a5dce95fe915b686040062ef30ec0e3ffdfeb15a38857cbad469d",
+      "size": 58572,
+      "source_id": "summary"
+    }
+  ],
+  "hash_algorithm": "sha256",
+  "manifest_type": "6529NM_XCOPY_MAX_PAIN_4188_SOURCE_EVIDENCE",
+  "manifest_version": "1.0.0",
+  "observed_at": "2026-10-18T08:15:44.903Z",
+  "record_id": "6529NM.2026.005.SOURCE-EVIDENCE-01",
+  "subject_id": "6529NM.2026.005.01"
+}

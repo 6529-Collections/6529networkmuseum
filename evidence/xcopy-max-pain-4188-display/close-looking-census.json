@@ -1,0 +1,453 @@
+{
+ "source_sha256": "sha256:3ba2c6c6a7b7da940b5780da8fe301e61366a0b5c738be16e537ee122630be2e",
+ "image_px": [
+  4000,
+  4000
+ ],
+ "frames": 8,
+ "frame_delays_cs": [
+  5,
+  5,
+  5,
+  5,
+  5,
+  5,
+  5,
+  5
+ ],
+ "loop_count": 0,
+ "global_color_table_entries": 64,
+ "unchanged_in_every_frame_share": 0.80761,
+ "changed_share_by_step": [
+  {
+   "from": 0,
+   "to": 1,
+   "changed_share": 0.17603
+  },
+  {
+   "from": 1,
+   "to": 2,
+   "changed_share": 0.17465
+  },
+  {
+   "from": 2,
+   "to": 3,
+   "changed_share": 0.17623
+  },
+  {
+   "from": 3,
+   "to": 4,
+   "changed_share": 0.17551
+  },
+  {
+   "from": 4,
+   "to": 5,
+   "changed_share": 0.17502
+  },
+  {
+   "from": 5,
+   "to": 6,
+   "changed_share": 0.17394
+  },
+  {
+   "from": 6,
+   "to": 7,
+   "changed_share": 0.17259
+  },
+  {
+   "from": 7,
+   "to": 0,
+   "changed_share": 0.17575
+  }
+ ],
+ "same_parity_difference": {
+  "by_pair": [
+   {
+    "from": 0,
+    "to": 2,
+    "changed_share": 0.01655,
+    "bounding_box_px": [
+     1046,
+     1802,
+     3442,
+     2762
+    ]
+   },
+   {
+    "from": 1,
+    "to": 3,
+    "changed_share": 0.01844,
+    "bounding_box_px": [
+     1064,
+     1788,
+     3561,
+     2781
+    ]
+   },
+   {
+    "from": 2,
+    "to": 4,
+    "changed_share": 0.01604,
+    "bounding_box_px": [
+     1063,
+     1802,
+     3460,
+     2763
+    ]
+   },
+   {
+    "from": 3,
+    "to": 5,
+    "changed_share": 0.01504,
+    "bounding_box_px": [
+     1099,
+     1788,
+     3562,
+     2787
+    ]
+   },
+   {
+    "from": 4,
+    "to": 6,
+    "changed_share": 0.0165,
+    "bounding_box_px": [
+     1063,
+     1754,
+     3552,
+     2773
+    ]
+   },
+   {
+    "from": 5,
+    "to": 7,
+    "changed_share": 0.01409,
+    "bounding_box_px": [
+     1084,
+     1799,
+     3562,
+     2787
+    ]
+   },
+   {
+    "from": 6,
+    "to": 0,
+    "changed_share": 0.0162,
+    "bounding_box_px": [
+     1046,
+     1754,
+     3552,
+     2773
+    ]
+   },
+   {
+    "from": 7,
+    "to": 1,
+    "changed_share": 0.01501,
+    "bounding_box_px": [
+     1064,
+     1799,
+     3414,
+     2781
+    ]
+   }
+  ],
+  "union_bounding_box_px": [
+   1046,
+   1754,
+   3562,
+   2787
+  ]
+ },
+ "colors_used": 44,
+ "colors_all_on_0x33_grid": true,
+ "colors": [
+  {
+   "palette_index": 43,
+   "hex": "#000000",
+   "share_frame_0": 0.64578,
+   "mean_share_over_loop": 0.65026
+  },
+  {
+   "palette_index": 36,
+   "hex": "#009999",
+   "share_frame_0": 0.11102,
+   "mean_share_over_loop": 0.11098
+  },
+  {
+   "palette_index": 6,
+   "hex": "#ff0099",
+   "share_frame_0": 0.07195,
+   "mean_share_over_loop": 0.0562
+  },
+  {
+   "palette_index": 41,
+   "hex": "#003366",
+   "share_frame_0": 0.03755,
+   "mean_share_over_loop": 0.03744
+  },
+  {
+   "palette_index": 4,
+   "hex": "#ff00ff",
+   "share_frame_0": 0.0,
+   "mean_share_over_loop": 0.03456
+  },
+  {
+   "palette_index": 42,
+   "hex": "#003333",
+   "share_frame_0": 0.0246,
+   "mean_share_over_loop": 0.02469
+  },
+  {
+   "palette_index": 0,
+   "hex": "#ffffff",
+   "share_frame_0": 0.02328,
+   "mean_share_over_loop": 0.01826
+  },
+  {
+   "palette_index": 8,
+   "hex": "#ff0033",
+   "share_frame_0": 0.03163,
+   "mean_share_over_loop": 0.01609
+  },
+  {
+   "palette_index": 14,
+   "hex": "#99ffcc",
+   "share_frame_0": 0.01231,
+   "mean_share_over_loop": 0.01204
+  },
+  {
+   "palette_index": 28,
+   "hex": "#33ff99",
+   "share_frame_0": 0.00672,
+   "mean_share_over_loop": 0.00659
+  },
+  {
+   "palette_index": 7,
+   "hex": "#ff0066",
+   "share_frame_0": 0.01243,
+   "mean_share_over_loop": 0.00628
+  },
+  {
+   "palette_index": 39,
+   "hex": "#006666",
+   "share_frame_0": 0.00392,
+   "mean_share_over_loop": 0.00392
+  },
+  {
+   "palette_index": 2,
+   "hex": "#ff33cc",
+   "share_frame_0": 0.00624,
+   "mean_share_over_loop": 0.0032
+  },
+  {
+   "palette_index": 9,
+   "hex": "#cc33ff",
+   "share_frame_0": 0.0,
+   "mean_share_over_loop": 0.00286
+  },
+  {
+   "palette_index": 23,
+   "hex": "#66cc99",
+   "share_frame_0": 0.00256,
+   "mean_share_over_loop": 0.00271
+  },
+  {
+   "palette_index": 5,
+   "hex": "#ff00cc",
+   "share_frame_0": 0.0,
+   "mean_share_over_loop": 0.00255
+  },
+  {
+   "palette_index": 38,
+   "hex": "#006699",
+   "share_frame_0": 0.00231,
+   "mean_share_over_loop": 0.00231
+  },
+  {
+   "palette_index": 32,
+   "hex": "#336666",
+   "share_frame_0": 0.00214,
+   "mean_share_over_loop": 0.00211
+  },
+  {
+   "palette_index": 1,
+   "hex": "#ff33ff",
+   "share_frame_0": 0.0,
+   "mean_share_over_loop": 0.00196
+  },
+  {
+   "palette_index": 3,
+   "hex": "#ff3399",
+   "share_frame_0": 0.00348,
+   "mean_share_over_loop": 0.00178
+  },
+  {
+   "palette_index": 22,
+   "hex": "#66cccc",
+   "share_frame_0": 0.00126,
+   "mean_share_over_loop": 0.00105
+  },
+  {
+   "palette_index": 15,
+   "hex": "#99ff99",
+   "share_frame_0": 0.0,
+   "mean_share_over_loop": 0.00072
+  },
+  {
+   "palette_index": 29,
+   "hex": "#33ff66",
+   "share_frame_0": 0.0,
+   "mean_share_over_loop": 0.00039
+  },
+  {
+   "palette_index": 19,
+   "hex": "#66ffcc",
+   "share_frame_0": 0.00033,
+   "mean_share_over_loop": 0.00039
+  },
+  {
+   "palette_index": 20,
+   "hex": "#66ff99",
+   "share_frame_0": 0.00033,
+   "mean_share_over_loop": 0.00037
+  },
+  {
+   "palette_index": 21,
+   "hex": "#66ff66",
+   "share_frame_0": 0.0,
+   "mean_share_over_loop": 0.0001
+  },
+  {
+   "palette_index": 31,
+   "hex": "#339966",
+   "share_frame_0": 7e-05,
+   "mean_share_over_loop": 7e-05
+  },
+  {
+   "palette_index": 24,
+   "hex": "#669999",
+   "share_frame_0": 7e-05,
+   "mean_share_over_loop": 7e-05
+  },
+  {
+   "palette_index": 33,
+   "hex": "#336633",
+   "share_frame_0": 0.0,
+   "mean_share_over_loop": 1e-05
+  },
+  {
+   "palette_index": 30,
+   "hex": "#339999",
+   "share_frame_0": 1e-05,
+   "mean_share_over_loop": 1e-05
+  },
+  {
+   "palette_index": 40,
+   "hex": "#006633",
+   "share_frame_0": 0.0,
+   "mean_share_over_loop": 0.0
+  },
+  {
+   "palette_index": 37,
+   "hex": "#009966",
+   "share_frame_0": 0.0,
+   "mean_share_over_loop": 0.0
+  },
+  {
+   "palette_index": 35,
+   "hex": "#330000",
+   "share_frame_0": 0.0,
+   "mean_share_over_loop": 0.0
+  },
+  {
+   "palette_index": 34,
+   "hex": "#330033",
+   "share_frame_0": 0.0,
+   "mean_share_over_loop": 0.0
+  },
+  {
+   "palette_index": 27,
+   "hex": "#660033",
+   "share_frame_0": 1e-05,
+   "mean_share_over_loop": 0.0
+  },
+  {
+   "palette_index": 26,
+   "hex": "#660066",
+   "share_frame_0": 0.0,
+   "mean_share_over_loop": 0.0
+  },
+  {
+   "palette_index": 25,
+   "hex": "#669966",
+   "share_frame_0": 0.0,
+   "mean_share_over_loop": 0.0
+  },
+  {
+   "palette_index": 18,
+   "hex": "#990033",
+   "share_frame_0": 0.0,
+   "mean_share_over_loop": 0.0
+  },
+  {
+   "palette_index": 17,
+   "hex": "#990066",
+   "share_frame_0": 0.0,
+   "mean_share_over_loop": 0.0
+  },
+  {
+   "palette_index": 16,
+   "hex": "#990099",
+   "share_frame_0": 0.0,
+   "mean_share_over_loop": 0.0
+  },
+  {
+   "palette_index": 13,
+   "hex": "#cc0033",
+   "share_frame_0": 0.0,
+   "mean_share_over_loop": 0.0
+  },
+  {
+   "palette_index": 12,
+   "hex": "#cc0066",
+   "share_frame_0": 0.0,
+   "mean_share_over_loop": 0.0
+  },
+  {
+   "palette_index": 11,
+   "hex": "#cc0099",
+   "share_frame_0": 0.0,
+   "mean_share_over_loop": 0.0
+  },
+  {
+   "palette_index": 10,
+   "hex": "#cc00cc",
+   "share_frame_0": 0.0,
+   "mean_share_over_loop": 0.0
+  }
+ ],
+ "names_in_public_texts": {
+  "interpretation": "Museum interpretation of the hexadecimal values; class E",
+  "names": {
+   "#000000": "black",
+   "#009999": "teal",
+   "#003366": "navy",
+   "#003333": "dark teal",
+   "#ff0099": "hot pink",
+   "#ff00ff": "magenta",
+   "#ff0033": "red-pink",
+   "#ff0066": "rose"
+  },
+  "mean_share_over_loop": {
+   "black": 0.65026,
+   "teal": 0.11098,
+   "navy": 0.03744,
+   "dark teal": 0.02469,
+   "hot pink": 0.0562,
+   "magenta": 0.03456,
+   "red-pink": 0.01609,
+   "rose": 0.00628
+  }
+ },
+ "method": "Exact palette indices of the composited frames from gif_structure.py; counts over all 16,000,000 pixels; bounding boxes are [left, top, right, bottom) in source pixels."
+}

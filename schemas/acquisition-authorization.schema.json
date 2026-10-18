@@ -1,0 +1,179 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529networkmuseum.org/schemas/acquisition-authorization-v1.json",
+  "title": "6529 Network Museum purchase acquisition authorization",
+  "$defs": {
+    "nonEmpty": {"type": "string", "minLength": 1},
+    "address": {"type": "string", "pattern": "^0x[0-9a-f]{40}$"},
+    "transactionHash": {"type": "string", "pattern": "^0x[0-9a-f]{64}$"},
+    "baseUnitAmount": {
+      "description": "Decimal integer in the asset's smallest unit (wei for ETH). A string keeps values above 2^53 exact under I-JSON.",
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)$",
+      "maxLength": 78
+    },
+    "evidenceRefs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/evidenceRef"}
+    },
+    "fundingBasis": {
+      "type": "object",
+      "properties": {
+        "kind": {"type": "string", "enum": ["voter_contribution_equal_shares", "museum_funds", "governance_authorized_restricted_fund"]},
+        "statement": {"$ref": "#/$defs/nonEmpty"},
+        "contributor_ownership_interest": {"const": "none"},
+        "evidence_refs": {"$ref": "#/$defs/evidenceRefs"}
+      },
+      "required": ["kind", "statement", "contributor_ownership_interest", "evidence_refs"],
+      "unevaluatedProperties": false
+    },
+    "purchaseTransferLog": {
+      "description": "The purchase's token Transfer log. The sender is the seller, named by role: a private seller's address is recorded only in the accession lot's provenance schedule and the retained raw chain evidence.",
+      "type": "object",
+      "properties": {
+        "object_id": {"type": "string", "pattern": "^6529NM\\.\\d{4}\\.\\d{3}\\.\\d+$"},
+        "log_index": {"type": "integer", "minimum": 0},
+        "from_party": {"const": "seller"},
+        "to": {"$ref": "#/$defs/address"}
+      },
+      "required": ["object_id", "log_index", "from_party", "to"],
+      "unevaluatedProperties": false
+    },
+    "paymentTransaction": {
+      "type": "object",
+      "properties": {
+        "transaction_hash": {"$ref": "#/$defs/transactionHash"},
+        "block_number": {"type": "integer", "minimum": 0},
+        "block_time": {"type": "string", "format": "date-time"},
+        "from": {"$ref": "#/$defs/address"},
+        "to": {"$ref": "#/$defs/address"},
+        "value_wei": {"$ref": "#/$defs/baseUnitAmount"},
+        "receipt_status": {"const": "0x1"},
+        "transfer_logs": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/purchaseTransferLog"}}
+      },
+      "required": ["transaction_hash", "block_number", "block_time", "from", "to", "value_wei", "receipt_status", "transfer_logs"],
+      "unevaluatedProperties": false
+    },
+    "consideration": {
+      "type": "object",
+      "properties": {
+        "status": {"const": "paid"},
+        "asset": {"type": "string", "pattern": "^eip155:[0-9]+/(?:slip44:[0-9]+|erc20:0x[0-9a-f]{40})$"},
+        "amount_wei": {"$ref": "#/$defs/baseUnitAmount"},
+        "payer_role": {"const": "executing_agent"},
+        "payment_transaction": {"$ref": "#/$defs/paymentTransaction"},
+        "statement": {"$ref": "#/$defs/nonEmpty"}
+      },
+      "required": ["status", "asset", "amount_wei", "payer_role", "payment_transaction", "statement"],
+      "unevaluatedProperties": false
+    },
+    "executingAgent": {
+      "type": "object",
+      "properties": {
+        "address": {"$ref": "#/$defs/address"},
+        "role": {"type": "string", "enum": ["acquisition_wallet", "authorized_purchasing_agent"]},
+        "authority_source": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
+        "retained_interest": {"type": "string", "enum": ["none_asserted", "disclaimed_by_agent_declaration"]},
+        "statement": {"$ref": "#/$defs/nonEmpty"}
+      },
+      "required": ["address", "role", "authority_source", "retained_interest", "statement"],
+      "unevaluatedProperties": false
+    },
+    "seller": {
+      "description": "The seller, by role. Its address is recorded only in the provenance schedule of the named accession lot; the validator joins that schedule to the purchase transfer log.",
+      "type": "object",
+      "properties": {
+        "role": {"type": "string", "enum": ["earlier_private_holder", "artist", "platform", "institution"]},
+        "address_disclosure": {"const": "accession_lot_provenance_schedule"},
+        "provenance_record_id": {"type": "string", "pattern": "^6529NM\\.\\d{4}\\.\\d{3}$"}
+      },
+      "required": ["role", "address_disclosure", "provenance_record_id"],
+      "unevaluatedProperties": false
+    },
+    "tokenSelection": {
+      "type": "object",
+      "properties": {
+        "selection_basis": {"type": "string", "enum": ["named_in_authorizing_proposal", "executing_agent_within_authorization"]},
+        "statement": {"$ref": "#/$defs/nonEmpty"}
+      },
+      "required": ["selection_basis", "statement"],
+      "unevaluatedProperties": false
+    }
+  },
+  "allOf": [
+    {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/commonPayload"},
+    {
+      "type": "object",
+      "properties": {
+        "record_type": {"const": "ACQUISITION_AUTHORIZATION"},
+        "schema_id": {"const": "0x00686e3e460412351a57431a74bd46252c84df12db5df0715748d46b7404e5a1"},
+        "record_status": {"enum": ["constructed", "review_pending", "reviewed", "superseded"]},
+        "review_status": {"enum": ["pending_independent_review", "reviewed", "superseded"]},
+        "authorization_id": {"type": "string", "pattern": "^6529NM\\.\\d{4}\\.\\d{3}\\.AQA-\\d{2}$"},
+        "authorization_kind": {"const": "wave_authorized_purchase_acquisition"},
+        "authorization_status": {"const": "formally_accepted"},
+        "outcome": {"const": "formally_accepted_purchase_and_accession_authorization"},
+        "formal_acceptance_date": {"type": "string", "format": "date-time"},
+        "acquisition_method": {"const": "purchase"},
+        "public_credit": {"$ref": "#/$defs/nonEmpty"},
+        "permanent_collection_intent": {"$ref": "#/$defs/nonEmpty"},
+        "funding_basis": {"$ref": "#/$defs/fundingBasis"},
+        "consideration": {"$ref": "#/$defs/consideration"},
+        "executing_agent": {"$ref": "#/$defs/executingAgent"},
+        "seller": {"$ref": "#/$defs/seller"},
+        "token_selection": {"$ref": "#/$defs/tokenSelection"},
+        "governing_basis": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"$ref": "https://6529networkmuseum.org/schemas/gift-acceptance-authorization-v1.json#/$defs/governingBasis"}
+        },
+        "program_authorization_limitations": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/nonEmpty"}},
+        "assets": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"$ref": "https://6529networkmuseum.org/schemas/gift-acceptance-authorization-v1.json#/$defs/asset"}
+        },
+        "custody_receipts": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"$ref": "https://6529networkmuseum.org/schemas/gift-acceptance-authorization-v1.json#/$defs/receiptWithLogs"}
+        },
+        "institutional_decision_authority": {"$ref": "https://6529networkmuseum.org/schemas/gift-acceptance-authorization-v1.json#/$defs/institutionalDecisionAuthority"},
+        "completion_boundary": {"$ref": "https://6529networkmuseum.org/schemas/gift-acceptance-authorization-v1.json#/$defs/completionBoundary"},
+        "completion_blockers": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/nonEmpty"}},
+        "non_claims": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/nonEmpty"}},
+        "payload_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+      },
+      "required": [
+        "authorization_id",
+        "authorization_kind",
+        "authorization_status",
+        "outcome",
+        "formal_acceptance_date",
+        "acquisition_method",
+        "public_credit",
+        "permanent_collection_intent",
+        "funding_basis",
+        "consideration",
+        "executing_agent",
+        "seller",
+        "token_selection",
+        "governing_basis",
+        "program_authorization_limitations",
+        "assets",
+        "custody_receipts",
+        "institutional_decision_authority",
+        "completion_boundary",
+        "completion_blockers",
+        "non_claims",
+        "payload_sha256"
+      ]
+    }
+  ],
+  "unevaluatedProperties": false
+}

@@ -1,0 +1,154 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x6040e92d1e576c875aa733d2d9359a0ef9152e5dd938792edbdbc5f7a14593e2"
+    },
+    "effectiveAt": 1792325700,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x250aa111e01f23f3942e035e5a2b1963d7554f7a164e243e3282459bff893800",
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-ART-0025.json"
+  },
+  "payload": {
+    "canonical_route": "/museum/network/artists/xcopy",
+    "constructor": {
+      "id": "claude-code-task:max-pain-4188-accession-2026-10-18",
+      "observed_at": "2026-10-18T12:15:00Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-10-18T12:15:00Z",
+    "effective_at": "2026-10-18T12:15:00Z",
+    "entity_id": "6529NM-ART-0025",
+    "entity_status": "review_pending",
+    "entity_type": "ARTIST",
+    "evidence_refs": [
+      {
+        "evidence_class": "E",
+        "label": "XCOPY artist study",
+        "observed_at": "2026-10-18T12:15:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/public/xcopy-artist-practice.md"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Artist work page transcript",
+        "observed_at": "2026-10-18T12:15:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-sources/raw/xcopy-art/xcopy-art-works-max-pain.txt"
+      }
+    ],
+    "observed_at": "2026-10-18T12:15:00Z",
+    "page_exposure": "canonical_page",
+    "payload_sha256": "sha256:6de737c7f54e51187beee919cfc54f3732263fad26d610682068d33bb3a35c5e",
+    "preferred_label": "XCOPY",
+    "profile": {
+      "authority": {
+        "authority_record_ids": [],
+        "authority_status": "established",
+        "evidence_refs": [
+          {
+            "evidence_class": "E",
+            "label": "XCOPY artist study",
+            "observed_at": "2026-10-18T12:15:00Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/public/xcopy-artist-practice.md"
+          },
+          {
+            "evidence_class": "B",
+            "label": "Artist work page transcript",
+            "observed_at": "2026-10-18T12:15:00Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-sources/raw/xcopy-art/xcopy-art-works-max-pain.txt"
+          }
+        ]
+      },
+      "name_variants": [
+        {
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Name source",
+              "observed_at": "2026-10-18T12:15:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/objects/6529NM.2026.005.01.json"
+            },
+            {
+              "evidence_class": "B",
+              "label": "Name source",
+              "observed_at": "2026-10-18T12:15:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-acquisitions/6529NM-PA-2026-001/proposal.json"
+            }
+          ],
+          "source_kind": "museum_record",
+          "value": "XCOPY",
+          "variant_role": "preferred"
+        }
+      ],
+      "practice": {
+        "areas": [
+          "looping animation",
+          "GIF",
+          "glitch",
+          "tokenized editions",
+          "CC0"
+        ],
+        "evidence_refs": [
+          {
+            "evidence_class": "E",
+            "label": "XCOPY artist study",
+            "observed_at": "2026-10-18T12:15:00Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/public/xcopy-artist-practice.md"
+          },
+          {
+            "evidence_class": "B",
+            "label": "Artist work page transcript",
+            "observed_at": "2026-10-18T12:15:00Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-sources/raw/xcopy-art/xcopy-art-works-max-pain.txt"
+          }
+        ],
+        "summary": "XCOPY makes short looping animations and releases them as tokens, chiefly on Ethereum, under a pseudonym. In the releases the Museum has examined, the looping GIF remains the unit of release, while edition size, destruction, and copyright have become terms the artist works with."
+      },
+      "profile_type": "ARTIST"
+    },
+    "public_slug": "xcopy",
+    "record_id": "6529NM-ART-0025",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-PA-2026-001",
+      "6529NM.2026.005.01"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM-PA-2026-001",
+      "6529NM.2026.005.01"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "E",
+          "label": "XCOPY artist study",
+          "observed_at": "2026-10-18T12:15:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/public/xcopy-artist-practice.md"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Artist work page transcript",
+          "observed_at": "2026-10-18T12:15:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-sources/raw/xcopy-art/xcopy-art-works-max-pain.txt"
+        }
+      ],
+      "observed_at": "2026-10-18T12:15:00Z",
+      "status_label": "review_pending"
+    },
+    "subject_id": "6529NM-ART-0025",
+    "visibility": "public"
+  }
+}

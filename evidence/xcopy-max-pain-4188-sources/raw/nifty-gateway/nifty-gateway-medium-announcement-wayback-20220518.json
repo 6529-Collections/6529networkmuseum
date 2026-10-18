@@ -1,0 +1,80 @@
+{
+  "payload": {
+    "article_text_sha256": "sha256:8fcbcf09c655e3126c69ec360d2729e7df2f0c975fdd1702af542ed662ec7072",
+    "citations": [
+      {
+        "found_verbatim": true,
+        "text": "MAX PAIN, 1 ETH, 10 Minute Open Edition"
+      },
+      {
+        "found_verbatim": true,
+        "text": "It’s inspired by the chaos, adrenaline and risk in this space."
+      }
+    ],
+    "evidence_class": "B",
+    "publication": "Nifty Gateway publication on Medium, 23 March 2022 (announcement with an XCOPY Q&A)",
+    "retention_boundary": "Only the two short citations are retained; the article text is a third-party work and is not reproduced.",
+    "snapshot": {
+      "archive": "Internet Archive Wayback Machine",
+      "mode": "if_ (archived page without toolbar); the served capture is the record's served_url",
+      "requested_timestamp": "20220518011554"
+    }
+  },
+  "raw_response": {
+    "media_type": "text/html",
+    "reason": "Raw HTML embeds executable script elements and third-party page text; only the listed facts and short citations are retained.",
+    "retained": false,
+    "sha256": "sha256:dad40b0a5c13afebb68394f10371de550a18e060fe3878320afc035e905ba620",
+    "size": 157080
+  },
+  "served_url": "https://web.archive.org/web/20220518011554if_/https://medium.com/nifty-gateway/max-pain-and-frens-by-xcopy-959350e0fc70",
+  "source_id": "nifty-gateway-medium-announcement-wayback-20220518",
+  "transport": {
+    "address_set": [
+      "207.241.237.3"
+    ],
+    "address_set_sha256": "3587b84ee232ddfa28b3d22139f007a5c7134de08e4268b1c8978bdf8aa9caa4",
+    "attempts": 1,
+    "byte_length": 157080,
+    "byte_sha256": "dad40b0a5c13afebb68394f10371de550a18e060fe3878320afc035e905ba620",
+    "canonical_url": "https://web.archive.org/web/20220518011554if_/https://medium.com/nifty-gateway/max-pain-and-frens-by-xcopy-959350e0fc70",
+    "hops": [
+      {
+        "address_set": [
+          "207.241.237.3"
+        ],
+        "address_set_sha256": "3587b84ee232ddfa28b3d22139f007a5c7134de08e4268b1c8978bdf8aa9caa4",
+        "byte_length": 157080,
+        "canonical_url": "https://web.archive.org/web/20220518011554if_/https://medium.com/nifty-gateway/max-pain-and-frens-by-xcopy-959350e0fc70",
+        "media_type": "text/html",
+        "observed_at": "2026-10-18T08:16:14.137Z",
+        "peer_ip": "207.241.237.3",
+        "response_headers": [
+          [
+            "content-type",
+            "text/html; charset=utf-8"
+          ]
+        ],
+        "selected_ip": "207.241.237.3",
+        "status": 200
+      }
+    ],
+    "media_type": "text/html",
+    "observed_at": "2026-10-18T08:16:14.137Z",
+    "peer_ip": "207.241.237.3",
+    "redirect_chain": [
+      "https://web.archive.org/web/20220518011554if_/https://medium.com/nifty-gateway/max-pain-and-frens-by-xcopy-959350e0fc70"
+    ],
+    "resolver_profile": "system_getaddrinfo",
+    "resolver_revision": "python-socket.getaddrinfo-v1",
+    "response_headers": [
+      [
+        "content-type",
+        "text/html; charset=utf-8"
+      ]
+    ],
+    "selected_ip": "207.241.237.3",
+    "status": 200
+  },
+  "url": "https://web.archive.org/web/20220518011554if_/https://medium.com/nifty-gateway/max-pain-and-frens-by-xcopy-959350e0fc70"
+}

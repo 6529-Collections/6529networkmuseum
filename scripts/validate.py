@@ -103,8 +103,17 @@ RECORD_REFERENCE_KEYS = {
     "source_accession_record_id",
     "derived_from_media_entity_id",
     "accession_object_id",
+    "acquisition_authorization_record",
 }
 ACCESSION_EVENT_ORDER = ("receipt", "acceptance", "acquisition", "title_passage", "custody_receipt", "accession")
+# Supported ACCESSION title-passage instrument kinds and the acquisition method
+# each one is limited to (None: any method).
+TITLE_INSTRUMENT_ACQUISITION_METHODS: dict[str, str | None] = {
+    "off_chain_instrument": None,
+    "institutional_gift_title_declaration": "donation",
+    "institutional_purchase_title_declaration": "purchase",
+}
+PURCHASE_CREDIT_GIFT_WORDING = re.compile(r"gift\s+of|donat", re.IGNORECASE)
 PUBLIC_ENTITY_TYPE = "PUBLIC_ENTITY"
 PUBLIC_RELATION_TYPE = "PUBLIC_RELATION"
 RELEASE_REVIEW_BOUND_RECORD_TYPES = {
@@ -658,8 +667,13 @@ def validate_event_history(payload: dict[str, Any]) -> list[str]:
                     issues.append("ACCESSION title_passage instrument sha256 must match every title binding")
                 if isinstance(binding, dict) and instrument.get("custodian_reference") and binding.get("custodian_reference") != instrument.get("custodian_reference"):
                     issues.append("ACCESSION title_passage custodian_reference must match every title binding")
-        if instrument.get("kind") not in {"off_chain_instrument", "institutional_gift_title_declaration"}:
+        instrument_kind = instrument.get("kind")
+        if not isinstance(instrument_kind, str) or instrument_kind not in TITLE_INSTRUMENT_ACQUISITION_METHODS:
             issues.append("ACCESSION title_passage must identify a supported title instrument")
+        else:
+            required_method = TITLE_INSTRUMENT_ACQUISITION_METHODS[instrument_kind]
+            if required_method is not None and payload.get("acquisition_method") != required_method:
+                issues.append(f"ACCESSION title_passage {instrument_kind} requires acquisition_method {required_method}")
         executed_bindings = [binding for binding in bindings if isinstance(binding, dict) and binding.get("status") == "executed"] if isinstance(bindings, list) else []
         path_ids = [path.get("object_id") for path in custody_paths]
         object_ids = payload.get("object_ids") if isinstance(payload.get("object_ids"), list) else []
@@ -730,6 +744,280 @@ def validate_gift_acceptance_authorization(payload: dict[str, Any]) -> list[str]
             issues.append("GIFT_ACCEPTANCE_AUTHORIZATION.custody_receipts logs must exactly cover assets")
     elif receipt.get("transfer_count") != len(assets):
         issues.append("GIFT_ACCEPTANCE_AUTHORIZATION.custody_receipt.transfer_count must equal assets.length")
+    return issues
+
+
+def _lower_address(value: Any) -> str | None:
+    return value.lower() if isinstance(value, str) else None
+
+
+def validate_acquisition_authorization(payload: dict[str, Any]) -> list[str]:
+    """Enforce purchase-authorization invariants that JSON Schema cannot project.
+
+    The executing agent buys from the seller in one transaction and delivers to
+    Museum custody in a separate transaction. Every asset must be covered once
+    by the purchase transfer logs and once by the Museum custody receipts.
+    """
+    if payload.get("record_type") != "ACQUISITION_AUTHORIZATION":
+        return []
+    label = "ACQUISITION_AUTHORIZATION"
+    issues: list[str] = []
+    assets = payload.get("assets")
+    if not isinstance(assets, list) or not all(isinstance(asset, dict) for asset in assets):
+        return [f"{label}.assets must be an array of objects"]
+    projections: tuple[tuple[str, Any], ...] = (
+        ("object_id", lambda asset: asset.get("object_id")),
+        ("caip19", lambda asset: asset.get("caip19", "").lower() if isinstance(asset.get("caip19"), str) else None),
+        ("contract+token_id", lambda asset: (_lower_address(asset.get("contract")), asset.get("token_id"))),
+        ("custody_receipt_log", lambda asset: asset.get("custody_receipt_log")),
+    )
+    for projection_label, projection in projections:
+        values = [frozen_projection(projection(asset)) for asset in assets]
+        if len(values) != len(set(values)):
+            issues.append(f"{label}.assets contains duplicate {projection_label}")
+    object_ids = sorted(frozen_projection(asset.get("object_id")) for asset in assets)
+
+    agent = payload.get("executing_agent") if isinstance(payload.get("executing_agent"), dict) else {}
+    seller = payload.get("seller") if isinstance(payload.get("seller"), dict) else {}
+    agent_address = _lower_address(agent.get("address"))
+    # The seller is named by role. Its address lives only in the accession
+    # lot's provenance schedule, which validate_purchase_provenance_joins()
+    # checks against this record's purchase transfer logs.
+    if seller.get("provenance_record_id") != payload.get("subject_id"):
+        issues.append(f"{label}.seller.provenance_record_id must equal subject_id, the accession lot that records the seller's address")
+
+    consideration = payload.get("consideration") if isinstance(payload.get("consideration"), dict) else {}
+    payment = consideration.get("payment_transaction") if isinstance(consideration.get("payment_transaction"), dict) else {}
+    amount = consideration.get("amount_wei")
+    if isinstance(amount, str) and amount.isdigit() and int(amount) == 0:
+        issues.append(f"{label}.consideration.amount_wei must be positive for a paid purchase")
+    asset_type = consideration.get("asset")
+    if isinstance(asset_type, str) and asset_type.endswith("/slip44:60") and payment.get("value_wei") != amount:
+        issues.append(f"{label}.consideration.payment_transaction.value_wei must equal consideration.amount_wei for a native ETH payment")
+    if consideration.get("payer_role") == "executing_agent" and _lower_address(payment.get("from")) != agent_address:
+        issues.append(f"{label}.consideration.payment_transaction.from must equal executing_agent.address")
+    transfer_logs = payment.get("transfer_logs") if isinstance(payment.get("transfer_logs"), list) else []
+    transfer_logs = [log for log in transfer_logs if isinstance(log, dict)]
+    if sorted(frozen_projection(log.get("object_id")) for log in transfer_logs) != object_ids:
+        issues.append(f"{label}.consideration.payment_transaction.transfer_logs must cover every asset exactly once")
+    for index, log in enumerate(transfer_logs):
+        if log.get("from_party") != "seller":
+            issues.append(f"{label}.consideration.payment_transaction.transfer_logs[{index}].from_party must be the seller")
+        if _lower_address(log.get("to")) != agent_address:
+            issues.append(f"{label}.consideration.payment_transaction.transfer_logs[{index}].to must equal executing_agent.address")
+
+    receipts = payload.get("custody_receipts")
+    receipts = [item for item in receipts if isinstance(item, dict)] if isinstance(receipts, list) else []
+    if sum(item.get("transfer_count", 0) for item in receipts if isinstance(item.get("transfer_count"), int)) != len(assets):
+        issues.append(f"{label}.custody_receipts transfer counts must equal assets.length")
+    receipt_logs = [log for item in receipts for log in item.get("logs", []) if isinstance(log, dict)]
+    expected_logs = sorted(frozen_projection((asset.get("object_id"), asset.get("custody_receipt_log"))) for asset in assets)
+    actual_logs = sorted(frozen_projection((log.get("object_id"), log.get("log_index"))) for log in receipt_logs)
+    if actual_logs != expected_logs:
+        issues.append(f"{label}.custody_receipts logs must exactly cover assets")
+    payment_hash = _lower_address(payment.get("transaction_hash"))
+    payment_block = payment.get("block_number")
+    for index, receipt in enumerate(receipts):
+        if _lower_address(receipt.get("from")) != agent_address:
+            issues.append(f"{label}.custody_receipts[{index}].from must equal executing_agent.address")
+        if _lower_address(receipt.get("to")) == agent_address:
+            issues.append(f"{label}.custody_receipts[{index}].to must be the Museum custody address, not the agent")
+        if payment_hash is not None and _lower_address(receipt.get("transaction_hash")) == payment_hash:
+            issues.append(f"{label}: payment and Museum receipt must be separate transactions")
+        if isinstance(payment_block, int) and isinstance(receipt.get("block_number"), int) and receipt["block_number"] < payment_block:
+            issues.append(f"{label}.custody_receipts[{index}]: custody receipt must not precede the payment")
+
+    governing = payload.get("governing_basis")
+    governing = [item for item in governing if isinstance(item, dict)] if isinstance(governing, list) else []
+    governing_ids = {item.get("decision_id") for item in governing} | {item.get("record_id") for item in governing}
+    if agent.get("authority_source") not in governing_ids - {None}:
+        issues.append(f"{label}.executing_agent.authority_source must name a governing_basis decision or record")
+    if payload.get("authorization_kind") == "wave_authorized_purchase_acquisition" and not any(
+        item.get("basis_type") == "wave_governance_decision"
+        and item.get("governance_effect") == "adopted"
+        and item.get("observed_wave_status") == "WINNER"
+        and item.get("live_api_status") == "WINNER"
+        for item in governing
+    ):
+        issues.append(f"{label}.governing_basis must include an adopted WINNER Wave decision for a Wave-authorized purchase")
+
+    decision = payload.get("institutional_decision_authority")
+    if isinstance(decision, dict) and payload.get("formal_acceptance_date") != decision.get("effective_at"):
+        issues.append(f"{label}.formal_acceptance_date must equal institutional_decision_authority.effective_at")
+    boundary = payload.get("completion_boundary") if isinstance(payload.get("completion_boundary"), dict) else {}
+    accessioned = boundary.get("current_state") == "accessioned"
+    complete = boundary.get("accession_status") == "complete"
+    if accessioned != complete or (
+        accessioned
+        and (boundary.get("title_binding") != "executed" or boundary.get("external_work_accession_certificate") != "executed")
+    ):
+        issues.append(f"{label}: an accessioned completion_boundary requires a complete accession, an executed title binding, and an executed certificate")
+
+    credit = payload.get("public_credit")
+    if isinstance(credit, str) and PURCHASE_CREDIT_GIFT_WORDING.search(credit):
+        issues.append(f"{label}.public_credit must describe a purchase and must not describe a gift or donation")
+    return issues
+
+
+def validate_purchase_provenance_joins(payloads: Iterable[tuple[str, dict[str, Any]]]) -> list[str]:
+    """Join each purchase authorization to its accession lot's provenance schedule.
+
+    ACQUISITION_AUTHORIZATION names a private seller by role only. The seller's
+    address is recorded once, in the transaction provenance schedule of the
+    accession lot that the authorization names. That schedule must record, for
+    every asset, the purchase transfer from a distinct seller address to the
+    executing agent and the Museum receipt from the agent to Museum custody, in
+    that order. Every custody receipt must also deliver to the lot's Museum
+    custody address (``common_receipt.museum_custody_address``).
+    """
+    rows = [(relative, payload) for relative, payload in payloads if isinstance(payload, dict)]
+    lots = {
+        payload.get("record_id"): payload
+        for _relative, payload in rows
+        if payload.get("record_type") == "ACCESSION_LOT"
+    }
+    zero_address = "0x" + "0" * 40
+    issues: list[str] = []
+    for relative, payload in rows:
+        if payload.get("record_type") != "ACQUISITION_AUTHORIZATION":
+            continue
+        seller = payload.get("seller") if isinstance(payload.get("seller"), dict) else {}
+        lot = lots.get(seller.get("provenance_record_id"))
+        schedule = lot.get("provenance_schedule") if isinstance(lot, dict) else None
+        if not isinstance(schedule, dict):
+            issues.append(f"{relative}: seller.provenance_record_id must name an accession lot whose provenance_schedule records the purchase")
+            continue
+        agent = payload.get("executing_agent") if isinstance(payload.get("executing_agent"), dict) else {}
+        agent_address = _lower_address(agent.get("address"))
+        consideration = payload.get("consideration") if isinstance(payload.get("consideration"), dict) else {}
+        payment = consideration.get("payment_transaction") if isinstance(consideration.get("payment_transaction"), dict) else {}
+        payment_hash = _lower_address(payment.get("transaction_hash"))
+        receipts = [item for item in payload.get("custody_receipts", []) if isinstance(item, dict)] if isinstance(payload.get("custody_receipts"), list) else []
+        museum_addresses = {_lower_address(item.get("to")) for item in receipts} - {None}
+        common_receipt = schedule.get("common_receipt") if isinstance(schedule.get("common_receipt"), dict) else {}
+        custody_address = _lower_address(common_receipt.get("museum_custody_address"))
+        if custody_address is None:
+            issues.append(f"{relative}: the {seller.get('provenance_record_id')} provenance schedule must name the Museum custody address")
+        for receipt in receipts:
+            if _lower_address(receipt.get("to")) != custody_address:
+                issues.append(f"{relative}: custody receipt {receipt.get('transaction_hash')} must deliver to the lot's Museum custody address")
+        events_by_object: dict[Any, list[dict[str, Any]]] = {}
+        for item in schedule.get("objects", []) if isinstance(schedule.get("objects"), list) else []:
+            if isinstance(item, dict) and isinstance(item.get("events"), list):
+                events_by_object[item.get("object_id")] = [event for event in item["events"] if isinstance(event, dict)]
+        purchase_positions: dict[Any, int] = {}
+        for log in payment.get("transfer_logs", []) if isinstance(payment.get("transfer_logs"), list) else []:
+            if not isinstance(log, dict):
+                continue
+            object_id = log.get("object_id")
+            events = events_by_object.get(object_id, [])
+            matches = [
+                (position, event)
+                for position, event in enumerate(events)
+                if _lower_address(event.get("tx")) == payment_hash and event.get("log") == log.get("log_index")
+            ]
+            if len(matches) != 1:
+                issues.append(f"{relative}: the {seller.get('provenance_record_id')} provenance schedule must record the purchase transfer of {object_id} exactly once")
+                continue
+            position, event = matches[0]
+            purchase_positions[object_id] = position
+            if _lower_address(event.get("to")) != agent_address:
+                issues.append(f"{relative}: the provenance schedule's purchase transfer of {object_id} must run to the executing agent")
+            sender = _lower_address(event.get("from"))
+            if sender is None or sender in {agent_address, zero_address} or sender in museum_addresses:
+                issues.append(f"{relative}: the provenance schedule must record a seller address distinct from the agent, the zero address, and Museum custody for {object_id}")
+        for receipt in receipts:
+            receipt_hash = _lower_address(receipt.get("transaction_hash"))
+            for log in receipt.get("logs", []) if isinstance(receipt.get("logs"), list) else []:
+                if not isinstance(log, dict):
+                    continue
+                object_id = log.get("object_id")
+                matches = [
+                    (position, event)
+                    for position, event in enumerate(events_by_object.get(object_id, []))
+                    if event.get("kind") == "museum_receipt"
+                    and _lower_address(event.get("tx")) == receipt_hash
+                    and event.get("log") == log.get("log_index")
+                ]
+                if len(matches) != 1:
+                    issues.append(f"{relative}: the provenance schedule must record the Museum receipt of {object_id} exactly once")
+                    continue
+                position, event = matches[0]
+                if _lower_address(event.get("from")) != agent_address or _lower_address(event.get("to")) != _lower_address(receipt.get("to")):
+                    issues.append(f"{relative}: the provenance schedule's Museum receipt of {object_id} must run from the executing agent to Museum custody")
+                if object_id in purchase_positions and position <= purchase_positions[object_id]:
+                    issues.append(f"{relative}: the provenance schedule must place the purchase of {object_id} before its Museum receipt")
+    return issues
+
+
+def validate_register_purchase_lots(
+    registers: Iterable[tuple[str, dict[str, Any]]],
+    payloads: Iterable[tuple[str, dict[str, Any]]],
+) -> list[str]:
+    """Require each purchase lot in the accession register to agree with its authorization.
+
+    The register repeats the authorization's identifiers, consideration,
+    receipt, custody, and public credit for reading at a glance. Each repeated
+    value must equal the ACQUISITION_AUTHORIZATION record it names.
+    """
+    authorizations = {
+        payload.get("record_id"): payload
+        for _relative, payload in payloads
+        if isinstance(payload, dict) and payload.get("record_type") == "ACQUISITION_AUTHORIZATION"
+    }
+    issues: list[str] = []
+    for relative, register in registers:
+        lots = register.get("lots") if isinstance(register, dict) else None
+        for lot in lots if isinstance(lots, list) else []:
+            if not isinstance(lot, dict) or lot.get("acquisition_method") != "purchase":
+                continue
+            lot_id = lot.get("accession_lot_id")
+            label = f"{relative}: purchase lot {lot_id}"
+            authorization = authorizations.get(lot.get("acquisition_authorization_record"))
+            if authorization is None:
+                issues.append(f"{label} must name an ACQUISITION_AUTHORIZATION record")
+                continue
+            seller = authorization.get("seller") if isinstance(authorization.get("seller"), dict) else {}
+            if seller.get("provenance_record_id") != lot_id:
+                issues.append(f"{label} and its authorization name different accession lots")
+            assets = authorization.get("assets") if isinstance(authorization.get("assets"), list) else []
+            if lot.get("object_count") != len(assets):
+                issues.append(f"{label} object_count must equal the authorization's asset count")
+            if lot.get("accession_certificate_record") not in (authorization.get("references") or []):
+                issues.append(f"{label} accession certificate must be referenced by its authorization")
+            if lot.get("public_credit") != authorization.get("public_credit"):
+                issues.append(f"{label} public_credit must equal its authorization's public_credit")
+            consideration = authorization.get("consideration") if isinstance(authorization.get("consideration"), dict) else {}
+            payment = consideration.get("payment_transaction") if isinstance(consideration.get("payment_transaction"), dict) else {}
+            summary = lot.get("consideration_summary") if isinstance(lot.get("consideration_summary"), dict) else {}
+            for field, expected in (
+                ("asset", consideration.get("asset")),
+                ("amount_wei", consideration.get("amount_wei")),
+                ("payer_role", consideration.get("payer_role")),
+            ):
+                if summary.get(field) != expected:
+                    issues.append(f"{label} consideration_summary.{field} must equal its authorization")
+            if _lower_address(summary.get("payment_transaction")) != _lower_address(payment.get("transaction_hash")):
+                issues.append(f"{label} consideration_summary.payment_transaction must equal its authorization's payment transaction")
+            receipt = lot.get("receipt_event") if isinstance(lot.get("receipt_event"), dict) else {}
+            receipts = [item for item in authorization.get("custody_receipts", []) if isinstance(item, dict)] if isinstance(authorization.get("custody_receipts"), list) else []
+            matches = [item for item in receipts if _lower_address(item.get("transaction_hash")) == _lower_address(receipt.get("transaction_hash"))]
+            if len(matches) != 1:
+                issues.append(f"{label} receipt_event must name exactly one of its authorization's custody receipts")
+                continue
+            match = matches[0]
+            for field in ("block_number", "block_time", "receipt_status", "transfer_count"):
+                if receipt.get(field) != match.get(field):
+                    issues.append(f"{label} receipt_event.{field} must equal its authorization's custody receipt")
+            for field in ("from", "to"):
+                if _lower_address(receipt.get(field)) != _lower_address(match.get(field)):
+                    issues.append(f"{label} receipt_event.{field} must equal its authorization's custody receipt")
+            log_indices = {log.get("log_index") for log in match.get("logs", []) if isinstance(log, dict)} if isinstance(match.get("logs"), list) else set()
+            if receipt.get("log_index") not in log_indices:
+                issues.append(f"{label} receipt_event.log_index must be a log of its authorization's custody receipt")
+            custody = lot.get("custody") if isinstance(lot.get("custody"), dict) else {}
+            if _lower_address(custody.get("address")) != _lower_address(match.get("to")):
+                issues.append(f"{label} custody address must be the receipt's Museum custody address")
     return issues
 
 
@@ -1388,6 +1676,9 @@ def validate_public_payload(payload: dict[str, Any], vocabularies: dict[str, Any
                 issues.append("public entity: curated acquisition requires all eight typed independent acquisition facts")
             lifecycle = profile.get("lifecycle", {}).get("status") if isinstance(profile.get("lifecycle"), dict) else None
             collection_effect = profile.get("collection_effect")
+            public_credit = profile.get("public_credit")
+            if profile.get("acquisition_method") == "purchase" and isinstance(public_credit, str) and PURCHASE_CREDIT_GIFT_WORDING.search(public_credit):
+                issues.append("public entity: purchase Curated Acquisition public_credit must not describe a gift or donation")
             if lifecycle == "accessioned_into_permanent_collection" and collection_effect != "permanent_collection":
                 issues.append("public entity: accessioned Curated Acquisition must have permanent_collection effect")
             if lifecycle in {"proposed_in_museum_wave", "selected_by_museum_wave_acquisition_review_in_progress", "selected_through_acquisition_program_acquisition_pending"} and collection_effect == "permanent_collection":
@@ -1715,6 +2006,7 @@ def validate_semantics(record: dict[str, Any], vocabularies: dict[str, Any], ide
             issues.append(str(exc))
     issues.extend(inspect_sensitive(payload))
     issues.extend(validate_gift_acceptance_authorization(payload))
+    issues.extend(validate_acquisition_authorization(payload))
     issues.extend(validate_visual_observation(payload))
     provenance_schedule = payload.get("provenance_schedule") if record_type == "ACCESSION_LOT" else payload if record_type == "transaction_provenance_schedule" else None
     if isinstance(provenance_schedule, dict):
@@ -2579,6 +2871,42 @@ def validate_public_graph(
     return issues
 
 
+PROPOSED_ACQUISITION_SCHEMA = "../../../schemas/proposed-acquisition.schema.json"
+PROPOSED_ACQUISITIONS_DIR = ("records", "proposed-acquisitions")
+
+
+def validate_proposed_acquisition_layout(root: Path, records: Iterable[tuple[Path, Any]]) -> list[str]:
+    """Keep purchase proposals in their own family, one record per candidate directory.
+
+    A proposed acquisition is never filed as a proposed gift: proposed-gift
+    tooling reads only records/proposed-gifts/, so a misplaced purchase
+    proposal would escape both families' checks.
+    """
+    issues: list[str] = []
+    for path, record in records:
+        if not isinstance(record, dict):
+            continue
+        try:
+            relative = path.relative_to(root)
+        except ValueError:
+            continue
+        parts = relative.parts
+        in_family = parts[:2] == PROPOSED_ACQUISITIONS_DIR
+        declares_family = record.get("$schema") == PROPOSED_ACQUISITION_SCHEMA or record.get("record_type") == "PROPOSED_ACQUISITION"
+        is_proposal_file = in_family and len(parts) == 4 and parts[3] == "proposal.json"
+        label = relative.as_posix()
+        if declares_family and not is_proposal_file:
+            issues.append(f"{label}: a proposed acquisition record must live at records/proposed-acquisitions/<proposal_id>/proposal.json")
+            continue
+        if not is_proposal_file:
+            continue
+        if record.get("$schema") != PROPOSED_ACQUISITION_SCHEMA:
+            issues.append(f"{label}: proposal.json under records/proposed-acquisitions must declare the proposed-acquisition schema")
+        if record.get("proposal_id") != parts[2]:
+            issues.append(f"{label}: proposed acquisition directory must equal proposal_id")
+    return issues
+
+
 def validate_records(root: Path) -> list[str]:
     issues: list[str] = []
     schema_root = root if (root / "schemas").is_dir() else REPO_ROOT
@@ -2753,6 +3081,12 @@ def validate_records(root: Path) -> list[str]:
         if isinstance(record.get("envelope"), dict):
             issues.extend(f"{relative}: {message}" for message in validate_semantics(record, vocabularies, identity_inventory, root))
         records.append((path, record, payload))
+    issues.extend(
+        validate_proposed_acquisition_layout(
+            root,
+            ((path, record) for path, record, payload in records if payload is None),
+        )
+    )
     aliases = {}
     has_public_entities = any(
         isinstance(payload, dict) and payload.get("record_type") == PUBLIC_ENTITY_TYPE
@@ -2791,6 +3125,21 @@ def validate_records(root: Path) -> list[str]:
                     allowed_cross_type = supersession_pair == ("MEDIA_DESCRIPTION_AMENDMENT", "WAVE_PUBLICATION_OBSERVATION")
                     if superseded.get("payload", {}).get("record_type") != payload.get("record_type") and not allowed_cross_type:
                         issues.append(f"{relative}: supersedes must point to the same record_type")
+    issues.extend(
+        validate_purchase_provenance_joins(
+            (path.relative_to(root).as_posix(), payload) for path, _record, payload in records if isinstance(payload, dict)
+        )
+    )
+    issues.extend(
+        validate_register_purchase_lots(
+            (
+                (path.relative_to(root).as_posix(), record)
+                for path, record, payload in records
+                if payload is None and isinstance(record, dict) and record.get("register_id") == "6529NM-ACCESSION-REGISTER"
+            ),
+            ((path.relative_to(root).as_posix(), payload) for path, _record, payload in records if isinstance(payload, dict)),
+        )
+    )
     issues.extend(validate_public_graph(records, vocabularies, identity_inventory, root))
     public_entities = {
         payload.get("entity_id"): payload

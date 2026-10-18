@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xb5d8626904610a1b1e61af298f6c5e31e808cb26166abb60ac72e3848122edcb"
+      "digest": "0xecd130b58cc5d17b56defe10b68538445dab129df0b07596474f9510fa52fbf0"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_RELATION",
@@ -36,14 +36,14 @@
       }
     ],
     "observed_at": "2026-08-01T15:03:35Z",
-    "payload_sha256": "sha256:e6c5660a9af292def9d56eca1ba3d9c758fb3f124c56e9c71ff79c8dcef8e2e7",
+    "payload_sha256": "sha256:715d6f8691b49e2480d0ea683b70c5e308f31630940c37ef7b6ae943f3466708",
     "qualifier": {
       "display_order": 7,
       "scope": "source_project",
       "selection_status": "selected_unminted"
     },
     "record_id": "6529NM-REL-0069",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_RELATION",
     "record_version": "1.0.0",
     "references": [
@@ -53,19 +53,8 @@
     ],
     "relation_id": "6529NM-REL-0069",
     "relation_type": "CURATED_ACQUISITION_BRINGS_TOGETHER_WORK",
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "claude-reviewer:museum-governance-2026-10-18-independent",
-      "outcome": "approved",
-      "reviewed_at": "2026-10-18T09:39:49Z",
-      "reviewed_commit": "9dd1c3e9ae7c0d8c77071b0b109a2cdc9bb7095f",
-      "reviewed_manifest_keccak": "0x64a95512f8901579e36a6d443e534e6335dcf04cb75c2916115a003c7b30cc02",
-      "reviewed_manifest_sha256": "sha256:74eea95ef31da7f314f1d1d9935b2e4d0775010dde8ceab0205c27918dcdd866",
-      "reviewer_ids": [
-        "claude-reviewer:museum-governance-2026-10-18-independent"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
     "source_entity_id": "6529NM-CA-2026-002",
     "source_record_ids": [

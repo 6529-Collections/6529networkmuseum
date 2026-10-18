@@ -1,0 +1,13 @@
+# Acquisition authorization: *MAX PAIN* #4188/7394
+
+Acquisition Authorization `6529NM.2026.005.AQA-01` records the Museum's formal acceptance of XCOPY, *MAX PAIN* #4188/7394, as a community-funded purchase for the permanent Collection. The Museum Wave adopted proposal serial `1336667`, drop `87e1fc3a-deef-4d1d-bf36-b2a44507f17b`, "Proposal: MAX PAIN by XCOPY". On 18 October 2026 the Wave API reported the drop as `WINNER`, place 1, with a decision time of 27 August 2026, 18:30:18 UTC; the Museum records that decision as `6529NM-GOV-1336667`. The API reports the drop as signed; the Museum did not verify the signature.
+
+The proposal authorized the purchase of one original *MAX PAIN* by XCOPY, paid for in equal shares by the members who voted for it and sent to a designated acquisition wallet. Contributors receive no individual or fractional ownership interest. The proposal did not name the edition, a price cap, the wallet, or what would happen to money left over, and the authorization lists these as limits of the Wave decision. The organizer chose edition 4188 when buying it. The Museum Gifts, Acquisition Programs, and Funding Assets Policy (`6529NM-POL-004`, decision `6529NM-GOV-1282091`) governs the acceptance.
+
+On 2 September 2026 the organizer's acquisition wallet bought the token through Seaport 1.6 for 0.4589999999 ETH, in transaction `0xdf8b07004bfed397920355ac80991a9dd592c896ca77b1fadb5655f8c85aa4d6` at block 25,889,852. Twenty-eight minutes later it transferred the token to the Museum's Safe, `networkmuseum.6529.eth`, in transaction `0xe7511598bbdabd1d4ff1c5bb7e6d1f9157a413fbcf305f0392cc30c92252ea03` at block 25,889,990, log 955. The authorization records the payment as consideration and makes no valuation or tax claim. The seller, an earlier private holder, appears by address only in the accession's provenance schedule.
+
+On 18 October 2026 at 12:15 UTC the Museum formally accepted the token for the permanent Collection as object `6529NM.2026.005.01` in accession `6529NM.2026.005`. Accession Certificate `6529NM-ACC-2026-005` records the title passage and accession.
+
+The authorization does not cover the 0.068496911687069084 ETH that the acquisition wallet sent to the Museum's Safe on 14 September 2026, in transaction `0x7d7b7733c696858dda93374395a978a4f7cb0cf4b631e2a81ab595f70d5debef`. The Museum has received the funds but has not accepted them, and has asked the organizer how they should be held.
+
+Credit: XCOPY, *MAX PAIN #4188/7394*, 2022. Ethereum token `eip155:1/erc721:0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde/171000104188`. Acquired through a community-funded purchase organized by Shelby and authorized by the 6529 Network Museum Wave, 2026. CC0 1.0.

@@ -1,0 +1,1 @@
+{"id":"xcopy-eth-resolver","jsonrpc":"2.0","method":"eth_call","params":[{"data":"0x0178b8bf0dfb0815dd9aefccfb44073723e7aa6dd59e31a0d9ffe617236b7871bdc14901","to":"0x00000000000c2e074ec69a0dfb2997ba6c7d2e1e"},{"blockHash":"0x967c994b8d243db2313c60f4a8d498b1ddeb9b14df68184398fc04207652b906","requireCanonical":true}]}

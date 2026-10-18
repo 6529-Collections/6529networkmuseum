@@ -1,0 +1,1 @@
+{"id":"last-redemption-burn-block","jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["0x148757a",false]}

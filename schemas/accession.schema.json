@@ -41,7 +41,7 @@
               "instrument": {
                 "type": "object",
                 "properties": {
-                  "kind": {"type": "string", "enum": ["off_chain_instrument", "institutional_gift_title_declaration"]},
+                  "kind": {"type": "string", "enum": ["off_chain_instrument", "institutional_gift_title_declaration", "institutional_purchase_title_declaration"]},
                   "reference": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
                   "sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
                   "uri": {"type": "string", "pattern": "^(https://|ipfs://|ar://)[^\\s]+$"},

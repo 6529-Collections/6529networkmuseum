@@ -1,0 +1,307 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0ca73fd919916358459c5546083ba9713c3931fa4011fd54010da7766075a764"
+    },
+    "effectiveAt": 1792325700,
+    "recordType": "ACCESSION_LOT",
+    "schemaId": "0xefb854ed3d30d5f3c03815c8b8abc70ae24738b2712e2cfd3a228a8c811939d4",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x30dc08abdd25624a75fb050ea707b4857c4c8a25115cf9a7832da7ea29e674f0",
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/accession-statement.json"
+  },
+  "payload": {
+    "acceptance_date": "2026-10-18T12:15:00Z",
+    "accession_number": "6529NM.2026.005",
+    "accession_status": "complete",
+    "acquisition_authorization_record": "6529NM.2026.005.AQA-01",
+    "acquisition_method": "purchase",
+    "constructor": {
+      "id": "claude-code-task:max-pain-4188-accession-2026-10-18",
+      "observed_at": "2026-10-18T12:15:00Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-10-18T12:15:00Z",
+    "effective_at": "2026-10-18T12:15:00Z",
+    "evidence_grade": "A/B/C",
+    "evidence_refs": [
+      {
+        "evidence_class": "A",
+        "label": "Finalized custody summary",
+        "observed_at": "2026-10-18T08:05:44.157Z",
+        "sha256": "sha256:c8f5928ba50475bb1460c4ae1a8f54ba4f1f1ca9aab74c837028d7ee6a49baa3",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-custody/summary.json"
+      },
+      {
+        "evidence_class": "A",
+        "label": "Source-evidence manifest",
+        "observed_at": "2026-10-18T08:15:44.903Z",
+        "sha256": "sha256:ff761f2f629ea6c71a85fffc4b63e431fb03531e1f2ec7d9b10f60d0368134c0",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-sources/manifest.json"
+      },
+      {
+        "evidence_class": "A",
+        "label": "On-chain technical, supply, and provenance manifest",
+        "observed_at": "2026-10-18T08:24:02.181Z",
+        "sha256": "sha256:d803c643defb441f274adb9d8532833493525fbad4949e54f98aeadbcb1187cf",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-technical/manifest.json"
+      },
+      {
+        "evidence_class": "A",
+        "label": "Aggregate funding evidence summary",
+        "observed_at": "2026-10-18T08:24:57.120Z",
+        "sha256": "sha256:500be67c506f4cac8b38ccad0c386173f971593c2f5ee29e4c78b526b74c12df",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-funding/summary.json"
+      }
+    ],
+    "formal_acceptance_date": "2026-10-18T12:15:00Z",
+    "formal_acceptance_status": "formally_accepted",
+    "governing_references": [
+      "6529NM-GOV-1336667",
+      "6529NM.2026.005.AQA-01",
+      "6529NM-ACC-2026-005"
+    ],
+    "intake_status": "accessioned",
+    "non_claims": [
+      "The accession does not transfer copyright; the Museum asserts no copyright in the work.",
+      "No valuation or tax characterization is made.",
+      "Contributors hold no individual or fractional ownership interest in the object.",
+      "The 0.068496911687069084 ETH received in transaction 0x7d7b7733c696858dda93374395a978a4f7cb0cf4b631e2a81ab595f70d5debef is not part of this accession and is not accepted by it."
+    ],
+    "object_ids": [
+      "6529NM.2026.005.01"
+    ],
+    "observed_at": "2026-10-18T12:15:00Z",
+    "payload_sha256": "sha256:91ca773baf00772642d09563b1cb1439519d8f01da126a6ef9b7a803581ddc20",
+    "preservation_manifest": {
+      "active_stewardship_actions": [
+        "retain the token image GIF and metadata bytes with their IPFS CIDs and fixity",
+        "pin or replicate the IPFS image and metadata outside the Nifty Gateway CDN",
+        "show the animation only within the display authority's limits: no larger than min(512px, 100%), never enlarged or full screen, and only the poster under reduced motion"
+      ],
+      "fixity_sha256": "sha256:ff761f2f629ea6c71a85fffc4b63e431fb03531e1f2ec7d9b10f60d0368134c0",
+      "manifest_sha256": "sha256:ff761f2f629ea6c71a85fffc4b63e431fb03531e1f2ec7d9b10f60d0368134c0",
+      "manifest_uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-sources/manifest.json",
+      "objects": [
+        {
+          "generator_raw_status": "retained_source_bytes_token_image_gif",
+          "generator_sha256": "sha256:3ba2c6c6a7b7da940b5780da8fe301e61366a0b5c738be16e537ee122630be2e",
+          "generator_uri": "https://gateway.pinata.cloud/ipfs/QmTcTzTPgCyvF933oeFvB4GkPgaXtF6dKuQgvg32qqLYGF",
+          "metadata_raw_path": "evidence/xcopy-max-pain-4188-sources/raw/token-metadata.json",
+          "metadata_sha256": "sha256:9ac7b505f0b5aaf8b0e81cfb3d9f3fc7b2fc0a80319ec7623dcbe0d8209d9886",
+          "metadata_uri": "https://gateway.pinata.cloud/ipfs/QmT9cJUe8NFwniMTjWHunf6YWgYRdACTyN7uAiZRuXP9ij/171000104188",
+          "object_id": "6529NM.2026.005.01"
+        }
+      ],
+      "raw_generator_status": "retained",
+      "raw_metadata_status": "retained",
+      "status": "in_progress"
+    },
+    "provenance_schedule": {
+      "accession_lot_id": "6529NM.2026.005",
+      "common_receipt": {
+        "block_hash": "0x707d299e001384b1f0d327f56fa91a740876126bdd426ba004ebdf6c908b16c6",
+        "block_number": 25889990,
+        "block_time": "2026-09-02T13:45:23Z",
+        "evidence": {
+          "acquisition": {
+            "byte_mode": "raw",
+            "media_type": "application/json",
+            "path": "evidence/xcopy-max-pain-4188-custody/summary.json",
+            "sha256": "sha256:c8f5928ba50475bb1460c4ae1a8f54ba4f1f1ca9aab74c837028d7ee6a49baa3",
+            "size": 49926
+          },
+          "response": {
+            "byte_mode": "raw",
+            "media_type": "application/json",
+            "path": "evidence/xcopy-max-pain-4188-custody/raw/museum-receipt/sha256-43f255c530bc51f19deb076e16e1c635782b05e335d20c52292603f9d34dcc23.json",
+            "sha256": "sha256:43f255c530bc51f19deb076e16e1c635782b05e335d20c52292603f9d34dcc23",
+            "size": 2328
+          }
+        },
+        "evidence_grade": "A",
+        "log_indices": {
+          "6529NM.2026.005.01": 955
+        },
+        "museum_custody_address": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+        "purpose": "on-chain receipt into the ENS-resolved Museum custody address; legal title and rights are separate fields",
+        "receipt_status": "0x1",
+        "transaction_from": "0xe84576bd68882e037d8e4df484ad9a15e2b855bc",
+        "transaction_hash": "0xe7511598bbdabd1d4ff1c5bb7e6d1f9157a413fbcf305f0392cc30c92252ea03",
+        "transaction_to": "0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde",
+        "transfer_count": 1,
+        "verification": "direct_rpc_verified"
+      },
+      "evidence_refs": [
+        "evidence/xcopy-max-pain-4188-custody/summary.json",
+        "evidence/xcopy-max-pain-4188-technical/summary.json",
+        "evidence/xcopy-max-pain-4188-technical/raw/rpc/0044-provenance-00-receipt-response.json",
+        "evidence/xcopy-max-pain-4188-technical/raw/rpc/0047-provenance-01-receipt-response.json",
+        "evidence/xcopy-max-pain-4188-technical/raw/rpc/0050-provenance-02-receipt-response.json",
+        "evidence/xcopy-max-pain-4188-technical/raw/rpc/0053-provenance-03-receipt-response.json",
+        "evidence/xcopy-max-pain-4188-technical/raw/rpc/0056-provenance-04-receipt-response.json",
+        "evidence/xcopy-max-pain-4188-technical/raw/rpc/0059-provenance-05-receipt-response.json",
+        "evidence/xcopy-max-pain-4188-technical/raw/rpc/0062-provenance-06-receipt-response.json"
+      ],
+      "historical_event_boundary": "Every event, from the 2022 mint to the Museum receipt, carries a retained transaction, receipt, and block response in evidence/xcopy-max-pain-4188-technical and is direct_rpc_verified; the Museum receipt is also retained in the custody package.",
+      "objects": [
+        {
+          "chain_object": "eip155:1/erc721:0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde/171000104188",
+          "events": [
+            {
+              "block": 14451983,
+              "block_hash": "0xfc118d4642263d6c6eefa1414858e751bb0204d264f4d9bdc48fee5c407b271d",
+              "direct_rpc_verified": true,
+              "from": "0x0000000000000000000000000000000000000000",
+              "kind": "mint",
+              "log": 30,
+              "receipt_status": "0x1",
+              "time": "2022-03-24T23:39:21Z",
+              "to": "0xe052113bd7d7700d623414a0a4585bcae754e9d5",
+              "tx": "0x0b2da2a60e43772a73dc49383ca40da2d46ecf6ee9ba1669727aa03a78f3e6f8",
+              "verification": "direct_rpc_verified"
+            },
+            {
+              "block": 14452582,
+              "block_hash": "0x66aa687bdb583c3bc34d6a217a2af14e92fb57c80cb115adef858a47fe1229ea",
+              "direct_rpc_verified": true,
+              "from": "0xe052113bd7d7700d623414a0a4585bcae754e9d5",
+              "kind": "transfer",
+              "log": 81,
+              "receipt_status": "0x1",
+              "time": "2022-03-25T01:44:44Z",
+              "to": "0x30645a0f9b93633453493cb4029fa9f2a4e9460b",
+              "tx": "0x7df8b1b0da758522d551d23981abb98d85117be1f9c5c3e89161db264a96366d",
+              "verification": "direct_rpc_verified"
+            },
+            {
+              "block": 14458765,
+              "block_hash": "0x1da7be41c4dfa8346c270502ef4a60f6d9b48a8878142b856f0d6acaa20f5747",
+              "direct_rpc_verified": true,
+              "from": "0x30645a0f9b93633453493cb4029fa9f2a4e9460b",
+              "kind": "transfer",
+              "log": 233,
+              "receipt_status": "0x1",
+              "time": "2022-03-26T00:58:55Z",
+              "to": "0xa3e863c4015eeccaee89c0143f356233a24c68c1",
+              "tx": "0xa941bb0dc42444e50052a7d886c208eb76df798a01595ce8573bf2785bef4935",
+              "verification": "direct_rpc_verified"
+            },
+            {
+              "block": 25880116,
+              "block_hash": "0x7689e599ef071c23a4b35958c6f5d6f0b1570533b603d3ab47df463f721078c7",
+              "direct_rpc_verified": true,
+              "from": "0xa3e863c4015eeccaee89c0143f356233a24c68c1",
+              "kind": "transfer",
+              "log": 285,
+              "receipt_status": "0x1",
+              "time": "2026-09-01T04:43:23Z",
+              "to": "0xebe8b01d20e142b71765fab97081245578164f92",
+              "tx": "0x6a1793ad3a5fef87a88bac482a184149d31f3ef6463e5b0bf4e96579b2978bcb",
+              "verification": "direct_rpc_verified"
+            },
+            {
+              "block": 25880430,
+              "block_hash": "0x765bac92ae047020c36b6d39ccf2ee9eb36b25abbdbb6e993966f637ce1d089e",
+              "direct_rpc_verified": true,
+              "from": "0xebe8b01d20e142b71765fab97081245578164f92",
+              "kind": "transfer",
+              "log": 129,
+              "receipt_status": "0x1",
+              "time": "2026-09-01T05:46:47Z",
+              "to": "0x5a49aa51a3d0f0e506e380f7a5ce73c108541491",
+              "tx": "0x922415bb553845ae9df5289819ce2995988e0ccf5a6cd4c3460971194a98b915",
+              "verification": "direct_rpc_verified"
+            },
+            {
+              "block": 25889852,
+              "block_hash": "0xfa30ee2596b39596477de9296407b92543b5c24eabb673ae821e16a16a82191f",
+              "direct_rpc_verified": true,
+              "from": "0x5a49aa51a3d0f0e506e380f7a5ce73c108541491",
+              "kind": "transfer",
+              "log": 407,
+              "receipt_status": "0x1",
+              "time": "2026-09-02T13:17:35Z",
+              "to": "0xe84576bd68882e037d8e4df484ad9a15e2b855bc",
+              "tx": "0xdf8b07004bfed397920355ac80991a9dd592c896ca77b1fadb5655f8c85aa4d6",
+              "verification": "direct_rpc_verified"
+            },
+            {
+              "block": 25889990,
+              "block_hash": "0x707d299e001384b1f0d327f56fa91a740876126bdd426ba004ebdf6c908b16c6",
+              "direct_rpc_verified": true,
+              "from": "0xe84576bd68882e037d8e4df484ad9a15e2b855bc",
+              "kind": "museum_receipt",
+              "log": 955,
+              "receipt_status": "0x1",
+              "time": "2026-09-02T13:45:23Z",
+              "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+              "tx": "0xe7511598bbdabd1d4ff1c5bb7e6d1f9157a413fbcf305f0392cc30c92252ea03",
+              "verification": "direct_rpc_verified"
+            }
+          ],
+          "object_id": "6529NM.2026.005.01"
+        }
+      ],
+      "provenance_limits": [
+        "This schedule establishes ERC-721 event lineage and custody observations, not legal title, sale terms beyond the recorded transactions, tax treatment, or the identity of any wallet controller.",
+        "Earlier private holders are recorded here by address only. Public prose identifies them by role, and no person or organization is inferred from an address.",
+        "The 2022 primary sale was settled off-chain by Nifty Gateway; the mint records only the token's entry into the platform's custody address."
+      ],
+      "record_control": {
+        "constructor": {
+          "actor_id": "claude-code-task:max-pain-4188-accession-2026-10-18",
+          "constructed_at": "2026-10-18T12:15:00Z",
+          "role": "constructor"
+        },
+        "record_status": "constructed",
+        "review": null,
+        "revision": 1
+      },
+      "record_id": "6529NM.2026.005-TX01",
+      "record_type": "transaction_provenance_schedule",
+      "verification_method": {
+        "chain": "Ethereum mainnet",
+        "chain_id": 1,
+        "historical_method": "each provenance transaction was read by eth_getTransactionByHash, eth_getTransactionReceipt, and eth_getBlockByNumber and its Transfer or EIP-2309 ConsecutiveTransfer log decoded for token 171000104188",
+        "primary_evidence": "retained JSON-RPC request and response pairs under evidence/xcopy-max-pain-4188-technical/raw/rpc and evidence/xcopy-max-pain-4188-custody/raw",
+        "rpc_evidence": "Raw receipt responses are content-addressed by the package manifests; the common receipt binds the custody package's receipt response and its transport summary.",
+        "title_boundary": "event lineage and custody observation are not a legal title chain",
+        "transfer_topic": "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef"
+      }
+    },
+    "record_id": "6529NM.2026.005",
+    "record_status": "review_pending",
+    "record_type": "ACCESSION_LOT",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-PA-2026-001",
+      "6529NM-GOV-1336667",
+      "6529NM-GOV-1282091",
+      "6529NM.2026.005.AQA-01",
+      "6529NM-ACC-2026-005",
+      "6529NM.2026.005.01"
+    ],
+    "remaining_gates": [],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xefb854ed3d30d5f3c03815c8b8abc70ae24738b2712e2cfd3a228a8c811939d4",
+    "source": {
+      "source_record_ids": [
+        "6529NM-PA-2026-001",
+        "6529NM-GOV-1336667",
+        "6529NM.2026.005.AQA-01"
+      ]
+    },
+    "subject_id": "6529NM.2026.005",
+    "visibility": "public"
+  }
+}

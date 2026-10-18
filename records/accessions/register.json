@@ -1,17 +1,17 @@
 {
   "$schema": "../../schemas/accession-register.schema.json",
   "record_control": {
-    "revision": 5,
+    "revision": 6,
     "record_status": "constructed",
     "constructor": {
-      "actor_id": "codex-task:vera-molnar-accession-2026-08-23",
+      "actor_id": "claude-code-task:max-pain-4188-accession-2026-10-18",
       "role": "constructor",
-      "constructed_at": "2026-08-23T09:46:57.326Z"
+      "constructed_at": "2026-10-18T12:15:00Z"
     },
     "review": null
   },
   "register_id": "6529NM-ACCESSION-REGISTER",
-  "snapshot_at": "2026-08-23T09:46:57.326Z",
+  "snapshot_at": "2026-10-18T12:15:00Z",
   "amendment_history": [
     {
       "revision": 1,
@@ -44,6 +44,14 @@
       "prior_payload_sha256": "sha256:f3d5829c06bbd0617caefc028d17f7eb2f33efd19e3f31f3e0f4d83cc09cb3ac",
       "prior_review_commit": "a5b64f7eb586a5a07024b56a0604d8b8ae0ea574",
       "reason": "Appended the completed gift accession of Themes and Variations #210 after the Museum Wave selection, formal acceptance, transfer, and finalized custody evidence."
+    },
+    {
+      "revision": 5,
+      "superseded_at": "2026-10-18T12:15:00Z",
+      "supersedes": "sha256:ef5af4a3a10824b30b828a4d4038a6c1dca2d005c6357eaf220896eefebd634d",
+      "prior_payload_sha256": "sha256:ef5af4a3a10824b30b828a4d4038a6c1dca2d005c6357eaf220896eefebd634d",
+      "prior_review_commit": "2545700a6eebecae51af6877e1dfcc82ead6ee7b",
+      "reason": "Appended the community-funded purchase accession of XCOPY, MAX PAIN #4188/7394, after the Museum Wave purchase authorization, the executing agent's purchase, Museum receipt, finalized custody evidence, and formal acceptance."
     }
   ],
   "lots": [
@@ -233,6 +241,67 @@
         "Retain source responses, on-chain script records, and fixity.",
         "Maintain credited noncommercial display under CC BY-NC 4.0.",
         "Repeat runtime capture across supported environments and preserve dated results."
+      ]
+    },
+    {
+      "accession_lot_id": "6529NM.2026.005",
+      "preferred_title": "XCOPY, MAX PAIN #4188/7394",
+      "object_count": 1,
+      "acquisition_method": "purchase",
+      "acquisition_status": "formally_accepted",
+      "accession_status": "accessioned",
+      "formal_acceptance_status": "formally_accepted",
+      "acquisition_authorization_record": "6529NM.2026.005.AQA-01",
+      "accession_certificate_record": "6529NM-ACC-2026-005",
+      "public_credit": "Acquired through a community-funded purchase organized by Shelby and authorized by the 6529 Network Museum Wave, 2026",
+      "funding_basis_summary": "Equal shares of the final acquisition cost committed by the affirmative voters on Museum Wave proposal 1336667 and sent to the organizer's acquisition wallet; contributors hold no ownership interest.",
+      "consideration_summary": {
+        "asset": "eip155:1/slip44:60",
+        "amount_wei": "458999999900000000",
+        "payment_transaction": "0xdf8b07004bfed397920355ac80991a9dd592c896ca77b1fadb5655f8c85aa4d6",
+        "payer_role": "executing_agent",
+        "evidence_class": "A"
+      },
+      "custody": {
+        "ens": "networkmuseum.6529.eth",
+        "chain_id": "eip155:1",
+        "address": "0xbECfa2bA5a782D11E1a0e821E8F2e30b6684178c",
+        "observed_at": "2026-10-18T08:05:44.157Z",
+        "finalized_block": 26218064,
+        "finalized_block_hash": "0xfaa4f2991b8c1ff2aee75bf889a15b72913e6ee98e967b5c762ed4bb4d8051c7",
+        "token_count": 1,
+        "evidence_class": "A"
+      },
+      "receipt_event": {
+        "transaction_hash": "0xe7511598bbdabd1d4ff1c5bb7e6d1f9157a413fbcf305f0392cc30c92252ea03",
+        "block_number": 25889990,
+        "block_time": "2026-09-02T13:45:23Z",
+        "from": "0xe84576bd68882e037d8e4df484ad9a15e2b855bc",
+        "to": "0xbECfa2bA5a782D11E1a0e821E8F2e30b6684178c",
+        "transfer_count": 1,
+        "receipt_status": "0x1",
+        "evidence_class": "A",
+        "token_id": 171000104188,
+        "log_index": 955
+      },
+      "evidence_refs": [
+        "records/accessions/6529NM.2026.005/accession-certificate.json",
+        "records/accessions/6529NM.2026.005/acquisition-authorization.json",
+        "evidence/xcopy-max-pain-4188-custody/summary.json",
+        "evidence/xcopy-max-pain-4188-sources/manifest.json",
+        "evidence/xcopy-max-pain-4188-technical/summary.json",
+        "evidence/xcopy-max-pain-4188-funding/summary.json",
+        "evidence/xcopy-max-pain-4188-display/manifest.json",
+        "records/accessions/6529NM.2026.005/public/presentation-manifest.json"
+      ],
+      "completion_limits": [
+        "independent_review",
+        "flash_review_of_animation_size_limit"
+      ],
+      "ongoing_stewardship_actions": [
+        "Retain the token image GIF, metadata, and fixity, and replicate the IPFS objects outside the Nifty Gateway CDN.",
+        "Show the animation only under the display authority's limits: poster first, no larger than min(512px, 100%), never enlarged or full screen, and only the poster under reduced motion.",
+        "Keep the residual funds received on 2026-09-14 outside this accession until the organizer's answer and any required decision are recorded."
       ]
     }
   ]

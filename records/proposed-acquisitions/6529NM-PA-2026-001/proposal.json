@@ -1,0 +1,82 @@
+{
+  "$schema": "../../../schemas/proposed-acquisition.schema.json",
+  "record_control": {
+    "constructor": {
+      "actor_id": "claude-code-task:max-pain-4188-accession-2026-10-18",
+      "constructed_at": "2026-10-18T12:15:00Z",
+      "role": "constructor"
+    },
+    "record_status": "constructed",
+    "review": null,
+    "revision": 1
+  },
+  "record_type": "PROPOSED_ACQUISITION",
+  "schema_profile": "6529NM_PROPOSED_ACQUISITION_V1",
+  "proposal_id": "6529NM-PA-2026-001",
+  "title": "Proposal: MAX PAIN by XCOPY",
+  "status": "selected",
+  "status_as_of": "2026-10-18T09:06:14.742Z",
+  "proposer": {
+    "role": "community_member",
+    "museum_prepared": false
+  },
+  "acquisition": {
+    "acquisition_method": "purchase",
+    "object_scope": "one_token_of_named_work",
+    "object_count": 1,
+    "exact_token_specified": false,
+    "funding_model": "Each qualifying voter who votes in favour commits to contributing an equal share of the final acquisition cost; after a successful vote the cost is divided equally among affirmative voters and contributions are sent to a designated acquisition wallet.",
+    "contributor_ownership_interest": "none",
+    "price_cap_specified": false,
+    "excess_contribution_handling_specified": false,
+    "conditions": [
+      "Subject to the Museum's ordinary procedures for provenance, title, authenticity, legal compliance, custody, technical receivability and accession.",
+      "The work is acquired for the 6529 Network Museum and transferred into the permanent collection."
+    ]
+  },
+  "wave_source": {
+    "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d",
+    "wave_name": "6529 Network Museum",
+    "drop_id": "87e1fc3a-deef-4d1d-bf36-b2a44507f17b",
+    "serial_no": 1336667,
+    "source_url": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=87e1fc3a-deef-4d1d-bf36-b2a44507f17b",
+    "drop_created_at": "2026-08-24T10:51:34.091Z",
+    "decision_time": "2026-08-27T18:30:18.491Z",
+    "observed_status": "WINNER",
+    "status_observed_at": "2026-10-18T09:06:14.742Z",
+    "api_reported_is_signed": true,
+    "rating": 97358417,
+    "realtime_rating": 97358417,
+    "rater_count": 25,
+    "governance_decision_id": "6529NM-GOV-1336667",
+    "evidence_refs": [
+      {
+        "evidence_class": "B",
+        "label": "Public-safe projection of the Wave API readback: WINNER",
+        "observed_at": "2026-10-18T09:06:14.742Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/waves/museum-wave-governance-2026-10-18-max-pain-4188/projections/drop-87e1fc3a-deef-4d1d-bf36-b2a44507f17b.json",
+        "sha256": "sha256:a292840b154a4d4d9f1584d8a4c96191fcf7a3c9f7a2853ec5fa2702221bad20",
+        "notes": "drop_type WINNER; winning_context.place 1; is_signed true as reported by the API (signature not verified); rating and realtime_rating 97358417; raters_count 25; winning_context.decision_time 2026-08-27T18:30:18.491Z. The raw response (13949 bytes, sha256:9d590d02667b02ba47f3eb59d4518519e34a2add378c8b6466525a36a1356de7) contains profile objects and is not retained."
+      },
+      {
+        "evidence_class": "B",
+        "label": "Public-safe projection of the Wave vote log and decision configuration",
+        "observed_at": "2026-10-18T08:15:44.903Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-sources/manifest.json",
+        "sha256": "sha256:ff761f2f629ea6c71a85fffc4b63e431fb03531e1f2ec7d9b10f60d0368134c0",
+        "notes": "Wave decision configuration: APPROVE, winning_threshold 69000000 TDH, 24-hour minimum duration. Vote log: 25 distinct voters, all in favor; the running total first crossed the threshold at 2026-08-26T08:11:13Z; votes cast by the decision time total 101689216 TDH. Projections omit voter identities."
+      }
+    ]
+  },
+  "proposal_text": {
+    "source": "wave_drop_part_content",
+    "sha256": "sha256:04b55a28c990f66a14d469fad9a01dcba9bcf1dc8f85c462bc09f1443844e170",
+    "retention": "hash_only"
+  },
+  "non_claims": [
+    "The WINNER status records the Wave's adoption of the purchase proposal. It does not select a token or establish payment, title, custody, rights, or accession.",
+    "The proposal names no exact token, price cap, budget, acquisition wallet, or treatment of excess contributions.",
+    "The rating of 97,358,417 TDH is a 2026-10-18 readback that reflects later TDH-credit caps on five votes; votes cast by the decision time totaled 101,689,216 TDH.",
+    "The exact proposal text is retained byte-for-byte in the governance evidence package, not in this directory."
+  ]
+}

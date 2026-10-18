@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xaed5d60968a9507dce06dfaeffe63734ebfffb5f46374caa20935442c977be0f"
+      "digest": "0x32d8d553f0d5a1a060fe931d342f0bf5ba32057e3d878dd9589e17229da79c9d"
     },
     "effectiveAt": 1786147200,
     "recordType": "PUBLIC_RELATION",
@@ -36,12 +36,12 @@
       }
     ],
     "observed_at": "2026-08-08T00:00:00Z",
-    "payload_sha256": "sha256:2cf64c177af298718a4c81a02eb1f0a41b5f32df74aae71beb5722ab078c5d54",
+    "payload_sha256": "sha256:ff8534908c5bf2a77ebf7e66d891ae9641fd2cb8e6be6be93660c13f223a672b",
     "qualifier": {
       "role": "subject"
     },
     "record_id": "6529NM-REL-0181",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_RELATION",
     "record_version": "1.0.0",
     "references": [
@@ -51,19 +51,8 @@
     ],
     "relation_id": "6529NM-REL-0181",
     "relation_type": "PUBLICATION_INTERPRETS_ENTITY",
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "claude-reviewer:museum-governance-2026-10-18-independent",
-      "outcome": "approved",
-      "reviewed_at": "2026-10-18T09:39:49Z",
-      "reviewed_commit": "9dd1c3e9ae7c0d8c77071b0b109a2cdc9bb7095f",
-      "reviewed_manifest_keccak": "0x64a95512f8901579e36a6d443e534e6335dcf04cb75c2916115a003c7b30cc02",
-      "reviewed_manifest_sha256": "sha256:74eea95ef31da7f314f1d1d9935b2e4d0775010dde8ceab0205c27918dcdd866",
-      "reviewer_ids": [
-        "claude-reviewer:museum-governance-2026-10-18-independent"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
     "source_entity_id": "6529NM-RP-0002",
     "source_record_ids": [

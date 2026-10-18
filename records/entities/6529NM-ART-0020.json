@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x6f1dda3aa9517cc02892be601649dd1d094e3dd7c4cfec64df19934f275d9a60"
+      "digest": "0x80a5b6dfe5c21fb19dde8a287a35b8967357bfa7e14b8e04317d5a96c1ddb2a3"
     },
     "effectiveAt": 1786233600,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-09T00:00:00Z",
     "entity_id": "6529NM-ART-0020",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "ARTIST",
     "evidence_refs": [
       {
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-09T00:00:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:c661f63667275ecb605b837b464e4d028de607329e4842db79b59bb8145585a1",
+    "payload_sha256": "sha256:c8b4a8a608576b82fcb377adf4b51432047aeb02808abc840e582944fbcfc574",
     "preferred_label": "Moisés Saman",
     "profile": {
       "authority": {
@@ -117,7 +117,7 @@
     },
     "public_slug": "moises-saman",
     "record_id": "6529NM-ART-0020",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -125,19 +125,8 @@
       "6529NM-PG-2026-001",
       "6529NM-PG-2026-001.OBJ-004"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "claude-reviewer:museum-governance-2026-10-18-independent",
-      "outcome": "approved",
-      "reviewed_at": "2026-10-18T09:39:49Z",
-      "reviewed_commit": "9dd1c3e9ae7c0d8c77071b0b109a2cdc9bb7095f",
-      "reviewed_manifest_keccak": "0x64a95512f8901579e36a6d443e534e6335dcf04cb75c2916115a003c7b30cc02",
-      "reviewed_manifest_sha256": "sha256:74eea95ef31da7f314f1d1d9935b2e4d0775010dde8ceab0205c27918dcdd866",
-      "reviewer_ids": [
-        "claude-reviewer:museum-governance-2026-10-18-independent"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AGT-0021",
@@ -160,7 +149,7 @@
         }
       ],
       "observed_at": "2026-08-09T00:00:00Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-ART-0020",
     "visibility": "public"

@@ -276,6 +276,22 @@ authority claim, or an `accessioned` lifecycle assertion. It records the
 effective acceptance decision and its limitations while independent
 documentation QA remains pending.
 
+### Museum purchase acquisition authorization
+
+`ACQUISITION_AUTHORIZATION` is the purchase counterpart of the gift profile: a
+versioned Museum-local envelope profile whose schema ID is
+`keccak256("MUSEUM_ACQUISITION_AUTHORIZATION_V1")`
+(`0x00686e3e460412351a57431a74bd46252c84df12db5df0715748d46b7404e5a1`). It is
+outside `STREAM_ACCESSION_V1` and carries no title binding of its own. It
+records the governing decision, the executing agent, the seller by role (its
+address is kept in the accession lot's provenance schedule), the
+consideration and its payment transaction, the funding basis, the Museum
+custody receipts, and the limits of the authorization. The Stream-shaped
+`ACCESSION` record binds purchase title through the Museum-local instrument
+kind `institutional_purchase_title_declaration`, beside the existing
+`institutional_gift_title_declaration`. Both extend the instrument vocabulary;
+the `TITLE_BINDING` fields are unchanged.
+
 ## Shared provenance-entry format
 
 Human-facing provenance histories use the Stream manifest shape:

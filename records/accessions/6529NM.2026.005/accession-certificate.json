@@ -1,0 +1,227 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xcea91dd954b80c5e13e209398fad18b020344f1f4dc5c9bae701287f321cf4a3"
+    },
+    "effectiveAt": 1792325700,
+    "recordType": "ACCESSION",
+    "schemaId": "0xc04bb48f95c8db4fe7f26a20106533f987003843f2fed36fd6d89f207ddfbd86",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0xac7a33bd203ce9f6fa6c81b62e04ca194af8831c0d4ddb9431e120e4fdaf074b",
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/accession-certificate.json"
+  },
+  "payload": {
+    "acceptance_date": "2026-10-18T12:15:00Z",
+    "accession_number": "6529NM.2026.005",
+    "acquiring_institution": "6529 Network Museum",
+    "acquisition_method": "purchase",
+    "constructor": {
+      "id": "claude-code-task:max-pain-4188-accession-2026-10-18",
+      "observed_at": "2026-10-18T12:15:00Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-10-18T12:15:00Z",
+    "effective_at": "2026-10-18T12:15:00Z",
+    "events": [
+      {
+        "authority_reference": "6529NM.2026.005.AQA-01",
+        "event_name": "single_token_delivery",
+        "event_type": "receipt",
+        "evidence_refs": [
+          {
+            "evidence_class": "A",
+            "label": "Finalized custody summary",
+            "observed_at": "2026-10-18T08:05:44.157Z",
+            "sha256": "sha256:c8f5928ba50475bb1460c4ae1a8f54ba4f1f1ca9aab74c837028d7ee6a49baa3",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-custody/summary.json"
+          }
+        ],
+        "occurred_at": "2026-09-02T13:45:23Z"
+      },
+      {
+        "authority_reference": "6529NM-GOV-1336667",
+        "event_name": "formal_purchase_acceptance",
+        "event_type": "acceptance",
+        "evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Public-safe projection of the Wave API readback: WINNER",
+            "notes": "drop_type WINNER; winning_context.place 1; is_signed true as reported by the API (signature not verified); rating and realtime_rating 97358417; raters_count 25; winning_context.decision_time 2026-08-27T18:30:18.491Z. The raw response (13949 bytes, sha256:9d590d02667b02ba47f3eb59d4518519e34a2add378c8b6466525a36a1356de7) contains profile objects and is not retained.",
+            "observed_at": "2026-10-18T09:06:14.742Z",
+            "sha256": "sha256:a292840b154a4d4d9f1584d8a4c96191fcf7a3c9f7a2853ec5fa2702221bad20",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/waves/museum-wave-governance-2026-10-18-max-pain-4188/projections/drop-87e1fc3a-deef-4d1d-bf36-b2a44507f17b.json"
+          },
+          {
+            "evidence_class": "B",
+            "label": "Acquisition authorization",
+            "observed_at": "2026-10-18T12:15:00Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/acquisition-authorization.json"
+          }
+        ],
+        "occurred_at": "2026-10-18T12:15:00Z"
+      },
+      {
+        "authority_reference": "6529NM.2026.005.AQA-01",
+        "event_name": "community_funded_purchase_registration",
+        "event_semantics": "The executing agent bought the token through Seaport 1.6 at 2026-09-02T13:17:35Z, 28 minutes before it delivered the token to Museum custody. This event registers that purchase for the Museum at the acceptance time; source_occurred_at keeps the purchase time.",
+        "event_type": "acquisition",
+        "evidence_refs": [
+          {
+            "evidence_class": "A",
+            "label": "Finalized custody summary",
+            "observed_at": "2026-10-18T08:05:44.157Z",
+            "sha256": "sha256:c8f5928ba50475bb1460c4ae1a8f54ba4f1f1ca9aab74c837028d7ee6a49baa3",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-custody/summary.json"
+          },
+          {
+            "evidence_class": "A",
+            "label": "Aggregate funding evidence summary",
+            "observed_at": "2026-10-18T08:24:57.120Z",
+            "sha256": "sha256:500be67c506f4cac8b38ccad0c386173f971593c2f5ee29e4c78b526b74c12df",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-funding/summary.json"
+          }
+        ],
+        "occurred_at": "2026-10-18T12:15:00Z",
+        "source_occurred_at": "2026-09-02T13:17:35Z"
+      },
+      {
+        "authority_reference": "6529NM.2026.005.AQA-01",
+        "event_name": "institutional_title_registration",
+        "event_type": "title_passage",
+        "evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Institutional purchase title declaration",
+            "observed_at": "2026-10-18T12:15:00Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/accession-certificate.json"
+          }
+        ],
+        "instrument": {
+          "custodian_reference": "networkmuseum.6529.eth",
+          "kind": "institutional_purchase_title_declaration",
+          "reference": "6529NM-ACC-2026-005",
+          "sha256": "sha256:8ac996a2d8a9f3d086c5ad7990067a02754e1e9369f5b5660860d2a60268bca4"
+        },
+        "occurred_at": "2026-10-18T12:15:00Z"
+      },
+      {
+        "authority_reference": "6529NM.2026.005.AQA-01",
+        "custody_paths": [
+          {
+            "custodian_reference": "networkmuseum.6529.eth",
+            "from": "0xe84576bd68882e037d8e4df484ad9a15e2b855bc",
+            "kind": "onchain_token",
+            "object_id": "6529NM.2026.005.01",
+            "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c"
+          }
+        ],
+        "event_name": "institutional_custody_registration",
+        "event_type": "custody_receipt",
+        "evidence_refs": [
+          {
+            "evidence_class": "A",
+            "label": "Finalized custody summary",
+            "observed_at": "2026-10-18T08:05:44.157Z",
+            "sha256": "sha256:c8f5928ba50475bb1460c4ae1a8f54ba4f1f1ca9aab74c837028d7ee6a49baa3",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-custody/summary.json"
+          }
+        ],
+        "occurred_at": "2026-10-18T12:15:00Z"
+      },
+      {
+        "authority_reference": "6529NM-ACC-2026-005",
+        "event_name": "permanent_collection_accession",
+        "event_type": "accession",
+        "evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Accession statement",
+            "observed_at": "2026-10-18T12:15:00Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/accession-statement.json"
+          }
+        ],
+        "occurred_at": "2026-10-18T12:15:00Z"
+      }
+    ],
+    "evidence_refs": [
+      {
+        "evidence_class": "A",
+        "label": "Finalized custody summary",
+        "observed_at": "2026-10-18T08:05:44.157Z",
+        "sha256": "sha256:c8f5928ba50475bb1460c4ae1a8f54ba4f1f1ca9aab74c837028d7ee6a49baa3",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-custody/summary.json"
+      },
+      {
+        "evidence_class": "A",
+        "label": "On-chain technical, supply, and provenance manifest",
+        "observed_at": "2026-10-18T08:24:02.181Z",
+        "sha256": "sha256:d803c643defb441f274adb9d8532833493525fbad4949e54f98aeadbcb1187cf",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-technical/manifest.json"
+      }
+    ],
+    "object_ids": [
+      "6529NM.2026.005.01"
+    ],
+    "observed_at": "2026-10-18T12:15:00Z",
+    "ongoing_stewardship_actions": [
+      "retain the token image GIF, metadata, and fixity",
+      "replicate the IPFS image and metadata outside the Nifty Gateway CDN",
+      "show the animation only within the display authority's limits, never enlarged or full screen"
+    ],
+    "payload_sha256": "sha256:9be6051018473b31ecb5711e6bec88fdcdfcea8dd08eaab3db675ea0ed473c2d",
+    "record_id": "6529NM-ACC-2026-005",
+    "record_status": "review_pending",
+    "record_type": "ACCESSION",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM.2026.005",
+      "6529NM.2026.005.01",
+      "6529NM.2026.005.AQA-01",
+      "6529NM-GOV-1336667"
+    ],
+    "review_outcomes": {
+      "condition_and_technical": "pass with conditions",
+      "curatorial": "approved for permanent Collection",
+      "display": "ready with conditions: still poster first; animation on request after a flashing warning, no larger than 512 CSS pixels and never enlarged; poster only under reduced motion",
+      "identity_and_custody": "pass at finalized block 26218064",
+      "institutional_authority": "formally accepted under Wave decision 1336667 and the owner's institutional decision",
+      "preservation": "in progress",
+      "provenance": "pass: continuous chain from the 2022 mint to the Museum Safe, each event direct RPC verified",
+      "rights": "pass under the artist's CC0 1.0 dedication, with the non-endorsement condition",
+      "title": "pass by named institutional purchase title declaration"
+    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xc04bb48f95c8db4fe7f26a20106533f987003843f2fed36fd6d89f207ddfbd86",
+    "source": {
+      "acquisition_authorization": "6529NM.2026.005.AQA-01",
+      "custody_evidence": "evidence/xcopy-max-pain-4188-custody/summary.json",
+      "proposal": "6529NM-PA-2026-001",
+      "title_basis": "Named institutional purchase title declaration bound to the Acquisition Authorization and this certificate."
+    },
+    "subject_id": "6529NM.2026.005",
+    "title_bindings": [
+      {
+        "basis": "Acquisition Authorization 6529NM.2026.005.AQA-01 and the institutional purchase title declaration in Accession Certificate 6529NM-ACC-2026-005 bind the executing agent's transferable token interest to this exact object.",
+        "block_number": 25889990,
+        "bound_at": "2026-10-18T12:15:00Z",
+        "custodian_reference": "networkmuseum.6529.eth",
+        "from": "0xe84576bd68882e037d8e4df484ad9a15e2b855bc",
+        "instrument_sha256": "sha256:8ac996a2d8a9f3d086c5ad7990067a02754e1e9369f5b5660860d2a60268bca4",
+        "object_id": "6529NM.2026.005.01",
+        "status": "executed",
+        "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+        "transfer_transaction": "0xe7511598bbdabd1d4ff1c5bb7e6d1f9157a413fbcf305f0392cc30c92252ea03"
+      }
+    ],
+    "visibility": "public"
+  }
+}

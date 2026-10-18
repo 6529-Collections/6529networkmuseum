@@ -1,0 +1,1 @@
+{"id":"token-ipfs-hash","jsonrpc":"2.0","method":"eth_call","params":[{"data":"0xd371663000000000000000000000000000000000000000000000000000000027d06684fc","to":"0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde"},{"blockHash":"0x2c5a9f5e32b87a106776cb75cf271781221baa245638f0a970e224e7971ec476","requireCanonical":true}]}

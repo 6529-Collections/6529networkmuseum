@@ -1,0 +1,19 @@
+"""Window check on saved 1000-px concurrent masks: python -I flash_windows.py <diffs dir>"""
+import importlib.util, json, sys
+from pathlib import Path
+from PIL import Image
+HERE = Path(__file__).resolve().parent
+spec = importlib.util.spec_from_file_location("flash", HERE / "flash.py"); fl = importlib.util.module_from_spec(spec); spec.loader.exec_module(fl)
+d = Path(sys.argv[1])
+out = {}
+for t in ("0-1", "1-2"):
+    g = Image.open(d / f"flash-concurrent-{t}-1000.png").convert("L")
+    for disp in (640, 768, 1280, 1536, 2400):
+        if disp <= 1000:
+            # image smaller than grid: scale grid down to display size
+            small = g.resize((disp, disp), Image.Resampling.BOX)
+            out.setdefault(str(disp), {})[t] = round(fl.window_max(small, 341, 256), 4)
+        else:
+            out.setdefault(str(disp), {})[t] = round(fl.window_max(g, round(341 * 1000 / disp), round(256 * 1000 / disp)), 4)
+print(json.dumps(out, indent=1))
+(d.parent / "flash-windows-presentation-widths.json").write_text(json.dumps(out, indent=1) + "\n", encoding="utf-8", newline="\n")

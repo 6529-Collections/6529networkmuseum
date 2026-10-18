@@ -1,0 +1,80 @@
+{
+  "accession_id": "6529NM.2026.005",
+  "display_decisions_supported": [
+    "Show a still poster of the first frame first; never autoplay.",
+    "Play the animation only on an explicit visitor request after a flashing warning; poster only under prefers-reduced-motion.",
+    "Show the animation no larger than 768 CSS pixels (15.3 percent at 768 px; 24.3 percent at the 200 percent zoom equivalent of 1,536 px).",
+    "No enlarged, zoomed, or full-screen animation until an independent flash review confirms or revises these limits."
+  ],
+  "limitations": [
+    "This is the Museum's computation under the WCAG 2.2 definitions, not a certified photosensitive-epilepsy test, and it has not yet been independently reviewed.",
+    "Display size is modelled on a 1024 x 768 reference screen; physical screen size, viewing distance, and browser scaling are not measured.",
+    "The method files are retained as text with a .txt suffix so that they are evidence, not repository tooling."
+  ],
+  "method": {
+    "definitions": "WCAG 2.2 general flash and red flash, as stated in flash-analysis.json method",
+    "one_second_window": "20 frame intervals (21 states) evaluated at every loop phase; max taken",
+    "reproduction": "Re-running both scripts on the retained GIF reproduced flash-analysis.json, the three masks, and flash-windows-presentation-widths.json byte for byte on 2026-10-18.",
+    "runtime": "Python 3.12.10 with Pillow 12.3.0",
+    "scripts": {
+      "analysis": "method/flash.py.txt (run as flash.py with method/gif_structure.py.txt beside it as gif_structure.py): python -I flash.py <gif> <out dir>",
+      "presentation_widths": "method/flash_windows.py.txt (run as flash_windows.py beside flash.py): python -I flash_windows.py <dir holding the two raw/flash-concurrent-*-1000.png masks>"
+    },
+    "ten_degree_field": "341 x 256 px on a 1024 x 768 reference screen; for images larger than 1,000 px the window is scaled onto a 1,000 px coverage grid"
+  },
+  "object_id": "6529NM.2026.005.01",
+  "observed_at": "2026-10-18T07:03:26Z",
+  "record_id": "6529NM.2026.005.DISPLAY-EVIDENCE-01",
+  "record_type": "XCOPY_MAX_PAIN_4188_FLASH_ANALYSIS",
+  "results": {
+    "frame_interval_ms": 50,
+    "frames": 8,
+    "largest_flashing_share_of_a_ten_degree_field_by_display_px": {
+      "1024": 0.1707,
+      "1536": 0.2433,
+      "2048": 0.3024,
+      "4000": 0.5406,
+      "512": 0.1223,
+      "768": 0.1531
+    },
+    "presentation_width_check_on_1000_px_masks": {
+      "1280": {
+        "0-1": 0.2017,
+        "1-2": 0.1892
+      },
+      "1536": {
+        "0-1": 0.2429,
+        "1-2": 0.2274
+      },
+      "2400": {
+        "0-1": 0.3605,
+        "1-2": 0.3004
+      },
+      "640": {
+        "0-1": 0.1518,
+        "1-2": 0.1481
+      },
+      "768": {
+        "0-1": 0.153,
+        "1-2": 0.1525
+      }
+    },
+    "red_flash_largest_share_of_a_ten_degree_field_upper_bound": {
+      "1536": 0.01196,
+      "4000": 0.04918,
+      "768": 0.00501
+    },
+    "share_of_pixels_with_more_than_three_general_flashes_per_second": 0.05507,
+    "share_of_pixels_with_more_than_three_red_flashes_per_second": 0.00105,
+    "wcag_2_3_1": "general-flash area below the 25 percent limit up to 1,536 px (24.3 percent, narrowly) and above it from 2,048 px (30.2 percent); red flashes stay far below the limit",
+    "wcag_2_3_2": "not met at any size: about 5.5 percent of the image flashes more than three times a second"
+  },
+  "source": {
+    "decoding": "exact palette indices of all eight frames decoded by the retained stdlib GIF decoder (method/gif_structure.py.txt)",
+    "ipfs_cid": "QmTcTzTPgCyvF933oeFvB4GkPgaXtF6dKuQgvg32qqLYGF",
+    "path": "evidence/xcopy-max-pain-4188-sources/raw/token-image.gif",
+    "sha256": "sha256:3ba2c6c6a7b7da940b5780da8fe301e61366a0b5c738be16e537ee122630be2e",
+    "size": 4541937
+  },
+  "status": "museum_technical_measurement_pending_independent_flash_review"
+}

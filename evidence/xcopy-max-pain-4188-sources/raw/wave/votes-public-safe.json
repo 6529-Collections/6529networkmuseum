@@ -1,0 +1,31 @@
+{
+  "canonicalization": "Hash the payload object only as UTF-8 JSON with recursively lexicographically sorted object keys, source-order arrays, compact separators, preserved Unicode, and no trailing newline.",
+  "evidence_type": "WAVE_API_PUBLIC_SAFE_PROJECTION",
+  "exclusion_note": "Public-safe projection of an unauthenticated live 6529 API read. The retained record excludes author, voter, rater, reaction and profile objects, wallet addresses, handles, credentials and every field not listed in the payload; the raw response is recorded by SHA-256 and size only. WINNER and signed state record a Wave decision and publication observation only; they do not establish purchase or donor authority, the exact token, legal title, copyright, custody, acceptance, accession, Collection status, or display permission.",
+  "observed_at": "2026-10-18T08:16:08.983Z",
+  "payload": {
+    "all_current_voters_appear_in_vote_log": true,
+    "all_current_votes_positive": true,
+    "count": 25,
+    "current_votes_below_last_logged_vote_count": 5,
+    "current_votes_below_last_logged_vote_total_reduction": 4330784,
+    "distinct_voter_count": 25,
+    "drop_rating_at_observation": 97358417,
+    "next": false,
+    "page": 1,
+    "sum_minus_drop_rating": 15,
+    "sum_of_current_votes": 97358432,
+    "vote_entry_count": 25
+  },
+  "payload_sha256": "sha256:3679fdaa945481a4a656ba54adf5dd8f8cdb191586fb9621c420455d181288cf",
+  "projection_id": "6529NM.2026.005.SOURCE-EVIDENCE-01.WAVE-VOTES",
+  "raw_response": {
+    "media_type": "application/json",
+    "reason": "The raw response embeds profile objects with handles and primary wallet addresses; only this projection is retained.",
+    "retained": false,
+    "sha256": "sha256:a7fe401920841efe59711c5702766fd7e0a0846ebe05f90e0855e354f745334a",
+    "size": 11900
+  },
+  "source_request": "Unauthenticated HTTPS GET through scripts/safe_fetch.py (HTTP/1.0 connection factory).",
+  "source_url": "https://api.6529.io/api/v2/drops/87e1fc3a-deef-4d1d-bf36-b2a44507f17b/votes?page=1&page_size=50"
+}

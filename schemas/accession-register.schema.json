@@ -51,52 +51,107 @@
     "lots": {
       "type": "array",
       "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": ["accession_lot_id", "preferred_title", "object_count", "donation_status", "accession_status", "formal_acceptance_status", "gift_acceptance_authorization_record", "accession_certificate_record", "donor_public_credit", "custody", "evidence_refs", "completion_limits", "ongoing_stewardship_actions"],
-        "properties": {
-          "accession_lot_id": {"type": "string", "pattern": "^6529NM\\.[0-9]{4}\\.[0-9]{3}$"},
-          "preferred_title": {"type": "string", "minLength": 1},
-          "object_count": {"type": "integer", "minimum": 1},
-          "donation_status": {"enum": ["received", "formally_accepted"]},
-          "accession_status": {"enum": ["documentation_in_progress", "accessioned"]},
-          "formal_acceptance_status": {"enum": ["not_formally_accepted", "formally_accepted"]},
-          "gift_acceptance_authorization_record": {"type": "string", "pattern": "^6529NM\\.[0-9]{4}\\.[0-9]{3}\\.GAA-[0-9]{2}$"},
-          "accession_certificate_record": {"type": "string", "pattern": "^6529NM-ACC-[0-9]{4}-[0-9]{3}$"},
-          "donor_public_credit": {"type": "string", "minLength": 1},
-          "custody": {"type": "object", "required": ["ens", "chain_id", "address", "observed_at", "evidence_class"]},
-          "receipt_event": {"type": "object", "required": ["transaction_hash", "block_number", "block_time", "from", "to", "transfer_count", "receipt_status", "evidence_class"]},
-          "receipt_events": {
-            "type": "array",
-            "minItems": 1,
-            "uniqueItems": true,
-            "items": {
-              "type": "object",
-              "additionalProperties": false,
-              "required": ["transaction_hash", "block_number", "block_time", "from", "to", "transfer_count", "receipt_status", "evidence_class", "token_id", "log_index"],
-              "properties": {
-                "transaction_hash": {"type": "string", "minLength": 1},
-                "block_number": {"type": "integer", "minimum": 0},
-                "block_time": {"type": "string", "minLength": 20},
-                "from": {"type": "string", "minLength": 1},
-                "to": {"type": "string", "minLength": 1},
-                "transfer_count": {"const": 1},
-                "receipt_status": {"const": "0x1"},
-                "evidence_class": {"type": "string", "minLength": 1},
-                "token_id": {"type": "integer", "minimum": 0},
-                "log_index": {"type": "integer", "minimum": 0}
-              }
-            }
-          },
-          "evidence_refs": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
-          "completion_limits": {"type": "array", "items": {"type": "string", "minLength": 1}},
-          "ongoing_stewardship_actions": {"type": "array", "items": {"type": "string", "minLength": 1}}
-        },
         "oneOf": [
-          {"required": ["receipt_event"], "not": {"required": ["receipt_events"]}},
-          {"required": ["receipt_events"], "not": {"required": ["receipt_event"]}}
+          {"$ref": "#/$defs/giftLot"},
+          {"$ref": "#/$defs/purchaseLot"}
         ]
       }
+    }
+  },
+  "$defs": {
+    "accessionLotId": {"type": "string", "pattern": "^6529NM\\.[0-9]{4}\\.[0-9]{3}$"},
+    "accessionCertificateRecord": {"type": "string", "pattern": "^6529NM-ACC-[0-9]{4}-[0-9]{3}$"},
+    "custody": {"type": "object", "required": ["ens", "chain_id", "address", "observed_at", "evidence_class"]},
+    "receiptEvent": {"type": "object", "required": ["transaction_hash", "block_number", "block_time", "from", "to", "transfer_count", "receipt_status", "evidence_class"]},
+    "receiptEvents": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["transaction_hash", "block_number", "block_time", "from", "to", "transfer_count", "receipt_status", "evidence_class", "token_id", "log_index"],
+        "properties": {
+          "transaction_hash": {"type": "string", "minLength": 1},
+          "block_number": {"type": "integer", "minimum": 0},
+          "block_time": {"type": "string", "minLength": 20},
+          "from": {"type": "string", "minLength": 1},
+          "to": {"type": "string", "minLength": 1},
+          "transfer_count": {"const": 1},
+          "receipt_status": {"const": "0x1"},
+          "evidence_class": {"type": "string", "minLength": 1},
+          "token_id": {"type": "integer", "minimum": 0},
+          "log_index": {"type": "integer", "minimum": 0}
+        }
+      }
+    },
+    "evidenceRefs": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "stringList": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "oneReceiptForm": {
+      "oneOf": [
+        {"required": ["receipt_event"], "not": {"required": ["receipt_events"]}},
+        {"required": ["receipt_events"], "not": {"required": ["receipt_event"]}}
+      ]
+    },
+    "giftLot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["accession_lot_id", "preferred_title", "object_count", "donation_status", "accession_status", "formal_acceptance_status", "gift_acceptance_authorization_record", "accession_certificate_record", "donor_public_credit", "custody", "evidence_refs", "completion_limits", "ongoing_stewardship_actions"],
+      "properties": {
+        "accession_lot_id": {"$ref": "#/$defs/accessionLotId"},
+        "preferred_title": {"type": "string", "minLength": 1},
+        "object_count": {"type": "integer", "minimum": 1},
+        "donation_status": {"enum": ["received", "formally_accepted"]},
+        "accession_status": {"enum": ["documentation_in_progress", "accessioned"]},
+        "formal_acceptance_status": {"enum": ["not_formally_accepted", "formally_accepted"]},
+        "gift_acceptance_authorization_record": {"type": "string", "pattern": "^6529NM\\.[0-9]{4}\\.[0-9]{3}\\.GAA-[0-9]{2}$"},
+        "accession_certificate_record": {"$ref": "#/$defs/accessionCertificateRecord"},
+        "donor_public_credit": {"type": "string", "minLength": 1},
+        "custody": {"$ref": "#/$defs/custody"},
+        "receipt_event": {"$ref": "#/$defs/receiptEvent"},
+        "receipt_events": {"$ref": "#/$defs/receiptEvents"},
+        "evidence_refs": {"$ref": "#/$defs/evidenceRefs"},
+        "completion_limits": {"$ref": "#/$defs/stringList"},
+        "ongoing_stewardship_actions": {"$ref": "#/$defs/stringList"}
+      },
+      "allOf": [{"$ref": "#/$defs/oneReceiptForm"}]
+    },
+    "purchaseLot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["accession_lot_id", "preferred_title", "object_count", "acquisition_method", "acquisition_status", "accession_status", "formal_acceptance_status", "acquisition_authorization_record", "accession_certificate_record", "public_credit", "funding_basis_summary", "consideration_summary", "custody", "evidence_refs", "completion_limits", "ongoing_stewardship_actions"],
+      "properties": {
+        "accession_lot_id": {"$ref": "#/$defs/accessionLotId"},
+        "preferred_title": {"type": "string", "minLength": 1},
+        "object_count": {"type": "integer", "minimum": 1},
+        "acquisition_method": {"const": "purchase"},
+        "acquisition_status": {"enum": ["received", "formally_accepted"]},
+        "accession_status": {"enum": ["documentation_in_progress", "accessioned"]},
+        "formal_acceptance_status": {"enum": ["not_formally_accepted", "formally_accepted"]},
+        "acquisition_authorization_record": {"type": "string", "pattern": "^6529NM\\.[0-9]{4}\\.[0-9]{3}\\.AQA-[0-9]{2}$"},
+        "accession_certificate_record": {"$ref": "#/$defs/accessionCertificateRecord"},
+        "public_credit": {"type": "string", "minLength": 1, "not": {"pattern": "[Gg][Ii][Ff][Tt][ \\t]+[Oo][Ff]|[Dd][Oo][Nn][Aa][Tt]"}},
+        "funding_basis_summary": {"type": "string", "minLength": 1},
+        "consideration_summary": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["asset", "amount_wei", "payment_transaction", "payer_role", "evidence_class"],
+          "properties": {
+            "asset": {"type": "string", "pattern": "^eip155:[0-9]+/(?:slip44:[0-9]+|erc20:0x[0-9a-f]{40})$"},
+            "amount_wei": {"type": "string", "pattern": "^[1-9][0-9]*$", "maxLength": 78},
+            "payment_transaction": {"type": "string", "pattern": "^0x[0-9a-f]{64}$"},
+            "payer_role": {"const": "executing_agent"},
+            "evidence_class": {"type": "string", "minLength": 1}
+          }
+        },
+        "custody": {"$ref": "#/$defs/custody"},
+        "receipt_event": {"$ref": "#/$defs/receiptEvent"},
+        "receipt_events": {"$ref": "#/$defs/receiptEvents"},
+        "evidence_refs": {"$ref": "#/$defs/evidenceRefs"},
+        "completion_limits": {"$ref": "#/$defs/stringList"},
+        "ongoing_stewardship_actions": {"$ref": "#/$defs/stringList"}
+      },
+      "allOf": [{"$ref": "#/$defs/oneReceiptForm"}]
     }
   }
 }

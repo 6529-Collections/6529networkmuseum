@@ -1,0 +1,1 @@
+{"id":"mint-first-block","jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["0xdc8507",false]}

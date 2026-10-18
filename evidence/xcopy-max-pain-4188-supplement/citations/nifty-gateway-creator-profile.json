@@ -1,0 +1,16 @@
+{
+  "citations": [
+    {
+      "byte_offset": 191375,
+      "context_canonicalization": "bytes from the opening quotation mark of the string that holds the citation, with escaped newlines read as line breaks and lines joined by ' / '",
+      "context_text": "CRYPTO X ART / Warning: flashing imagery",
+      "field": "creator profile bio (Next.js flight data, artist name XCOPY)",
+      "text": "Warning: flashing imagery"
+    }
+  ],
+  "raw_reason": "Raw HTML embeds executable script elements; the citation is retained with its byte offset.",
+  "raw_retained": false,
+  "raw_sha256": "sha256:b6ac99c09d183a0cc04c67448873e15ec8f6f4bcce744e42906129ad0c6c7ad8",
+  "raw_size": 197063,
+  "source_url": "https://web.archive.org/web/20250905031141id_/https://www.niftygateway.com/marketplace/collection/0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde/1/"
+}

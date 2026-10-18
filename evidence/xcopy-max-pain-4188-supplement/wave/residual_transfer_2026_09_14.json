@@ -1,0 +1,29 @@
+{
+  "author_handle": "Shelby",
+  "created_at": "2026-09-14T11:34:58.325Z",
+  "created_at_api_value": 1789385698325,
+  "drop_id": "5798bc3c-f7d4-4c32-8fcf-45bb2919f4ce",
+  "drop_type": "CHAT",
+  "is_signed": false,
+  "machine_bindings": {},
+  "parts": [
+    {
+      "content_sha256": "sha256:b1283558941fa16dc0702cbcf5e11bc56433a3f288b208ebea848a98033e3905",
+      "content_utf8_bytes": 106,
+      "part_id": 1,
+      "redactions": [],
+      "transcript_path": "wave/residual_transfer_2026_09_14-part-1.txt",
+      "transcript_sha256": "sha256:b1283558941fa16dc0702cbcf5e11bc56433a3f288b208ebea848a98033e3905"
+    }
+  ],
+  "purpose": "residual_transfer_2026_09_14",
+  "raw_response": {
+    "reason": "The response contains profile objects with wallet addresses.",
+    "retained": false,
+    "sha256": "sha256:6e0952512d5fce59832fd32ea53d99a4fa1995f6de12af6adeafa8192f98e056",
+    "size": 2852
+  },
+  "serial_no": 1432240,
+  "source_url": "https://api.6529.io/api/drops/5798bc3c-f7d4-4c32-8fcf-45bb2919f4ce",
+  "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d"
+}

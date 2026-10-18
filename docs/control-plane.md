@@ -42,6 +42,16 @@ that need the whole repository or need to compare values:
   and its authority-evidence limitations without substituting for a pending
   Stream `ACCESSION` completion certificate; its constructed/review-pending
   state is documentation QA, not a reversal of the stated decision;
+- `ACQUISITION_AUTHORIZATION` records a formally accepted purchase: the
+  governing Wave decision, the executing agent, the seller by role, the
+  consideration and payment transaction, the funding basis, and the custody
+  receipts. The seller's address is recorded only in the accession lot's
+  provenance schedule, which must record the purchase and the Museum receipt.
+  Payment and Museum receipt must be separate transactions running
+  seller to agent and agent to Museum, the native payment value must equal the
+  recorded amount, the basis must include an adopted `WINNER` decision, and
+  the credit line may not describe a gift; an `ACCESSION` purchase title
+  declaration is valid only for a purchase;
 - object workflow history starts at `offered`, follows only the controlled
   transitions, never regresses or repeats a state, and agrees with
   `current_state`;
@@ -83,17 +93,17 @@ that need the whole repository or need to compare values:
   pending or reviewed state already committed. This replay does not grant
   approval; publication activation separately verifies the exact candidate-A
   parent, reviewer binding, and review-only A-to-B delta. The command verifies
-  the Stream-shaped public projection: 136 `PUBLIC_ENTITY` records, 233 closed
+  the Stream-shaped public projection: 143 `PUBLIC_ENTITY` records, 241 closed
   `PUBLIC_RELATION` records, and one append-only `WAVE_STATUS_OBSERVATION`
-  (370 generated records in total). Six withdrawn draft relation assertions
+  (385 generated records in total). Six withdrawn draft relation assertions
   retain append-only identity tombstones and their identifiers cannot be
   reused.
-  The graph gate covers 21 Artist entities, 2 Organization entities, 6
-  Project/Series entities, 28 acquisition-independent Work entities, two
+  The graph gate covers 24 Artist entities, 2 Organization entities, 8
+  Project/Series entities, 30 acquisition-independent Work entities, two
   Acquisition Programs, exact slug/route families, typed Artist
-  creator relations, 13 permanent Collection memberships across the completed
-  Casey and Magnum accessions, and 16 Keys and Gates selections outside the
-  Collection.
+  creator relations, 14 permanent Collection memberships across the completed
+  Casey and Magnum accessions and the review-pending Vera Molnár and MAX PAIN
+  accessions, and 16 Keys and Gates selections outside the Collection.
 - `tests/test_public_entity_layer.py` verifies every Work/media join against its
   governed presentation state: all 7 Casey Works have an official visual still
   and sandboxed live generator, while the 16 Keys and Gates derivatives and
@@ -115,9 +125,18 @@ approved collections reference adopted decisions, evidence manifest paths,
 media types, sizes, and raw-byte hashes match, and every reviewed
 `record_control.payload_sha256` matches its record payload. Manifest-authorized
 raw binary evidence is checked before UTF-8 public-safety scanning and is
-limited in this profile to an explicitly declared, structurally parsed PNG
-(valid signature, IHDR/IEND, chunk bounds/CRCs, and no trailing bytes). It
-receives the same known credential-pattern gate across raw bytes, ASCII/UTF-8,
+limited in this profile to two explicitly declared, structurally parsed image
+types. A PNG must have a valid signature, IHDR/IEND, chunk bounds and CRCs,
+and no trailing bytes. A GIF (`image/gif`, GIF87a or GIF89a) must pass the
+strict walk in `scripts/gif_structure.py`: the logical screen descriptor,
+color tables, every extension and image block, and every data sub-block
+length are bounds-checked; only Graphic Control, Comment, Plain Text, and the
+admitted application extensions (`NETSCAPE2.0`, `ANIMEXTS1.0`, and
+`XMP DataXMP`) are accepted, with GIF89a extensions rejected in a GIF87a
+file, at most one Graphic Control Extension per rendering block, and frames
+inside the logical screen; and the trailer byte `0x3B` must be the final byte.
+The walk never decompresses or renders image data. Both types receive the
+same known credential-pattern gate across raw bytes, ASCII/UTF-8,
 and UTF-16LE/BE spans, including cloud-key/token, path, DSA/PGP/generic PEM,
 and private-key shapes; this detects known shapes, not arbitrary
 steganography. Every unmanifested evidence file must also use a recognized

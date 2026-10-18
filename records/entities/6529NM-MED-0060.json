@@ -1,0 +1,202 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xeb6a3a0fa7e7e3ced7ffd9cfd661e26073f572df1b3745af9cf01a36bc142519"
+    },
+    "effectiveAt": 1792325700,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x8cb5a0861da859fa27440b32e8538c84f750f31c4f9de2c28f636994a98173d2",
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-MED-0060.json"
+  },
+  "payload": {
+    "canonical_route": null,
+    "constructor": {
+      "id": "claude-code-task:max-pain-4188-accession-2026-10-18",
+      "observed_at": "2026-10-18T12:15:00Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-10-18T12:15:00Z",
+    "effective_at": "2026-10-18T12:15:00Z",
+    "entity_id": "6529NM-MED-0060",
+    "entity_status": "review_pending",
+    "entity_type": "MEDIA_REFERENCE",
+    "evidence_refs": [
+      {
+        "evidence_class": "A",
+        "label": "Retained token GIF",
+        "observed_at": "2026-10-18T12:15:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-sources/raw/token-image.gif"
+      },
+      {
+        "evidence_class": "A",
+        "label": "Source-evidence manifest",
+        "observed_at": "2026-10-18T12:15:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-sources/manifest.json"
+      }
+    ],
+    "observed_at": "2026-10-18T12:15:00Z",
+    "page_exposure": "relational_only",
+    "payload_sha256": "sha256:e133e2a2b82716f859054b0359c7226e1f6be405d37cde2f57e65ffaf59fff3d",
+    "preferred_label": "Token image: MAX PAIN #4188/7394 animated GIF",
+    "profile": {
+      "media": {
+        "accessibility_evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Accession alt text",
+            "observed_at": "2026-10-18T12:15:00Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/public/alt-text.md"
+          }
+        ],
+        "accessibility_publication_entity_id": null,
+        "accessibility_status": "provided",
+        "accessibility_subject_policy": "not_applicable",
+        "accessibility_text": "Flashing animated loop of a teal head on black: its pink band flickers to magenta, mint flames boil above two black eyes, checkered streaks flash.",
+        "allowed_ui_affordances": [
+          "play",
+          "alt_text",
+          "open_token_source",
+          "copy_citation"
+        ],
+        "credit": "XCOPY, MAX PAIN #4188/7394, 2022. Ethereum token eip155:1/erc721:0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde/171000104188. Acquired through a community-funded purchase organized by Shelby and authorized by the 6529 Network Museum Wave, 2026. CC0 1.0.",
+        "derived_from_media_entity_id": null,
+        "fixity": {
+          "algorithm": "sha256",
+          "basis": "The token's GIF, downloaded byte-identical from the Nifty Gateway CDN and an IPFS gateway, is retained in the Museum source-evidence package; the IPFS CIDv0 recomputed from these bytes equals the token's image_hash.",
+          "digest": "sha256:3ba2c6c6a7b7da940b5780da8fe301e61366a0b5c738be16e537ee122630be2e",
+          "status": "verified",
+          "verified_at": "2026-10-18T12:15:00Z"
+        },
+        "height": 4000,
+        "identity_inference_prohibition": null,
+        "media_role": "token_linked_source_media",
+        "media_type": "image/gif",
+        "publication_boundary": "token_source",
+        "publication_context_entity_ids": [],
+        "publication_part_number": null,
+        "rights": {
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Rights statement",
+              "observed_at": "2026-10-18T12:15:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/rights/6529NM.2026.005.RIGHTS.01.json"
+            }
+          ],
+          "notes": "Source rights label: CC0 1.0. Rights state is projected from the cited source and is not inferred from media availability.",
+          "observed_at": "2026-10-18T12:15:00Z",
+          "statement_entity_id": null,
+          "status": "cleared"
+        },
+        "source_byte_size": 4541937,
+        "source_locator": {
+          "repository_path": "evidence/xcopy-max-pain-4188-sources/raw/token-image.gif",
+          "uri": "ipfs://QmTcTzTPgCyvF933oeFvB4GkPgaXtF6dKuQgvg32qqLYGF"
+        },
+        "source_observation": {
+          "evidence_refs": [
+            {
+              "evidence_class": "A",
+              "label": "Retained token GIF",
+              "observed_at": "2026-10-18T12:15:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-sources/raw/token-image.gif"
+            },
+            {
+              "evidence_class": "A",
+              "label": "Source-evidence manifest",
+              "observed_at": "2026-10-18T12:15:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-sources/manifest.json"
+            },
+            {
+              "evidence_class": "B",
+              "label": "Web presentation authority",
+              "observed_at": "2026-10-18T12:15:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/public/web-presentation-authority.md"
+            },
+            {
+              "evidence_class": "C",
+              "label": "Flash-analysis evidence",
+              "observed_at": "2026-10-18T12:15:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-display/manifest.json"
+            }
+          ],
+          "notes": "Source observation and mutable-host boundary remain separate from preservation status.",
+          "observed_at": "2026-10-18T12:15:00Z",
+          "status": "retrieved"
+        },
+        "source_record_ids": [
+          "6529NM.2026.005.01",
+          "6529NM.2026.005.COND.01",
+          "6529NM.2026.005.RIGHTS.01"
+        ],
+        "subject_entity_id": "6529NM-W-0036",
+        "token_source_fixity": {
+          "algorithm": "sha256",
+          "basis": "The token metadata at the on-chain tokenURI is retained in the Museum source-evidence package; its image_hash names this GIF.",
+          "digest": "sha256:9ac7b505f0b5aaf8b0e81cfb3d9f3fc7b2fc0a80319ec7623dcbe0d8209d9886",
+          "status": "verified",
+          "verified_at": "2026-10-18T12:15:00Z"
+        },
+        "token_source_locator": {
+          "repository_path": "evidence/xcopy-max-pain-4188-sources/raw/token-metadata.json",
+          "uri": "ipfs://QmT9cJUe8NFwniMTjWHunf6YWgYRdACTyN7uAiZRuXP9ij/171000104188"
+        },
+        "transform_profile": null,
+        "visual": true,
+        "wave_proposal_context": null,
+        "width": 4000
+      },
+      "profile_type": "MEDIA_REFERENCE"
+    },
+    "public_slug": null,
+    "record_id": "6529NM-MED-0060",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-W-0036",
+      "6529NM.2026.005.01",
+      "6529NM.2026.005.COND.01",
+      "6529NM.2026.005.RIGHTS.01"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM-W-0036",
+      "6529NM.2026.005.01",
+      "6529NM.2026.005.COND.01",
+      "6529NM.2026.005.RIGHTS.01"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "A",
+          "label": "Retained token GIF",
+          "observed_at": "2026-10-18T12:15:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-sources/raw/token-image.gif"
+        },
+        {
+          "evidence_class": "A",
+          "label": "Source-evidence manifest",
+          "observed_at": "2026-10-18T12:15:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-sources/manifest.json"
+        }
+      ],
+      "observed_at": "2026-10-18T12:15:00Z",
+      "status_label": "review_pending"
+    },
+    "subject_id": "6529NM-MED-0060",
+    "visibility": "public"
+  }
+}

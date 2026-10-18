@@ -2,6 +2,10 @@
 
 This append-oriented log preserves work state across task compaction and agent handoff. It is operational memory, not adopted policy.
 
+## 2026-09-27 — MAX PAIN publication contribution
+
+Contributor reports Shelby's editorial approval and authorizes opening a PR. The approved scribe-pass essay and revised blurb/credits are submitted unchanged under `notes/wip/max-pain-4188-staging/`, with a source chronology and review handoff. No accession identifier or completion gate is invented. Maintainers must confirm accession placement and promote through the Museum publication pipeline; exact media and institutional review remain pending.
+
 ## 2026-08-01 — autonomous build opened
 
 ### Mandate
@@ -4162,3 +4166,37 @@ at `2026-10-18T09:39:49Z`. Reviewed B is
 transition check from `3926d78f`, and the full validation set pass. A later
 commit applies the review binding to `6529NM-GOV-1282091`. Nothing has been
 pushed or deployed.
+
+### 2026-10-18 - MAX PAIN #4188/7394 accessioned as a community-funded purchase
+
+Branch `max-pain-4188-accession` combines the contributor's submission
+(`5d241715`, authorship preserved), the purchase record model
+(`ACQUISITION_AUTHORIZATION`, purchase title declaration, purchase register
+lots, the `records/proposed-acquisitions/` family, and the per-accession
+publication table), and the evidence and media work (GIF raw evidence, the
+custody, source, technical, and funding packages, and media schema v3 with
+first-frame posters and a token-linked animation). It then constructs
+accession `6529NM.2026.005`, object `6529NM.2026.005.01`, Acquisition
+Authorization `6529NM.2026.005.AQA-01`, Accession Certificate
+`6529NM-ACC-2026-005`, governance decision `6529NM-GOV-1336667`, proposal
+record `6529NM-PA-2026-001`, the flash-analysis evidence package, the public
+manuscripts, register revision 6, and the Work, Artist, Project, Curated
+Acquisition, Accession, and two Media entities with eight relations. A
+purchase seller is now recorded by role, with its address only in the lot's
+provenance schedule. The 0.068496911687069084 ETH residual is outside the
+accession: the Museum has received the funds but has not accepted them, and
+has asked the organizer how they should be held. Candidate A is the branch's
+final commit; status, open items, and the regeneration sequence are in
+`notes/wip/2026-10-18-max-pain-4188-accession-and-release.md`.
+
+## 2026-10-18 — MAX PAIN contributor submission promoted
+
+The contributor's organizer-approved submission, staged under
+`notes/wip/max-pain-4188-staging/` by the 2026-09-27 entry above, is promoted
+into accession `6529NM.2026.005`: its essay became the signed public essay,
+revised under the coordinator's v3 text, and its blurb, credits, and
+chronology informed the object entry, the credits list, and the Sources and
+Chronology record. The staging folder is removed from the tree. Its original
+text is preserved unchanged in the contributor's commit, `777ac81c` before
+the rebase and `ea1e4b77f107131b3dfe91b6bded1d60e81c798b` on branch
+`max-pain-4188-accession`; that commit is not altered.

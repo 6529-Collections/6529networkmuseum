@@ -1,0 +1,146 @@
+{
+  "payload": {
+    "evidence_class": "B",
+    "extraction": "Next.js flight strings decoded from self.__next_f.push literals; listed fields copied verbatim; user, owner and engagement fields excluded.",
+    "platform_contract_fields": {
+      "ClosingDateTimeInUTC": "2022-03-24T22:40:00Z",
+      "OpeningDateTimeInUTC": "2022-03-24T22:30:00Z",
+      "contractAddress": "0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde",
+      "contractId": 171,
+      "dropEndTime": "2022-03-24T22:40:00Z",
+      "isForPrimaryMarketSale": true,
+      "listingType": "curated",
+      "project_category": "art",
+      "project_cover_photo_url": "https://res.cloudinary.com/nifty-gateway/image/upload/v1647441828/AA/XCOPY/OpenEdition/MAX_PAIN_1_bhtyc0.gif",
+      "publisherSlug": "niftygateway_curated",
+      "scheduled_end_date_time": "2022-03-24T22:40:00Z",
+      "scheduled_start_date_time": "2022-03-24T22:30:00Z",
+      "storeName": "MAX PAIN AND FRENS OPEN EDITION",
+      "storeURL": "xcopy-oe",
+      "template": "open_edition"
+    },
+    "platform_nifty_fields": {
+      "artist_name": "XCOPY",
+      "baseChain": "ethereum",
+      "has_sound": false,
+      "isThreeDimensional": false,
+      "max_quantity_per_checkout": 1,
+      "niftyCanonicalImageHash": "QmTcTzTPgCyvF933oeFvB4GkPgaXtF6dKuQgvg32qqLYGF",
+      "niftyContractAddress": "0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde",
+      "niftyDescription": "MAX PAIN by XCOPY",
+      "niftyEditionNumIncludedInTitle": "True",
+      "niftyImageURL": "https://res.cloudinary.com/nifty-gateway/image/upload/v1647441828/AA/XCOPY/OpenEdition/MAX_PAIN_1_bhtyc0.gif",
+      "niftyPriceInCents": 310800,
+      "niftyTitle": "MAX PAIN",
+      "niftyTotalBurnt": 0,
+      "niftyTotalNumOfEditions": 7394,
+      "niftyTotalReserved": 0,
+      "niftyType": 1,
+      "primary_sale_type": "open_edition",
+      "projectType": "curated",
+      "scheduledEndDateTime": "2022-03-24T22:40:00Z",
+      "scheduledStartDateTime": "2022-03-24T22:30:00Z"
+    },
+    "snapshot": {
+      "archive": "Internet Archive Wayback Machine",
+      "mode": "id_ (original bytes); the served capture is the record's served_url",
+      "requested_timestamp": "20250905032040"
+    },
+    "store_description_citations": [
+      {
+        "found_verbatim": true,
+        "text": "It will be priced at ~ 1 ETH at the time of the drop."
+      },
+      {
+        "found_verbatim": true,
+        "text": "1 edition has been reserved by XCOPY + the Nifty Gateway team for a"
+      }
+    ],
+    "visible_text_sha256": "sha256:c82dae2b81b55218c8683437eb587f03d351e5e60eb29d3d1304c114231ecfdd"
+  },
+  "raw_response": {
+    "media_type": "text/html",
+    "reason": "Raw HTML embeds executable script elements and third-party page text; only the listed facts and short citations are retained.",
+    "retained": false,
+    "sha256": "sha256:b6ac99c09d183a0cc04c67448873e15ec8f6f4bcce744e42906129ad0c6c7ad8",
+    "size": 197063
+  },
+  "served_url": "https://web.archive.org/web/20250905031141id_/https://www.niftygateway.com/marketplace/collection/0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde/1/",
+  "source_id": "nifty-gateway-drop-page-wayback-20250905",
+  "transport": {
+    "address_set": [
+      "207.241.237.3"
+    ],
+    "address_set_sha256": "3587b84ee232ddfa28b3d22139f007a5c7134de08e4268b1c8978bdf8aa9caa4",
+    "attempts": 1,
+    "byte_length": 197063,
+    "byte_sha256": "b6ac99c09d183a0cc04c67448873e15ec8f6f4bcce744e42906129ad0c6c7ad8",
+    "canonical_url": "https://web.archive.org/web/20250905031141id_/https://www.niftygateway.com/marketplace/collection/0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde/1/",
+    "hops": [
+      {
+        "address_set": [
+          "207.241.237.3"
+        ],
+        "address_set_sha256": "3587b84ee232ddfa28b3d22139f007a5c7134de08e4268b1c8978bdf8aa9caa4",
+        "byte_length": 0,
+        "canonical_url": "https://web.archive.org/web/20250905032040id_/https://www.niftygateway.com/marketplace/collection/0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde/1/",
+        "media_type": "text/plain",
+        "observed_at": "2026-10-18T08:16:12.801Z",
+        "peer_ip": "207.241.237.3",
+        "response_headers": [
+          [
+            "content-type",
+            "text/plain; charset=utf-8"
+          ],
+          [
+            "content-length",
+            "0"
+          ],
+          [
+            "location",
+            "https://web.archive.org/web/20250905031141id_/https://www.niftygateway.com/marketplace/collection/0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde/1/"
+          ]
+        ],
+        "selected_ip": "207.241.237.3",
+        "status": 302
+      },
+      {
+        "address_set": [
+          "207.241.237.3"
+        ],
+        "address_set_sha256": "3587b84ee232ddfa28b3d22139f007a5c7134de08e4268b1c8978bdf8aa9caa4",
+        "byte_length": 197063,
+        "canonical_url": "https://web.archive.org/web/20250905031141id_/https://www.niftygateway.com/marketplace/collection/0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde/1/",
+        "media_type": "text/html",
+        "observed_at": "2026-10-18T08:16:13.614Z",
+        "peer_ip": "207.241.237.3",
+        "response_headers": [
+          [
+            "content-type",
+            "text/html; charset=utf-8"
+          ]
+        ],
+        "selected_ip": "207.241.237.3",
+        "status": 200
+      }
+    ],
+    "media_type": "text/html",
+    "observed_at": "2026-10-18T08:16:13.614Z",
+    "peer_ip": "207.241.237.3",
+    "redirect_chain": [
+      "https://web.archive.org/web/20250905032040id_/https://www.niftygateway.com/marketplace/collection/0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde/1/",
+      "https://web.archive.org/web/20250905031141id_/https://www.niftygateway.com/marketplace/collection/0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde/1/"
+    ],
+    "resolver_profile": "system_getaddrinfo",
+    "resolver_revision": "python-socket.getaddrinfo-v1",
+    "response_headers": [
+      [
+        "content-type",
+        "text/html; charset=utf-8"
+      ]
+    ],
+    "selected_ip": "207.241.237.3",
+    "status": 200
+  },
+  "url": "https://web.archive.org/web/20250905032040id_/https://www.niftygateway.com/marketplace/collection/0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde/1/"
+}

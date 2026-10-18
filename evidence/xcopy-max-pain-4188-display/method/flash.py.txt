@@ -1,0 +1,259 @@
+"""WCAG 2.3.1 general-flash and red-flash measurement for the GIF.
+
+Usage: python -I flash.py <gif> <out dir>
+
+Decodes the frames with the stdlib parser (index space, exact palette
+colours), then for every distinct 8-frame per-pixel colour sequence computes
+how many general flashes and red flashes it produces in any one-second
+window of the looping animation (20 frame intervals at 50 ms). Flashing
+pixels are mapped and the concurrent flashing area is measured inside the
+WCAG reference 10-degree field (341 x 256 px on a 1024 x 768 screen) for a
+range of display sizes.
+"""
+
+from __future__ import annotations
+
+import importlib.util
+import json
+import sys
+from collections import Counter
+from pathlib import Path
+
+from PIL import Image, ImageChops
+
+Image.MAX_IMAGE_PIXELS = 100_000_000
+HERE = Path(__file__).resolve().parent
+
+
+def load_parser():
+    spec = importlib.util.spec_from_file_location("gif_structure", HERE / "gif_structure.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+def lin(c8: int, knee: float = 0.03928) -> float:
+    c = c8 / 255
+    return c / 12.92 if c <= knee else ((c + 0.055) / 1.055) ** 2.4
+
+
+def colour_facts(rgb: tuple[int, int, int]) -> dict:
+    r, g, b = (lin(v) for v in rgb)
+    L = 0.2126 * r + 0.7152 * g + 0.0722 * b
+    X = 0.4124 * r + 0.3576 * g + 0.1805 * b
+    Y = 0.2126 * r + 0.7152 * g + 0.0722 * b
+    Z = 0.0193 * r + 0.1192 * g + 0.9505 * b
+    d = X + 15 * Y + 3 * Z
+    if d == 0:
+        u, v = 0.1978, 0.4683  # black: use D65 white point chromaticity
+    else:
+        u, v = 4 * X / d, 9 * Y / d
+    s_lin = r + g + b
+    s_gam = sum(rgb)
+    return {
+        "L": L,
+        "red_ratio_linear": r / s_lin if s_lin else 0.0,
+        "red_ratio_gamma": rgb[0] / s_gam if s_gam else 0.0,
+        "u": u, "v": v,
+    }
+
+
+def count_general(Ls: list[float]) -> int:
+    """Harding-style: a transition is a monotonic luminance excursion of
+    >= 0.1 whose darker end is < 0.8; flashes = opposing pairs."""
+    transitions = 0
+    anchor = Ls[0]
+    last_dir = 0
+    for L in Ls[1:]:
+        if last_dir == 1 and L > anchor:
+            anchor = L
+            continue
+        if last_dir == -1 and L < anchor:
+            anchor = L
+            continue
+        delta = L - anchor
+        if abs(delta) >= 0.1 and min(L, anchor) < 0.8:
+            transitions += 1
+            last_dir = 1 if delta > 0 else -1
+            anchor = L
+    return transitions // 2
+
+
+def count_red(states: list[dict], ratio_key: str) -> int:
+    transitions = 0
+    last = None
+    for a, b in zip(states, states[1:]):
+        ra = a[ratio_key] >= 0.8
+        rb = b[ratio_key] >= 0.8
+        if not (ra or rb):
+            continue
+        duv = ((a["u"] - b["u"]) ** 2 + (a["v"] - b["v"]) ** 2) ** 0.5
+        if duv <= 0.2:
+            continue
+        kind = "into" if rb and not ra else ("out" if ra and not rb else "red-red")
+        if kind != last:
+            transitions += 1
+            last = kind
+    return transitions // 2
+
+
+def window_max(mask_small: Image.Image, win_w: int, win_h: int) -> float:
+    """Max mean of a (win_w x win_h) window over an image padded with zeros
+    (the image may be smaller than the window)."""
+    W, H = mask_small.size
+    PW, PH = max(W, win_w), max(H, win_h)
+    data = mask_small.tobytes()
+    # integral image over padded canvas (image anchored at 0,0; windows slide over all positions)
+    # pad only where needed: if image smaller than the window, the best window contains the whole image
+    if W <= win_w and H <= win_h:
+        return sum(data) / 255 / (win_w * win_h)
+    integ = [[0] * (W + 1) for _ in range(H + 1)]
+    for y in range(H):
+        row = data[y * W:(y + 1) * W]
+        acc = 0
+        prev = integ[y]
+        cur = integ[y + 1]
+        for x in range(W):
+            acc += row[x]
+            cur[x + 1] = prev[x + 1] + acc
+    ww, wh = min(win_w, W), min(win_h, H)
+    best = 0
+    for y in range(0, H - wh + 1, 2):
+        r0, r1 = integ[y], integ[y + wh]
+        for x in range(0, W - ww + 1, 2):
+            s = r1[x + ww] - r0[x + ww] - r1[x] + r0[x]
+            if s > best:
+                best = s
+    return best / 255 / (win_w * win_h)
+
+
+def main() -> int:
+    gif, out_dir = sys.argv[1], Path(sys.argv[2])
+    parser = load_parser()
+    canvases: list[bytes] = []
+    meta = {}
+
+    def grab(i, canvas, w, h, gct):
+        canvases.append(canvas)
+        meta.update(w=w, h=h, gct=gct)
+
+    parser.parse(gif, True, grab)
+    W, H, gct = meta["w"], meta["h"], meta["gct"]
+    n = len(canvases)
+    pal = {i: tuple(gct[i * 3:i * 3 + 3]) for i in range(len(gct) // 3)}
+    facts = {i: colour_facts(c) for i, c in pal.items()}
+    sigs = Counter(zip(*canvases))
+    total = W * H
+    frames_per_second = 20  # 50 ms delays
+    per_sig = {}
+    for sig in sigs:
+        best_g = best_rl = best_rg = 0
+        for phase in range(n):
+            seq = [sig[(phase + k) % n] for k in range(frames_per_second + 1)]
+            Ls = [facts[i]["L"] for i in seq]
+            st = [facts[i] for i in seq]
+            best_g = max(best_g, count_general(Ls))
+            best_rl = max(best_rl, count_red(st, "red_ratio_linear"))
+            best_rg = max(best_rg, count_red(st, "red_ratio_gamma"))
+        per_sig[sig] = (best_g, best_rl, best_rg)
+    # distribution of flash rates
+    dist_g = Counter()
+    dist_rl = Counter()
+    dist_rg = Counter()
+    for sig, cnt in sigs.items():
+        g, rl, rg = per_sig[sig]
+        dist_g[g] += cnt
+        dist_rl[rl] += cnt
+        dist_rg[rg] += cnt
+    res = {
+        "method": {
+            "frames": n, "frame_interval_ms": 50, "loop_ms": n * 50,
+            "one_second_window": "20 frame intervals (21 states) evaluated at every loop phase; max taken",
+            "relative_luminance": "WCAG 2.x sRGB relative luminance (0.03928 knee), L = 0.2126R + 0.7152G + 0.0722B",
+            "general_flash": "pair of opposing luminance transitions each >= 0.1 with darker state < 0.80",
+            "red_flash": "pair of opposing transitions to/from a saturated red state (R/(R+G+B) >= 0.8) with CIE 1976 u'v' difference > 0.2 (WCAG 2.2 working definition); computed with linearised and with gamma-encoded RGB; black treated as D65 chromaticity",
+            "threshold": "fails 2.3.1 general/red flash threshold only if > 3 flashes in any 1 s AND concurrent flashing area > 25% of any 10-degree field (341 x 256 px on a 1024 x 768 reference screen)",
+            "distinct_pixel_sequences": len(sigs),
+        },
+        "palette_index_facts": {
+            str(i): {"hex": "#%02x%02x%02x" % pal[i], **{k: round(v, 4) for k, v in facts[i].items()}}
+            for i in sorted({i for s in sigs for i in s})
+        },
+        "general_flashes_per_second_pixel_share": {str(k): round(v / total, 5) for k, v in sorted(dist_g.items())},
+        "red_flashes_per_second_pixel_share_linear": {str(k): round(v / total, 5) for k, v in sorted(dist_rl.items())},
+        "red_flashes_per_second_pixel_share_gamma": {str(k): round(v / total, 5) for k, v in sorted(dist_rg.items())},
+    }
+    # per-transition luminance-change census
+    trans = []
+    for t in range(n):
+        a, b = canvases[t], canvases[(t + 1) % n]
+        pairs = Counter(zip(a, b))
+        big = sum(c for (x, y), c in pairs.items() if x != y and abs(facts[x]["L"] - facts[y]["L"]) >= 0.1 and min(facts[x]["L"], facts[y]["L"]) < 0.8)
+        changed = sum(c for (x, y), c in pairs.items() if x != y)
+        top = sorted(((c, x, y) for (x, y), c in pairs.items() if x != y), reverse=True)[:8]
+        mean_L_a = sum(facts[x]["L"] * c for (x, y), c in pairs.items()) / total
+        trans.append({
+            "from": t, "to": (t + 1) % n,
+            "changed_share": round(changed / total, 4),
+            "luminance_transition_ge_0_1_share": round(big / total, 4),
+            "mean_relative_luminance_from_frame": round(mean_L_a, 4),
+            "top_colour_changes": [
+                {"from": "#%02x%02x%02x" % pal[x], "to": "#%02x%02x%02x" % pal[y],
+                 "dL": round(facts[y]["L"] - facts[x]["L"], 4), "share": round(c / total, 4)}
+                for c, x, y in top
+            ],
+        })
+    res["transitions"] = trans
+    # Flash masks
+    flag_g = {s: (255 if v[0] > 3 else 0) for s, v in per_sig.items()}
+    flag_r = {s: (255 if max(v[1], v[2]) > 3 else 0) for s, v in per_sig.items()}
+    mask_g = Image.frombytes("L", (W, H), bytes(map(flag_g.__getitem__, zip(*canvases))))
+    mask_r = Image.frombytes("L", (W, H), bytes(map(flag_r.__getitem__, zip(*canvases))))
+    res["share_pixels_general_flash_gt3_per_s"] = round(mask_g.histogram()[255] / total, 5)
+    res["share_pixels_red_flash_gt3_per_s"] = round(mask_r.histogram()[255] / total, 5)
+    mask_g.resize((1000, 1000), Image.Resampling.BOX).save(out_dir / "diffs" / "flash-mask-general-1000.png")
+    # Concurrent area per transition: flashing pixels whose qualifying transition happens at t
+    conc = []
+    win = {}
+    for t in range(n):
+        a, b = canvases[t], canvases[(t + 1) % n]
+        def qual(x, y):
+            return 255 if (x != y and abs(facts[x]["L"] - facts[y]["L"]) >= 0.1 and min(facts[x]["L"], facts[y]["L"]) < 0.8) else 0
+        lut = {pair: qual(*pair) for pair in Counter(zip(a, b))}
+        f = lut.__getitem__
+        m = Image.frombytes("L", (W, H), bytes(map(f, zip(a, b))))
+        m = ImageChops.multiply(m, mask_g)
+        share = m.histogram()[255] / total
+        conc.append({"transition": f"{t}->{(t + 1) % n}", "concurrent_flashing_share_of_image": round(share, 5)})
+        if t in (0, 1):
+            for disp in (256, 384, 512, 768, 1024, 1536):
+                small = m.resize((disp, disp), Image.Resampling.BOX)
+                frac = window_max(small, 341, 256)
+                win.setdefault(str(disp), []).append(round(frac, 4))
+            grid = m.resize((1000, 1000), Image.Resampling.BOX)
+            grid.save(out_dir / "diffs" / f"flash-concurrent-{t}-{t + 1}-1000.png")
+            for disp in (2048, 3072, 4000):
+                ww, wh = round(341 * 1000 / disp), round(256 * 1000 / disp)
+                frac = window_max(grid, ww, wh)
+                win.setdefault(str(disp), []).append(round(frac, 4))
+            for disp in (2048, 3072, 4000):
+                ww, wh = round(256 * 1000 / disp), round(341 * 1000 / disp)
+                frac = window_max(grid, ww, wh)
+                win.setdefault(str(disp) + "_portrait_window", []).append(round(frac, 4))
+    res["concurrent_by_transition"] = conc
+    red_win = {}
+    for disp in (768, 1536):
+        red_win[str(disp)] = round(window_max(mask_r.resize((disp, disp), Image.Resampling.BOX), 341, 256), 5)
+    rg = mask_r.resize((1000, 1000), Image.Resampling.BOX)
+    red_win["4000"] = round(window_max(rg, 85, 64), 5)
+    res["red_flash_max_10deg_field_fraction_by_display_px_upper_bound"] = red_win
+    res["max_10deg_field_fraction_by_display_px"] = {
+        k: {"transition_0_1": v[0], "transition_1_2": v[1]} for k, v in win.items()
+    }
+    (out_dir / "flash-analysis.json").write_text(json.dumps(res, indent=1) + "\n", encoding="utf-8", newline="\n")
+    print(json.dumps({k: v for k, v in res.items() if k != "palette_index_facts"}, indent=1))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

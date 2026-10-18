@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x1c17b809255d562d92e4ac4d3e37e5474571e025f661cdf31c5ae518f39c5358"
+      "digest": "0xe449f8515730e4bb482d46cfe5b560ebb2af1d2282274561cc57f7babaf271ff"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-AGT-0005",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "AGENT",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:55357e79541ce25df2e6c3614e65f4a86f4dafc49c2cbb95061d3c3bf7dfeefe",
+    "payload_sha256": "sha256:a02bcdee48ba2d991eb1df4d7147b3928143a9a8148f23e0b0cac50f612d4ed0",
     "preferred_label": "intrepid",
     "profile": {
       "agent_kind": "PERSON",
@@ -78,26 +78,15 @@
     },
     "public_slug": null,
     "record_id": "6529NM-AGT-0005",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
       "6529NM-AP-01",
       "6529NM-AP-01-OUT-004"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "claude-reviewer:museum-governance-2026-10-18-independent",
-      "outcome": "approved",
-      "reviewed_at": "2026-10-18T09:39:49Z",
-      "reviewed_commit": "9dd1c3e9ae7c0d8c77071b0b109a2cdc9bb7095f",
-      "reviewed_manifest_keccak": "0x64a95512f8901579e36a6d443e534e6335dcf04cb75c2916115a003c7b30cc02",
-      "reviewed_manifest_sha256": "sha256:74eea95ef31da7f314f1d1d9935b2e4d0775010dde8ceab0205c27918dcdd866",
-      "reviewer_ids": [
-        "claude-reviewer:museum-governance-2026-10-18-independent"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AP-01",
@@ -113,7 +102,7 @@
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-AGT-0005",
     "visibility": "public"

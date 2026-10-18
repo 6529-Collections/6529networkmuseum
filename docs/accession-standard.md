@@ -55,6 +55,82 @@ control-plane accession certificate is evidence-backed, the lot and its
 objects remain `received_onchain` / `not_complete`; the record must name the
 specific completion blockers and retain independent reviewer fields as pending.
 
+## Purchase acquisition authorization
+
+A purchase is recorded by an **Acquisition Authorization**
+(`ACQUISITION_AUTHORIZATION`, identifier `6529NM.<year>.<sequence>.AQA-<NN>`).
+It is the purchase counterpart of the gift authorization above: a dated,
+Museum-local administrative record of a formally accepted purchase. The
+`ACCESSION` certificate remains the completion record. The authorization binds
+the exact object schedule, the governing decisions, and these purchase facts:
+
+- **Governing basis and token selection.** The record cites the adopted Wave
+  decision with its live API status and observation time, and any policy that
+  governs acceptance. A Wave `WINNER` status records that the Wave adopted the
+  proposal; it never selects a token. The record states separately how the
+  exact token was chosen (`token_selection`): named in the authorizing
+  proposal, or chosen by the executing agent within the authorization. Each
+  matter the authorization leaves open, such as the exact token, a price cap,
+  the treatment of excess funds, rights requirements, or failure conditions, is
+  listed in `program_authorization_limitations`.
+- **Executing agent.** The address that paid the seller and first received the
+  token, its role, the governing record it acted under, and its retained
+  interest. The agent holds the token only to deliver it to Museum custody.
+  Its public role is purchasing agent; the record never credits it as a donor.
+- **Seller.** The seller's role (for example `earlier_private_holder`) and
+  the accession lot whose provenance schedule records the seller's address.
+  The authorization itself carries no seller address. A private seller's
+  address appears only in that schedule and in the retained raw chain
+  evidence, and names and contact details of private sellers stay out of the
+  public record.
+- **Consideration.** The paid asset as a CAIP-19 asset type, the amount as a
+  decimal string in the asset's smallest unit (an integer above 2^53 is not
+  exact in I-JSON), and the payment transaction with its token transfer logs,
+  each running from the seller (by role) to the agent. The amount is a payment
+  fact. The record makes no valuation, tax, or accounting claim.
+- **Funding basis.** How the purchase was funded, with the fixed statement that
+  contributors hold no individual or fractional ownership interest. Chain
+  balances show aggregate inflows only, so a per-contributor payment is stated
+  only with its source and attribution.
+- **Custody receipts.** The agent-to-Museum transfer for every object.
+- **Public credit.** A purchase credit line, for example "Acquired through a
+  community-funded purchase authorized by the 6529 Network Museum Wave, 2026".
+  The validator rejects gift or donation wording.
+
+`scripts/validate.py` requires the payment and the Museum receipt to be
+separate transactions, the receipt to be no earlier than the payment, every
+transfer log to run from the seller to the agent, every Museum receipt to run
+from the agent, the native payment value to equal the recorded amount, and the
+agent's authority to resolve to a governing record. It then joins the
+authorization to its accession lot's provenance schedule: for every asset the
+schedule must record the purchase transfer, at the payment transaction and log,
+from a seller address distinct from the agent, the zero address, and Museum
+custody to the agent, followed by the Museum receipt from the agent to Museum
+custody.
+
+Title passes by an `institutional_purchase_title_declaration`: a canonical
+declaration, hashed and named in the `ACCESSION` title-passage event, that the
+Museum takes the executing agent's entire transferable interest in the exact
+token, acquired under the governing decision. The `TITLE_BINDING` binds that
+declaration to the agent-to-Museum transfer, which is also the object record's
+`acquisition_transaction`. The earlier seller-to-agent transaction is
+provenance; machine fields describe it as the agent's purchase. A purchase
+title declaration is valid only for `acquisition_method: purchase`, and a gift
+title declaration only for a donation.
+
+Custody alone does not complete a purchase accession. The agent's custody, the
+Museum's receipt, and the Wave decision are each evidence of one event. Formal
+acceptance, an executed title binding, rights, condition, preservation, and
+independent review remain separate gates, as they are for a gift. The accession
+register records a purchase lot with `acquisition_method`, `acquisition_status`,
+the authorization record, `public_credit`, a funding summary, and a
+consideration summary; it carries no donation fields.
+
+A purchase proposed to the Wave is a **proposed acquisition**
+(`6529NM-PA-<year>-<NNN>`) recorded under
+[`records/proposed-acquisitions/`](../records/proposed-acquisitions/README.md).
+It is never filed as a proposed gift.
+
 ## Accession statement minimum
 
 - Museum and governing-entity reference;

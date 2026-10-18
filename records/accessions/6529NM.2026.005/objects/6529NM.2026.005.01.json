@@ -1,0 +1,245 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x3cb7b539a56db39d513b2e86d17ad2b0739a974c878fe1fbef76f000e32922df"
+    },
+    "effectiveAt": 1792325700,
+    "recordType": "WORK_DESCRIPTION",
+    "schemaId": "0x5bb3543c4c007f4396474b74ec81dd8bca13028b6d945020e4b48ff236b26a3c",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x9a22b3daf6efca2da19d75c108621732c42d07fa07495a47d1e486b8e4d3c6ec",
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/objects/6529NM.2026.005.01.json"
+  },
+  "payload": {
+    "accession_lot_id": "6529NM.2026.005",
+    "artist": {
+      "claim_type": "source_credit",
+      "evidence_class": "B",
+      "preferred_name": "XCOPY",
+      "source_refs": [
+        "6529NM-PA-2026-001",
+        "evidence/xcopy-max-pain-4188-sources/raw/xcopy-art/xcopy-art-works-max-pain.txt"
+      ]
+    },
+    "chain_identity": {
+      "acquisition_transaction": "0xe7511598bbdabd1d4ff1c5bb7e6d1f9157a413fbcf305f0392cc30c92252ea03",
+      "caip19": "eip155:1/erc721:0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde/171000104188",
+      "chain_id": 1,
+      "contract": "0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde",
+      "custody_account": "eip155:1:0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+      "custody_block": 26218064,
+      "custody_receipt_block": 25889990,
+      "custody_receipt_log": 955,
+      "custody_receipt_transaction": "0xe7511598bbdabd1d4ff1c5bb7e6d1f9157a413fbcf305f0392cc30c92252ea03",
+      "custody_status": "verified",
+      "custody_verified_at": "2026-10-18T08:05:44.157Z",
+      "metadata_sha256": "sha256:9ac7b505f0b5aaf8b0e81cfb3d9f3fc7b2fc0a80319ec7623dcbe0d8209d9886",
+      "metadata_uri": "https://gateway.pinata.cloud/ipfs/QmT9cJUe8NFwniMTjWHunf6YWgYRdACTyN7uAiZRuXP9ij/171000104188",
+      "mint_transaction": "0x0b2da2a60e43772a73dc49383ca40da2d46ecf6ee9ba1669727aa03a78f3e6f8",
+      "token_id": "171000104188",
+      "token_standard": "ERC-721"
+    },
+    "condition": {
+      "behavior": "amber",
+      "dependencies": "not_applicable",
+      "documentation": "amber",
+      "metadata": "amber",
+      "method": "Reviewed the exact token, the finalized custody observation, the retained token metadata and IPFS path, the retained GIF and its recomputed IPFS CID, the GIF block structure and frame timing, the contract's runtime state, supply, and burns, the provenance receipts from mint to the Museum Safe, and the Museum flash analysis over all eight loop steps and close-looking census of the decoded frames (display evidence and its addendum 01).",
+      "narrative": "The token, its finalized custody, and the GIF bound by the on-chain IPFS hash are verified. The metadata's image URL points to a mutable CDN copy, the token URI base can still be replaced by the contract's authorized senders, and the animation flashes beyond WCAG 2.3.2 at every size and beyond 2.3.1 when shown large.",
+      "observed_at": "2026-10-18T12:15:00Z",
+      "protocol_state": "ERC-721 static-file token on a non-proxy Nifty Gateway builder contract; IPFS metadata; animated GIF image",
+      "rendering": "amber",
+      "script": "not_applicable",
+      "token": "green"
+    },
+    "constructor": {
+      "id": "claude-code-task:max-pain-4188-accession-2026-10-18",
+      "observed_at": "2026-10-18T12:15:00Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-10-18T12:15:00Z",
+    "creator": "XCOPY",
+    "credit_line": "XCOPY, MAX PAIN #4188/7394, 2022. Ethereum token eip155:1/erc721:0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde/171000104188. Acquired through a community-funded purchase organized by Shelby and authorized by the 6529 Network Museum Wave, 2026. CC0 1.0.",
+    "current_state": "accessioned",
+    "display": {
+      "credit_line": "XCOPY, MAX PAIN #4188/7394, 2022. Ethereum token eip155:1/erc721:0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde/171000104188. Acquired through a community-funded purchase organized by Shelby and authorized by the 6529 Network Museum Wave, 2026. CC0 1.0.",
+      "manifest_uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/public/web-presentation-authority.md",
+      "observed_at": "2026-10-18T12:15:00Z",
+      "status": "ready_with_conditions"
+    },
+    "effective_at": "2026-10-18T12:15:00Z",
+    "evidence_grade": "A/B/C",
+    "medium": "Animated GIF, 4,000 x 4,000 pixels, eight frames of 50 milliseconds looping without end; Ethereum ERC-721 token whose metadata names the image by IPFS hash; Nifty Gateway open edition",
+    "object_id": "6529NM.2026.005.01",
+    "observed_at": "2026-10-18T12:15:00Z",
+    "payload_sha256": "sha256:65098502b40ee2ac3846ff5720633cc186f287b3a4cbb4744b64ca0e8b2a37d8",
+    "preservation": {
+      "fixity_sha256": "sha256:ff761f2f629ea6c71a85fffc4b63e431fb03531e1f2ec7d9b10f60d0368134c0",
+      "observed_at": "2026-10-18T12:15:00Z",
+      "package_uri": "https://github.com/6529-Collections/6529networkmuseum/tree/main/evidence/xcopy-max-pain-4188-sources",
+      "render_environment": "The retained GIF is the reference file and plays in any GIF-capable browser. Public presentation uses first-frame WebP posters and plays the GIF only on request under the display authority's limits.",
+      "status": "in_progress"
+    },
+    "project": {
+      "edition_logic": "Open edition sold on Nifty Gateway on 24 March 2022 from 22:30 to 22:40 UTC; the edition size is the number of editions the platform recorded; later burns reduced the existing count",
+      "edition_size": 7394,
+      "edition_statement": "Open edition; 7,394 tokens minted and named #N/7394; 4,847 existed at Ethereum block 26,218,159 on 18 October 2026; the artist's work page showed 1 of 4849 on the same day",
+      "license_claim_status": "artist-site CC0 1.0 dedication; no licence in token metadata",
+      "name": "MAX PAIN AND FRENS",
+      "platform": "Nifty Gateway",
+      "platform_metadata_license_label": "none in token metadata",
+      "release_year": 2022,
+      "script_type_and_version": "not applicable; animated GIF image"
+    },
+    "record_id": "6529NM.2026.005.01",
+    "record_status": "review_pending",
+    "record_type": "WORK_DESCRIPTION",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM.2026.005",
+      "6529NM.2026.005.AQA-01",
+      "6529NM-ACC-2026-005",
+      "6529NM.2026.005.RIGHTS.01",
+      "6529NM.2026.005.COND.01"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "rights": {
+      "accessibility": {
+        "basis": "Accessibility derivatives granted under CC0 1.0. XCOPY's Legal & Privacy page states that XCOPY artworks are released under a CC0 (Creative Commons Zero) dedication and that anyone may use, remix, reproduce, exhibit, or build upon the work without permission; XCOPY applied CC0 to all existing work on 1 August 2022. Condition: the same page states that independent uses imply no affiliation with or endorsement by XCOPY, and Museum use implies none. The token metadata carries no licence; the Museum asserts no copyright.",
+        "evidence_ref": "6529NM.2026.005.RIGHTS.01",
+        "grant_status": "granted",
+        "observed_at": "2026-10-18T12:15:00Z"
+      },
+      "ai_training": {
+        "basis": "Use as training or analysis material granted under CC0 1.0. XCOPY's Legal & Privacy page states that XCOPY artworks are released under a CC0 (Creative Commons Zero) dedication and that anyone may use, remix, reproduce, exhibit, or build upon the work without permission; XCOPY applied CC0 to all existing work on 1 August 2022. Condition: the same page states that independent uses imply no affiliation with or endorsement by XCOPY, and Museum use implies none. The token metadata carries no licence; the Museum asserts no copyright.",
+        "evidence_ref": "6529NM.2026.005.RIGHTS.01",
+        "grant_status": "granted",
+        "observed_at": "2026-10-18T12:15:00Z"
+      },
+      "derivative_use": {
+        "basis": "Derivative use granted under CC0 1.0. XCOPY's Legal & Privacy page states that XCOPY artworks are released under a CC0 (Creative Commons Zero) dedication and that anyone may use, remix, reproduce, exhibit, or build upon the work without permission; XCOPY applied CC0 to all existing work on 1 August 2022. Condition: the same page states that independent uses imply no affiliation with or endorsement by XCOPY, and Museum use implies none. The token metadata carries no licence; the Museum asserts no copyright.",
+        "evidence_ref": "6529NM.2026.005.RIGHTS.01",
+        "grant_status": "granted",
+        "observed_at": "2026-10-18T12:15:00Z"
+      },
+      "exhibition": {
+        "basis": "Exhibition and display granted under CC0 1.0. XCOPY's Legal & Privacy page states that XCOPY artworks are released under a CC0 (Creative Commons Zero) dedication and that anyone may use, remix, reproduce, exhibit, or build upon the work without permission; XCOPY applied CC0 to all existing work on 1 August 2022. Condition: the same page states that independent uses imply no affiliation with or endorsement by XCOPY, and Museum use implies none. The token metadata carries no licence; the Museum asserts no copyright.",
+        "evidence_ref": "6529NM.2026.005.RIGHTS.01",
+        "grant_status": "granted",
+        "observed_at": "2026-10-18T12:15:00Z"
+      },
+      "migration_emulation": {
+        "basis": "Migration and emulation granted under CC0 1.0. XCOPY's Legal & Privacy page states that XCOPY artworks are released under a CC0 (Creative Commons Zero) dedication and that anyone may use, remix, reproduce, exhibit, or build upon the work without permission; XCOPY applied CC0 to all existing work on 1 August 2022. Condition: the same page states that independent uses imply no affiliation with or endorsement by XCOPY, and Museum use implies none. The token metadata carries no licence; the Museum asserts no copyright.",
+        "evidence_ref": "6529NM.2026.005.RIGHTS.01",
+        "grant_status": "granted",
+        "observed_at": "2026-10-18T12:15:00Z"
+      },
+      "preservation": {
+        "basis": "Preservation copies granted under CC0 1.0. XCOPY's Legal & Privacy page states that XCOPY artworks are released under a CC0 (Creative Commons Zero) dedication and that anyone may use, remix, reproduce, exhibit, or build upon the work without permission; XCOPY applied CC0 to all existing work on 1 August 2022. Condition: the same page states that independent uses imply no affiliation with or endorsement by XCOPY, and Museum use implies none. The token metadata carries no licence; the Museum asserts no copyright.",
+        "evidence_ref": "6529NM.2026.005.RIGHTS.01",
+        "grant_status": "granted",
+        "observed_at": "2026-10-18T12:15:00Z"
+      },
+      "print": {
+        "basis": "Print granted under CC0 1.0. XCOPY's Legal & Privacy page states that XCOPY artworks are released under a CC0 (Creative Commons Zero) dedication and that anyone may use, remix, reproduce, exhibit, or build upon the work without permission; XCOPY applied CC0 to all existing work on 1 August 2022. Condition: the same page states that independent uses imply no affiliation with or endorsement by XCOPY, and Museum use implies none. The token metadata carries no licence; the Museum asserts no copyright.",
+        "evidence_ref": "6529NM.2026.005.RIGHTS.01",
+        "grant_status": "granted",
+        "observed_at": "2026-10-18T12:15:00Z"
+      },
+      "publication": {
+        "basis": "Publication granted under CC0 1.0. XCOPY's Legal & Privacy page states that XCOPY artworks are released under a CC0 (Creative Commons Zero) dedication and that anyone may use, remix, reproduce, exhibit, or build upon the work without permission; XCOPY applied CC0 to all existing work on 1 August 2022. Condition: the same page states that independent uses imply no affiliation with or endorsement by XCOPY, and Museum use implies none. The token metadata carries no licence; the Museum asserts no copyright.",
+        "evidence_ref": "6529NM.2026.005.RIGHTS.01",
+        "grant_status": "granted",
+        "observed_at": "2026-10-18T12:15:00Z"
+      },
+      "reproduction": {
+        "basis": "Reproduction granted under CC0 1.0. XCOPY's Legal & Privacy page states that XCOPY artworks are released under a CC0 (Creative Commons Zero) dedication and that anyone may use, remix, reproduce, exhibit, or build upon the work without permission; XCOPY applied CC0 to all existing work on 1 August 2022. Condition: the same page states that independent uses imply no affiliation with or endorsement by XCOPY, and Museum use implies none. The token metadata carries no licence; the Museum asserts no copyright.",
+        "evidence_ref": "6529NM.2026.005.RIGHTS.01",
+        "grant_status": "granted",
+        "observed_at": "2026-10-18T12:15:00Z"
+      }
+    },
+    "schema_id": "0x5bb3543c4c007f4396474b74ec81dd8bca13028b6d945020e4b48ff236b26a3c",
+    "source": {
+      "source_record_ids": [
+        "6529NM-PA-2026-001",
+        "6529NM.2026.005.AQA-01",
+        "6529NM-ACC-2026-005"
+      ]
+    },
+    "source_refs": [
+      "evidence/xcopy-max-pain-4188-sources",
+      "evidence/xcopy-max-pain-4188-custody",
+      "evidence/xcopy-max-pain-4188-technical"
+    ],
+    "state_history": [
+      {
+        "evidence_refs": [
+          "6529NM-PA-2026-001"
+        ],
+        "observed_at": "2026-08-24T10:51:34.091Z",
+        "state": "offered"
+      },
+      {
+        "evidence_refs": [
+          "6529NM-GOV-1336667"
+        ],
+        "observed_at": "2026-08-27T18:30:18.491Z",
+        "state": "authorized"
+      },
+      {
+        "evidence_refs": [
+          "6529NM.2026.005.AQA-01"
+        ],
+        "observed_at": "2026-09-02T13:17:35Z",
+        "state": "acquired"
+      },
+      {
+        "evidence_refs": [
+          "6529NM.2026.005.AQA-01",
+          "6529NM-ACC-2026-005"
+        ],
+        "observed_at": "2026-09-02T13:45:23Z",
+        "state": "received_onchain"
+      },
+      {
+        "evidence_refs": [
+          "6529NM-ACC-2026-005"
+        ],
+        "observed_at": "2026-10-18T12:15:00Z",
+        "state": "accessioned"
+      }
+    ],
+    "state_history_semantics": "Lifecycle observed_at values record source event times: offered is the Wave proposal's creation, authorized is the Wave decision time, acquired is the executing agent's Seaport purchase, received_onchain is the transfer into the Museum Safe, and accessioned is the Museum's acceptance and accession act. The Museum observed the earlier states on 2026-10-18 from retained evidence; acquired records the agent's purchase for the Museum, and title passes by the accession certificate's purchase title declaration.",
+    "subject_id": "6529NM.2026.005.01",
+    "title": "MAX PAIN #4188/7394",
+    "title_binding": {
+      "basis": "Acquisition Authorization 6529NM.2026.005.AQA-01 and the institutional purchase title declaration in Accession Certificate 6529NM-ACC-2026-005 bind the executing agent's transferable token interest to this exact object.",
+      "block_number": 25889990,
+      "bound_at": "2026-10-18T12:15:00Z",
+      "custodian_reference": "networkmuseum.6529.eth",
+      "from": "0xe84576bd68882e037d8e4df484ad9a15e2b855bc",
+      "instrument_sha256": "sha256:8ac996a2d8a9f3d086c5ad7990067a02754e1e9369f5b5660860d2a60268bca4",
+      "object_id": "6529NM.2026.005.01",
+      "status": "executed",
+      "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+      "transfer_transaction": "0xe7511598bbdabd1d4ff1c5bb7e6d1f9157a413fbcf305f0392cc30c92252ea03"
+    },
+    "uncertainties": [
+      "The metadata image URL is a mutable Nifty Gateway CDN location whose Last-Modified date is 14 May 2026; the IPFS image_hash binds the bytes.",
+      "The contract has not finalized the MAX PAIN type, so further minting is not excluded by code.",
+      "Whether the artist site's count of 4849 excludes the two 2026 burns is inferred, not stated by the site.",
+      "The animation's flash limits rest on the Museum's computation under the WCAG 2.2 definitions over all eight loop steps, which the accession's independent review covers; it is not a certified photosensitive-epilepsy test."
+    ],
+    "visibility": "public"
+  }
+}

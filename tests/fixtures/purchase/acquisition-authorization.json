@@ -1,0 +1,187 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "recordType": "ACQUISITION_AUTHORIZATION",
+    "subjectId": "0xf0c087a55f0b5fee6091acb8709054c54a29279d900ee3ca3f3ab0827e28cd93",
+    "contentHash": {
+      "algorithm": 1,
+      "digest": "0x13ffb5fb3a56aa982d9c490a6c019d770b321b394f64bfba940e1037ecdc6cfd",
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
+    },
+    "uri": "ipfs://bafybeigdyrzt5exampleacquisitionauthorization",
+    "schemaId": "0x00686e3e460412351a57431a74bd46252c84df12db5df0715748d46b7404e5a1",
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "signatureHash": {
+      "algorithm": 2,
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
+    },
+    "effectiveAt": 1785542400
+  },
+  "payload": {
+    "record_id": "6529NM.2026.001.AQA-01",
+    "record_type": "ACQUISITION_AUTHORIZATION",
+    "schema_id": "0x00686e3e460412351a57431a74bd46252c84df12db5df0715748d46b7404e5a1",
+    "subject_id": "6529NM.2026.001",
+    "visibility": "public",
+    "record_version": "1.0.0",
+    "created_at": "2026-08-01T00:00:00Z",
+    "observed_at": "2026-08-01T00:00:00Z",
+    "effective_at": "2026-08-01T00:00:00Z",
+    "constructor": {
+      "id": "registrar",
+      "role": "constructor",
+      "observed_at": "2026-08-01T00:00:00Z"
+    },
+    "reviewer": {
+      "id": "museum-reviewer",
+      "role": "reviewer",
+      "reviewed_at": "2026-08-01T00:00:00Z"
+    },
+    "record_status": "reviewed",
+    "review_status": "reviewed",
+    "references": [
+      "6529NM-GOV-1052604",
+      "6529NM.2026.001",
+      "6529NM.2026.001.1",
+      "6529NM-ACC-2026-001"
+    ],
+    "authorization_id": "6529NM.2026.001.AQA-01",
+    "authorization_kind": "wave_authorized_purchase_acquisition",
+    "authorization_status": "formally_accepted",
+    "outcome": "formally_accepted_purchase_and_accession_authorization",
+    "formal_acceptance_date": "2026-08-01T00:00:00Z",
+    "acquisition_method": "purchase",
+    "public_credit": "Acquired through a community-funded purchase authorized by the 6529 Network Museum Wave, 2026",
+    "permanent_collection_intent": "The Museum accepts this exact token for the permanent Collection under ordinary collection stewardship responsibilities.",
+    "funding_basis": {
+      "kind": "voter_contribution_equal_shares",
+      "statement": "Affirmative voters committed equal shares of the final acquisition cost to the executing agent, as stated in the authorizing proposal.",
+      "contributor_ownership_interest": "none",
+      "evidence_refs": [
+        {
+          "label": "Authorizing Wave proposal",
+          "uri": "ipfs://bafybeigdyrzt5exampleproposal",
+          "observed_at": "2026-08-01T00:00:00Z",
+          "evidence_class": "B"
+        }
+      ]
+    },
+    "consideration": {
+      "status": "paid",
+      "asset": "eip155:1/slip44:60",
+      "amount_wei": "458999999900000000",
+      "payer_role": "executing_agent",
+      "payment_transaction": {
+        "transaction_hash": "0xdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "block_number": 12345600,
+        "block_time": "2026-07-27T00:00:00Z",
+        "from": "0x4444444444444444444444444444444444444444",
+        "to": "0x5555555555555555555555555555555555555555",
+        "value_wei": "458999999900000000",
+        "receipt_status": "0x1",
+        "transfer_logs": [
+          {
+            "object_id": "6529NM.2026.001.1",
+            "log_index": 7,
+            "from_party": "seller",
+            "to": "0x4444444444444444444444444444444444444444"
+          }
+        ]
+      },
+      "statement": "The executing agent paid the recorded amount from pooled contributions. This record makes no valuation, tax, or accounting claim."
+    },
+    "executing_agent": {
+      "address": "0x4444444444444444444444444444444444444444",
+      "role": "acquisition_wallet",
+      "authority_source": "6529NM-GOV-1052604",
+      "retained_interest": "none_asserted",
+      "statement": "The acquisition wallet bought the token for the Museum under the Wave authorization and transferred it to Museum custody."
+    },
+    "seller": {
+      "role": "earlier_private_holder",
+      "address_disclosure": "accession_lot_provenance_schedule",
+      "provenance_record_id": "6529NM.2026.001"
+    },
+    "token_selection": {
+      "selection_basis": "executing_agent_within_authorization",
+      "statement": "The Wave decision authorized one token of the named work; the executing agent chose this token within that authorization."
+    },
+    "governing_basis": [
+      {
+        "basis_type": "wave_governance_decision",
+        "decision_id": "6529NM-GOV-1052604",
+        "wave_serial": 1052604,
+        "drop_id": "d65befc2-65dc-4362-8ddd-75f867338669",
+        "title": "Example purchase proposal",
+        "observed_wave_status": "WINNER",
+        "governance_effect": "adopted",
+        "observed_at": "2026-08-01T00:00:00Z",
+        "effect_basis": "reviewed_governance_record",
+        "governance_record_ref": "6529NM-GOV-1052604",
+        "live_api_field": "drop_type",
+        "live_api_status": "WINNER",
+        "live_api_observed_at": "2026-08-01T00:00:00Z",
+        "governance_effect_basis": "The reviewed governance record preserves the Wave API WINNER status.",
+        "source_uri": "https://6529.io/wave/1052604"
+      }
+    ],
+    "program_authorization_limitations": [
+      "The authorizing proposal does not identify the exact token.",
+      "The authorizing proposal sets no price cap.",
+      "The authorizing proposal does not state how excess contributions are handled."
+    ],
+    "assets": [
+      {
+        "object_id": "6529NM.2026.001.1",
+        "title": "Example Work #1",
+        "caip19": "eip155:1/erc721:0x1111111111111111111111111111111111111111/1",
+        "contract": "0x1111111111111111111111111111111111111111",
+        "token_id": "1",
+        "custody_receipt_log": 0
+      }
+    ],
+    "custody_receipts": [
+      {
+        "transaction_hash": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "block_number": 12345678,
+        "block_time": "2026-07-28T00:00:00Z",
+        "from": "0x4444444444444444444444444444444444444444",
+        "to": "0x2222222222222222222222222222222222222222",
+        "custody_ens": "networkmuseum.6529.eth",
+        "transfer_count": 1,
+        "receipt_status": "0x1",
+        "logs": [
+          {
+            "object_id": "6529NM.2026.001.1",
+            "log_index": 0
+          }
+        ]
+      }
+    ],
+    "institutional_decision_authority": {
+      "decision_status": "formally_accepted",
+      "authority_basis": "user_authorized_institutional_decision",
+      "effective_at": "2026-08-01T00:00:00Z",
+      "documentation_qa_status": "reviewed",
+      "publication_semantics": "The Museum publishes the accepted purchase and accession through the named authorization and certificate records."
+    },
+    "completion_boundary": {
+      "current_state": "accessioned",
+      "accession_status": "complete",
+      "external_work_accession_certificate": "executed",
+      "title_binding": "executed",
+      "rights": "reviewed_with_conditions",
+      "condition": "reviewed_pass_with_conditions",
+      "preservation": "in_progress",
+      "independent_review": "reviewed"
+    },
+    "completion_blockers": [],
+    "non_claims": [
+      "Contributors hold no individual or fractional ownership interest in the object.",
+      "No valuation or tax characterization is made.",
+      "The Wave decision did not select the exact token."
+    ],
+    "payload_sha256": "sha256:209af08af1b1f872f4d1151e37c4a708b822e4833d0ec59414d0d4b22d3c58a2"
+  }
+}

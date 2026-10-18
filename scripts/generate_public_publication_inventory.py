@@ -24,6 +24,11 @@ from typing import Any
 from Crypto.Hash import keccak
 from jsonschema import Draft202012Validator, FormatChecker
 
+from accession_publication_units import (
+    ACCESSION_MEDIA_LOT_IDS,
+    ACCESSION_PRESENTATION_MANIFEST_PATHS,
+    REVIEW_BOUND_ACCESSION_RECORD_PATHS,
+)
 from canonical import canonicalize
 
 
@@ -56,8 +61,9 @@ EXCLUDED_PUBLIC_MARKDOWN = {
 # admits only current scholarship below public/scholarship/. This general
 # boundary prevents a future proposal from silently publishing voting copy,
 # superseded descriptions, or restricted media links as collection scholarship.
+# Proposed acquisitions (purchases) follow the same boundary.
 PROPOSED_GIFT_DECISION_HISTORY = re.compile(
-    r"^records/proposed-gifts/[^/]+/public/(?:"
+    r"^records/proposed-(?:gifts|acquisitions)/[^/]+/public/(?:"
     r"wave-storm/|status-amendments/|voter-dossier\.md$|wave-resolution\.md$)"
 )
 
@@ -80,14 +86,10 @@ EXPLICIT_MANUSCRIPTS = (
 
 # These JSON controls are required by the frontend assembler.  They are
 # assembly documents, not source manuscripts and not the inventory itself.
+# Each accession's direct records come from the shared accession publication
+# table in scripts/accession_publication_units.py.
 ASSEMBLY_CONTROL_PATHS = (
-    "records/accessions/6529NM.2026.003/accession-certificate.json",
-    "records/accessions/6529NM.2026.003/accession-statement.json",
-    "records/accessions/6529NM.2026.003/gift-acceptance-authorization.json",
-    "records/accessions/6529NM.2026.003/objects/6529NM.2026.003.01.json",
-    "records/accessions/6529NM.2026.003/rights/6529NM.2026.003.RIGHTS.01.json",
-    "records/accessions/6529NM.2026.003/technical/6529NM.2026.003.01.json",
-    "records/proposed-gifts/6529NM-PG-2026-002/wave-status-observation.json",
+    *REVIEW_BOUND_ACCESSION_RECORD_PATHS,
     "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/machine/media-source-continuity-amendment.json",
     "schemas/common.schema.json",
     "schemas/controlled-vocabularies.json",
@@ -116,8 +118,7 @@ ASSEMBLY_CONTROL_PATHS = (
 MEDIA_SOURCE_MANIFEST_PATHS = (
     "media/programs/6529NM-AP-01/accessibility.json",
     "records/programs/6529NM-AP-01/public/presentation-manifest.json",
-    "records/accessions/6529NM.2026.002/public/presentation-manifest.json",
-    "records/accessions/6529NM.2026.003/public/presentation-manifest.json",
+    *ACCESSION_PRESENTATION_MANIFEST_PATHS,
 )
 
 EXCLUDED_LEGACY_CASEY_CONTROLS = {
@@ -417,7 +418,7 @@ def _accession_media_paths_for(root: Path, accession_id: str) -> set[str]:
 
 def _accession_media_paths(root: Path) -> set[str]:
     paths: set[str] = set()
-    for accession_id in ("6529NM.2026.002", "6529NM.2026.003"):
+    for accession_id in ACCESSION_MEDIA_LOT_IDS:
         paths.update(_accession_media_paths_for(root, accession_id))
     return paths
 
