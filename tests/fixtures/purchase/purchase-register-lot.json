@@ -1,0 +1,49 @@
+{
+  "accession_lot_id": "6529NM.2026.901",
+  "preferred_title": "Example Artist, Example Work #1",
+  "object_count": 1,
+  "acquisition_method": "purchase",
+  "acquisition_status": "formally_accepted",
+  "accession_status": "accessioned",
+  "formal_acceptance_status": "formally_accepted",
+  "acquisition_authorization_record": "6529NM.2026.901.AQA-01",
+  "accession_certificate_record": "6529NM-ACC-2026-901",
+  "public_credit": "Acquired through a community-funded purchase authorized by the 6529 Network Museum Wave, 2026",
+  "funding_basis_summary": "Equal shares of the final acquisition cost committed by affirmative voters; contributors hold no ownership interest.",
+  "consideration_summary": {
+    "asset": "eip155:1/slip44:60",
+    "amount_wei": "458999999900000000",
+    "payment_transaction": "0xdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+    "payer_role": "executing_agent",
+    "evidence_class": "A"
+  },
+  "custody": {
+    "ens": "networkmuseum.6529.eth",
+    "chain_id": "eip155:1",
+    "address": "0x2222222222222222222222222222222222222222",
+    "observed_at": "2026-08-01T00:00:00Z",
+    "finalized_block": 12345700,
+    "finalized_block_hash": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "token_count": 1,
+    "evidence_class": "A"
+  },
+  "receipt_event": {
+    "transaction_hash": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "block_number": 12345678,
+    "block_time": "2026-07-28T00:00:00Z",
+    "from": "0x4444444444444444444444444444444444444444",
+    "to": "0x2222222222222222222222222222222222222222",
+    "transfer_count": 1,
+    "receipt_status": "0x1",
+    "evidence_class": "A",
+    "token_id": 1,
+    "log_index": 0
+  },
+  "evidence_refs": [
+    "records/accessions/6529NM.2026.901/accession-certificate.json"
+  ],
+  "completion_limits": [],
+  "ongoing_stewardship_actions": [
+    "Retain source responses and fixity."
+  ]
+}

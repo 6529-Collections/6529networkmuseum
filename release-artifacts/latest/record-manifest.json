@@ -7145,11 +7145,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xfc19e0c389dcfae46222d922245f2d4737ee2a03eedca5c42b51e5ce46dd33a8"
+        "digest": "0x5c6270cdbecd6630fc89b1e768950205ecff570a61cfc17a4bf4bb5d118bc1d8"
       },
       "path": "schemas/accession-register.schema.json",
-      "sha256": "sha256:bf48b77bba886540e84801364b36322890e2ee9cb03ffa95d0f545db016d5b85",
-      "size": 5484
+      "sha256": "sha256:4486a43e05adb2840fff7521a6025548b6ff0958c5a346cc7bdfad98fdc86c91",
+      "size": 8395
     },
     {
       "byte_mode": "lf-normalized",
@@ -8467,6 +8467,17 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0x302d62ee29a960468089aedc39611f6070e77ed0ec29b09f9ac516ba18897aee"
+      },
+      "path": "tests/fixtures/purchase/purchase-register-lot.json",
+      "sha256": "sha256:17034981483a837f00335962ddb71f15de7e29433893821a480945880eedc822",
+      "size": 1939
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
         "digest": "0x3eb599f451e7b46d0640423d9509eee6efb265d2a1f00a989960a1ee27e5eb13"
       },
       "path": "tests/fixtures/valid/accession-lot.json",
@@ -8694,8 +8705,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "tests/test_purchase_acquisition.py",
-      "sha256": "sha256:aca3ee4212e38bfa93e0154a3ad2bbfc196f93be07ab433c99c7db58abf0eba9",
-      "size": 15383
+      "sha256": "sha256:adcbddf7b2d0cd26bfc0ac6ed5db9aea931a140f46562863b466c0e589a38a55",
+      "size": 18621
     },
     {
       "byte_mode": "lf-normalized",
@@ -8759,9 +8770,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0xdc8fe6503c1fe4cf59fddc28665d702a23dbad9d9a6cdb7898f3d30c641b07e1"
+    "digest": "0x62c69fd9f9a1c7bb833a018820b44d17478c28931ef2096fd474a936a5410a15"
   },
-  "manifest_sha256": "sha256:2463b2f950656043ac8c4ccc55bd1dfc0effdf407632b3922e0c77bd19562f9e",
+  "manifest_sha256": "sha256:83d708d2aa7072549bc5082fb34d092a498e4ebb7da608592d739833b6230c8c",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.1.0"
 }

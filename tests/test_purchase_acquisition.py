@@ -32,6 +32,7 @@ PURCHASE_FIXTURES = TESTS_DIR / "fixtures" / "purchase"
 AQA_SCHEMA_ID = "0x00686e3e460412351a57431a74bd46252c84df12db5df0715748d46b7404e5a1"
 AQA_SCHEMA_URI = "https://6529networkmuseum.org/schemas/acquisition-authorization-v1.json"
 ACCESSION_SCHEMA_URI = "https://6529networkmuseum.org/schemas/accession-v1.json"
+REGISTER_SCHEMA_URI = "https://6529.network/museum/schemas/accession-register/v1"
 PUBLIC_ENTITY_SCHEMA_URI = "https://6529networkmuseum.org/schemas/public-entity-v1.json"
 PURCHASE_ENVELOPE_FIXTURES = ("accession-lot.json", "accession.json", "object-record.json", "acquisition-authorization.json")
 
@@ -218,6 +219,55 @@ class PurchaseAcquisitionTests(unittest.TestCase):
             payload = load_json(REPO_ROOT / f"records/accessions/{lot}/accession-certificate.json")["payload"]
             self.assertEqual("donation", payload["acquisition_method"])
             self.assertEqual([], validate_event_history(payload))
+
+    # Accession register
+
+    def test_register_gift_lots_are_unchanged_and_purchase_lot_validates(self) -> None:
+        register = load_json(REPO_ROOT / "records/accessions/register.json")
+        self.assertEqual([], self.schema_errors(REGISTER_SCHEMA_URI, register))
+        purchase_lot = load_fixture("purchase-register-lot.json")
+        with_purchase = copy.deepcopy(register)
+        with_purchase["lots"].append(purchase_lot)
+        self.assertEqual([], self.schema_errors(REGISTER_SCHEMA_URI, with_purchase))
+
+        def lot_errors(lot: dict) -> list[str]:
+            candidate = copy.deepcopy(register)
+            candidate["lots"].append(lot)
+            return self.schema_errors(REGISTER_SCHEMA_URI, candidate)
+
+        invalid_purchase = {
+            "donation status": {**purchase_lot, "donation_status": "formally_accepted"},
+            "gift authorization": {**purchase_lot, "acquisition_authorization_record": "6529NM.2026.901.GAA-01"},
+            "gift record field": {**purchase_lot, "gift_acceptance_authorization_record": "6529NM.2026.901.GAA-01"},
+            "donor credit": {**purchase_lot, "donor_public_credit": "Gift of the contributors"},
+            "gift credit": {**purchase_lot, "public_credit": "Gift of the contributors"},
+            "donated credit": {**purchase_lot, "public_credit": "Donated by Wave voters"},
+            "donation method": {**purchase_lot, "acquisition_method": "donation"},
+            "integer amount": {**purchase_lot, "consideration_summary": {**purchase_lot["consideration_summary"], "amount_wei": 458999999900000000}},
+            "no consideration": {key: value for key, value in purchase_lot.items() if key != "consideration_summary"},
+            "no funding summary": {key: value for key, value in purchase_lot.items() if key != "funding_basis_summary"},
+            "two receipt forms": {**purchase_lot, "receipt_events": [purchase_lot["receipt_event"]]},
+        }
+        for label, lot in invalid_purchase.items():
+            with self.subTest(label=label):
+                self.assertTrue(lot_errors(lot), label)
+
+        gift_lot = register["lots"][-1]
+        invalid_gift = {
+            "purchase authorization on gift": {**gift_lot, "acquisition_authorization_record": "6529NM.2026.003.AQA-01"},
+            "purchase method on gift": {**gift_lot, "acquisition_method": "purchase"},
+            "gift without donor credit": {key: value for key, value in gift_lot.items() if key != "donor_public_credit"},
+        }
+        for label, lot in invalid_gift.items():
+            with self.subTest(label=label):
+                self.assertTrue(lot_errors(lot), label)
+
+    def test_accession_lot_accepts_only_an_acquisition_authorization_identifier(self) -> None:
+        payload = load_fixture("accession-lot.json")["payload"]
+        self.assertEqual([], self.schema_errors("https://6529networkmuseum.org/schemas/accession-lot-v1.json", payload))
+        bad = copy.deepcopy(payload)
+        bad["acquisition_authorization_record"] = "6529NM.2026.001.GAA-01"
+        self.assertTrue(self.schema_errors("https://6529networkmuseum.org/schemas/accession-lot-v1.json", bad))
 
     # Public graph: purchase Curated Acquisition
 
