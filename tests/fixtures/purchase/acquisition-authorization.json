@@ -5,7 +5,7 @@
     "subjectId": "0xf0c087a55f0b5fee6091acb8709054c54a29279d900ee3ca3f3ab0827e28cd93",
     "contentHash": {
       "algorithm": 1,
-      "digest": "0xd1282d02edf36cc3df2a8ae1ec02bccdf357b8c89233442746f2a541eb29f8ab",
+      "digest": "0x13ffb5fb3a56aa982d9c490a6c019d770b321b394f64bfba940e1037ecdc6cfd",
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
     },
     "uri": "ipfs://bafybeigdyrzt5exampleacquisitionauthorization",
@@ -84,7 +84,7 @@
           {
             "object_id": "6529NM.2026.001.1",
             "log_index": 7,
-            "from": "0x3333333333333333333333333333333333333333",
+            "from_party": "seller",
             "to": "0x4444444444444444444444444444444444444444"
           }
         ]
@@ -99,7 +99,9 @@
       "statement": "The acquisition wallet bought the token for the Museum under the Wave authorization and transferred it to Museum custody."
     },
     "seller": {
-      "address": "0x3333333333333333333333333333333333333333"
+      "role": "earlier_private_holder",
+      "address_disclosure": "accession_lot_provenance_schedule",
+      "provenance_record_id": "6529NM.2026.001"
     },
     "token_selection": {
       "selection_basis": "executing_agent_within_authorization",
@@ -180,6 +182,6 @@
       "No valuation or tax characterization is made.",
       "The Wave decision did not select the exact token."
     ],
-    "payload_sha256": "sha256:7a7d77cdf42133d763e1b16cd0f402419fcb53cfefb2fa6f3c5d4f53ef607601"
+    "payload_sha256": "sha256:209af08af1b1f872f4d1151e37c4a708b822e4833d0ec59414d0d4b22d3c58a2"
   }
 }

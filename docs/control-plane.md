@@ -43,9 +43,11 @@ that need the whole repository or need to compare values:
   Stream `ACCESSION` completion certificate; its constructed/review-pending
   state is documentation QA, not a reversal of the stated decision;
 - `ACQUISITION_AUTHORIZATION` records a formally accepted purchase: the
-  governing Wave decision, the executing agent, the seller's address, the
+  governing Wave decision, the executing agent, the seller by role, the
   consideration and payment transaction, the funding basis, and the custody
-  receipts. Payment and Museum receipt must be separate transactions running
+  receipts. The seller's address is recorded only in the accession lot's
+  provenance schedule, which must record the purchase and the Museum receipt.
+  Payment and Museum receipt must be separate transactions running
   seller to agent and agent to Museum, the native payment value must equal the
   recorded amount, the basis must include an adopted `WINNER` decision, and
   the credit line may not describe a gift; an `ACCESSION` purchase title

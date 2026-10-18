@@ -30,14 +30,15 @@
       "unevaluatedProperties": false
     },
     "purchaseTransferLog": {
+      "description": "The purchase's token Transfer log. The sender is the seller, named by role: a private seller's address is recorded only in the accession lot's provenance schedule and the retained raw chain evidence.",
       "type": "object",
       "properties": {
         "object_id": {"type": "string", "pattern": "^6529NM\\.\\d{4}\\.\\d{3}\\.\\d+$"},
         "log_index": {"type": "integer", "minimum": 0},
-        "from": {"$ref": "#/$defs/address"},
+        "from_party": {"const": "seller"},
         "to": {"$ref": "#/$defs/address"}
       },
-      "required": ["object_id", "log_index", "from", "to"],
+      "required": ["object_id", "log_index", "from_party", "to"],
       "unevaluatedProperties": false
     },
     "paymentTransaction": {
@@ -81,11 +82,14 @@
       "unevaluatedProperties": false
     },
     "seller": {
+      "description": "The seller, by role. Its address is recorded only in the provenance schedule of the named accession lot; the validator joins that schedule to the purchase transfer log.",
       "type": "object",
       "properties": {
-        "address": {"$ref": "#/$defs/address"}
+        "role": {"type": "string", "enum": ["earlier_private_holder", "artist", "platform", "institution"]},
+        "address_disclosure": {"const": "accession_lot_provenance_schedule"},
+        "provenance_record_id": {"type": "string", "pattern": "^6529NM\\.\\d{4}\\.\\d{3}$"}
       },
-      "required": ["address"],
+      "required": ["role", "address_disclosure", "provenance_record_id"],
       "unevaluatedProperties": false
     },
     "tokenSelection": {

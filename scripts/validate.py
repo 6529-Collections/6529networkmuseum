@@ -780,9 +780,11 @@ def validate_acquisition_authorization(payload: dict[str, Any]) -> list[str]:
     agent = payload.get("executing_agent") if isinstance(payload.get("executing_agent"), dict) else {}
     seller = payload.get("seller") if isinstance(payload.get("seller"), dict) else {}
     agent_address = _lower_address(agent.get("address"))
-    seller_address = _lower_address(seller.get("address"))
-    if agent_address is not None and agent_address == seller_address:
-        issues.append(f"{label}.seller.address must differ from executing_agent.address")
+    # The seller is named by role. Its address lives only in the accession
+    # lot's provenance schedule, which validate_purchase_provenance_joins()
+    # checks against this record's purchase transfer logs.
+    if seller.get("provenance_record_id") != payload.get("subject_id"):
+        issues.append(f"{label}.seller.provenance_record_id must equal subject_id, the accession lot that records the seller's address")
 
     consideration = payload.get("consideration") if isinstance(payload.get("consideration"), dict) else {}
     payment = consideration.get("payment_transaction") if isinstance(consideration.get("payment_transaction"), dict) else {}
@@ -799,8 +801,8 @@ def validate_acquisition_authorization(payload: dict[str, Any]) -> list[str]:
     if sorted(frozen_projection(log.get("object_id")) for log in transfer_logs) != object_ids:
         issues.append(f"{label}.consideration.payment_transaction.transfer_logs must cover every asset exactly once")
     for index, log in enumerate(transfer_logs):
-        if _lower_address(log.get("from")) != seller_address:
-            issues.append(f"{label}.consideration.payment_transaction.transfer_logs[{index}].from must equal seller.address")
+        if log.get("from_party") != "seller":
+            issues.append(f"{label}.consideration.payment_transaction.transfer_logs[{index}].from_party must be the seller")
         if _lower_address(log.get("to")) != agent_address:
             issues.append(f"{label}.consideration.payment_transaction.transfer_logs[{index}].to must equal executing_agent.address")
 
@@ -818,8 +820,8 @@ def validate_acquisition_authorization(payload: dict[str, Any]) -> list[str]:
     for index, receipt in enumerate(receipts):
         if _lower_address(receipt.get("from")) != agent_address:
             issues.append(f"{label}.custody_receipts[{index}].from must equal executing_agent.address")
-        if _lower_address(receipt.get("to")) in {agent_address, seller_address}:
-            issues.append(f"{label}.custody_receipts[{index}].to must be the Museum custody address, not the agent or seller")
+        if _lower_address(receipt.get("to")) == agent_address:
+            issues.append(f"{label}.custody_receipts[{index}].to must be the Museum custody address, not the agent")
         if payment_hash is not None and _lower_address(receipt.get("transaction_hash")) == payment_hash:
             issues.append(f"{label}: payment and Museum receipt must be separate transactions")
         if isinstance(payment_block, int) and isinstance(receipt.get("block_number"), int) and receipt["block_number"] < payment_block:
@@ -854,6 +856,89 @@ def validate_acquisition_authorization(payload: dict[str, Any]) -> list[str]:
     credit = payload.get("public_credit")
     if isinstance(credit, str) and PURCHASE_CREDIT_GIFT_WORDING.search(credit):
         issues.append(f"{label}.public_credit must describe a purchase and must not describe a gift or donation")
+    return issues
+
+
+def validate_purchase_provenance_joins(payloads: Iterable[tuple[str, dict[str, Any]]]) -> list[str]:
+    """Join each purchase authorization to its accession lot's provenance schedule.
+
+    ACQUISITION_AUTHORIZATION names a private seller by role only. The seller's
+    address is recorded once, in the transaction provenance schedule of the
+    accession lot that the authorization names. That schedule must record, for
+    every asset, the purchase transfer from a distinct seller address to the
+    executing agent and the Museum receipt from the agent to Museum custody, in
+    that order.
+    """
+    rows = [(relative, payload) for relative, payload in payloads if isinstance(payload, dict)]
+    lots = {
+        payload.get("record_id"): payload
+        for _relative, payload in rows
+        if payload.get("record_type") == "ACCESSION_LOT"
+    }
+    zero_address = "0x" + "0" * 40
+    issues: list[str] = []
+    for relative, payload in rows:
+        if payload.get("record_type") != "ACQUISITION_AUTHORIZATION":
+            continue
+        seller = payload.get("seller") if isinstance(payload.get("seller"), dict) else {}
+        lot = lots.get(seller.get("provenance_record_id"))
+        schedule = lot.get("provenance_schedule") if isinstance(lot, dict) else None
+        if not isinstance(schedule, dict):
+            issues.append(f"{relative}: seller.provenance_record_id must name an accession lot whose provenance_schedule records the purchase")
+            continue
+        agent = payload.get("executing_agent") if isinstance(payload.get("executing_agent"), dict) else {}
+        agent_address = _lower_address(agent.get("address"))
+        consideration = payload.get("consideration") if isinstance(payload.get("consideration"), dict) else {}
+        payment = consideration.get("payment_transaction") if isinstance(consideration.get("payment_transaction"), dict) else {}
+        payment_hash = _lower_address(payment.get("transaction_hash"))
+        receipts = [item for item in payload.get("custody_receipts", []) if isinstance(item, dict)] if isinstance(payload.get("custody_receipts"), list) else []
+        museum_addresses = {_lower_address(item.get("to")) for item in receipts} - {None}
+        events_by_object: dict[Any, list[dict[str, Any]]] = {}
+        for item in schedule.get("objects", []) if isinstance(schedule.get("objects"), list) else []:
+            if isinstance(item, dict) and isinstance(item.get("events"), list):
+                events_by_object[item.get("object_id")] = [event for event in item["events"] if isinstance(event, dict)]
+        purchase_positions: dict[Any, int] = {}
+        for log in payment.get("transfer_logs", []) if isinstance(payment.get("transfer_logs"), list) else []:
+            if not isinstance(log, dict):
+                continue
+            object_id = log.get("object_id")
+            events = events_by_object.get(object_id, [])
+            matches = [
+                (position, event)
+                for position, event in enumerate(events)
+                if _lower_address(event.get("tx")) == payment_hash and event.get("log") == log.get("log_index")
+            ]
+            if len(matches) != 1:
+                issues.append(f"{relative}: the {seller.get('provenance_record_id')} provenance schedule must record the purchase transfer of {object_id} exactly once")
+                continue
+            position, event = matches[0]
+            purchase_positions[object_id] = position
+            if _lower_address(event.get("to")) != agent_address:
+                issues.append(f"{relative}: the provenance schedule's purchase transfer of {object_id} must run to the executing agent")
+            sender = _lower_address(event.get("from"))
+            if sender is None or sender in {agent_address, zero_address} or sender in museum_addresses:
+                issues.append(f"{relative}: the provenance schedule must record a seller address distinct from the agent, the zero address, and Museum custody for {object_id}")
+        for receipt in receipts:
+            receipt_hash = _lower_address(receipt.get("transaction_hash"))
+            for log in receipt.get("logs", []) if isinstance(receipt.get("logs"), list) else []:
+                if not isinstance(log, dict):
+                    continue
+                object_id = log.get("object_id")
+                matches = [
+                    (position, event)
+                    for position, event in enumerate(events_by_object.get(object_id, []))
+                    if event.get("kind") == "museum_receipt"
+                    and _lower_address(event.get("tx")) == receipt_hash
+                    and event.get("log") == log.get("log_index")
+                ]
+                if len(matches) != 1:
+                    issues.append(f"{relative}: the provenance schedule must record the Museum receipt of {object_id} exactly once")
+                    continue
+                position, event = matches[0]
+                if _lower_address(event.get("from")) != agent_address or _lower_address(event.get("to")) != _lower_address(receipt.get("to")):
+                    issues.append(f"{relative}: the provenance schedule's Museum receipt of {object_id} must run from the executing agent to Museum custody")
+                if object_id in purchase_positions and position <= purchase_positions[object_id]:
+                    issues.append(f"{relative}: the provenance schedule must place the purchase of {object_id} before its Museum receipt")
     return issues
 
 
@@ -2961,6 +3046,11 @@ def validate_records(root: Path) -> list[str]:
                     allowed_cross_type = supersession_pair == ("MEDIA_DESCRIPTION_AMENDMENT", "WAVE_PUBLICATION_OBSERVATION")
                     if superseded.get("payload", {}).get("record_type") != payload.get("record_type") and not allowed_cross_type:
                         issues.append(f"{relative}: supersedes must point to the same record_type")
+    issues.extend(
+        validate_purchase_provenance_joins(
+            (path.relative_to(root).as_posix(), payload) for path, _record, payload in records if isinstance(payload, dict)
+        )
+    )
     issues.extend(validate_public_graph(records, vocabularies, identity_inventory, root))
     public_entities = {
         payload.get("entity_id"): payload

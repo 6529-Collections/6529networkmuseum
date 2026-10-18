@@ -77,13 +77,17 @@ the exact object schedule, the governing decisions, and these purchase facts:
   token, its role, the governing record it acted under, and its retained
   interest. The agent holds the token only to deliver it to Museum custody.
   Its public role is purchasing agent; the record never credits it as a donor.
-- **Seller.** The seller's address only. Names and contact details of private
-  sellers stay out of the public record.
+- **Seller.** The seller's role (for example `earlier_private_holder`) and
+  the accession lot whose provenance schedule records the seller's address.
+  The authorization itself carries no seller address. A private seller's
+  address appears only in that schedule and in the retained raw chain
+  evidence, and names and contact details of private sellers stay out of the
+  public record.
 - **Consideration.** The paid asset as a CAIP-19 asset type, the amount as a
   decimal string in the asset's smallest unit (an integer above 2^53 is not
-  exact in I-JSON), and the payment transaction with its seller-to-agent token
-  transfer logs. The amount is a payment fact. The record makes no valuation,
-  tax, or accounting claim.
+  exact in I-JSON), and the payment transaction with its token transfer logs,
+  each running from the seller (by role) to the agent. The amount is a payment
+  fact. The record makes no valuation, tax, or accounting claim.
 - **Funding basis.** How the purchase was funded, with the fixed statement that
   contributors hold no individual or fractional ownership interest. Chain
   balances show aggregate inflows only, so a per-contributor payment is stated
@@ -97,7 +101,12 @@ the exact object schedule, the governing decisions, and these purchase facts:
 separate transactions, the receipt to be no earlier than the payment, every
 transfer log to run from the seller to the agent, every Museum receipt to run
 from the agent, the native payment value to equal the recorded amount, and the
-agent's authority to resolve to a governing record.
+agent's authority to resolve to a governing record. It then joins the
+authorization to its accession lot's provenance schedule: for every asset the
+schedule must record the purchase transfer, at the payment transaction and log,
+from a seller address distinct from the agent, the zero address, and Museum
+custody to the agent, followed by the Museum receipt from the agent to Museum
+custody.
 
 Title passes by an `institutional_purchase_title_declaration`: a canonical
 declaration, hashed and named in the `ACCESSION` title-passage event, that the

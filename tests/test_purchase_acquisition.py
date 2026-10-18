@@ -24,6 +24,7 @@ from validate import (  # noqa: E402
     validate_acquisition_authorization,
     validate_event_history,
     validate_proposed_acquisition_layout,
+    validate_purchase_provenance_joins,
     validate_public_payload,
     validate_records,
     validator_for,
@@ -136,6 +137,8 @@ class PurchaseAcquisitionTests(unittest.TestCase):
             "integer amount": (("consideration", "amount_wei"), 458999999900000000),
             "leading zero amount": (("consideration", "amount_wei"), "0458999999900000000"),
             "named seller": (("seller", "name"), "Example Seller"),
+            "seller address": (("seller", "address"), "0x3333333333333333333333333333333333333333"),
+            "seller without lot": (("seller", "provenance_record_id"), KeyError),
             "missing token selection": (("token_selection",), KeyError),
             "missing limitations": (("program_authorization_limitations",), []),
             "gift authorization id": (("authorization_id",), "6529NM.2026.001.GAA-01"),
@@ -167,14 +170,14 @@ class PurchaseAcquisitionTests(unittest.TestCase):
             ("payment value", lambda p: p["consideration"]["payment_transaction"].__setitem__("value_wei", "1"), "value_wei must equal consideration.amount_wei"),
             ("zero amount", lambda p: (p["consideration"].__setitem__("amount_wei", "0"), p["consideration"]["payment_transaction"].__setitem__("value_wei", "0")), "amount_wei must be positive"),
             ("payer", lambda p: p["consideration"]["payment_transaction"].__setitem__("from", "0x" + "6" * 40), "payment_transaction.from must equal executing_agent.address"),
-            ("seller log", lambda p: p["consideration"]["payment_transaction"]["transfer_logs"][0].__setitem__("from", "0x" + "6" * 40), "transfer_logs[0].from must equal seller.address"),
+            ("seller log", lambda p: p["consideration"]["payment_transaction"]["transfer_logs"][0].__setitem__("from_party", "agent"), "transfer_logs[0].from_party must be the seller"),
             ("agent log", lambda p: p["consideration"]["payment_transaction"]["transfer_logs"][0].__setitem__("to", "0x" + "6" * 40), "transfer_logs[0].to must equal executing_agent.address"),
             ("transfer log coverage", lambda p: p["consideration"]["payment_transaction"]["transfer_logs"][0].__setitem__("object_id", "6529NM.2026.001.2"), "transfer_logs must cover every asset exactly once"),
             ("receipt sender", lambda p: p["custody_receipts"][0].__setitem__("from", "0x" + "3" * 40), "custody_receipts[0].from must equal executing_agent.address"),
             ("receipt recipient", lambda p: p["custody_receipts"][0].__setitem__("to", "0x" + "4" * 40), "custody_receipts[0].to must be the Museum"),
             ("single transaction", lambda p: p["custody_receipts"][0].__setitem__("transaction_hash", p["consideration"]["payment_transaction"]["transaction_hash"]), "payment and Museum receipt must be separate transactions"),
             ("receipt before payment", lambda p: p["custody_receipts"][0].__setitem__("block_number", 1), "custody receipt must not precede the payment"),
-            ("seller is agent", lambda p: p["seller"].__setitem__("address", p["executing_agent"]["address"]), "seller.address must differ from executing_agent.address"),
+            ("seller lot", lambda p: p["seller"].__setitem__("provenance_record_id", "6529NM.2026.009"), "seller.provenance_record_id must equal subject_id"),
             ("agent authority", lambda p: p["executing_agent"].__setitem__("authority_source", "6529NM-GOV-9999999"), "authority_source must name a governing_basis decision or record"),
             ("wave basis", lambda p: p["governing_basis"][0].__setitem__("live_api_status", "PARTICIPATORY"), "adopted WINNER Wave decision"),
             ("acceptance date", lambda p: p.__setitem__("formal_acceptance_date", "2026-08-02T00:00:00Z"), "formal_acceptance_date must equal"),
@@ -186,6 +189,39 @@ class PurchaseAcquisitionTests(unittest.TestCase):
             with self.subTest(label=label):
                 issues = mutate(change)
                 self.assertTrue(any(expected in issue for issue in issues), (label, issues))
+
+    def test_purchase_seller_is_joined_through_the_lot_provenance_schedule(self) -> None:
+        aqa = self.aqa()
+        lot = load_fixture("accession-lot.json")["payload"]
+
+        def issues(change=None) -> list[str]:
+            mutated_aqa, mutated_lot = copy.deepcopy(aqa), copy.deepcopy(lot)
+            if change is not None:
+                change(mutated_aqa, mutated_lot)
+            return validate_purchase_provenance_joins([("aqa.json", mutated_aqa), ("lot.json", mutated_lot)])
+
+        self.assertEqual([], issues())
+        self.assertNotIn("address", aqa["seller"])
+        self.assertTrue(all("from" not in log for log in aqa["consideration"]["payment_transaction"]["transfer_logs"]))
+
+        def events(lot_payload: dict) -> list[dict]:
+            return lot_payload["provenance_schedule"]["objects"][0]["events"]
+
+        cases = (
+            ("missing lot", lambda a, l: a["seller"].__setitem__("provenance_record_id", "6529NM.2026.009"), "provenance_schedule records the purchase"),
+            ("missing schedule", lambda a, l: l.pop("provenance_schedule"), "provenance_schedule records the purchase"),
+            ("missing purchase event", lambda a, l: events(l).pop(0), "must record the purchase transfer"),
+            ("purchase to stranger", lambda a, l: events(l)[0].__setitem__("to", "0x" + "6" * 40), "must run to the executing agent"),
+            ("seller is agent", lambda a, l: events(l)[0].__setitem__("from", a["executing_agent"]["address"]), "seller address distinct"),
+            ("seller is museum", lambda a, l: events(l)[0].__setitem__("from", a["custody_receipts"][0]["to"]), "seller address distinct"),
+            ("missing receipt event", lambda a, l: events(l).pop(1), "must record the Museum receipt"),
+            ("receipt from stranger", lambda a, l: events(l)[1].__setitem__("from", "0x" + "6" * 40), "from the executing agent to Museum custody"),
+            ("receipt before purchase", lambda a, l: events(l).reverse(), "purchase of 6529NM.2026.001.1 before its Museum receipt"),
+        )
+        for label, change, expected in cases:
+            with self.subTest(label=label):
+                found = issues(change)
+                self.assertTrue(any(expected in issue for issue in found), (label, found))
 
     def test_gift_authorization_records_are_outside_the_purchase_validator(self) -> None:
         for lot in ("6529NM.2026.001", "6529NM.2026.002", "6529NM.2026.003"):
