@@ -9,9 +9,11 @@ The source is the token's animated GIF, retained as fixity evidence in
   produced by the unchanged v2 WebP transform in ``generate_program_media.py``;
 * a token-linked animation reference, bound to the IPFS ``image_hash`` CID and
   to the retained bytes, with display constraints: no autoplay, poster first,
-  play only on explicit request after a flashing warning, poster only under
-  ``prefers-reduced-motion``, and no larger than 768 CSS px or enlarged until a
-  flash review says otherwise.
+  play only on explicit request after a flashing warning, a visible
+  keyboard-operable stop, only the poster (no play control) under
+  ``prefers-reduced-motion``, only SHA-256-verified bytes, no larger than
+  ``min(512px, 100%)``, and never enlarged or full screen.  Promotion to
+  reviewed changes only the flash-review status and its basis text.
 
 The command line matches ``generate_vera_molnar_media.py``.  Generation needs
 the poster MEDIA_REFERENCE entity's reviewed ``accessibility_text`` and the
@@ -62,29 +64,55 @@ CACHE_CONTROL = "public, max-age=31536000, immutable"
 RFC3339_UTC = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$")
 DISPLAY_AUTHORITY_ID = f"{ACCESSION_ID}.DISPLAY-01"
 DISPLAY_AUTHORITY_PATH = f"records/accessions/{ACCESSION_ID}/public/web-presentation-authority.md"
-MAX_ANIMATION_CSS_WIDTH = 768
+MAX_ANIMATION_CSS_WIDTH = 512
+ANIMATION_CSS_SIZE = "min(512px, 100%)"
+PLAY_CONTROL_NAME = "Play flashing animation"
+WARNING_TEXT = (
+    "Flashing imagery. When played, this animation flickers continuously: black-and-white streaks and bright "
+    "mint-green outlines flash up to ten times a second, and a large pink area changes color twenty times a second. "
+    "Zooming in or screen magnification makes the flashing area larger. It may affect people with photosensitive "
+    "epilepsy or other sensitivity to flashing light."
+)
+FLASH_MEASUREMENT = (
+    "Museum technical measurement of the composited frames (2026-10-18; evidence/xcopy-max-pain-4188-display/"
+    "flash-analysis-all-steps.json): eight frames at 50 ms loop without end; two color states alternate, 20 color "
+    "changes a second (10 full cycles); black-and-white checkered streaks and mint outlines on black flash up to 10 "
+    "times a second over about 5.5% of the image. Over all eight loop steps, counting every pixel with a qualifying "
+    "transition, the largest flashing share of a WCAG 2.3.1 ten-degree field is 15.3% at 512 px, 24.9% at 1,024 px "
+    "(512 px at 200% zoom), 33.4% at 1,536 px and 44.9% at 2,048 px; red transitions cover at most 0.6% at 512 px "
+    "and 1.4% at 1,024 px."
+)
+PENDING_BASIS = (
+    FLASH_MEASUREMENT
+    + " The animation is limited to min(512px, 100%) and is never enlarged or shown full screen; the limit is "
+    "provisional until an independent flash review confirms it."
+)
+REVIEWED_BASIS = (
+    FLASH_MEASUREMENT
+    + " An independent flash review confirmed these figures and the limit: the animation is shown no larger than "
+    "min(512px, 100%) and is never enlarged or shown full screen."
+)
 DISPLAY_CONSTRAINTS = {
     "autoplay": False,
     "initial_state": "poster",
     "activation": "explicit_visitor_request_after_warning",
-    "reduced_motion": "poster_only_when_prefers_reduced_motion",
+    "reduced_motion": "poster_only_no_play_control_when_prefers_reduced_motion",
     "warning_required": True,
+    "warning_text": WARNING_TEXT,
+    "play_control_accessible_name": PLAY_CONTROL_NAME,
+    "stop_control": "visible_keyboard_operable_stop_returns_to_poster",
+    "playback_source": "sha256_verified_bytes_only",
+    "css_size": ANIMATION_CSS_SIZE,
     "max_css_width_px": MAX_ANIMATION_CSS_WIDTH,
     "max_css_width_status": "provisional_pending_flash_review",
-    "fullscreen_or_enlarged_animation": "not_permitted_pending_flash_review",
-    "basis": (
-        "Unreviewed Museum technical measurement of the composited frames (2026-10-18): eight frames at 50 ms "
-        "loop without end, two colour states alternate 10 times per second, and black-and-white checkered streaks "
-        "and mint outlines on black flash up to 10 times per second over about 5.5% of the image. The largest "
-        "flashing share of a WCAG 2.3.1 ten-degree field is about 15% at 768 px, 24% at 1,536 px and 30% at "
-        "2,048 px, so the animation is limited to 768 CSS px and is not enlarged or shown full screen until a "
-        "flash review confirms or revises these limits."
-    ),
+    "fullscreen_or_enlarged_animation": "not_permitted",
+    "basis": PENDING_BASIS,
 }
+REVIEWED_DISPLAY_FIELDS = {"max_css_width_status": "confirmed_by_flash_review", "basis": REVIEWED_BASIS}
 RIGHTS_BOUNDARY = {
     "status": (
         "The artist's site states a CC0 (Creative Commons Zero) dedication for XCOPY artworks; the token metadata "
-        "carries no licence field. The Museum asserts no copyright, and Museum display implies no affiliation with "
+        "carries no license field. The Museum asserts no copyright, and Museum display implies no affiliation with "
         "or endorsement by XCOPY."
     ),
     "source_originals": (
@@ -250,7 +278,16 @@ def generate_derivatives(work_id: str, transform) -> tuple[dict[str, Any], list[
     return source, derivatives, colour_status
 
 
-def animation_reference(source: dict[str, Any], animation_media_id: str) -> dict[str, Any]:
+def display_constraints(*, reviewed: bool = False) -> dict[str, Any]:
+    """The pinned display constraints; promotion changes only the flash-review fields."""
+
+    value = dict(DISPLAY_CONSTRAINTS)
+    if reviewed:
+        value.update(REVIEWED_DISPLAY_FIELDS)
+    return value
+
+
+def animation_reference(source: dict[str, Any], animation_media_id: str, *, reviewed: bool = False) -> dict[str, Any]:
     return {
         "role": "token_linked_source_animation",
         "media_reference_entity_id": animation_media_id,
@@ -261,7 +298,7 @@ def animation_reference(source: dict[str, Any], animation_media_id: str) -> dict
             "verification": "recomputed_cidv0_match",
         },
         "uri": f"ipfs://{IMAGE_CID}",
-        "access_urls": [IPFS_GATEWAY_URL, source["cdn_url"]],
+        "access_urls": [IPFS_GATEWAY_URL],
         "mime_type": "image/gif",
         "sha256": source["sha256"],
         "byte_size": source["size"],
@@ -272,7 +309,7 @@ def animation_reference(source: dict[str, Any], animation_media_id: str) -> dict
             "entry_path": SOURCE_ENTRY_PATH,
             "retained_bytes": True,
         },
-        "display_constraints": dict(DISPLAY_CONSTRAINTS),
+        "display_constraints": display_constraints(reviewed=reviewed),
     }
 
 
@@ -383,6 +420,12 @@ def promote_reviewed(value: dict[str, Any], *, reviewer_id: str, reviewed_at: st
         raise MaxPainMediaError("reviewed-at must follow construction")
     promoted = json.loads(json.dumps(value))
     promoted["delivery"]["status"] = "approved_for_contextual_museum_display"
+    for item in promoted.get("items", []):
+        reference = item.get("animation_reference") if isinstance(item, dict) else None
+        if isinstance(reference, dict):
+            if reference.get("display_constraints") != display_constraints():
+                raise MaxPainMediaError("candidate display constraints are not the pinned review-pending constraints")
+            reference["display_constraints"] = display_constraints(reviewed=True)
     material = {key: item for key, item in promoted.items() if key != "record_control"}
     promoted["record_control"]["record_status"] = "reviewed"
     promoted["record_control"]["review"] = {
@@ -413,6 +456,11 @@ def verify() -> tuple[int, int]:
     authority_text = (ROOT / DISPLAY_AUTHORITY_PATH).read_text(encoding="utf-8")
     if f"record_id: {DISPLAY_AUTHORITY_ID}" not in authority_text or "status: active" not in authority_text:
         raise MaxPainMediaError("active display authority is missing")
+    authority_prose = " ".join(authority_text.replace("**", "").replace("> ", " ").split())
+    for required in (WARNING_TEXT, f'"{PLAY_CONTROL_NAME}"', f"`{ANIMATION_CSS_SIZE}`"):
+        if required not in authority_prose:
+            raise MaxPainMediaError(f"display authority does not state the pinned display rule: {required[:40]}")
+    reviewed_state = value.get("record_control", {}).get("record_status") == "reviewed"
     items = value.get("items")
     if not isinstance(items, list) or len(items) != 1 or not isinstance(items[0], dict):
         raise MaxPainMediaError("presentation manifest must contain exactly one item")
@@ -443,7 +491,7 @@ def verify() -> tuple[int, int]:
         raise MaxPainMediaError("animated source has no token-linked animation reference")
     animation_media_id = str(reference.get("media_reference_entity_id", ""))
     media_profile(animation_media_id)
-    if animation_media_id == media_id or reference != animation_reference(expected, animation_media_id):
+    if animation_media_id == media_id or reference != animation_reference(expected, animation_media_id, reviewed=reviewed_state):
         raise MaxPainMediaError("animation reference binding or display constraints mismatch")
     derivatives = presentation.get("derivatives")
     if not isinstance(derivatives, list) or [row.get("width") for row in derivatives if isinstance(row, dict)] != list(WIDTHS):

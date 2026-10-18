@@ -104,7 +104,12 @@ class MaxPainMediaFixtureTests(unittest.TestCase):
             path.write_text(json.dumps({"payload": {"profile": {"media": {"accessibility_text": text}}}}), encoding="utf-8")
         authority = self.root / media.DISPLAY_AUTHORITY_PATH
         authority.parent.mkdir(parents=True, exist_ok=True)
-        authority.write_text(f"---\nrecord_id: {media.DISPLAY_AUTHORITY_ID}\nstatus: active\n---\n", encoding="utf-8")
+        authority.write_text(
+            f"---\nrecord_id: {media.DISPLAY_AUTHORITY_ID}\nstatus: active\n---\n\n"
+            f'Give the play control the accessible name "{media.PLAY_CONTROL_NAME}". Size the player as `{media.ANIMATION_CSS_SIZE}`.\n\n'
+            f"> **{media.WARNING_TEXT.split(' ', 2)[0]} {media.WARNING_TEXT.split(' ', 2)[1]}** {media.WARNING_TEXT.split(' ', 2)[2]}\n",
+            encoding="utf-8",
+        )
 
     def patched(self) -> ExitStack:
         stack = ExitStack()
@@ -143,9 +148,18 @@ class MaxPainMediaFixtureTests(unittest.TestCase):
         self.assertEqual({"frame_count": 3, "frame_duration_ms": 50, "total_duration_ms": 150, "loop": "infinite"}, item["source"]["animation"])
         constraints = item["animation_reference"]["display_constraints"]
         self.assertFalse(constraints["autoplay"])
-        self.assertEqual("poster_only_when_prefers_reduced_motion", constraints["reduced_motion"])
-        self.assertEqual(768, constraints["max_css_width_px"])
+        self.assertEqual("poster_only_no_play_control_when_prefers_reduced_motion", constraints["reduced_motion"])
+        self.assertEqual(512, constraints["max_css_width_px"])
+        self.assertEqual("min(512px, 100%)", constraints["css_size"])
+        self.assertEqual("visible_keyboard_operable_stop_returns_to_poster", constraints["stop_control"])
+        self.assertEqual("sha256_verified_bytes_only", constraints["playback_source"])
+        self.assertEqual("not_permitted", constraints["fullscreen_or_enlarged_animation"])
+        self.assertEqual("provisional_pending_flash_review", constraints["max_css_width_status"])
+        self.assertIn("20 color changes a second (10 full cycles)", constraints["basis"])
+        self.assertNotIn("colour", constraints["basis"])
         self.assertEqual(f"ipfs://{media.IMAGE_CID}", item["animation_reference"]["uri"])
+        self.assertEqual([media.IPFS_GATEWAY_URL], item["animation_reference"]["access_urls"])
+        self.assertNotIn("licence", json.dumps(first))
         for path in paths:
             with Image.open(path) as image:
                 self.assertEqual(1, getattr(image, "n_frames", 1))
@@ -207,6 +221,39 @@ class MaxPainMediaFixtureTests(unittest.TestCase):
         no_policy = copy.deepcopy(value)
         del no_policy["items"][0]["source"]["frame_policy"]
         self.assertTrue(schema_errors(no_policy))
+        for field, replacement in (
+            ("max_css_width_px", 768),
+            ("fullscreen_or_enlarged_animation", "permitted_within_max_css_width"),
+            ("fullscreen_or_enlarged_animation", "not_permitted_pending_flash_review"),
+            ("reduced_motion", "poster_only_when_prefers_reduced_motion"),
+            ("stop_control", "none"),
+            ("playback_source", "any_url"),
+            ("css_size", "768px"),
+        ):
+            with self.subTest(field=field, replacement=replacement):
+                changed = copy.deepcopy(value)
+                changed["items"][0]["animation_reference"]["display_constraints"][field] = replacement
+                self.assertTrue(schema_errors(changed))
+        for field in ("stop_control", "playback_source", "warning_text", "css_size"):
+            with self.subTest(missing=field):
+                removed = copy.deepcopy(value)
+                del removed["items"][0]["animation_reference"]["display_constraints"][field]
+                self.assertTrue(schema_errors(removed))
+
+    def test_display_authority_must_state_the_pinned_rules(self) -> None:
+        authority = self.root / media.DISPLAY_AUTHORITY_PATH
+        with self.patched():
+            media.write_json(self.manifest_path, self.generate())
+            for missing in ("Zooming in or screen magnification", media.PLAY_CONTROL_NAME, media.ANIMATION_CSS_SIZE):
+                with self.subTest(missing=missing):
+                    original = authority.read_text(encoding="utf-8")
+                    authority.write_text(original.replace(missing, "removed"), encoding="utf-8")
+                    try:
+                        with self.assertRaisesRegex(media.MaxPainMediaError, "pinned display rule"):
+                            media.verify()
+                    finally:
+                        authority.write_text(original, encoding="utf-8")
+            media.verify()
 
     def test_review_promotion_changes_only_review_and_delivery_state(self) -> None:
         with self.patched():
@@ -222,10 +269,27 @@ class MaxPainMediaFixtureTests(unittest.TestCase):
         self.assertEqual("reviewed", reviewed["record_control"]["record_status"])
         self.assertEqual("approved_for_contextual_museum_display", reviewed["delivery"]["status"])
         self.assertEqual([], schema_errors(reviewed))
+        reviewed_constraints = reviewed["items"][0]["animation_reference"]["display_constraints"]
+        self.assertEqual("confirmed_by_flash_review", reviewed_constraints["max_css_width_status"])
+        self.assertEqual(media.REVIEWED_BASIS, reviewed_constraints["basis"])
+        self.assertNotIn("provisional", reviewed_constraints["basis"])
         normalized = json.loads(json.dumps(reviewed))
         normalized["record_control"] = candidate["record_control"]
         normalized["delivery"]["status"] = candidate["delivery"]["status"]
+        normalized["items"][0]["animation_reference"]["display_constraints"] = media.display_constraints()
         self.assertEqual(candidate, normalized)
+        with self.patched():
+            media.write_json(self.manifest_path, reviewed)
+            media.verify()
+            stale = copy.deepcopy(reviewed)
+            stale["items"][0]["animation_reference"]["display_constraints"] = media.display_constraints()
+            media.write_json(self.manifest_path, stale)
+            with self.assertRaisesRegex(media.MaxPainMediaError, "display constraints mismatch"):
+                media.verify()
+        relaxed = copy.deepcopy(candidate)
+        relaxed["items"][0]["animation_reference"]["display_constraints"]["max_css_width_px"] = 256
+        with self.assertRaisesRegex(media.MaxPainMediaError, "pinned review-pending constraints"):
+            media.promote_reviewed(relaxed, reviewer_id="x", reviewed_at="2026-10-18T13:00:00Z", reviewed_commit="b" * 40)
         with self.assertRaisesRegex(media.MaxPainMediaError, "review-pending"):
             media.promote_reviewed(reviewed, reviewer_id="x", reviewed_at="2026-10-18T13:00:00Z", reviewed_commit="b" * 40)
 

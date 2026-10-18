@@ -864,7 +864,24 @@ def _presentation_without_review(value: dict[str, Any]) -> dict[str, Any]:
         control["review"] = None
     if isinstance(delivery, dict):
         delivery["status"] = "prepared_for_contextual_museum_display_pending_review"
+    for constraints in _flash_review_constraints(normalized):
+        # A flash review may confirm a provisional animation size limit; the
+        # generator pins both the provisional and the confirmed wording.
+        if constraints.get("max_css_width_status") in {"provisional_pending_flash_review", "confirmed_by_flash_review"}:
+            constraints["max_css_width_status"] = "provisional_pending_flash_review"
+            constraints["basis"] = None
     return normalized
+
+
+def _flash_review_constraints(value: dict[str, Any]) -> list[dict[str, Any]]:
+    items = value.get("items")
+    constraints = []
+    for item in items if isinstance(items, list) else []:
+        reference = item.get("animation_reference") if isinstance(item, dict) else None
+        found = reference.get("display_constraints") if isinstance(reference, dict) else None
+        if isinstance(found, dict):
+            constraints.append(found)
+    return constraints
 
 
 def _validate_presentation_promotion(
@@ -920,6 +937,8 @@ def _validate_presentation_promotion(
     material = {key: item for key, item in b_value.items() if key != "record_control"}
     if review.get("payload_sha256") != sha256_prefixed(canonicalize(material)):
         raise CatalogError(f"reviewed B {lot} presentation payload commitment is invalid")
+    if any(row.get("max_css_width_status") != "provisional_pending_flash_review" for row in _flash_review_constraints(a_value) if "max_css_width_status" in row):
+        raise CatalogError(f"candidate A {lot} animation limit is not review-pending")
     if _presentation_without_review(a_value) != _presentation_without_review(b_value):
         raise CatalogError(f"reviewed B changed non-review {lot} presentation fields")
 

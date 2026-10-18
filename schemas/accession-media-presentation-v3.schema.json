@@ -358,6 +358,11 @@
         "activation",
         "reduced_motion",
         "warning_required",
+        "warning_text",
+        "play_control_accessible_name",
+        "stop_control",
+        "playback_source",
+        "css_size",
         "max_css_width_px",
         "max_css_width_status",
         "fullscreen_or_enlarged_animation",
@@ -367,15 +372,32 @@
         "autoplay": { "const": false },
         "initial_state": { "const": "poster" },
         "activation": { "const": "explicit_visitor_request_after_warning" },
-        "reduced_motion": { "const": "poster_only_when_prefers_reduced_motion" },
+        "reduced_motion": {
+          "const": "poster_only_no_play_control_when_prefers_reduced_motion",
+          "description": "Under prefers-reduced-motion only the poster is shown; the animation and its play control are not offered."
+        },
         "warning_required": { "const": true },
-        "max_css_width_px": { "type": "integer", "minimum": 1, "maximum": 4000 },
+        "warning_text": { "type": "string", "minLength": 40 },
+        "play_control_accessible_name": { "type": "string", "minLength": 1 },
+        "stop_control": {
+          "const": "visible_keyboard_operable_stop_returns_to_poster",
+          "description": "WCAG 2.2.2: while the animation plays, a visible, keyboard-operable control stops it immediately and restores the poster."
+        },
+        "playback_source": {
+          "const": "sha256_verified_bytes_only",
+          "description": "Play only bytes whose SHA-256 matches the reference sha256 (IPFS-addressed or Museum-retained copies), never a mutable platform URL."
+        },
+        "css_size": { "type": "string", "pattern": "^min\\([1-9][0-9]*px, 100%\\)$" },
+        "max_css_width_px": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 512,
+          "description": "A larger cap requires a schema revision backed by its own flash review."
+        },
         "max_css_width_status": {
           "enum": ["provisional_pending_flash_review", "confirmed_by_flash_review"]
         },
-        "fullscreen_or_enlarged_animation": {
-          "enum": ["not_permitted_pending_flash_review", "permitted_within_max_css_width"]
-        },
+        "fullscreen_or_enlarged_animation": { "const": "not_permitted" },
         "basis": { "type": "string", "minLength": 40 }
       }
     },
