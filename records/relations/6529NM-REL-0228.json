@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xd0bd8c0ebb8c8f9b4f3005105b4a46fb6ef9c65f759ff791d23023ff01986882"
+      "digest": "0xc2916057fdfef63e4715925db14e25dfd6d2125b7861d9d6a0a777fb8dd8dcf3"
     },
     "effectiveAt": 1786573476,
     "recordType": "PUBLIC_RELATION",
@@ -36,12 +36,12 @@
       }
     ],
     "observed_at": "2026-08-12T22:24:36.387Z",
-    "payload_sha256": "sha256:97f7d06712e779fc27b2f3a87695146bbbb02103614d450f5bcabd209ce65820",
+    "payload_sha256": "sha256:69b0f9f96df13e038e0a5bcd637a0691821ad9f8a33c8860cae595368761660f",
     "qualifier": {
       "collection_membership_status": "permanent_collection"
     },
     "record_id": "6529NM-REL-0228",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_RELATION",
     "record_version": "1.0.0",
     "references": [
@@ -52,8 +52,19 @@
     ],
     "relation_id": "6529NM-REL-0228",
     "relation_type": "COLLECTION_CONTAINS_WORK",
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "claude-reviewer:museum-governance-2026-10-18-independent",
+      "outcome": "approved",
+      "reviewed_at": "2026-10-18T09:39:49Z",
+      "reviewed_commit": "9dd1c3e9ae7c0d8c77071b0b109a2cdc9bb7095f",
+      "reviewed_manifest_keccak": "0x64a95512f8901579e36a6d443e534e6335dcf04cb75c2916115a003c7b30cc02",
+      "reviewed_manifest_sha256": "sha256:74eea95ef31da7f314f1d1d9935b2e4d0775010dde8ceab0205c27918dcdd866",
+      "reviewer_ids": [
+        "claude-reviewer:museum-governance-2026-10-18-independent"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
     "source_entity_id": "6529NM-C-0001",
     "source_record_ids": [

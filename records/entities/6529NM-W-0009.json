@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xdfd5655c7f19aed52a4d2ab51215fb9e9c2795f6751b7080617e210e75f405c1"
+      "digest": "0xab7bd0e5f0d116bc426fa6e9b7e889b92ec39959593572b439b20198bd75503b"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-W-0009",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "WORK",
     "evidence_refs": [
       {
@@ -49,7 +49,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:7c5705d5657678545353014e3947e91a205b486b71160e0db02357b5c883679e",
+    "payload_sha256": "sha256:3967f8e4c71fb60b4dbab0e89c918b0e28ec10a2acc585475ff3f0d183e1e4f5",
     "preferred_label": "the Artist in the Open Sea",
     "profile": {
       "accession_entity_ids": [],
@@ -188,7 +188,7 @@
     },
     "public_slug": "6529NM-W-0009",
     "record_id": "6529NM-W-0009",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -198,8 +198,19 @@
       "6529NM-AP-ENT-0002",
       "6529NM-CA-2026-002"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "claude-reviewer:museum-governance-2026-10-18-independent",
+      "outcome": "approved",
+      "reviewed_at": "2026-10-18T09:39:49Z",
+      "reviewed_commit": "9dd1c3e9ae7c0d8c77071b0b109a2cdc9bb7095f",
+      "reviewed_manifest_keccak": "0x64a95512f8901579e36a6d443e534e6335dcf04cb75c2916115a003c7b30cc02",
+      "reviewed_manifest_sha256": "sha256:74eea95ef31da7f314f1d1d9935b2e4d0775010dde8ceab0205c27918dcdd866",
+      "reviewer_ids": [
+        "claude-reviewer:museum-governance-2026-10-18-independent"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AGT-0003",
@@ -224,7 +235,7 @@
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-W-0009",
     "visibility": "public"
