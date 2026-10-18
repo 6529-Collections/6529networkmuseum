@@ -16,3 +16,8 @@ evidence/waves/museum-wave/wave-snapshot.json binary
 # text byte-for-byte. Generated projections, summary, and manifest remain LF text.
 evidence/waves/museum-wave-governance-*/raw/** binary
 evidence/waves/museum-wave-governance-*/parts/** binary
+
+# MAX PAIN #4188 source, custody, technical and funding evidence has raw-byte
+# fixity commitments (raw API JSON, extracted transcripts and the source GIF).
+evidence/xcopy-max-pain-4188-*/** binary
+*.gif binary

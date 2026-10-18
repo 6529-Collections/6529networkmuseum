@@ -15,6 +15,7 @@ from pathlib import Path, PurePosixPath
 from jsonschema import Draft202012Validator, FormatChecker
 from referencing import Registry, Resource
 
+from gif_structure import GIF_SIGNATURES, GifStructureError, parse_gif
 from promote_casey_publications import mismatches as casey_publication_mismatches
 from proposed_gifts import proposed_gift_issues
 
@@ -96,10 +97,12 @@ def check_local_markdown_links() -> None:
 
 TEXT_MEDIA_PREFIXES = ("text/",)
 TEXTUAL_MEDIA_TYPES = {"application/json", "application/ld+json", "application/xml", "application/yaml", "application/x-yaml"}
-# V1 admits only PNG because it has a small, deterministic structural parser.
-# Other image/PDF/container types remain text-or-fail-closed until a parser is
-# deliberately added and covered by equivalent public-safety tests.
-SAFE_BINARY_MEDIA_TYPES = {"image/png"}
+# Raw binary evidence is admitted only for media types with a small,
+# deterministic structural parser: PNG (chunk/CRC walk) and GIF (block and
+# sub-block walk in scripts/gif_structure.py). Other image/PDF/container types
+# remain text-or-fail-closed until a parser is deliberately added and covered by
+# equivalent public-safety tests.
+SAFE_BINARY_MEDIA_TYPES = {"image/png", "image/gif"}
 UNMANIFESTED_TEXT_SUFFIXES = {
     ".csv", ".html", ".htm", ".json", ".log", ".md", ".ndjson", ".rst",
     ".txt", ".xml", ".yaml", ".yml",
@@ -191,13 +194,17 @@ def validate_binary_evidence(path: Path, entry: dict[str, object]) -> None:
             needle = marker.encode(encoding).lower()
             start = folded_payload.find(needle)
             while start >= 0:
-                try:
-                    decoded = payload[start : start + UTF16_SCAN_LIMIT].decode(encoding)
-                except UnicodeDecodeError:
-                    decoded = ""
+                # Decode an even-length span with replacement so that an odd
+                # tail or an unpaired surrogate later in the container cannot
+                # discard the whole candidate span (fail open).
+                span = payload[start : start + UTF16_SCAN_LIMIT]
+                decoded = span[: len(span) - (len(span) % 2)].decode(encoding, errors="replace")
                 if LOCAL_PATH.search(decoded) or any(pattern.search(decoded) for pattern in SECRET_PATTERNS):
                     fail(f"credential-shaped UTF-16 text in raw public evidence: {path.relative_to(ROOT)}")
                 start = folded_payload.find(needle, start + 2)
+    if media_type == "image/gif":
+        validate_gif_structure(path, payload)
+        return
     if media_type != "image/png":
         fail(f"raw evidence media profile is not admitted: {path.relative_to(ROOT)}")
     if not payload.startswith(PNG_SIGNATURE):
@@ -239,6 +246,20 @@ def validate_binary_evidence(path: Path, entry: dict[str, object]) -> None:
         cursor = end
     if not saw_ihdr or not saw_iend:
         fail(f"PNG has no complete IHDR/IEND structure: {path.relative_to(ROOT)}")
+
+
+def validate_gif_structure(path: Path, payload: bytes) -> None:
+    """Admit only a structurally complete GIF with nothing after its trailer."""
+    if not payload.startswith(GIF_SIGNATURES):
+        fail(f"raw evidence media signature does not match image/gif: {path.relative_to(ROOT)}")
+    # As for PNG, compressed LZW image bytes are not searched for unrelated
+    # executable magic. The strict block walk bounds every sub-block, admits
+    # only reviewed extension types, and rejects any byte after the 0x3B
+    # trailer, which is the relevant GIF/polyglot boundary.
+    try:
+        parse_gif(payload)
+    except GifStructureError as exc:
+        fail(f"GIF structure is not admitted ({exc}): {path.relative_to(ROOT)}")
 
 
 def declared_governed_binary_assets(loaded: dict[Path, object]) -> set[Path]:
