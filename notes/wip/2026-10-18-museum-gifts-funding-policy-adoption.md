@@ -197,3 +197,54 @@ and the complete test suite pass on this state.
   --current-commit <C>`.
 - Ledger updates and the decision record's reviewer binding follow C in a
   separate commit.
+
+## Release record
+
+- **Candidate A:** `9dd1c3e9ae7c0d8c77071b0b109a2cdc9bb7095f`, with
+  manifest SHA-256
+  `sha256:74eea95ef31da7f314f1d1d9935b2e4d0775010dde8ceab0205c27918dcdd866`
+  and Keccak
+  `0x64a95512f8901579e36a6d443e534e6335dcf04cb75c2916115a003c7b30cc02`.
+- **Independent review:**
+  - `claude-reviewer:museum-governance-2026-10-18-independent` approved
+    candidate A at `2026-10-18T09:39:49Z`, bound to the commit and manifest
+    commitments above.
+  - An earlier review of a superseded candidate required three corrections.
+    Two concerned the decision record's restatement of Sections 7 and 8; the
+    third concerned the index description of the evidence. They were applied
+    to the governance commit before the approved candidate was built.
+- **Reviewed B:** `17bb167cc948666e527feb2ffb7287de980cbb42`, the single
+  child of A. Its 380 changed files are the 377 records, the Vera
+  presentation manifest, the bundle, and the release manifest. The inventory
+  is unchanged. Release manifest SHA-256:
+  `sha256:f83e6bdbde83b1c3e8963b3908b15e034b4df3f9fa7f90fef72b03caef8a1046`;
+  Keccak:
+  `0xa9df943dd3d48d6ba49c268ea62eefbb51baeb1934281349b718fd6635155b9e`.
+- **Catalog C:** `7f3a0af033b9fa1f82800e44cf809c6999422523`.
+  - It adds `release-artifacts/catalog/6529NM-PUBCAT-17bb167cc948666e527feb2ffb7287de980cbb42.json`
+    and updates the pointer. Nothing else changes.
+  - The prior catalog was
+    `6529NM-PUBCAT-92966f2836ebf2af06edfe0fe2cff25041307c92`.
+  - Created and activated at `2026-10-18T09:54:00.000Z`.
+  - Catalog file SHA-256:
+    `sha256:ef50f1231c0ede1400ba934e688a283327ec68953a8ee6fba34f62ca2186558e`.
+    Envelope content hash:
+    `0x16f7ba7483b3d75ec620b378900049303b11d4d2d6cc2e7305b9aec7359d1c31`.
+  - The activation actor is
+    `release-activator:claude-code-museum-funding-assets-policy-2026-10-18`.
+    It follows the `release-activator:` convention of the 2026-08-09 to
+    2026-08-12 activations. The activation was made on the instruction of the
+    coordinating session acting for the owner.
+- **Checks:**
+  - `build_publication_catalog.py --check --commit <B> --created-at <time>`
+    passes.
+  - `--check-transition --previous-commit 3926d78faacf67a62b8d9b48e15d26c43b52eae9
+    --current-commit <C>` passes.
+  - The full validation set passes at A, B, and C.
+- **After C:** the next commit applies the same review binding to
+  `6529NM-GOV-1282091`, which the transition rules do not allow B to change,
+  and records these hashes. It touches no catalog path, so the transition
+  check treats it as a non-catalog step.
+- **Not done:** push, pull request, frontend binding, CDN, and deployment.
+  The catalog's immutable URLs name commit B. As in earlier squash-merged
+  releases, B must stay reachable on GitHub after merge.

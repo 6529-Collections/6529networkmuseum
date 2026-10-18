@@ -207,8 +207,26 @@ class MuseumGiftsFundingPolicyRecordTests(unittest.TestCase):
         effect = self.payload["authority_effect"]
         self.assertIn("6529NM-POL-004", effect)
         self.assertIn("does not itself accept, acquire, or accession any work or asset", effect)
-        self.assertEqual(self.payload["record_status"], "review_pending")
-        self.assertIsNone(self.payload["reviewer"])
+
+    def test_governance_decision_review_binds_the_approved_candidate(self) -> None:
+        reviewer = self.payload["reviewer"]
+        self.assertEqual(self.payload["record_status"], "reviewed")
+        self.assertEqual(self.payload["review_status"], "reviewed")
+        self.assertEqual(reviewer["id"], "claude-reviewer:museum-governance-2026-10-18-independent")
+        self.assertNotEqual(reviewer["id"], self.payload["constructor"]["id"])
+        self.assertEqual(reviewer["reviewer_ids"], [reviewer["id"]])
+        self.assertEqual(reviewer["outcome"], "approved")
+        self.assertEqual(reviewer["reviewed_at"], "2026-10-18T09:39:49Z")
+        self.assertGreater(reviewer["reviewed_at"], self.payload["created_at"])
+        self.assertEqual(reviewer["reviewed_commit"], "9dd1c3e9ae7c0d8c77071b0b109a2cdc9bb7095f")
+        self.assertEqual(
+            reviewer["reviewed_manifest_sha256"],
+            "sha256:74eea95ef31da7f314f1d1d9935b2e4d0775010dde8ceab0205c27918dcdd866",
+        )
+        self.assertEqual(
+            reviewer["reviewed_manifest_keccak"],
+            "0x64a95512f8901579e36a6d443e534e6335dcf04cb75c2916115a003c7b30cc02",
+        )
 
 
 class WaveGovernanceEvidenceScriptTests(unittest.TestCase):

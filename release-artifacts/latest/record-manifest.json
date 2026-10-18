@@ -56,8 +56,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "INDEX.md",
-      "sha256": "sha256:4bbab28014892e4683c945baf61fcd6300c94d6ee563fa1a1b9e04146ea5e908",
-      "size": 57689
+      "sha256": "sha256:b99d1ed4333a71e6c6e985a8ebecef81e7421ea54674b322f422a0230f313121",
+      "size": 57743
     },
     {
       "byte_mode": "lf-normalized",
@@ -222,8 +222,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "docs/implementation-roadmap.md",
-      "sha256": "sha256:f86d0a583c59756fd084ae16e2459b86fdacaf34597a78b75a5f98d1b5eac9bd",
-      "size": 34345
+      "sha256": "sha256:e6858cb002d03e0fbafd76b6372901da7c1651e6750418982d4ae1bc9ca2803e",
+      "size": 34986
     },
     {
       "byte_mode": "lf-normalized",
@@ -3233,11 +3233,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xfa50cb5b7e23c7c464c95636ce1257f15d4dbb388fc50d37759a9886fceb6414"
+        "digest": "0x66567291093e3ab998ea047be9b45050f4b5aba96ea8023f558a304848a54f36"
       },
       "path": "records/governance/6529NM-GOV-1282091.json",
-      "sha256": "sha256:9971fe49a0b9476eadfff8ff41628de976565f215f6ba21e6c1e0b710d11f84d",
-      "size": 6885
+      "sha256": "sha256:42b226dcbb180784be04da65a1aff020b07875bdf8f81bfc5fd668f7f6e450a5",
+      "size": 7417
     },
     {
       "byte_mode": "lf-normalized",
@@ -8579,8 +8579,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "tests/test_museum_gifts_funding_policy.py",
-      "sha256": "sha256:09709b301acc13b8ec1422796e4d1ce87fd5f973d7de3448ce134ef01fdc8e50",
-      "size": 15607
+      "sha256": "sha256:0fbdbb9576a78951c3cd0c9b7df4535748753e3d08e567da5f8af3009ef7e799",
+      "size": 16646
     },
     {
       "byte_mode": "lf-normalized",
@@ -8686,9 +8686,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0xa9df943dd3d48d6ba49c268ea62eefbb51baeb1934281349b718fd6635155b9e"
+    "digest": "0x156352541ef4357733f497bb33639389d5c0cee2d6b5f8b351773010954500a7"
   },
-  "manifest_sha256": "sha256:f83e6bdbde83b1c3e8963b3908b15e034b4df3f9fa7f90fef72b03caef8a1046",
+  "manifest_sha256": "sha256:8e0263371a62d3c7c4aa7fa96ffee2fcf1f2278d7bfebf1a2ee44064b99fd4fc",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.1.0"
 }

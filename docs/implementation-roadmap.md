@@ -537,3 +537,15 @@ the approved-collections register, an update to the proposed-gift Wave
 standard, the decision record's independent review, and visitor publication
 through reviewed B and catalog C.
 The ledger is `notes/wip/2026-10-18-museum-gifts-funding-policy-adoption.md`.
+
+## 2026-10-18 — Funding assets policy release checkpoint
+
+An independent reviewer approved candidate A
+`9dd1c3e9ae7c0d8c77071b0b109a2cdc9bb7095f` at `2026-10-18T09:39:49Z`.
+Reviewed B `17bb167cc948666e527feb2ffb7287de980cbb42` and catalog C
+`7f3a0af033b9fa1f82800e44cf809c6999422523` follow it on branch
+`museum-funding-assets-policy`. C activates catalog
+`6529NM-PUBCAT-17bb167cc948666e527feb2ffb7287de980cbb42`, which includes the
+policy text. The decision record `6529NM-GOV-1282091` carries the same review
+binding. Merge, frontend binding, and deployment remain open. The other
+follow-ups listed in the previous entry are unchanged.

@@ -85,5 +85,6 @@ The adopted text is recorded as
 [`6529NM-POL-004`](../../policies/museum-gifts-acquisition-programs-and-funding-assets.md)
 and the decision as
 [`6529NM-GOV-1282091`](../../records/governance/6529NM-GOV-1282091.json).
-The decision record is review-pending. The source file beside this receipt is
-unchanged so that its content hash still matches.
+The decision record was independently reviewed against candidate A
+`9dd1c3e9ae7c0d8c77071b0b109a2cdc9bb7095f`. The source file beside this
+receipt is unchanged so that its content hash still matches.

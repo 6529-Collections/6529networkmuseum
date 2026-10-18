@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x95e700ba522017328ab0c71c2036c98dbc07874097c123591f902c47a9e472d2"
+      "digest": "0x0de35ca842870e58fb3f79ef365bd38d984902751ff4cbc50a305b9ef9ebbe91"
     },
     "effectiveAt": 1786355707,
     "recordType": "GOVERNANCE_DECISION",
@@ -63,10 +63,10 @@
       }
     ],
     "observed_at": "2026-10-18T08:28:48.748Z",
-    "payload_sha256": "sha256:2dea6227443f2b3db3ef41b7cbdd1135774ab16f1cfaf5b7efed03dbc08e9b0a",
+    "payload_sha256": "sha256:0f92251a6ad4484ad842b8f36ea1579e816752baf77c74779ec5102623cd7304",
     "proposal_text_sha256": "sha256:ce4962072ddd0cbfacb7a071be51ae779c4cae40410851e6386e49ca405becb2",
     "record_id": "6529NM-GOV-1282091",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "GOVERNANCE_DECISION",
     "record_version": "1.0.0",
     "references": [
@@ -76,8 +76,19 @@
       "6529NM-GOV-1052401",
       "6529NM-GOV-1052437"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "claude-reviewer:museum-governance-2026-10-18-independent",
+      "outcome": "approved",
+      "reviewed_at": "2026-10-18T09:39:49Z",
+      "reviewed_commit": "9dd1c3e9ae7c0d8c77071b0b109a2cdc9bb7095f",
+      "reviewed_manifest_keccak": "0x64a95512f8901579e36a6d443e534e6335dcf04cb75c2916115a003c7b30cc02",
+      "reviewed_manifest_sha256": "sha256:74eea95ef31da7f314f1d1d9935b2e4d0775010dde8ceab0205c27918dcdd866",
+      "reviewer_ids": [
+        "claude-reviewer:museum-governance-2026-10-18-independent"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0x827c7884fb3f81237d80446e7185c5f4c019eb2a559e8a7727b7230e1e069206",
     "source": {
       "drop_id": "6387c484-c602-4a2f-8d8b-456395cf077f",
