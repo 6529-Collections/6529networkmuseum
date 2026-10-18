@@ -405,3 +405,42 @@ proposal records' construction time, the register snapshot and revision
 time, the `accessioned` state, the graph records' time, the presentation
 manifest's generation time, and the accession time stated in the
 authorization text and the chronology.
+
+## Candidate A checkpoint
+
+Candidate A is the branch's final commit, the single non-merge child of
+construction commit `f22d4512`. It is review-pending and not
+publishable. Apart from this checkpoint section of the ledger, it contains
+only the regeneration of the generated outputs in the review-pending state,
+made by the sequence under "Regenerating candidate A after rebasing" (its
+Casey step was a no-op):
+
+- `migrate_public_entities.py` regenerated the 385 public graph records (143
+  entities, 241 relations, and the 2026-08-08 Wave status observation) as
+  review-pending, including the seven MAX PAIN entities and eight relations.
+- `finalize_vera_accession.py --pending` returned the seven Vera direct
+  records to review-pending, and the Vera presentation manifest returned to
+  its candidate-A bytes from `3eab50914a90c079fe0383624e760fc0a954e709`.
+- `finalize_max_pain_accession.py --pending` left the six MAX PAIN direct
+  records, the decision record, and the proposal record unchanged (they were
+  sealed review-pending in the construction commits).
+- `generate_max_pain_media.py` wrote the MAX PAIN presentation manifest
+  (constructed, delivery pending review, flash limit provisional) over the
+  three committed posters.
+- The publication inventory (738 entries), visitor bundle, and
+  release manifest were regenerated.
+
+The review-fix commits after the rebased construction head `05dfdf1c` are
+`883dfebe` (supplementary evidence, display addendum, technical relabel), `9dd7541f` (display code, schema, and catalog), `8b904d34` (purchase validators and control plane), `410cc3a4` (texts and records), `49690d76` (promotion of the contributor's submission), `4aa3d45a` (index entry), `d8d7683b` (interview note), `d3890f2d` (addendum summary text), and `f22d4512` (T_C moved to `2026-10-18T12:15:00Z`).
+
+Candidate A release manifest: SHA-256 `sha256:bd4c0f4f7bca8ef4af8a5ae3774d6b0903b2f2f1365986577f83a803afda3629`, Keccak `0xfdfee140d62002eda292a8ba0aa7ac0f18dd3ab6df25772532590c684fcfc793`.
+
+The full validation set listed under "Regenerating candidate A after
+rebasing" passes on this state, the complete unit suite included. The one
+exception is the range check `git diff --check a6bfc1c6 HEAD`, which reports
+the six intentional two-space Markdown line breaks in the object entry's
+caption block, the same form as the 003 object entry; plain `git diff --check`
+passes. This candidate supersedes the earlier candidates A `d8b86894` (read by
+the three independent reviews), `fba4cd76`, and `09ad340d` (whose T_C was
+`2026-10-18T09:30:00Z`); they stay reachable at the local branches
+`max-pain-4188-accession-candidate-a1`, `-a2`, and `-a3`.

@@ -1,0 +1,141 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xb6f7a7d3639ea190bbb730481513c9cdc37c22a6d6056ceefdd5bc1bee329d71"
+    },
+    "effectiveAt": 1792325700,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x6422fe9cc25c4d7bdc846ca91c9e7dcfdb4aa83e42a13986b45d35d6728339b5",
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-PRJ-0009.json"
+  },
+  "payload": {
+    "canonical_route": "/museum/network/projects/max-pain-and-frens",
+    "constructor": {
+      "id": "claude-code-task:max-pain-4188-accession-2026-10-18",
+      "observed_at": "2026-10-18T12:15:00Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-10-18T12:15:00Z",
+    "effective_at": "2026-10-18T12:15:00Z",
+    "entity_id": "6529NM-PRJ-0009",
+    "entity_status": "review_pending",
+    "entity_type": "PROJECT_OR_SERIES",
+    "evidence_refs": [
+      {
+        "evidence_class": "E",
+        "label": "MAX PAIN AND FRENS project study",
+        "observed_at": "2026-10-18T12:15:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/public/max-pain-and-frens-project.md"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Artist series page transcript",
+        "observed_at": "2026-10-18T12:15:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-sources/raw/xcopy-art/xcopy-art-series-max-pain-and-frens.txt"
+      },
+      {
+        "evidence_class": "A",
+        "label": "On-chain supply, burn, and provenance evidence",
+        "observed_at": "2026-10-18T12:15:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-technical/summary.json"
+      }
+    ],
+    "observed_at": "2026-10-18T12:15:00Z",
+    "page_exposure": "canonical_page",
+    "payload_sha256": "sha256:0ac402393d944441498164758d63c9ced8df7833bfb6f7fe16545bb87e71860f",
+    "preferred_label": "MAX PAIN AND FRENS",
+    "profile": {
+      "agent_entity_ids": [
+        "6529NM-ART-0025"
+      ],
+      "evidence_refs": [
+        {
+          "evidence_class": "E",
+          "label": "MAX PAIN AND FRENS project study",
+          "observed_at": "2026-10-18T12:15:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/public/max-pain-and-frens-project.md"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Artist series page transcript",
+          "observed_at": "2026-10-18T12:15:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-sources/raw/xcopy-art/xcopy-art-series-max-pain-and-frens.txt"
+        },
+        {
+          "evidence_class": "A",
+          "label": "On-chain supply, burn, and provenance evidence",
+          "observed_at": "2026-10-18T12:15:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-technical/summary.json"
+        }
+      ],
+      "ownership_boundary": "The project is the artist's release and its platform context. The Museum holds one token of the open edition through a separate purchase accession.",
+      "profile_type": "PROJECT_OR_SERIES",
+      "project_relation_basis": "source_project_record",
+      "project_type": "project",
+      "scope_statement": "MAX PAIN AND FRENS is a 2022 release by XCOPY on Nifty Gateway: the open edition MAX PAIN, sold for ten minutes on 24 March 2022 and minted as 7,394 tokens, beside three variant editions of unique works. Burns for the artist's DAMAGE CONTROL redemptions and later burns by a third-party contract left 4,847 MAX PAIN tokens on 18 October 2026.",
+      "source_record_ids": [
+        "6529NM.2026.005.01",
+        "6529NM.2026.005.COND.01"
+      ],
+      "work_entity_ids": [
+        "6529NM-W-0036"
+      ]
+    },
+    "public_slug": "max-pain-and-frens",
+    "record_id": "6529NM-PRJ-0009",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-ART-0025",
+      "6529NM-W-0036",
+      "6529NM.2026.005.01",
+      "6529NM.2026.005.COND.01"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM-ART-0025",
+      "6529NM-W-0036",
+      "6529NM.2026.005.01",
+      "6529NM.2026.005.COND.01"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "E",
+          "label": "MAX PAIN AND FRENS project study",
+          "observed_at": "2026-10-18T12:15:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/public/max-pain-and-frens-project.md"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Artist series page transcript",
+          "observed_at": "2026-10-18T12:15:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-sources/raw/xcopy-art/xcopy-art-series-max-pain-and-frens.txt"
+        },
+        {
+          "evidence_class": "A",
+          "label": "On-chain supply, burn, and provenance evidence",
+          "observed_at": "2026-10-18T12:15:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-technical/summary.json"
+        }
+      ],
+      "observed_at": "2026-10-18T12:15:00Z",
+      "status_label": "review_pending"
+    },
+    "subject_id": "6529NM-PRJ-0009",
+    "visibility": "public"
+  }
+}

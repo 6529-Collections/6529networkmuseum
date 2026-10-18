@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xbb0614bfac85a913cb8ae7de1c66f140a173ec60a5ecd0b254f08e6f6eedd1e8"
+      "digest": "0xa1c81b1d066b666ea832f2d22f43a1741f7322efcaf325f3fac604c40271fdce"
     },
     "effectiveAt": 1786573476,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-12T22:24:36.387Z",
     "entity_id": "6529NM-CA-2026-003",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "CURATED_ACQUISITION",
     "evidence_refs": [
       {
@@ -91,7 +91,7 @@
     ],
     "observed_at": "2026-08-12T22:24:36.387Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:1cef99ebd83306dfdf1c4f0f44e95e1d3280835f2eda16a424dcf9501718a193",
+    "payload_sha256": "sha256:15277cb68e8f398dba77b875234df8f367985611d32e97fc3b5e0ace354de43c",
     "preferred_label": "Conflict at Its Edges",
     "profile": {
       "acquisition_method": "donation",
@@ -395,7 +395,7 @@
     },
     "public_slug": "conflict-at-its-edges",
     "record_id": "6529NM-CA-2026-003",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -421,19 +421,8 @@
       "6529NM.2026.002.05",
       "6529NM.2026.002.GAA-01"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "claude-reviewer:museum-governance-2026-10-18-independent",
-      "outcome": "approved",
-      "reviewed_at": "2026-10-18T09:39:49Z",
-      "reviewed_commit": "9dd1c3e9ae7c0d8c77071b0b109a2cdc9bb7095f",
-      "reviewed_manifest_keccak": "0x64a95512f8901579e36a6d443e534e6335dcf04cb75c2916115a003c7b30cc02",
-      "reviewed_manifest_sha256": "sha256:74eea95ef31da7f314f1d1d9935b2e4d0775010dde8ceab0205c27918dcdd866",
-      "reviewer_ids": [
-        "claude-reviewer:museum-governance-2026-10-18-independent"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-ACC-2026-002",
@@ -480,7 +469,7 @@
         }
       ],
       "observed_at": "2026-08-12T22:24:36.387Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-CA-2026-003",
     "visibility": "public"

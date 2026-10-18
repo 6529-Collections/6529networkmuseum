@@ -1,0 +1,133 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xef3bcc4696bf0303c013480ab8ff00762f2cd6c03c4362890de610e15f021804"
+    },
+    "effectiveAt": 1792325700,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0xd6841d7878130b7ee23617fa4ea2ac1be76b428948e79319d4c05bcd97091331",
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-ACC-ENT-0005.json"
+  },
+  "payload": {
+    "canonical_route": null,
+    "constructor": {
+      "id": "claude-code-task:max-pain-4188-accession-2026-10-18",
+      "observed_at": "2026-10-18T12:15:00Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-10-18T12:15:00Z",
+    "effective_at": "2026-10-18T12:15:00Z",
+    "entity_id": "6529NM-ACC-ENT-0005",
+    "entity_status": "review_pending",
+    "entity_type": "ACCESSION",
+    "evidence_refs": [
+      {
+        "evidence_class": "B",
+        "label": "Accession statement",
+        "observed_at": "2026-10-18T12:15:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/accession-statement.json"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Accession certificate",
+        "observed_at": "2026-10-18T12:15:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/accession-certificate.json"
+      },
+      {
+        "evidence_class": "A",
+        "label": "Finalized custody summary",
+        "observed_at": "2026-10-18T12:15:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-custody/summary.json"
+      }
+    ],
+    "observed_at": "2026-10-18T12:15:00Z",
+    "page_exposure": "relational_only",
+    "payload_sha256": "sha256:369e824983da6ee27b1d62b9fb2f7ed0d1abb538a560909083c6c08daa24c685",
+    "preferred_label": "XCOPY accession 6529NM.2026.005",
+    "profile": {
+      "accession_number": "6529NM.2026.005",
+      "accession_status": "complete",
+      "admitted_work_entity_ids": [
+        "6529NM-W-0036"
+      ],
+      "evidence_refs": [
+        {
+          "evidence_class": "B",
+          "label": "Accession statement",
+          "observed_at": "2026-10-18T12:15:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/accession-statement.json"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Accession certificate",
+          "observed_at": "2026-10-18T12:15:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/accession-certificate.json"
+        },
+        {
+          "evidence_class": "A",
+          "label": "Finalized custody summary",
+          "observed_at": "2026-10-18T12:15:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-custody/summary.json"
+        }
+      ],
+      "profile_type": "ACCESSION",
+      "source_accession_record_id": "6529NM.2026.005"
+    },
+    "public_slug": null,
+    "record_id": "6529NM-ACC-ENT-0005",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-ACC-2026-005",
+      "6529NM-W-0036",
+      "6529NM.2026.005",
+      "6529NM.2026.005.AQA-01"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM-ACC-2026-005",
+      "6529NM-W-0036",
+      "6529NM.2026.005",
+      "6529NM.2026.005.AQA-01"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "B",
+          "label": "Accession statement",
+          "observed_at": "2026-10-18T12:15:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/accession-statement.json"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Accession certificate",
+          "observed_at": "2026-10-18T12:15:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/accession-certificate.json"
+        },
+        {
+          "evidence_class": "A",
+          "label": "Finalized custody summary",
+          "observed_at": "2026-10-18T12:15:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-custody/summary.json"
+        }
+      ],
+      "observed_at": "2026-10-18T12:15:00Z",
+      "status_label": "review_pending"
+    },
+    "subject_id": "6529NM-ACC-ENT-0005",
+    "visibility": "public"
+  }
+}

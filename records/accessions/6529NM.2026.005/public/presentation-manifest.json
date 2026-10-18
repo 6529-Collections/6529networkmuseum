@@ -1,0 +1,156 @@
+{
+  "$schema": "../../../../schemas/accession-media-presentation-v3.schema.json",
+  "record_control": {
+    "revision": 1,
+    "record_status": "constructed",
+    "constructor": {
+      "actor_id": "claude-code-task:max-pain-4188-accession-2026-10-18",
+      "role": "constructor",
+      "constructed_at": "2026-10-18T12:15:00Z"
+    },
+    "review": null
+  },
+  "record_type": "ACCESSION_MEDIA_PRESENTATION",
+  "schema_profile": "6529NM_ACCESSION_MEDIA_PRESENTATION_V3",
+  "accession_lot_id": "6529NM.2026.005",
+  "generated_at": "2026-10-18T12:15:00Z",
+  "transform": {
+    "profile": "6529NM_WEB_PRESENTATION_WEBP_V2_Q82_M6_FIXED_ICC",
+    "implementation": "Pillow 12.3.0",
+    "format": "image/webp",
+    "quality": 82,
+    "method": 6,
+    "widths": [
+      640,
+      1280,
+      2400
+    ],
+    "resize_filter": "Lanczos",
+    "upscale": false,
+    "orientation": "EXIF transpose before resize",
+    "colour_management": "embedded profiles converted to sRGB; untagged sources treated as sRGB; alpha retained",
+    "icc_profile_sha256": "sha256:4ed6f6f05df0d17516662c5fe06ac90e14e0c1936abd15a491b57998c56aef86",
+    "metadata": "first displayed frame of the animated source only; source metadata stripped; output sRGB ICC profile retained"
+  },
+  "delivery": {
+    "status": "prepared_for_contextual_museum_display_pending_review",
+    "authority_record_id": "6529NM.2026.005.DISPLAY-01",
+    "authority_path": "records/accessions/6529NM.2026.005/public/web-presentation-authority.md",
+    "cdn_base_url": "https://d3lqz0a4bldqgf.cloudfront.net",
+    "cache_control": "public, max-age=31536000, immutable",
+    "key_profile": "museum/accessions/{accession_lot_id}/{work_entity_id}/{source_sha256}/{transform_profile}/{width}.webp",
+    "overwrite_policy": "fail if an existing key does not contain the declared bytes"
+  },
+  "rights_boundary": {
+    "status": "The artist's site states a CC0 (Creative Commons Zero) dedication for XCOPY artworks; the token metadata carries no license field. The Museum asserts no copyright, and Museum display implies no affiliation with or endorsement by XCOPY.",
+    "source_originals": "The token's animated GIF, bound on-chain by its IPFS CID, remains the source object. The Museum retains its exact bytes as preservation evidence and does not re-encode, crop or alter it.",
+    "technical_transformation": "Still posters show the first displayed frame of eight, resized proportionally, normalized to sRGB and compressed as WebP; they document an animated work and are not the work. No crop, watermark, retouching or content alteration.",
+    "no_general_reuse": "No permission is asserted beyond the artist's stated CC0 dedication; any reuse must not imply affiliation with or endorsement by XCOPY or the Museum."
+  },
+  "items": [
+    {
+      "work_entity_id": "6529NM-W-0036",
+      "media_reference_entity_id": "6529NM-MED-0061",
+      "source": {
+        "role": "fixity_verified_token_source",
+        "url": "https://gateway.pinata.cloud/ipfs/QmTcTzTPgCyvF933oeFvB4GkPgaXtF6dKuQgvg32qqLYGF",
+        "mime_type": "image/gif",
+        "sha256": "sha256:3ba2c6c6a7b7da940b5780da8fe301e61366a0b5c738be16e537ee122630be2e",
+        "byte_size": 4541937,
+        "pixel_width": 4000,
+        "pixel_height": 4000,
+        "exif_orientation_applied": false,
+        "colour_profile_status": "untagged_assumed_srgb",
+        "frame_policy": "first_frame_poster",
+        "animation": {
+          "frame_count": 8,
+          "frame_duration_ms": 50,
+          "total_duration_ms": 400,
+          "loop": "infinite"
+        }
+      },
+      "presentation": {
+        "role": "web_presentation_surrogate",
+        "alt_text": "Still from a looping animation: a teal head on black, a hot-pink band across two black eyes under mint flames, checkered streaks falling through it.",
+        "alt_text_status": "reviewed_accessibility_description",
+        "public_widths": [
+          640,
+          1280,
+          2400
+        ],
+        "derivatives": [
+          {
+            "width": 640,
+            "height": 640,
+            "mime_type": "image/webp",
+            "sha256": "sha256:bfb1ae06ecc52f5c338b967b8eeefb0d7555361a56953bfe80bfe90fba32d0d3",
+            "byte_size": 63966,
+            "repository_path": "media/accessions/6529NM.2026.005/6529NM-W-0036/3ba2c6c6a7b7da940b5780da8fe301e61366a0b5c738be16e537ee122630be2e/webp-v2-q82-m6-fixed-icc/640.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/accessions/6529NM.2026.005/6529NM-W-0036/3ba2c6c6a7b7da940b5780da8fe301e61366a0b5c738be16e537ee122630be2e/webp-v2-q82-m6-fixed-icc/640.webp",
+            "cache_control": "public, max-age=31536000, immutable"
+          },
+          {
+            "width": 1280,
+            "height": 1280,
+            "mime_type": "image/webp",
+            "sha256": "sha256:b50c4375fd42103664cb4a7dd57a4d416a5ac87f0f6df3edcb520690b0f2b426",
+            "byte_size": 263442,
+            "repository_path": "media/accessions/6529NM.2026.005/6529NM-W-0036/3ba2c6c6a7b7da940b5780da8fe301e61366a0b5c738be16e537ee122630be2e/webp-v2-q82-m6-fixed-icc/1280.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/accessions/6529NM.2026.005/6529NM-W-0036/3ba2c6c6a7b7da940b5780da8fe301e61366a0b5c738be16e537ee122630be2e/webp-v2-q82-m6-fixed-icc/1280.webp",
+            "cache_control": "public, max-age=31536000, immutable"
+          },
+          {
+            "width": 2400,
+            "height": 2400,
+            "mime_type": "image/webp",
+            "sha256": "sha256:feee964c4e20584fb5c18583ae9e6d292356e6575239b316d0f23600c0719598",
+            "byte_size": 811744,
+            "repository_path": "media/accessions/6529NM.2026.005/6529NM-W-0036/3ba2c6c6a7b7da940b5780da8fe301e61366a0b5c738be16e537ee122630be2e/webp-v2-q82-m6-fixed-icc/2400.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/accessions/6529NM.2026.005/6529NM-W-0036/3ba2c6c6a7b7da940b5780da8fe301e61366a0b5c738be16e537ee122630be2e/webp-v2-q82-m6-fixed-icc/2400.webp",
+            "cache_control": "public, max-age=31536000, immutable"
+          }
+        ]
+      },
+      "animation_reference": {
+        "role": "token_linked_source_animation",
+        "media_reference_entity_id": "6529NM-MED-0060",
+        "binding": {
+          "kind": "ipfs_cidv0",
+          "cid": "QmTcTzTPgCyvF933oeFvB4GkPgaXtF6dKuQgvg32qqLYGF",
+          "token_metadata_field": "image_hash",
+          "verification": "recomputed_cidv0_match"
+        },
+        "uri": "ipfs://QmTcTzTPgCyvF933oeFvB4GkPgaXtF6dKuQgvg32qqLYGF",
+        "access_urls": [
+          "https://gateway.pinata.cloud/ipfs/QmTcTzTPgCyvF933oeFvB4GkPgaXtF6dKuQgvg32qqLYGF"
+        ],
+        "mime_type": "image/gif",
+        "sha256": "sha256:3ba2c6c6a7b7da940b5780da8fe301e61366a0b5c738be16e537ee122630be2e",
+        "byte_size": 4541937,
+        "pixel_width": 4000,
+        "pixel_height": 4000,
+        "fixity_evidence": {
+          "manifest_path": "evidence/xcopy-max-pain-4188-sources/manifest.json",
+          "entry_path": "raw/token-image.gif",
+          "retained_bytes": true
+        },
+        "display_constraints": {
+          "autoplay": false,
+          "initial_state": "poster",
+          "activation": "explicit_visitor_request_after_warning",
+          "reduced_motion": "poster_only_no_play_control_when_prefers_reduced_motion",
+          "warning_required": true,
+          "warning_text": "Flashing imagery. When played, this animation flickers continuously: black-and-white streaks and bright mint-green outlines flash up to ten times a second, and a large pink area changes color twenty times a second. Zooming in or screen magnification makes the flashing area larger. It may affect people with photosensitive epilepsy or other sensitivity to flashing light.",
+          "play_control_accessible_name": "Play flashing animation",
+          "stop_control": "visible_keyboard_operable_stop_returns_to_poster",
+          "playback_source": "sha256_verified_bytes_only",
+          "css_size": "min(512px, 100%)",
+          "max_css_width_px": 512,
+          "max_css_width_status": "provisional_pending_flash_review",
+          "fullscreen_or_enlarged_animation": "not_permitted",
+          "basis": "Museum technical measurement of the composited frames (2026-10-18; evidence/xcopy-max-pain-4188-display/flash-analysis-all-steps.json): eight frames at 50 ms loop without end; two color states alternate, 20 color changes a second (10 full cycles); black-and-white checkered streaks and mint outlines on black flash up to 10 times a second over about 5.5% of the image. Over all eight loop steps, counting every pixel with a qualifying transition, the largest flashing share of a WCAG 2.3.1 ten-degree field is 15.3% at 512 px, 24.9% at 1,024 px (512 px at 200% zoom), 33.4% at 1,536 px and 44.9% at 2,048 px; red transitions cover at most 0.6% at 512 px and 1.4% at 1,024 px. The animation is limited to min(512px, 100%) and is never enlarged or shown full screen; the limit is provisional until an independent flash review confirms it."
+        }
+      }
+    }
+  ]
+}

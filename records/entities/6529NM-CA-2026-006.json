@@ -1,0 +1,319 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xca516c3680cb5ff18a190de0a2b5326c87193b6d01eef48c07ca683375d5877d"
+    },
+    "effectiveAt": 1792325700,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x23a542cdf96e7628179e4beab82d470bb0d1ce81456ceed567a7b48049bc77c1",
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-CA-2026-006.json"
+  },
+  "payload": {
+    "canonical_route": "/museum/network/acquisitions/a-community-funded-acquisition-of-max-pain-4188",
+    "constructor": {
+      "id": "claude-code-task:max-pain-4188-accession-2026-10-18",
+      "observed_at": "2026-10-18T12:15:00Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-10-18T12:15:00Z",
+    "effective_at": "2026-10-18T12:15:00Z",
+    "entity_id": "6529NM-CA-2026-006",
+    "entity_status": "review_pending",
+    "entity_type": "CURATED_ACQUISITION",
+    "evidence_refs": [
+      {
+        "evidence_class": "E",
+        "label": "Community-funded acquisition essay",
+        "observed_at": "2026-10-18T12:15:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/public/community-funded-acquisition.md"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Acquisition authorization",
+        "observed_at": "2026-10-18T12:15:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/acquisition-authorization.json"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Accession certificate",
+        "observed_at": "2026-10-18T12:15:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/accession-certificate.json"
+      }
+    ],
+    "observed_at": "2026-10-18T12:15:00Z",
+    "page_exposure": "canonical_page",
+    "payload_sha256": "sha256:a877927cb43feb7422441e9b93e98104802b7b16a7e4f1981152bb7eaaa22c6d",
+    "preferred_label": "A Community-Funded Acquisition of MAX PAIN #4188/7394",
+    "profile": {
+      "acquisition_method": "purchase",
+      "collection_effect": "permanent_collection",
+      "evidence_refs": [
+        {
+          "evidence_class": "E",
+          "label": "Community-funded acquisition essay",
+          "observed_at": "2026-10-18T12:15:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/public/community-funded-acquisition.md"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Acquisition authorization",
+          "observed_at": "2026-10-18T12:15:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/acquisition-authorization.json"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Accession certificate",
+          "observed_at": "2026-10-18T12:15:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/accession-certificate.json"
+        }
+      ],
+      "independent_acquisition_facts": {
+        "custody": {
+          "as_of": "2026-10-18T12:15:00Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "A",
+              "label": "Finalized custody summary",
+              "observed_at": "2026-10-18T12:15:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-custody/summary.json"
+            }
+          ],
+          "notes": "Finalized Ethereum evidence records the token in the Museum custody address.",
+          "status": "verified"
+        },
+        "display": {
+          "as_of": "2026-10-18T12:15:00Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Web presentation authority",
+              "observed_at": "2026-10-18T12:15:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/public/web-presentation-authority.md"
+            },
+            {
+              "evidence_class": "C",
+              "label": "Flash-analysis evidence",
+              "observed_at": "2026-10-18T12:15:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-display/manifest.json"
+            }
+          ],
+          "notes": "The Museum shows a first-frame poster and plays the animation only on request, after a flashing warning, no larger than 512 CSS pixels and never enlarged; under reduced motion it shows only the poster.",
+          "status": "verified_with_conditions"
+        },
+        "mint": {
+          "as_of": "2026-10-18T12:15:00Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "A",
+              "label": "On-chain technical evidence",
+              "observed_at": "2026-10-18T12:15:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-technical/summary.json"
+            }
+          ],
+          "notes": "Nifty Gateway minted the token on 24 March 2022, long before the Museum's purchase; mint and purchase are separate facts.",
+          "status": "verified"
+        },
+        "payment": {
+          "as_of": "2026-10-18T12:15:00Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Acquisition authorization",
+              "observed_at": "2026-10-18T12:15:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/acquisition-authorization.json"
+            },
+            {
+              "evidence_class": "A",
+              "label": "Finalized custody summary",
+              "observed_at": "2026-10-18T12:15:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-custody/summary.json"
+            }
+          ],
+          "notes": "The organizer's acquisition wallet paid 0.4589999999 ETH through Seaport 1.6 from pooled contributions; the authorization makes no valuation or tax claim.",
+          "status": "verified"
+        },
+        "preservation": {
+          "as_of": "2026-10-18T12:15:00Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "A",
+              "label": "Source-evidence manifest",
+              "observed_at": "2026-10-18T12:15:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-sources/manifest.json"
+            }
+          ],
+          "notes": "The Museum retains the GIF, metadata, and fixity; replication of the IPFS objects outside the platform CDN continues.",
+          "status": "in_progress"
+        },
+        "rights": {
+          "as_of": "2026-10-18T12:15:00Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Rights statement",
+              "observed_at": "2026-10-18T12:15:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/rights/6529NM.2026.005.RIGHTS.01.json"
+            }
+          ],
+          "notes": "XCOPY's CC0 1.0 dedication covers the work; Museum use implies no affiliation with or endorsement by XCOPY, and the Museum asserts no copyright.",
+          "status": "verified_with_conditions"
+        },
+        "technical": {
+          "as_of": "2026-10-18T12:15:00Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Technical and condition record",
+              "observed_at": "2026-10-18T12:15:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/technical/6529NM.2026.005.01.json"
+            },
+            {
+              "evidence_class": "A",
+              "label": "On-chain technical evidence",
+              "observed_at": "2026-10-18T12:15:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-technical/summary.json"
+            }
+          ],
+          "notes": "The token, its IPFS-bound GIF, supply, and provenance were recorded at finalized blocks; the metadata's CDN image URL is mutable and the animation flashes.",
+          "status": "verified_with_conditions"
+        },
+        "title": {
+          "as_of": "2026-10-18T12:15:00Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Accession certificate",
+              "observed_at": "2026-10-18T12:15:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/accession-certificate.json"
+            }
+          ],
+          "notes": "The accession certificate's purchase title declaration passes the executing agent's transferable token interest to the Museum; copyright is a separate matter.",
+          "status": "verified"
+        }
+      },
+      "lifecycle": {
+        "as_of": "2026-10-18T12:15:00Z",
+        "evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Accession certificate",
+            "observed_at": "2026-10-18T12:15:00Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/accession-certificate.json"
+          },
+          {
+            "evidence_class": "B",
+            "label": "Acquisition authorization",
+            "observed_at": "2026-10-18T12:15:00Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/acquisition-authorization.json"
+          }
+        ],
+        "status": "accessioned_into_permanent_collection"
+      },
+      "lifecycle_observations": [
+        {
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Acquisition authorization",
+              "observed_at": "2026-10-18T12:15:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/acquisition-authorization.json"
+            },
+            {
+              "evidence_class": "B",
+              "label": "Accession certificate",
+              "observed_at": "2026-10-18T12:15:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/accession-certificate.json"
+            }
+          ],
+          "notes": "The Wave-authorized purchase was received, formally accepted, and accessioned into the permanent Collection.",
+          "observation_id": "6529NM-CA-OBS-0007",
+          "observed_at": "2026-10-18T12:15:00Z",
+          "source_record_ids": [
+            "6529NM-ACC-2026-005",
+            "6529NM.2026.005.AQA-01"
+          ],
+          "source_status": "accessioned",
+          "status": "accessioned_into_permanent_collection"
+        }
+      ],
+      "profile_type": "CURATED_ACQUISITION",
+      "program_or_pathway": {
+        "entity_ids": [],
+        "kind": "museum_wave_proposal",
+        "source_record_ids": [
+          "6529NM-PA-2026-001",
+          "6529NM-GOV-1336667"
+        ]
+      },
+      "public_credit": "Acquired through a community-funded purchase organized by Shelby and authorized by the 6529 Network Museum Wave, 2026",
+      "source_work_record_ids": [
+        "6529NM.2026.005.01"
+      ],
+      "thesis": "Twenty-five members of the network voted to buy one edition of XCOPY's MAX PAIN for the Museum and paid for it in equal shares. The organizer bought edition 4188/7394 and transferred it to the Museum, which accessioned the token and retains the GIF its token names by IPFS hash.",
+      "title": "A Community-Funded Acquisition of MAX PAIN #4188/7394",
+      "work_entity_ids": [
+        "6529NM-W-0036"
+      ]
+    },
+    "public_slug": "a-community-funded-acquisition-of-max-pain-4188",
+    "record_id": "6529NM-CA-2026-006",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-ACC-2026-005",
+      "6529NM-ACC-ENT-0005",
+      "6529NM-GOV-1336667",
+      "6529NM-PA-2026-001",
+      "6529NM-W-0036",
+      "6529NM.2026.005.AQA-01"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM-ACC-2026-005",
+      "6529NM-ACC-ENT-0005",
+      "6529NM-GOV-1336667",
+      "6529NM-PA-2026-001",
+      "6529NM-W-0036",
+      "6529NM.2026.005.AQA-01"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "E",
+          "label": "Community-funded acquisition essay",
+          "observed_at": "2026-10-18T12:15:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/public/community-funded-acquisition.md"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Acquisition authorization",
+          "observed_at": "2026-10-18T12:15:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/acquisition-authorization.json"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Accession certificate",
+          "observed_at": "2026-10-18T12:15:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/accession-certificate.json"
+        }
+      ],
+      "observed_at": "2026-10-18T12:15:00Z",
+      "status_label": "review_pending"
+    },
+    "subject_id": "6529NM-CA-2026-006",
+    "visibility": "public"
+  }
+}
