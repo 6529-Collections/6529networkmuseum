@@ -33,7 +33,7 @@ The funding package reads the wallet's ETH balance and nonce at each checkpoint 
 
 Total inflow 0.5276 ETH = purchase 0.4589999999 + residual 0.068496911687069084 + gas 0.000074731658504267 + remaining balance 0.000028356754426649. The identity holds exactly.
 
-The call in the Museum Wave asked each of 25 voters for 0.021 ETH, 0.525 ETH in all. Inflows exceeded that by 0.0026 ETH, and 0.063 ETH (three shares) arrived after the purchase. The residual is therefore the surplus of the shares over the purchase price and gas plus the overpayments; it is not simply "the leftover of 25 equal shares". The package records aggregates only. No contributor or payer address is requested, derived, or retained, and the Museum publishes no per-person payment mapping.
+The call in the Museum Wave asked each of 25 voters for 0.021 ETH, 0.525 ETH in all. Inflows exceeded that by 0.0026 ETH, and 0.063 ETH arrived after the transfer to the Museum. The residual is therefore the surplus of the shares over the purchase price and gas plus the overpayments; it is not simply "the leftover of 25 equal shares". The package records aggregates only. No contributor or payer address is requested, derived, or retained, and the Museum publishes no per-person payment mapping.
 
 ## Policy analysis
 

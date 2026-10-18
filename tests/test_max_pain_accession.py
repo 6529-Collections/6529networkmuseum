@@ -178,6 +178,17 @@ class MaxPainAccessionTest(unittest.TestCase):
                 self.assertRegex(sentence, ORGANIZER_ATTRIBUTION, sentence)
         self.assertIn("By SonOfLasG.", essay)
         self.assertIn("community-funded purchase", museum_note)
+        # Public notes cite only committed evidence: aggregate wallet balances
+        # and the accession register, not unretained per-transfer counts or a
+        # Safe-history reading.
+        self.assertIn("No XCOPY appears in the Museum's earlier accessions.", museum_note)
+        self.assertIn("`evidence/xcopy-max-pain-4188-funding/`", essay)
+        chronology = (PUBLIC_ROOT / "source-and-chronology.md").read_text(encoding="utf-8")
+        for text in (essay, chronology):
+            self.assertNotIn("incoming transfers", text)
+            self.assertNotIn("24 payments", text)
+            self.assertNotIn("26,217,714", text)
+            self.assertNotIn("NFT transfer history", text)
         entry = (PUBLIC_ROOT / "6529NM.2026.005.01.md").read_text(encoding="utf-8")
         self.assertIn("6529NM.2026.005.AQA-01", entry)
         self.assertIn("6529NM-ACC-2026-005", entry)

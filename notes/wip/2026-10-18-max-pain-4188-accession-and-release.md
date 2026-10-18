@@ -2,7 +2,7 @@
 
 Status: active accession and release ledger
 Opened: 2026-10-18
-Branch: `max-pain-4188-accession`, from `68147b6c` (the funding-assets policy record commit, on `origin/main` `3926d78f`)
+Branch: `max-pain-4188-accession`, rebased onto `a6bfc1c6` (the reviewed funding-assets policy release: A `9dd1c3e9`, B `17bb167c`, catalog C `7f3a0af0`, and the `6529NM-GOV-1282091` review, on `origin/main` `3926d78f`)
 Constructor: `claude-code-task:max-pain-4188-accession-2026-10-18`
 Construction and acceptance time (T_C): `2026-10-18T09:30:00Z`
 
@@ -53,7 +53,7 @@ Nothing here pushes, opens a pull request, uploads to the CDN, or posts.
   the seller included, appear by address only in raw RPC evidence and the lot's
   provenance schedule; prose names them by role. To honor this rule, the
   authorization now records the seller by role and the validator joins it to
-  the provenance schedule (commit `8be62000`).
+  the provenance schedule (commit `0183523f`).
 - Rights: CC0 1.0 from the artist's Legal & Privacy page and the 1 August 2022
   announcement; all nine grants `granted`, AI training included, each basis
   carrying the non-endorsement condition; the Museum asserts no copyright; the
@@ -136,21 +136,28 @@ The flash analysis was re-run from the retained GIF and masks on 2026-10-18;
 
 ## Commits
 
-1. `777ac81c` contributor submission (author sonoflasg, from `5d241715`).
-2. Purchase record model and publication table (from `c4e22ce9`, `53059563`,
-   `baf20f9a`, `ff2306c7`, `7c644f2d`).
-3. GIF evidence, evidence packages, and media v3 (from `118b831b`,
+Commits after `a6bfc1c6`, in order (hashes after the rebase):
+
+1. `ea1e4b77` contributor submission (author sonoflasg, from `5d241715`).
+2. `2bd9660f`, `b291a549`, `e0a9ec21`, `73e57546`, `1f2721dd`: purchase record
+   model and publication table (from `c4e22ce9`, `53059563`, `baf20f9a`,
+   `ff2306c7`, `7c644f2d`).
+3. `01f57fca`, `f2716cb4`, `55f97bfb`, `94ebaf66`, `683459a4`, `4fdac396`,
+   `e1724c32`: GIF evidence, evidence packages, and media v3 (from `118b831b`,
    `7c47c340`, `5fbf1c12`, `64ebf9a5`, `4916ac3b`, `8a13d5f0`, `ee4f358d`).
    Generated outputs that conflicted were regenerated; `.gitattributes` was
    resolved as the union of both blocks.
-4. `87733619` Casey package root inventory rebound to the GIF-aware bootstrap
+4. `16633403` Casey package root inventory rebound to the GIF-aware bootstrap
    validator (repository generator).
-5. `8be62000` purchase seller recorded by role and joined to the provenance
+5. `0183523f` purchase seller recorded by role and joined to the provenance
    schedule.
-6. Construction commits for the governance decision, proposal record, display
-   evidence, accession records, manuscripts, register, graph code, inventories,
-   tests, CI, documentation, and notes.
-7. Candidate A, the final commit (see below).
+6. `1087dc9c`, `17f0c2b4`, `8ebb7005`: construction commits for the
+   governance decision and proposal record; the display evidence, accession
+   records, manuscripts, register, and finalizer; and the graph code,
+   inventories, publication unit, tests, CI, documentation, and notes.
+7. The evidence-discipline commit (funding note and Museum note; see
+   "Rebase and evidence discipline" below).
+8. Candidate A, the final commit (see below).
 
 Construction commits carry hand-authored sources only. Every generated output
 (the public entity graph, the re-pended Vera records and manifest, the MAX PAIN
@@ -200,7 +207,7 @@ commits.
 
 The funding-assets policy PR's own B and C land first. This branch is then
 rebased onto that main: replay every commit except candidate A (for example
-`git rebase --onto <new main> 68147b6c <A>~1`), resolving conflicts in
+`git rebase --onto <new main> <old base> <A>~1`), resolving conflicts in
 generated files by regeneration and in `INDEX.md`, the roadmap, and the
 orchestration ledger by keeping both sides. Then regenerate candidate A from
 the repository root, in this order:
@@ -248,9 +255,44 @@ commitments here and in the pull request.
   confirmation of the Sotheby's lot wording; and the curatorial standard's
   section 13 apparatus (bibliography, revision history, immutable edition
   link) for the long texts.
-- Counts that rest on unretained readings: the 24 inbound payments and the
-  Museum Safe's NFT history to block 26,217,714 come from the chain agent's
-  indexer-assisted reading, not from a retained package; the funding package
-  retains aggregates only.
 - Review of `6529NM-GOV-1336667` after C, and reconciliation with draft PR #71
   (Salgado) whichever merges second.
+
+## Rebase and evidence discipline
+
+The funding-assets policy release is final on branch
+`museum-funding-assets-policy` at `a6bfc1c6`: its governance commit was
+amended to `748b756b`, candidate A `9dd1c3e9` was approved at
+`2026-10-18T09:39:49Z`, reviewed B `17bb167c` and catalog C `7f3a0af0`
+activate `6529NM-PUBCAT-17bb167cc948666e527feb2ffb7287de980cbb42`, and
+`a6bfc1c6` records the review of `6529NM-GOV-1282091`.
+
+This branch was rebased with `git rebase --onto a6bfc1c6 68147b6c`, after the
+first candidate A (`d8b86894`, which the three independent reviews were
+reading) was dropped; that commit stays reachable at the local branch
+`max-pain-4188-accession-candidate-a1`. Authorship was kept. Conflicts:
+
+- the release manifest in eight replayed commits, and the visitor bundle in
+  one, were resolved by regenerating with `generate_public_publication_bundle.py`
+  and `generate_manifest.py` (never by hand);
+- `INDEX.md`, `docs/implementation-roadmap.md`, and
+  `notes/wip/orchestration-ledger.md` in the graph-and-ledgers commit were
+  resolved by keeping the base's text first (its reviewed
+  `6529NM-GOV-1282091` and adoption-ledger rows and its release-checkpoint
+  entries) and appending this branch's new rows and entries.
+
+Two evidence-discipline fixes followed, so that public notes cite only
+committed evidence:
+
+- the essay's funding note and the chronology's funding row now give the
+  committed balance readings (0.4646 ETH before the purchase, 0.063 ETH after
+  the transfer to the Museum, 0.5276 ETH in total;
+  `evidence/xcopy-max-pain-4188-funding/`) and the organizer's 28 August call,
+  replacing the unretained per-transfer counts;
+- the essay's Museum note no longer states that the Museum's wallet held no
+  XCOPY before this token. It reads "No XCOPY appears in the Museum's earlier
+  accessions.", and its note cites only accession register lots
+  `6529NM.2026.001` to `6529NM.2026.003`. The chronology's 7 September row and
+  its note 16 drop the same unretained Safe-history reading.
+
+The residual note no longer calls the 0.063 ETH "three shares".
