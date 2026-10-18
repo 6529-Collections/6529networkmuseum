@@ -87,3 +87,14 @@ dispositions into the ballot text itself.
 
 `PARTICIPATORY` was the final state observed before withdrawal. This proposal
 was never observed as `WINNER` and did not become adopted Museum policy.
+
+## Readback on 2026-10-18
+
+An unauthenticated readback of the public drops API at
+`2026-10-18T08:28:49.888Z` returned HTTP 404 with
+`{"error":"Drop 401bdae4-1da7-41d0-aeef-73b1da78b39d not found"}`. The
+response is retained in
+[`museum-wave-governance-2026-10-18`](../../evidence/waves/museum-wave-governance-2026-10-18/manifest.json).
+Its corrected replacement, serial `1282091`, was observed as `WINNER` in the
+same run and is recorded as
+[`6529NM-POL-004`](../../policies/museum-gifts-acquisition-programs-and-funding-assets.md).

@@ -35,8 +35,9 @@ Contract design is in progress; deployment and activation remain pending. See
 
 | Area | Canonical location | Current state |
 |---|---|---|
-| Founding and policy | [`policies/`](policies/) | Institutional note plus adopted collecting and donation policy |
+| Founding and policy | [`policies/`](policies/) | Institutional note plus the adopted collecting scope, donation policy, and gifts, acquisition programs, and funding assets policy |
 | Governance decisions | [`records/governance/decisions.json`](records/governance/decisions.json) | Six adopted decisions and two participatory proposals with no adopted effect at the snapshot |
+| Later governance decisions | [`records/governance/`](records/governance/) | `6529NM-GOV-1282091`: adoption of the gifts, acquisition programs, and funding assets policy (Wave serial `1282091`, observed as `WINNER` on 2026-10-18) |
 | Preapproved donation collections | [`records/collections/approved-collections.json`](records/collections/approved-collections.json) | Autoglyphs, Art Blocks, original Rare Pepes, original CryptoPunks |
 | Accession programs and selected art | [`records/programs/`](records/programs/) | Keys and Gates selection complete; acquisition/accession verification pending |
 | Proposed gifts | [`records/proposed-gifts/`](records/proposed-gifts/) | Public Wave-native candidate packages; no collection status before later formal acceptance and accession |

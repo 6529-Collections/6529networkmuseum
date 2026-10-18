@@ -11,3 +11,8 @@ evidence/waves/museum-wave/proposals.json binary
 evidence/waves/museum-wave/source-index.md binary
 evidence/waves/museum-wave/wave-history.md binary
 evidence/waves/museum-wave/wave-snapshot.json binary
+
+# Governance readbacks keep profile-free API responses and exact proposal part
+# text byte-for-byte. Generated projections, summary, and manifest remain LF text.
+evidence/waves/museum-wave-governance-*/raw/** binary
+evidence/waves/museum-wave-governance-*/parts/** binary

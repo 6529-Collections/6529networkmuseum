@@ -4129,3 +4129,21 @@ record occurrences. Bootstrap validation (911 JSON files), deterministic
 entity replay (370 records), publication inventory and bundle checks, Vera
 media validation, release-manifest validation, and the complete Museum/Casey
 validator all pass on the correction branch.
+
+### 2026-10-18 - Museum gifts, acquisition programs, and funding assets policy adopted
+
+A keyless public drops-API readback at `2026-10-18T08:28:48.748Z` reported
+proposal serial `1282091`, drop `6387c484-c602-4a2f-8d8b-456395cf077f`, as
+`WINNER` with `winning_context.decision_time` `2026-08-10T09:55:07.644Z`,
+`rating` `109,017,036`, and 21 raters. SHA-256 over the UTF-8 bytes of the API
+part content is
+`ce4962072ddd0cbfacb7a071be51ae779c4cae40410851e6386e49ca405becb2`, the digest
+in the 8 August publication receipt. Withdrawn serials `1281404` and `1282040`
+returned HTTP 404.
+
+Branch `museum-funding-assets-policy` records the policy as `6529NM-POL-004`,
+the review-pending decision `6529NM-GOV-1282091`, the evidence package, and
+the acquisition script `scripts/acquire_wave_governance_evidence.py`. The owner
+asked for this record to land as its own pull request before the MAX PAIN
+accession. Status, checks, and release state are in
+`notes/wip/2026-10-18-museum-gifts-funding-policy-adoption.md`.

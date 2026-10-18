@@ -1,0 +1,137 @@
+# Museum gifts, acquisition programs, and funding assets policy adoption
+
+Status: active governance and release ledger
+Opened: 2026-10-18
+Branch: `museum-funding-assets-policy`, from `origin/main` `3926d78f`
+
+## Scope
+
+This change records the Museum Wave's adoption of proposal serial `1282091`
+as policy `6529NM-POL-004` and governance decision `6529NM-GOV-1282091`. It
+lands before the MAX PAIN accession, which will cite this decision. It does not
+accept, acquire, or accession any work, accept any funding, activate a
+publication catalog, change the frontend, or post to the Wave.
+
+## Live readback
+
+An unauthenticated `GET https://api.6529.io/api/drops/6387c484-c602-4a2f-8d8b-456395cf077f`
+through `scripts/safe_fetch.py` at `2026-10-18T08:28:48.748Z` returned:
+
+| Field | Value |
+|---|---|
+| Wave | `5f207393-5418-4a75-8738-e40edb44a94d` (6529 Network Museum) |
+| Serial | `1282091` |
+| Title | Museum Gifts, Acquisition Programs, and Funding Assets Policy |
+| `drop_type` | `WINNER` |
+| `is_signed` | `true`, as reported by the API; the signature was not verified |
+| `created_at` | `2026-08-08T09:43:48.737Z` |
+| `winning_context.decision_time` | `2026-08-10T09:55:07.644Z` |
+| `rating` and `realtime_rating` | `109,017,036` |
+| `raters_count` | `21` |
+| Parts | one text part |
+
+The decision record takes its effective time from `decision_time`. The rating
+is recorded as observed and is not the basis of the adoption finding; the live
+`drop_type` is.
+
+## Content-hash verification
+
+The publication receipt recorded SHA-256
+`ce4962072ddd0cbfacb7a071be51ae779c4cae40410851e6386e49ca405becb2`.
+
+- **Input hashed:** the UTF-8 encoding of the string `parts[0].content`
+  after JSON decoding of the API response. It is 16,289 bytes and 16,289
+  UTF-16 code units, all ASCII, with no trailing newline. These exact bytes
+  are retained as
+  `parts/drop-6387c484-c602-4a2f-8d8b-456395cf077f-part-1.txt`, so the
+  digest can be recomputed from the repository.
+- **Result:** `ce4962072ddd0cbfacb7a071be51ae779c4cae40410851e6386e49ca405becb2`,
+  equal to the receipt's publication and readback digests.
+- **Source note:** the repository source file
+  `2026-08-08-museum-gifts-acquisition-programs-and-funding-assets-policy.md`,
+  with CRLF normalized to LF and surrounding whitespace trimmed, is identical
+  to the API string.
+- **Raw response:** the response body was 23,298 bytes with SHA-256
+  `dca35591285cef958570c8a3618480ec22efabf890ef80a199afd93987ce1f47`. It is
+  not retained (see below). This digest covers the whole JSON response,
+  including profile fields that change over time, so it is a transport
+  observation and not the proposal-content digest.
+
+The policy file reproduces the content with one metadata block inserted after
+the title line. `tests/test_museum_gifts_funding_policy.py` rebuilds the API
+string from the policy file and checks the digest, the evidence package, and
+the decision record.
+
+## Earlier proposals replaced by Section 15
+
+- **Serial `1281404`**, *Gift-Specific TDH Approval for Every Museum Gift*,
+  drop `a991d0b2-4c57-4ae1-b3b1-0680a4772998`. The repository records its
+  publication on 2026-08-07 as `PARTICIPATORY`, 14 raters and a rating of
+  34,387,666 immediately before withdrawal, and deletion at
+  `2026-08-08T09:02:02.862Z` on the owner's authorization. It was never
+  observed as `WINNER`. The 2026-10-18 readback returned HTTP 404 with an
+  `error` body stating that the drop was not found.
+- **Serial `1282040`**, the first integrated draft, drop
+  `401bdae4-1da7-41d0-aeef-73b1da78b39d`, was withdrawn with zero raters.
+  The 2026-10-18 readback returned HTTP 404.
+
+Neither proposal had an adopted effect. Section 15 of the adopted policy
+replaces both in full.
+
+## Evidence retention
+
+The owner's privacy direction for these pull requests is that no voter wallet
+addresses are committed. A drops-API response carries the author profile
+and, for a rated drop, the `top_raters` profiles, each with a wallet address.
+The package therefore follows the Magnum public-safe Wave receipt convention
+(`records/proposed-gifts/6529NM-PG-2026-001/evidence/wave-publication-observation-public-safe-2026-08-09.json`)
+for any response that contains profile objects:
+
+- `projections/drop-6387c484-c602-4a2f-8d8b-456395cf077f.json` keeps an
+  allowlisted payload (drop identity, Wave, status, `is_signed`, rating fields,
+  creation and decision times, and per-part digests), its `payload_sha256`
+  under the stated canonicalization, an exclusion note, and the SHA-256, size,
+  and HTTP status of the response bytes that were not retained;
+- `parts/drop-6387c484-c602-4a2f-8d8b-456395cf077f-part-1.txt` keeps the exact
+  part text;
+- `summary.json` keeps the transport observation for every request, including
+  the raw byte length and SHA-256.
+
+The two HTTP 404 bodies contain no profile objects and are retained
+byte-for-byte under `raw/`. The acquisition script decides retention per
+response and refuses to write a projection that contains a profile key or a
+wallet-shaped value. The only `0x` addresses in the package are the USDC and
+USDT token contracts named in the policy text.
+
+`.gitattributes` marks `raw/**` and `parts/**` in this package as binary. The
+generated projection, `summary.json`, and `manifest.json` remain LF text.
+
+## Record design
+
+- `records/governance/decisions.json` is unchanged. Bootstrap validation binds
+  it to the 2026-08-01 proposal snapshot, row for row.
+- `records/governance/6529NM-GOV-1282091.json` is a standalone
+  `GOVERNANCE_DECISION` envelope record. It references the Donation Acceptance
+  Policy decision and the four collection preapprovals named in Section 14.
+- The record is review-pending, with no reviewer.
+
+## Publication boundary
+
+Every `policies/*.md` file belongs to the visitor publication inventory as an
+`open_and_founding_required_paths` source, so the new policy adds one
+inventory entry and its text enters the visitor bundle. The decision record
+belongs to the release manifest only. The evidence package belongs to neither.
+Visitors see the policy only after a reviewed catalog activates it.
+
+## Open items
+
+- `records/collections/approved-collections.json` still states that
+  preapproval removes collection-specific pre-authorization. Under Sections 3
+  and 14, preapproval is a collection-level eligibility finding and each art
+  gift needs an exact-gift vote. The register needs an append-only amendment.
+- `docs/proposed-gift-wave-standard.md` still describes the exact-gift rule
+  for preapproved collections as a pending amendment.
+- The public entity graph cites `6529NM-GOV-1052156` and
+  `6529NM-GOV-1052812` as the gift pathway's authority. Adding
+  `6529NM-GOV-1282091` is a separate graph change.
+- The frontend has not been checked for rendering a fourth policy document.

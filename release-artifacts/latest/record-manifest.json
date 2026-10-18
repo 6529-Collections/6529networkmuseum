@@ -8,8 +8,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": ".gitattributes",
-      "sha256": "sha256:51edd655be59321c88d4f5fb8aaca676abf3e8126334a99f5ae62c4b9896857a",
-      "size": 459
+      "sha256": "sha256:40ac31788a7b91c4bc5955310969bbe254274e34bc3efd05ade75cfdcbb9382c",
+      "size": 732
     },
     {
       "byte_mode": "lf-normalized",
@@ -56,14 +56,14 @@
     {
       "byte_mode": "lf-normalized",
       "path": "INDEX.md",
-      "sha256": "sha256:a62440551d9d3a66ceb89aadbe7d85198784efc56ee27aa1bf61c807fb8eab48",
-      "size": 55450
+      "sha256": "sha256:4bbab28014892e4683c945baf61fcd6300c94d6ee563fa1a1b9e04146ea5e908",
+      "size": 57689
     },
     {
       "byte_mode": "lf-normalized",
       "path": "README.md",
-      "sha256": "sha256:33fb5bbc011fe600db21e745b7b1496e90cebb4f90997e53d51e3dc79d6734f3",
-      "size": 11621
+      "sha256": "sha256:1b07653ade3a48cb43d4886752556acad163b69f43197d3dca93a8562a71861f",
+      "size": 11921
     },
     {
       "byte_mode": "lf-normalized",
@@ -222,8 +222,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "docs/implementation-roadmap.md",
-      "sha256": "sha256:d28faf5c293b3cb107f183aafc91fc2ce8eba5b66fa959bb676da79583e40273",
-      "size": 33037
+      "sha256": "sha256:f86d0a583c59756fd084ae16e2459b86fdacaf34597a78b75a5f98d1b5eac9bd",
+      "size": 34345
     },
     {
       "byte_mode": "lf-normalized",
@@ -819,8 +819,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "policies/README.md",
-      "sha256": "sha256:4cc032249a64ae9bc9fb0cfe91342c7c444122c0bd5ae526c1f118dfe4cf2da8",
-      "size": 681
+      "sha256": "sha256:d0f017d035a800cb6ab15018c1b664b4170810c4890ba33fc737c16ecd0c0438",
+      "size": 1068
     },
     {
       "byte_mode": "lf-normalized",
@@ -839,6 +839,12 @@
       "path": "policies/general-nft-collecting-scope.md",
       "sha256": "sha256:57c7ce3ba741df93bfb19913b4d449377f804ee676df2f9655c07cb8cd3379a1",
       "size": 5049
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "policies/museum-gifts-acquisition-programs-and-funding-assets.md",
+      "sha256": "sha256:a08b904dc0b139c362dd5a6cb72e9c98b4f15520c91ca262bc3a76a01b4bb832",
+      "size": 16784
     },
     {
       "byte_mode": "lf-normalized",
@@ -3227,6 +3233,17 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0xfa50cb5b7e23c7c464c95636ce1257f15d4dbb388fc50d37759a9886fceb6414"
+      },
+      "path": "records/governance/6529NM-GOV-1282091.json",
+      "sha256": "sha256:9971fe49a0b9476eadfff8ff41628de976565f215f6ba21e6c1e0b710d11f84d",
+      "size": 6885
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
         "digest": "0x594467f56fa45be131da9385424a5e2292835152340cc1c5868605626a473041"
       },
       "path": "records/governance/decisions.json",
@@ -4493,11 +4510,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x7723c49ece6dc30d17f4a40ced82cfde5349b212f80c2e8b2a6a94d10ed34c8f"
+        "digest": "0x51c92c9a0d36fc5e406c18bc75c7df70a80750695928981865d71ede520b636b"
       },
       "path": "records/publication/visitor-corpus-bundle-v1.json",
-      "sha256": "sha256:86e2d2972632b6aa75459f336c6caa3eb5a893b27fd5484fc4a8da868c0b6789",
-      "size": 5016576
+      "sha256": "sha256:9b868abe6ddec90123372bd69247960af04a5ed65f3518b9090f8782c1d312c9",
+      "size": 5034284
     },
     {
       "byte_mode": "lf-normalized",
@@ -7535,11 +7552,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x18094768f19c087ce0310218998c4ccc713767c4b7e835d81f5f3668bf372417"
+        "digest": "0x7ba5144ac267c5447e884941d75dff5aca0b579783d20873400c50e6ea073a8b"
       },
       "path": "schemas/public-publication-inventory.json",
-      "sha256": "sha256:821c2d37b05d26f4fd6f297e10a66a1631caf6e15b0e529a9095638bcfe929f5",
-      "size": 213608
+      "sha256": "sha256:293d8963375ecefac0dff5123ffc2f544d0357cfdc8060742ba42559396e4a3d",
+      "size": 214014
     },
     {
       "byte_mode": "lf-normalized",
@@ -7796,6 +7813,12 @@
       "path": "scripts/acquire_vera_molnar_technical_evidence.py",
       "sha256": "sha256:0da5e09c1c3939b0f60c37dcf824dd25b461f7f1feadf9274c005920e9851782",
       "size": 38376
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "scripts/acquire_wave_governance_evidence.py",
+      "sha256": "sha256:a26e90baa2fb89eada48681839a745ea333c8ce5a9a2dcb392976316ffbaf25e",
+      "size": 23081
     },
     {
       "byte_mode": "lf-normalized",
@@ -8555,6 +8578,12 @@
     },
     {
       "byte_mode": "lf-normalized",
+      "path": "tests/test_museum_gifts_funding_policy.py",
+      "sha256": "sha256:09709b301acc13b8ec1422796e4d1ce87fd5f973d7de3448ce134ef01fdc8e50",
+      "size": 15607
+    },
+    {
+      "byte_mode": "lf-normalized",
       "path": "tests/test_program_media.py",
       "sha256": "sha256:7a02fbdd989555710d3a67bed727611ecf6004af914f4a3a4c2867eec421e287",
       "size": 9893
@@ -8657,9 +8686,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x8fc87b546722674fe43e80dede8c6976578daeeaf609367042747a6b2dcc8211"
+    "digest": "0x711bd3e2c32d614324c9c41d9caf22fb9d549a5530b5609d332b6fd7c2b52fe8"
   },
-  "manifest_sha256": "sha256:a168300e8f2a7c9d11f47c5cf5a0f7e73355b8dddf25c93fcbf99e993149fd36",
+  "manifest_sha256": "sha256:54fa5bf524be056a8faa054c37a1ffc30dab4f8e14b897a42354e96addd5f3a8",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.1.0"
 }

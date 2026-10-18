@@ -1,0 +1,53 @@
+{
+  "byte_mode": "raw",
+  "entries": [
+    {
+      "byte_mode": "raw",
+      "media_type": "text/plain; charset=utf-8",
+      "path": "parts/drop-6387c484-c602-4a2f-8d8b-456395cf077f-part-1.txt",
+      "sha256": "ce4962072ddd0cbfacb7a071be51ae779c4cae40410851e6386e49ca405becb2",
+      "size": 16289,
+      "source_id": "drop-6387c484-c602-4a2f-8d8b-456395cf077f-part-1",
+      "url": "https://api.6529.io/api/drops/6387c484-c602-4a2f-8d8b-456395cf077f"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "projections/drop-6387c484-c602-4a2f-8d8b-456395cf077f.json",
+      "sha256": "6d3736e13659a6529075611c08051f5b1401365b93893eaba37d3522f2e48951",
+      "size": 2432,
+      "source_id": "projection-6387c484-c602-4a2f-8d8b-456395cf077f",
+      "url": "https://api.6529.io/api/drops/6387c484-c602-4a2f-8d8b-456395cf077f"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/drop-401bdae4-1da7-41d0-aeef-73b1da78b39d.json",
+      "sha256": "1e266f1c09bc64b663f9e48af61d8fbecc64c6f40f0b7402bc2d2f0c178e663e",
+      "size": 63,
+      "source_id": "drop-401bdae4-1da7-41d0-aeef-73b1da78b39d",
+      "url": "https://api.6529.io/api/drops/401bdae4-1da7-41d0-aeef-73b1da78b39d"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/drop-a991d0b2-4c57-4ae1-b3b1-0680a4772998.json",
+      "sha256": "beb66eafa9ad16a886263c6db6666659640f537b33e22b3b64327a4438f908ea",
+      "size": 63,
+      "source_id": "drop-a991d0b2-4c57-4ae1-b3b1-0680a4772998",
+      "url": "https://api.6529.io/api/drops/a991d0b2-4c57-4ae1-b3b1-0680a4772998"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "summary.json",
+      "sha256": "00a637b2a93c102cbe429e611b839362c683d883ab2b1cb2c23c052a61a81069",
+      "size": 10430,
+      "source_id": "summary"
+    }
+  ],
+  "hash_algorithm": "sha256",
+  "manifest_type": "6529NM_WAVE_GOVERNANCE_EVIDENCE",
+  "manifest_version": "1.0.0",
+  "package_id": "6529NM-EVIDENCE-MUSEUM-WAVE-GOVERNANCE-2026-10-18"
+}
