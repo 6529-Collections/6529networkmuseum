@@ -4,9 +4,9 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xe048a91b04b0a0b8ad4d652016707c563246f7e62a2a4852e8b749052dd9355a"
+      "digest": "0x3cb7b539a56db39d513b2e86d17ad2b0739a974c878fe1fbef76f000e32922df"
     },
-    "effectiveAt": 1792315800,
+    "effectiveAt": 1792325700,
     "recordType": "WORK_DESCRIPTION",
     "schemaId": "0x5bb3543c4c007f4396474b74ec81dd8bca13028b6d945020e4b48ff236b26a3c",
     "signatureHash": {
@@ -54,7 +54,7 @@
       "metadata": "amber",
       "method": "Reviewed the exact token, the finalized custody observation, the retained token metadata and IPFS path, the retained GIF and its recomputed IPFS CID, the GIF block structure and frame timing, the contract's runtime state, supply, and burns, the provenance receipts from mint to the Museum Safe, and the Museum flash analysis over all eight loop steps and close-looking census of the decoded frames (display evidence and its addendum 01).",
       "narrative": "The token, its finalized custody, and the GIF bound by the on-chain IPFS hash are verified. The metadata's image URL points to a mutable CDN copy, the token URI base can still be replaced by the contract's authorized senders, and the animation flashes beyond WCAG 2.3.2 at every size and beyond 2.3.1 when shown large.",
-      "observed_at": "2026-10-18T09:30:00Z",
+      "observed_at": "2026-10-18T12:15:00Z",
       "protocol_state": "ERC-721 static-file token on a non-proxy Nifty Gateway builder contract; IPFS metadata; animated GIF image",
       "rendering": "amber",
       "script": "not_applicable",
@@ -62,28 +62,28 @@
     },
     "constructor": {
       "id": "claude-code-task:max-pain-4188-accession-2026-10-18",
-      "observed_at": "2026-10-18T09:30:00Z",
+      "observed_at": "2026-10-18T12:15:00Z",
       "role": "constructor"
     },
-    "created_at": "2026-10-18T09:30:00Z",
+    "created_at": "2026-10-18T12:15:00Z",
     "creator": "XCOPY",
     "credit_line": "XCOPY, MAX PAIN #4188/7394, 2022. Ethereum token eip155:1/erc721:0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde/171000104188. Acquired through a community-funded purchase organized by Shelby and authorized by the 6529 Network Museum Wave, 2026. CC0 1.0.",
     "current_state": "accessioned",
     "display": {
       "credit_line": "XCOPY, MAX PAIN #4188/7394, 2022. Ethereum token eip155:1/erc721:0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde/171000104188. Acquired through a community-funded purchase organized by Shelby and authorized by the 6529 Network Museum Wave, 2026. CC0 1.0.",
       "manifest_uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/public/web-presentation-authority.md",
-      "observed_at": "2026-10-18T09:30:00Z",
+      "observed_at": "2026-10-18T12:15:00Z",
       "status": "ready_with_conditions"
     },
-    "effective_at": "2026-10-18T09:30:00Z",
+    "effective_at": "2026-10-18T12:15:00Z",
     "evidence_grade": "A/B/C",
     "medium": "Animated GIF, 4,000 x 4,000 pixels, eight frames of 50 milliseconds looping without end; Ethereum ERC-721 token whose metadata names the image by IPFS hash; Nifty Gateway open edition",
     "object_id": "6529NM.2026.005.01",
-    "observed_at": "2026-10-18T09:30:00Z",
-    "payload_sha256": "sha256:c0ffda2b2e000bce8f479fbd824112abdd833259e010ed1b60c28a46da420ffa",
+    "observed_at": "2026-10-18T12:15:00Z",
+    "payload_sha256": "sha256:65098502b40ee2ac3846ff5720633cc186f287b3a4cbb4744b64ca0e8b2a37d8",
     "preservation": {
       "fixity_sha256": "sha256:ff761f2f629ea6c71a85fffc4b63e431fb03531e1f2ec7d9b10f60d0368134c0",
-      "observed_at": "2026-10-18T09:30:00Z",
+      "observed_at": "2026-10-18T12:15:00Z",
       "package_uri": "https://github.com/6529-Collections/6529networkmuseum/tree/main/evidence/xcopy-max-pain-4188-sources",
       "render_environment": "The retained GIF is the reference file and plays in any GIF-capable browser. Public presentation uses first-frame WebP posters and plays the GIF only on request under the display authority's limits.",
       "status": "in_progress"
@@ -117,55 +117,55 @@
         "basis": "Accessibility derivatives granted under CC0 1.0. XCOPY's Legal & Privacy page states that XCOPY artworks are released under a CC0 (Creative Commons Zero) dedication and that anyone may use, remix, reproduce, exhibit, or build upon the work without permission; XCOPY applied CC0 to all existing work on 1 August 2022. Condition: the same page states that independent uses imply no affiliation with or endorsement by XCOPY, and Museum use implies none. The token metadata carries no licence; the Museum asserts no copyright.",
         "evidence_ref": "6529NM.2026.005.RIGHTS.01",
         "grant_status": "granted",
-        "observed_at": "2026-10-18T09:30:00Z"
+        "observed_at": "2026-10-18T12:15:00Z"
       },
       "ai_training": {
         "basis": "Use as training or analysis material granted under CC0 1.0. XCOPY's Legal & Privacy page states that XCOPY artworks are released under a CC0 (Creative Commons Zero) dedication and that anyone may use, remix, reproduce, exhibit, or build upon the work without permission; XCOPY applied CC0 to all existing work on 1 August 2022. Condition: the same page states that independent uses imply no affiliation with or endorsement by XCOPY, and Museum use implies none. The token metadata carries no licence; the Museum asserts no copyright.",
         "evidence_ref": "6529NM.2026.005.RIGHTS.01",
         "grant_status": "granted",
-        "observed_at": "2026-10-18T09:30:00Z"
+        "observed_at": "2026-10-18T12:15:00Z"
       },
       "derivative_use": {
         "basis": "Derivative use granted under CC0 1.0. XCOPY's Legal & Privacy page states that XCOPY artworks are released under a CC0 (Creative Commons Zero) dedication and that anyone may use, remix, reproduce, exhibit, or build upon the work without permission; XCOPY applied CC0 to all existing work on 1 August 2022. Condition: the same page states that independent uses imply no affiliation with or endorsement by XCOPY, and Museum use implies none. The token metadata carries no licence; the Museum asserts no copyright.",
         "evidence_ref": "6529NM.2026.005.RIGHTS.01",
         "grant_status": "granted",
-        "observed_at": "2026-10-18T09:30:00Z"
+        "observed_at": "2026-10-18T12:15:00Z"
       },
       "exhibition": {
         "basis": "Exhibition and display granted under CC0 1.0. XCOPY's Legal & Privacy page states that XCOPY artworks are released under a CC0 (Creative Commons Zero) dedication and that anyone may use, remix, reproduce, exhibit, or build upon the work without permission; XCOPY applied CC0 to all existing work on 1 August 2022. Condition: the same page states that independent uses imply no affiliation with or endorsement by XCOPY, and Museum use implies none. The token metadata carries no licence; the Museum asserts no copyright.",
         "evidence_ref": "6529NM.2026.005.RIGHTS.01",
         "grant_status": "granted",
-        "observed_at": "2026-10-18T09:30:00Z"
+        "observed_at": "2026-10-18T12:15:00Z"
       },
       "migration_emulation": {
         "basis": "Migration and emulation granted under CC0 1.0. XCOPY's Legal & Privacy page states that XCOPY artworks are released under a CC0 (Creative Commons Zero) dedication and that anyone may use, remix, reproduce, exhibit, or build upon the work without permission; XCOPY applied CC0 to all existing work on 1 August 2022. Condition: the same page states that independent uses imply no affiliation with or endorsement by XCOPY, and Museum use implies none. The token metadata carries no licence; the Museum asserts no copyright.",
         "evidence_ref": "6529NM.2026.005.RIGHTS.01",
         "grant_status": "granted",
-        "observed_at": "2026-10-18T09:30:00Z"
+        "observed_at": "2026-10-18T12:15:00Z"
       },
       "preservation": {
         "basis": "Preservation copies granted under CC0 1.0. XCOPY's Legal & Privacy page states that XCOPY artworks are released under a CC0 (Creative Commons Zero) dedication and that anyone may use, remix, reproduce, exhibit, or build upon the work without permission; XCOPY applied CC0 to all existing work on 1 August 2022. Condition: the same page states that independent uses imply no affiliation with or endorsement by XCOPY, and Museum use implies none. The token metadata carries no licence; the Museum asserts no copyright.",
         "evidence_ref": "6529NM.2026.005.RIGHTS.01",
         "grant_status": "granted",
-        "observed_at": "2026-10-18T09:30:00Z"
+        "observed_at": "2026-10-18T12:15:00Z"
       },
       "print": {
         "basis": "Print granted under CC0 1.0. XCOPY's Legal & Privacy page states that XCOPY artworks are released under a CC0 (Creative Commons Zero) dedication and that anyone may use, remix, reproduce, exhibit, or build upon the work without permission; XCOPY applied CC0 to all existing work on 1 August 2022. Condition: the same page states that independent uses imply no affiliation with or endorsement by XCOPY, and Museum use implies none. The token metadata carries no licence; the Museum asserts no copyright.",
         "evidence_ref": "6529NM.2026.005.RIGHTS.01",
         "grant_status": "granted",
-        "observed_at": "2026-10-18T09:30:00Z"
+        "observed_at": "2026-10-18T12:15:00Z"
       },
       "publication": {
         "basis": "Publication granted under CC0 1.0. XCOPY's Legal & Privacy page states that XCOPY artworks are released under a CC0 (Creative Commons Zero) dedication and that anyone may use, remix, reproduce, exhibit, or build upon the work without permission; XCOPY applied CC0 to all existing work on 1 August 2022. Condition: the same page states that independent uses imply no affiliation with or endorsement by XCOPY, and Museum use implies none. The token metadata carries no licence; the Museum asserts no copyright.",
         "evidence_ref": "6529NM.2026.005.RIGHTS.01",
         "grant_status": "granted",
-        "observed_at": "2026-10-18T09:30:00Z"
+        "observed_at": "2026-10-18T12:15:00Z"
       },
       "reproduction": {
         "basis": "Reproduction granted under CC0 1.0. XCOPY's Legal & Privacy page states that XCOPY artworks are released under a CC0 (Creative Commons Zero) dedication and that anyone may use, remix, reproduce, exhibit, or build upon the work without permission; XCOPY applied CC0 to all existing work on 1 August 2022. Condition: the same page states that independent uses imply no affiliation with or endorsement by XCOPY, and Museum use implies none. The token metadata carries no licence; the Museum asserts no copyright.",
         "evidence_ref": "6529NM.2026.005.RIGHTS.01",
         "grant_status": "granted",
-        "observed_at": "2026-10-18T09:30:00Z"
+        "observed_at": "2026-10-18T12:15:00Z"
       }
     },
     "schema_id": "0x5bb3543c4c007f4396474b74ec81dd8bca13028b6d945020e4b48ff236b26a3c",
@@ -215,7 +215,7 @@
         "evidence_refs": [
           "6529NM-ACC-2026-005"
         ],
-        "observed_at": "2026-10-18T09:30:00Z",
+        "observed_at": "2026-10-18T12:15:00Z",
         "state": "accessioned"
       }
     ],
@@ -225,7 +225,7 @@
     "title_binding": {
       "basis": "Acquisition Authorization 6529NM.2026.005.AQA-01 and the institutional purchase title declaration in Accession Certificate 6529NM-ACC-2026-005 bind the executing agent's transferable token interest to this exact object.",
       "block_number": 25889990,
-      "bound_at": "2026-10-18T09:30:00Z",
+      "bound_at": "2026-10-18T12:15:00Z",
       "custodian_reference": "networkmuseum.6529.eth",
       "from": "0xe84576bd68882e037d8e4df484ad9a15e2b855bc",
       "instrument_sha256": "sha256:8ac996a2d8a9f3d086c5ad7990067a02754e1e9369f5b5660860d2a60268bca4",

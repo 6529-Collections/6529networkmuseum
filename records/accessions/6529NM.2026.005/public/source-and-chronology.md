@@ -37,8 +37,8 @@ All times are UTC. Each row names the role of its date. Evidence classes: A, dir
 | 18 October 2026 | Observation: supply | An `ownerOf` reading of all 7,394 issued identifiers at block 26,218,159 finds 4,847 tokens; the 2,547 missing identifiers match the burns exactly. `_getFinalized(1)` returns false. | A | [^18] |
 | 18 October 2026 | Observation: governance | The Wave API reports the proposal as `WINNER`, with a rating of 97,358,417 TDH from 25 raters. Votes cast by the decision time totaled 101,689,216 TDH; five votes are now lower than when cast, by 4,330,784 TDH in all. | B | [^13] |
 | 18 October 2026 | Observation: artist site | XCOPY's work page shows 1 of 4849; the page for this token shows 1 of 7394 and the Museum's address as holder. | B | [^1] [^7] |
-| 18 October 2026, 09:30:00 | Record: acquisition authorization | Acquisition Authorization `6529NM.2026.005.AQA-01` records the Museum's authorization of the community-funded purchase of object `6529NM.2026.005.01` under the Wave decision of 27 August 2026. | B | Museum record |
-| 18 October 2026, 09:30:00 | Record: accession | Accession Certificate `6529NM-ACC-2026-005` records the accession of object `6529NM.2026.005.01` under Acquisition Authorization `6529NM.2026.005.AQA-01`. | B | Museum record |
+| 18 October 2026, 12:15:00 | Record: acquisition authorization | Acquisition Authorization `6529NM.2026.005.AQA-01` records the Museum's authorization of the community-funded purchase of object `6529NM.2026.005.01` under the Wave decision of 27 August 2026. | B | Museum record |
+| 18 October 2026, 12:15:00 | Record: accession | Accession Certificate `6529NM-ACC-2026-005` records the accession of object `6529NM.2026.005.01` under Acquisition Authorization `6529NM.2026.005.AQA-01`. | B | Museum record |
 
 ## Provenance of token 171000104188
 

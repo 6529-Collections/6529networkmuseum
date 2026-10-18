@@ -4,9 +4,9 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xe6153588e36bce8face739e4fce82389e9b84e88eb8af277843c1aeb9f6f964a"
+      "digest": "0x0ca73fd919916358459c5546083ba9713c3931fa4011fd54010da7766075a764"
     },
-    "effectiveAt": 1792315800,
+    "effectiveAt": 1792325700,
     "recordType": "ACCESSION_LOT",
     "schemaId": "0xefb854ed3d30d5f3c03815c8b8abc70ae24738b2712e2cfd3a228a8c811939d4",
     "signatureHash": {
@@ -19,18 +19,18 @@
     "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/accession-statement.json"
   },
   "payload": {
-    "acceptance_date": "2026-10-18T09:30:00Z",
+    "acceptance_date": "2026-10-18T12:15:00Z",
     "accession_number": "6529NM.2026.005",
     "accession_status": "complete",
     "acquisition_authorization_record": "6529NM.2026.005.AQA-01",
     "acquisition_method": "purchase",
     "constructor": {
       "id": "claude-code-task:max-pain-4188-accession-2026-10-18",
-      "observed_at": "2026-10-18T09:30:00Z",
+      "observed_at": "2026-10-18T12:15:00Z",
       "role": "constructor"
     },
-    "created_at": "2026-10-18T09:30:00Z",
-    "effective_at": "2026-10-18T09:30:00Z",
+    "created_at": "2026-10-18T12:15:00Z",
+    "effective_at": "2026-10-18T12:15:00Z",
     "evidence_grade": "A/B/C",
     "evidence_refs": [
       {
@@ -62,7 +62,7 @@
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-funding/summary.json"
       }
     ],
-    "formal_acceptance_date": "2026-10-18T09:30:00Z",
+    "formal_acceptance_date": "2026-10-18T12:15:00Z",
     "formal_acceptance_status": "formally_accepted",
     "governing_references": [
       "6529NM-GOV-1336667",
@@ -79,8 +79,8 @@
     "object_ids": [
       "6529NM.2026.005.01"
     ],
-    "observed_at": "2026-10-18T09:30:00Z",
-    "payload_sha256": "sha256:d6e1c0f65721957adacca66d6e3016411309157d5087ee8366a54ed063736f48",
+    "observed_at": "2026-10-18T12:15:00Z",
+    "payload_sha256": "sha256:91ca773baf00772642d09563b1cb1439519d8f01da126a6ef9b7a803581ddc20",
     "preservation_manifest": {
       "active_stewardship_actions": [
         "retain the token image GIF and metadata bytes with their IPFS CIDs and fixity",
@@ -259,7 +259,7 @@
       "record_control": {
         "constructor": {
           "actor_id": "claude-code-task:max-pain-4188-accession-2026-10-18",
-          "constructed_at": "2026-10-18T09:30:00Z",
+          "constructed_at": "2026-10-18T12:15:00Z",
           "role": "constructor"
         },
         "record_status": "constructed",

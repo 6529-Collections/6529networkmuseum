@@ -6,12 +6,12 @@
     "constructor": {
       "actor_id": "claude-code-task:max-pain-4188-accession-2026-10-18",
       "role": "constructor",
-      "constructed_at": "2026-10-18T09:30:00Z"
+      "constructed_at": "2026-10-18T12:15:00Z"
     },
     "review": null
   },
   "register_id": "6529NM-ACCESSION-REGISTER",
-  "snapshot_at": "2026-10-18T09:30:00Z",
+  "snapshot_at": "2026-10-18T12:15:00Z",
   "amendment_history": [
     {
       "revision": 1,
@@ -47,7 +47,7 @@
     },
     {
       "revision": 5,
-      "superseded_at": "2026-10-18T09:30:00Z",
+      "superseded_at": "2026-10-18T12:15:00Z",
       "supersedes": "sha256:ef5af4a3a10824b30b828a4d4038a6c1dca2d005c6357eaf220896eefebd634d",
       "prior_payload_sha256": "sha256:ef5af4a3a10824b30b828a4d4038a6c1dca2d005c6357eaf220896eefebd634d",
       "prior_review_commit": "2545700a6eebecae51af6877e1dfcc82ead6ee7b",

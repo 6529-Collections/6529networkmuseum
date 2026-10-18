@@ -4,7 +4,7 @@ Status: active accession and release ledger
 Opened: 2026-10-18
 Branch: `max-pain-4188-accession`, rebased onto `a6bfc1c6` (the reviewed funding-assets policy release: A `9dd1c3e9`, B `17bb167c`, catalog C `7f3a0af0`, and the `6529NM-GOV-1282091` review, on `origin/main` `3926d78f`)
 Constructor: `claude-code-task:max-pain-4188-accession-2026-10-18`
-Construction and acceptance time (T_C): `2026-10-18T09:30:00Z`
+Construction and acceptance time (T_C): `2026-10-18T12:15:00Z` (moved from `2026-10-18T09:30:00Z`; see "Construction time" below)
 
 ## Mandate
 
@@ -37,8 +37,10 @@ Nothing here pushes, opens a pull request, uploads to the CDN, or posts.
   proceed. The authorization records that direction as the Museum's
   institutional decision (`user_authorized_institutional_decision`) at T_C,
   one instant for creation, observation, effect, and acceptance, later than
-  every evidence observation (the latest is the governance readback at
-  `2026-10-18T09:06:14.745Z`). **Merging the pull request that carries these
+  every evidence observation and computation on the branch (the latest
+  reading is the supplementary package's at `2026-10-18T11:29:06.917Z`; the
+  last evidence file change is the display addendum's summary text at about
+  `2026-10-18T12:12:54Z`). **Merging the pull request that carries these
   records is the owner's confirmation of that decision.**
 - Credit line: "XCOPY, *MAX PAIN #4188/7394*, 2022. Ethereum token
   `eip155:1/erc721:0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde/171000104188`.
@@ -191,7 +193,7 @@ Candidate A is review-pending and not publishable. B requires an independent
 reviewer, not the constructor, to review the exact candidate A commit: the
 records, the evidence packages, the manuscripts (including the signed essay),
 the graph, the posters, and the display constraints. The review time must be
-later than every `created_at`; the latest is T_C, `2026-10-18T09:30:00Z`.
+later than every `created_at`; the latest is T_C, `2026-10-18T12:15:00Z`.
 
 B is the single-parent child of A, produced only by:
 
@@ -242,7 +244,7 @@ python scripts/migrate_public_entities.py
 python scripts/finalize_vera_accession.py --pending
 git show 3eab50914a90c079fe0383624e760fc0a954e709:records/accessions/6529NM.2026.003/public/presentation-manifest.json > records/accessions/6529NM.2026.003/public/presentation-manifest.json
 python scripts/finalize_max_pain_accession.py --pending
-python scripts/generate_max_pain_media.py --work-entity-id 6529NM-W-0036 --media-reference-entity-id 6529NM-MED-0061 --animation-media-reference-entity-id 6529NM-MED-0060 --generated-at 2026-10-18T09:30:00Z --actor-id claude-code-task:max-pain-4188-accession-2026-10-18
+python scripts/generate_max_pain_media.py --work-entity-id 6529NM-W-0036 --media-reference-entity-id 6529NM-MED-0061 --animation-media-reference-entity-id 6529NM-MED-0060 --generated-at 2026-10-18T12:15:00Z --actor-id claude-code-task:max-pain-4188-accession-2026-10-18
 python scripts/generate_public_publication_inventory.py
 python scripts/generate_public_publication_bundle.py
 python scripts/generate_manifest.py
@@ -385,8 +387,21 @@ candidate A was regenerated.
   The submission's original text is preserved unchanged in the contributor's
   commit, `777ac81c` before the rebase and `ea1e4b77` on this branch.
 - **Timing.** The supplementary readings, the display addendum, and the
-  technical relabel were made after T_C (`2026-10-18T09:30:00Z`), which the
-  owner fixed. The records keep T_C. The public texts cite the new files, and
-  the records bind the display and technical manifests' current bytes; the
-  display evidence reference in `COND.01` notes when the addendum was computed.
-  No record states an observation time later than T_C.
+  technical relabel were made after the first T_C, `2026-10-18T09:30:00Z`.
+  T_C therefore moved (see "Construction time" below).
+
+## Construction time
+
+A formal acceptance must not cite evidence observed after it, so on
+2026-10-18 the coordinator moved T_C from `2026-10-18T09:30:00Z` to a single
+instant after every evidence observation and computation on the branch:
+`2026-10-18T12:15:00Z`. The latest evidence events it follows are the
+supplementary package's last read (`2026-10-18T11:29:06.917Z`), the display
+addendum's computations (`11:17:40Z` and `11:20:37Z`), the technical relabel
+(about `11:33Z`), and the correction of the addendum summary's text (about
+`12:12:54Z`, committed `12:13:11Z`). T_C is the created, observed, effective,
+acceptance, and accession time of the six direct records, the decision and
+proposal records' construction time, the register snapshot and revision
+time, the `accessioned` state, the graph records' time, the presentation
+manifest's generation time, and the accession time stated in the
+authorization text and the chronology.

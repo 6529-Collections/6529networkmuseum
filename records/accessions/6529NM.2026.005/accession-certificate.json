@@ -4,9 +4,9 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x4d27e03e16a4644b768aa1a0ed95924cc8c984e8c29c0bd066ba8bdfe911b4d2"
+      "digest": "0xcea91dd954b80c5e13e209398fad18b020344f1f4dc5c9bae701287f321cf4a3"
     },
-    "effectiveAt": 1792315800,
+    "effectiveAt": 1792325700,
     "recordType": "ACCESSION",
     "schemaId": "0xc04bb48f95c8db4fe7f26a20106533f987003843f2fed36fd6d89f207ddfbd86",
     "signatureHash": {
@@ -19,17 +19,17 @@
     "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/accession-certificate.json"
   },
   "payload": {
-    "acceptance_date": "2026-10-18T09:30:00Z",
+    "acceptance_date": "2026-10-18T12:15:00Z",
     "accession_number": "6529NM.2026.005",
     "acquiring_institution": "6529 Network Museum",
     "acquisition_method": "purchase",
     "constructor": {
       "id": "claude-code-task:max-pain-4188-accession-2026-10-18",
-      "observed_at": "2026-10-18T09:30:00Z",
+      "observed_at": "2026-10-18T12:15:00Z",
       "role": "constructor"
     },
-    "created_at": "2026-10-18T09:30:00Z",
-    "effective_at": "2026-10-18T09:30:00Z",
+    "created_at": "2026-10-18T12:15:00Z",
+    "effective_at": "2026-10-18T12:15:00Z",
     "events": [
       {
         "authority_reference": "6529NM.2026.005.AQA-01",
@@ -62,11 +62,11 @@
           {
             "evidence_class": "B",
             "label": "Acquisition authorization",
-            "observed_at": "2026-10-18T09:30:00Z",
+            "observed_at": "2026-10-18T12:15:00Z",
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/acquisition-authorization.json"
           }
         ],
-        "occurred_at": "2026-10-18T09:30:00Z"
+        "occurred_at": "2026-10-18T12:15:00Z"
       },
       {
         "authority_reference": "6529NM.2026.005.AQA-01",
@@ -89,7 +89,7 @@
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-funding/summary.json"
           }
         ],
-        "occurred_at": "2026-10-18T09:30:00Z",
+        "occurred_at": "2026-10-18T12:15:00Z",
         "source_occurred_at": "2026-09-02T13:17:35Z"
       },
       {
@@ -100,7 +100,7 @@
           {
             "evidence_class": "B",
             "label": "Institutional purchase title declaration",
-            "observed_at": "2026-10-18T09:30:00Z",
+            "observed_at": "2026-10-18T12:15:00Z",
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/accession-certificate.json"
           }
         ],
@@ -110,7 +110,7 @@
           "reference": "6529NM-ACC-2026-005",
           "sha256": "sha256:8ac996a2d8a9f3d086c5ad7990067a02754e1e9369f5b5660860d2a60268bca4"
         },
-        "occurred_at": "2026-10-18T09:30:00Z"
+        "occurred_at": "2026-10-18T12:15:00Z"
       },
       {
         "authority_reference": "6529NM.2026.005.AQA-01",
@@ -134,7 +134,7 @@
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-custody/summary.json"
           }
         ],
-        "occurred_at": "2026-10-18T09:30:00Z"
+        "occurred_at": "2026-10-18T12:15:00Z"
       },
       {
         "authority_reference": "6529NM-ACC-2026-005",
@@ -144,11 +144,11 @@
           {
             "evidence_class": "B",
             "label": "Accession statement",
-            "observed_at": "2026-10-18T09:30:00Z",
+            "observed_at": "2026-10-18T12:15:00Z",
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.005/accession-statement.json"
           }
         ],
-        "occurred_at": "2026-10-18T09:30:00Z"
+        "occurred_at": "2026-10-18T12:15:00Z"
       }
     ],
     "evidence_refs": [
@@ -170,13 +170,13 @@
     "object_ids": [
       "6529NM.2026.005.01"
     ],
-    "observed_at": "2026-10-18T09:30:00Z",
+    "observed_at": "2026-10-18T12:15:00Z",
     "ongoing_stewardship_actions": [
       "retain the token image GIF, metadata, and fixity",
       "replicate the IPFS image and metadata outside the Nifty Gateway CDN",
       "show the animation only within the display authority's limits, never enlarged or full screen"
     ],
-    "payload_sha256": "sha256:35701521910faddf6d8f9a35110df9c228cd5a3cadb50f4db90f46bb2796e474",
+    "payload_sha256": "sha256:9be6051018473b31ecb5711e6bec88fdcdfcea8dd08eaab3db675ea0ed473c2d",
     "record_id": "6529NM-ACC-2026-005",
     "record_status": "review_pending",
     "record_type": "ACCESSION",
@@ -212,7 +212,7 @@
       {
         "basis": "Acquisition Authorization 6529NM.2026.005.AQA-01 and the institutional purchase title declaration in Accession Certificate 6529NM-ACC-2026-005 bind the executing agent's transferable token interest to this exact object.",
         "block_number": 25889990,
-        "bound_at": "2026-10-18T09:30:00Z",
+        "bound_at": "2026-10-18T12:15:00Z",
         "custodian_reference": "networkmuseum.6529.eth",
         "from": "0xe84576bd68882e037d8e4df484ad9a15e2b855bc",
         "instrument_sha256": "sha256:8ac996a2d8a9f3d086c5ad7990067a02754e1e9369f5b5660860d2a60268bca4",

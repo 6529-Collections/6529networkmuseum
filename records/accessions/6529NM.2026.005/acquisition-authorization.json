@@ -4,9 +4,9 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xcd9c631618e54bf4a178419e3a5fed15da0d925fbd4c9799340eb20395195da9"
+      "digest": "0x0d79a0ce0335cb615e21730bba188f36728fb96c3f5668a3c28cc30bf1f7f7d0"
     },
-    "effectiveAt": 1792315800,
+    "effectiveAt": 1792325700,
     "recordType": "ACQUISITION_AUTHORIZATION",
     "schemaId": "0x00686e3e460412351a57431a74bd46252c84df12db5df0715748d46b7404e5a1",
     "signatureHash": {
@@ -73,10 +73,10 @@
     },
     "constructor": {
       "id": "claude-code-task:max-pain-4188-accession-2026-10-18",
-      "observed_at": "2026-10-18T09:30:00Z",
+      "observed_at": "2026-10-18T12:15:00Z",
       "role": "constructor"
     },
-    "created_at": "2026-10-18T09:30:00Z",
+    "created_at": "2026-10-18T12:15:00Z",
     "custody_receipts": [
       {
         "block_number": 25889990,
@@ -95,7 +95,7 @@
         "transfer_count": 1
       }
     ],
-    "effective_at": "2026-10-18T09:30:00Z",
+    "effective_at": "2026-10-18T12:15:00Z",
     "evidence_refs": [
       {
         "evidence_class": "B",
@@ -134,7 +134,7 @@
       "role": "acquisition_wallet",
       "statement": "The organizer's acquisition wallet bought the token under the Wave authorization and transferred it to Museum custody 28 minutes later. The proposal states that contributors hold no interest, and the agent asserts none."
     },
-    "formal_acceptance_date": "2026-10-18T09:30:00Z",
+    "formal_acceptance_date": "2026-10-18T12:15:00Z",
     "funding_basis": {
       "contributor_ownership_interest": "none",
       "evidence_refs": [
@@ -188,7 +188,7 @@
       "authority_basis": "user_authorized_institutional_decision",
       "decision_status": "formally_accepted",
       "documentation_qa_status": "pending_independent_review",
-      "effective_at": "2026-10-18T09:30:00Z",
+      "effective_at": "2026-10-18T12:15:00Z",
       "publication_semantics": "On 2026-10-18 the owner directed that this accession proceed. The Museum records that direction as its institutional decision to accept the purchased token and accession it, effective at the registrar's construction time. Merging the pull request that carries this record is the owner's confirmation of the decision."
     },
     "non_claims": [
@@ -199,9 +199,9 @@
       "Token ownership does not transfer copyright; the Museum asserts no copyright in the work.",
       "The API reports the Wave drop as signed; the Museum did not verify the signature."
     ],
-    "observed_at": "2026-10-18T09:30:00Z",
+    "observed_at": "2026-10-18T12:15:00Z",
     "outcome": "formally_accepted_purchase_and_accession_authorization",
-    "payload_sha256": "sha256:75b1a6993eb13500c153b80c73ad3d35c43e84f86fbe6a4a82d171179aee9785",
+    "payload_sha256": "sha256:57cf8557e51e52fe52f94aef51834531631148e01b082cb0d4a68d0263771e8d",
     "permanent_collection_intent": "The Museum accepts this exact token for the permanent Collection under ordinary collection stewardship responsibilities.",
     "program_authorization_limitations": [
       "The proposal does not identify the exact token or a token-selection mechanism; any original edition of MAX PAIN qualifies (policy 6529NM-POL-004, section 5, item 4).",

@@ -112,7 +112,7 @@ VERA_PREVIEW_URL = "https://media-proxy.artblocks.io/1/0xe034bb2b1b9471e11cf1a0a
 VERA_TOKEN_URI = "https://token.artblocks.io/1/0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210"
 VERA_CAIP19 = "eip155:1/erc721:0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210"
 MAX_PAIN_CONSTRUCTOR_ID = "claude-code-task:max-pain-4188-accession-2026-10-18"
-MAX_PAIN_AT = "2026-10-18T09:30:00Z"
+MAX_PAIN_AT = "2026-10-18T12:15:00Z"
 MAX_PAIN_CONSTRUCTED_RECORD_IDS = {
     "6529NM-ACC-ENT-0005",
     "6529NM-ART-0025",
