@@ -1,0 +1,119 @@
+{
+  "completed_at": "2026-10-18T09:06:14.745Z",
+  "decisions": [
+    {
+      "created_at": "2026-08-24T10:51:34.091Z",
+      "decision_time": "2026-08-27T18:30:18.491Z",
+      "drop_id": "87e1fc3a-deef-4d1d-bf36-b2a44507f17b",
+      "drop_type": "WINNER",
+      "evidence_path": "projections/drop-87e1fc3a-deef-4d1d-bf36-b2a44507f17b.json",
+      "is_signed": true,
+      "observed_at": "2026-10-18T09:06:14.742Z",
+      "part_content": {
+        "digest_input": "UTF-8 bytes of parts[0].content exactly as returned by the API; retained at path",
+        "expected_sha256": "sha256:04b55a28c990f66a14d469fad9a01dcba9bcf1dc8f85c462bc09f1443844e170",
+        "part_id": 1,
+        "path": "parts/drop-87e1fc3a-deef-4d1d-bf36-b2a44507f17b-part-1.txt",
+        "sha256": "sha256:04b55a28c990f66a14d469fad9a01dcba9bcf1dc8f85c462bc09f1443844e170",
+        "utf16_code_units": 3024,
+        "utf8_bytes": 3032
+      },
+      "parts_count": 1,
+      "raters_count": 25,
+      "rating": 97358417,
+      "raw_response": {
+        "retained": false,
+        "sha256": "sha256:9d590d02667b02ba47f3eb59d4518519e34a2add378c8b6466525a36a1356de7",
+        "size": 13949
+      },
+      "realtime_rating": 97358417,
+      "serial_no": 1336667,
+      "title": null,
+      "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d"
+    }
+  ],
+  "entries": [
+    {
+      "http_status": 200,
+      "raw_sha256": "9d590d02667b02ba47f3eb59d4518519e34a2add378c8b6466525a36a1356de7",
+      "raw_size": 13949,
+      "retained_paths": [
+        "projections/drop-87e1fc3a-deef-4d1d-bf36-b2a44507f17b.json",
+        "parts/drop-87e1fc3a-deef-4d1d-bf36-b2a44507f17b-part-1.txt"
+      ],
+      "retention": "public_safe_projection",
+      "source_id": "drop-87e1fc3a-deef-4d1d-bf36-b2a44507f17b",
+      "transport": {
+        "address_set": [
+          "32.195.176.140",
+          "100.49.88.244",
+          "184.194.234.43"
+        ],
+        "address_set_sha256": "c07b8275567594a440b0fcd43ddbd893e0ee1bccf166098cdcce7948d82255cb",
+        "byte_length": 13949,
+        "byte_sha256": "9d590d02667b02ba47f3eb59d4518519e34a2add378c8b6466525a36a1356de7",
+        "canonical_url": "https://api.6529.io/api/drops/87e1fc3a-deef-4d1d-bf36-b2a44507f17b",
+        "hops": [
+          {
+            "address_set": [
+              "32.195.176.140",
+              "100.49.88.244",
+              "184.194.234.43"
+            ],
+            "address_set_sha256": "c07b8275567594a440b0fcd43ddbd893e0ee1bccf166098cdcce7948d82255cb",
+            "byte_length": 13949,
+            "canonical_url": "https://api.6529.io/api/drops/87e1fc3a-deef-4d1d-bf36-b2a44507f17b",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T09:06:14.742Z",
+            "peer_ip": "32.195.176.140",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json; charset=utf-8"
+              ],
+              [
+                "content-length",
+                "13949"
+              ]
+            ],
+            "selected_ip": "32.195.176.140",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T09:06:14.742Z",
+        "peer_ip": "32.195.176.140",
+        "redirect_chain": [
+          "https://api.6529.io/api/drops/87e1fc3a-deef-4d1d-bf36-b2a44507f17b"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json; charset=utf-8"
+          ],
+          [
+            "content-length",
+            "13949"
+          ]
+        ],
+        "selected_ip": "32.195.176.140",
+        "status": 200
+      },
+      "url": "https://api.6529.io/api/drops/87e1fc3a-deef-4d1d-bf36-b2a44507f17b"
+    }
+  ],
+  "limitations": [
+    "These are point-in-time API readbacks. drop_type, rating, realtime_rating, and raters_count can change after observation.",
+    "The API reports is_signed; this package does not verify the signature.",
+    "A WINNER drop_type records the Wave's selection. It does not by itself accept, acquire, transfer, or accession any work or asset.",
+    "Raw responses that contain profile objects are not retained. Their SHA-256 and length are recorded but cannot be recomputed from the repository; the projection and exact part text can."
+  ],
+  "method": "Unauthenticated HTTPS GET of the public 6529 drops API through scripts/safe_fetch.py with an HTTP/1.0 connection. Responses with profile objects are kept as public-safe projections plus exact part text and the raw response digest; other responses are kept byte-for-byte.",
+  "record_id": "6529NM-EVIDENCE-MUSEUM-WAVE-GOVERNANCE-2026-10-18-MAX-PAIN-4188",
+  "record_type": "WAVE_GOVERNANCE_API_OBSERVATION",
+  "started_at": "2026-10-18T09:06:13.774Z",
+  "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d",
+  "withdrawn_proposals": []
+}

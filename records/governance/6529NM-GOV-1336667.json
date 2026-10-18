@@ -1,0 +1,83 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x4bafa0cca7e9b58e11cc31053499fd3f68f06725a182b04aa807c643b7cbbcbe"
+    },
+    "effectiveAt": 1787855418,
+    "recordType": "GOVERNANCE_DECISION",
+    "schemaId": "0x827c7884fb3f81237d80446e7185c5f4c019eb2a559e8a7727b7230e1e069206",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0xbf1c364e67e6e7cf97e00f54eb025f704423ba7de1cc14475fe7499a37603986",
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/governance/6529NM-GOV-1336667.json"
+  },
+  "payload": {
+    "authority_effect": "Authorizes the 6529 Network Museum to acquire one original MAX PAIN by XCOPY for its permanent Collection through a collectively funded purchase, effective at the Wave decision time. Each affirmative voter commits an equal share of the final acquisition cost, to be sent to a designated acquisition wallet, and contributors receive no individual or fractional ownership interest in the acquired NFT. The acquisition remains subject to the Museum's ordinary procedures for provenance, title, authenticity, legal compliance, custody, technical receivability, and accession. The proposal names no exact token, price cap, budget, wallet, or treatment of excess contributions. This decision does not itself select a token, establish payment, title, custody, or rights, or accept, acquire, or accession any work or asset.",
+    "constructor": {
+      "id": "claude-code-task:max-pain-4188-accession-2026-10-18",
+      "observed_at": "2026-10-18T09:30:00Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-10-18T09:30:00Z",
+    "decision_id": "6529NM-GOV-1336667",
+    "decision_status": "adopted",
+    "effective_at": "2026-08-27T18:30:18.491Z",
+    "evidence_refs": [
+      {
+        "evidence_class": "B",
+        "label": "Public-safe projection of the Wave API readback: WINNER",
+        "notes": "drop_type WINNER; winning_context.place 1; is_signed true as reported by the API (signature not verified); rating and realtime_rating 97358417; raters_count 25; winning_context.decision_time 2026-08-27T18:30:18.491Z. The raw response (13949 bytes, sha256:9d590d02667b02ba47f3eb59d4518519e34a2add378c8b6466525a36a1356de7) contains profile objects and is not retained.",
+        "observed_at": "2026-10-18T09:06:14.742Z",
+        "sha256": "sha256:a292840b154a4d4d9f1584d8a4c96191fcf7a3c9f7a2853ec5fa2702221bad20",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/waves/museum-wave-governance-2026-10-18-max-pain-4188/projections/drop-87e1fc3a-deef-4d1d-bf36-b2a44507f17b.json"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Exact proposal text: parts[0].content as returned by the API",
+        "notes": "UTF-8 bytes of parts[0].content, 3032 bytes; the file digest is the proposal-content digest.",
+        "observed_at": "2026-10-18T09:06:14.742Z",
+        "sha256": "sha256:04b55a28c990f66a14d469fad9a01dcba9bcf1dc8f85c462bc09f1443844e170",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/waves/museum-wave-governance-2026-10-18-max-pain-4188/parts/drop-87e1fc3a-deef-4d1d-bf36-b2a44507f17b-part-1.txt"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Public-safe projection of the Wave vote log and decision configuration",
+        "notes": "Wave decision configuration: APPROVE, winning_threshold 69000000 TDH, 24-hour minimum duration. Vote log: 25 distinct voters, all in favor; the running total first crossed the threshold at 2026-08-26T08:11:13Z; votes cast by the decision time total 101689216 TDH. Projections omit voter identities.",
+        "observed_at": "2026-10-18T08:15:44.903Z",
+        "sha256": "sha256:ff761f2f629ea6c71a85fffc4b63e431fb03531e1f2ec7d9b10f60d0368134c0",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-sources/manifest.json"
+      }
+    ],
+    "observed_at": "2026-10-18T09:06:14.742Z",
+    "payload_sha256": "sha256:7dcebdee438ccf19bfa23fdc21ef9fbd96592b4cfa87b233dc6ea1a00ce58ad0",
+    "proposal_text_sha256": "sha256:04b55a28c990f66a14d469fad9a01dcba9bcf1dc8f85c462bc09f1443844e170",
+    "record_id": "6529NM-GOV-1336667",
+    "record_status": "review_pending",
+    "record_type": "GOVERNANCE_DECISION",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-GOV-1282091",
+      "6529NM-PA-2026-001"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0x827c7884fb3f81237d80446e7185c5f4c019eb2a559e8a7727b7230e1e069206",
+    "source": {
+      "drop_id": "87e1fc3a-deef-4d1d-bf36-b2a44507f17b",
+      "status": "WINNER",
+      "status_evidence_uri": "https://api.6529.io/api/drops/87e1fc3a-deef-4d1d-bf36-b2a44507f17b",
+      "status_observed_at": "2026-10-18T09:06:14.742Z",
+      "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=87e1fc3a-deef-4d1d-bf36-b2a44507f17b",
+      "wave_serial": "1336667"
+    },
+    "subject_id": "6529NM-GOV-1336667",
+    "visibility": "public"
+  }
+}

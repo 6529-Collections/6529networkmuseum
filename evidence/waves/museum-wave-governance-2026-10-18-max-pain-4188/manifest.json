@@ -1,0 +1,35 @@
+{
+  "byte_mode": "raw",
+  "entries": [
+    {
+      "byte_mode": "raw",
+      "media_type": "text/plain; charset=utf-8",
+      "path": "parts/drop-87e1fc3a-deef-4d1d-bf36-b2a44507f17b-part-1.txt",
+      "sha256": "04b55a28c990f66a14d469fad9a01dcba9bcf1dc8f85c462bc09f1443844e170",
+      "size": 3032,
+      "source_id": "drop-87e1fc3a-deef-4d1d-bf36-b2a44507f17b-part-1",
+      "url": "https://api.6529.io/api/drops/87e1fc3a-deef-4d1d-bf36-b2a44507f17b"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "projections/drop-87e1fc3a-deef-4d1d-bf36-b2a44507f17b.json",
+      "sha256": "a292840b154a4d4d9f1584d8a4c96191fcf7a3c9f7a2853ec5fa2702221bad20",
+      "size": 2383,
+      "source_id": "projection-87e1fc3a-deef-4d1d-bf36-b2a44507f17b",
+      "url": "https://api.6529.io/api/drops/87e1fc3a-deef-4d1d-bf36-b2a44507f17b"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "summary.json",
+      "sha256": "0c33ed86ae57825c51f9164618fd8da5f5d7e7c2001cfd2b62bd8c720cdbd858",
+      "size": 4947,
+      "source_id": "summary"
+    }
+  ],
+  "hash_algorithm": "sha256",
+  "manifest_type": "6529NM_WAVE_GOVERNANCE_EVIDENCE",
+  "manifest_version": "1.0.0",
+  "package_id": "6529NM-EVIDENCE-MUSEUM-WAVE-GOVERNANCE-2026-10-18-MAX-PAIN-4188"
+}
