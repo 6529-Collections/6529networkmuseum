@@ -1,0 +1,413 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529.network/museum/schemas/accession-media-presentation/v3",
+  "title": "6529 Network Museum accession media presentation (v3: still and animated sources)",
+  "description": "Version 3 keeps every v2 rule for still sources and admits an animated GIF source. An animated source yields still posters of its first frame through the unchanged v2 WebP transform, and the animation itself is presented only through a token-linked reference with explicit display constraints. Existing v2 manifests are unchanged and remain valid under v2.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "record_control",
+    "record_type",
+    "schema_profile",
+    "accession_lot_id",
+    "generated_at",
+    "transform",
+    "delivery",
+    "rights_boundary",
+    "items"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "../../../../schemas/accession-media-presentation-v3.schema.json"
+    },
+    "record_control": { "$ref": "#/$defs/record_control" },
+    "record_type": { "const": "ACCESSION_MEDIA_PRESENTATION" },
+    "schema_profile": { "const": "6529NM_ACCESSION_MEDIA_PRESENTATION_V3" },
+    "accession_lot_id": {
+      "type": "string",
+      "pattern": "^6529NM\\.[0-9]{4}\\.[0-9]{3}$"
+    },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "transform": { "$ref": "#/$defs/transform" },
+    "delivery": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "authority_record_id",
+        "authority_path",
+        "cdn_base_url",
+        "cache_control",
+        "key_profile",
+        "overwrite_policy"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "prepared_for_contextual_museum_display_pending_review",
+            "approved_for_contextual_museum_display"
+          ]
+        },
+        "authority_record_id": {
+          "type": "string",
+          "pattern": "^6529NM\\.[0-9]{4}\\.[0-9]{3}\\.DISPLAY-[0-9]{2}$"
+        },
+        "authority_path": {
+          "type": "string",
+          "pattern": "^records/accessions/6529NM\\.[0-9]{4}\\.[0-9]{3}/public/web-presentation-authority\\.md$"
+        },
+        "cdn_base_url": {
+          "const": "https://d3lqz0a4bldqgf.cloudfront.net"
+        },
+        "cache_control": { "const": "public, max-age=31536000, immutable" },
+        "key_profile": { "type": "string", "minLength": 1 },
+        "overwrite_policy": { "type": "string", "minLength": 1 }
+      }
+    },
+    "rights_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "source_originals",
+        "technical_transformation",
+        "no_general_reuse"
+      ],
+      "properties": {
+        "status": { "type": "string", "minLength": 1 },
+        "source_originals": { "type": "string", "minLength": 1 },
+        "technical_transformation": { "type": "string", "minLength": 1 },
+        "no_general_reuse": { "type": "string", "minLength": 1 }
+      }
+    },
+    "items": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/item" }
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "record_control": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["revision", "record_status", "constructor", "review"],
+      "properties": {
+        "revision": { "type": "integer", "minimum": 1 },
+        "record_status": { "enum": ["constructed", "reviewed"] },
+        "constructor": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["actor_id", "role", "constructed_at"],
+          "properties": {
+            "actor_id": { "type": "string", "minLength": 1 },
+            "role": { "const": "constructor" },
+            "constructed_at": { "type": "string", "format": "date-time" }
+          }
+        },
+        "review": {
+          "oneOf": [
+            { "type": "null" },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "actor_id",
+                "role",
+                "reviewed_at",
+                "reviewed_commit",
+                "outcome",
+                "payload_sha256"
+              ],
+              "properties": {
+                "actor_id": { "type": "string", "minLength": 1 },
+                "role": { "const": "reviewer" },
+                "reviewed_at": { "type": "string", "format": "date-time" },
+                "reviewed_commit": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{40}$"
+                },
+                "outcome": { "const": "approved" },
+                "payload_sha256": { "$ref": "#/$defs/sha256" }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "transform": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profile",
+        "implementation",
+        "format",
+        "quality",
+        "method",
+        "widths",
+        "resize_filter",
+        "upscale",
+        "orientation",
+        "colour_management",
+        "icc_profile_sha256",
+        "metadata"
+      ],
+      "properties": {
+        "profile": { "const": "6529NM_WEB_PRESENTATION_WEBP_V2_Q82_M6_FIXED_ICC" },
+        "implementation": { "type": "string", "pattern": "^Pillow [0-9]+\\.[0-9]+\\.[0-9]+$" },
+        "format": { "const": "image/webp" },
+        "quality": { "const": 82 },
+        "method": { "const": 6 },
+        "widths": { "const": [640, 1280, 2400] },
+        "resize_filter": { "const": "Lanczos" },
+        "upscale": { "const": false },
+        "orientation": { "type": "string", "minLength": 1 },
+        "colour_management": { "type": "string", "minLength": 1 },
+        "icc_profile_sha256": { "$ref": "#/$defs/sha256" },
+        "metadata": { "type": "string", "minLength": 1 }
+      }
+    },
+    "item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "work_entity_id",
+        "media_reference_entity_id",
+        "source",
+        "presentation"
+      ],
+      "properties": {
+        "work_entity_id": {
+          "type": "string",
+          "pattern": "^6529NM-W-[0-9]{4}$"
+        },
+        "media_reference_entity_id": {
+          "type": "string",
+          "pattern": "^6529NM-MED-[0-9]{4}$"
+        },
+        "source": { "$ref": "#/$defs/source" },
+        "presentation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "role",
+            "alt_text",
+            "alt_text_status",
+            "public_widths",
+            "derivatives"
+          ],
+          "properties": {
+            "role": { "const": "web_presentation_surrogate" },
+            "alt_text": { "type": "string", "minLength": 20 },
+            "alt_text_status": { "const": "reviewed_accessibility_description" },
+            "public_widths": { "const": [640, 1280, 2400] },
+            "derivatives": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "items": { "$ref": "#/$defs/derivative" }
+            }
+          }
+        },
+        "animation_reference": { "$ref": "#/$defs/animation_reference" }
+      },
+      "if": {
+        "properties": { "source": { "properties": { "mime_type": { "const": "image/gif" } } } }
+      },
+      "then": {
+        "required": ["animation_reference"]
+      },
+      "else": {
+        "not": { "required": ["animation_reference"] }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "role",
+        "url",
+        "mime_type",
+        "sha256",
+        "byte_size",
+        "pixel_width",
+        "pixel_height",
+        "exif_orientation_applied",
+        "colour_profile_status"
+      ],
+      "properties": {
+        "role": { "const": "fixity_verified_token_source" },
+        "url": { "type": "string", "format": "uri", "pattern": "^https://" },
+        "mime_type": { "enum": ["image/jpeg", "image/png", "image/webp", "image/gif"] },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "byte_size": { "type": "integer", "minimum": 1 },
+        "pixel_width": { "type": "integer", "minimum": 2400 },
+        "pixel_height": { "type": "integer", "minimum": 1 },
+        "exif_orientation_applied": { "type": "boolean" },
+        "colour_profile_status": { "type": "string", "minLength": 1 },
+        "frame_policy": { "const": "first_frame_poster" },
+        "animation": { "$ref": "#/$defs/source_animation" }
+      },
+      "if": {
+        "properties": { "mime_type": { "const": "image/gif" } }
+      },
+      "then": {
+        "required": ["frame_policy", "animation"]
+      },
+      "else": {
+        "not": {
+          "anyOf": [
+            { "required": ["frame_policy"] },
+            { "required": ["animation"] }
+          ]
+        }
+      }
+    },
+    "source_animation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["frame_count", "frame_duration_ms", "total_duration_ms", "loop"],
+      "properties": {
+        "frame_count": { "type": "integer", "minimum": 2 },
+        "frame_duration_ms": {
+          "description": "Uniform per-frame delay; null when frame delays differ.",
+          "type": ["integer", "null"],
+          "minimum": 0
+        },
+        "total_duration_ms": { "type": "integer", "minimum": 0 },
+        "loop": {
+          "oneOf": [
+            { "const": "infinite" },
+            { "type": "integer", "minimum": 1 }
+          ]
+        }
+      }
+    },
+    "animation_reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "role",
+        "media_reference_entity_id",
+        "binding",
+        "uri",
+        "access_urls",
+        "mime_type",
+        "sha256",
+        "byte_size",
+        "pixel_width",
+        "pixel_height",
+        "fixity_evidence",
+        "display_constraints"
+      ],
+      "properties": {
+        "role": { "const": "token_linked_source_animation" },
+        "media_reference_entity_id": {
+          "type": "string",
+          "pattern": "^6529NM-MED-[0-9]{4}$"
+        },
+        "binding": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "cid", "token_metadata_field", "verification"],
+          "properties": {
+            "kind": { "const": "ipfs_cidv0" },
+            "cid": { "type": "string", "pattern": "^Qm[1-9A-HJ-NP-Za-km-z]{44}$" },
+            "token_metadata_field": { "type": "string", "minLength": 1 },
+            "verification": { "const": "recomputed_cidv0_match" }
+          }
+        },
+        "uri": { "type": "string", "pattern": "^ipfs://Qm[1-9A-HJ-NP-Za-km-z]{44}$" },
+        "access_urls": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "format": "uri", "pattern": "^https://" }
+        },
+        "mime_type": { "const": "image/gif" },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "byte_size": { "type": "integer", "minimum": 1 },
+        "pixel_width": { "type": "integer", "minimum": 1 },
+        "pixel_height": { "type": "integer", "minimum": 1 },
+        "fixity_evidence": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["manifest_path", "entry_path", "retained_bytes"],
+          "properties": {
+            "manifest_path": {
+              "type": "string",
+              "pattern": "^evidence/[A-Za-z0-9._-]+/manifest\\.json$"
+            },
+            "entry_path": { "type": "string", "minLength": 1 },
+            "retained_bytes": { "type": "boolean" }
+          }
+        },
+        "display_constraints": { "$ref": "#/$defs/display_constraints" }
+      }
+    },
+    "display_constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "autoplay",
+        "initial_state",
+        "activation",
+        "reduced_motion",
+        "warning_required",
+        "max_css_width_px",
+        "max_css_width_status",
+        "fullscreen_or_enlarged_animation",
+        "basis"
+      ],
+      "properties": {
+        "autoplay": { "const": false },
+        "initial_state": { "const": "poster" },
+        "activation": { "const": "explicit_visitor_request_after_warning" },
+        "reduced_motion": { "const": "poster_only_when_prefers_reduced_motion" },
+        "warning_required": { "const": true },
+        "max_css_width_px": { "type": "integer", "minimum": 1, "maximum": 4000 },
+        "max_css_width_status": {
+          "enum": ["provisional_pending_flash_review", "confirmed_by_flash_review"]
+        },
+        "fullscreen_or_enlarged_animation": {
+          "enum": ["not_permitted_pending_flash_review", "permitted_within_max_css_width"]
+        },
+        "basis": { "type": "string", "minLength": 40 }
+      }
+    },
+    "derivative": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "width",
+        "height",
+        "mime_type",
+        "sha256",
+        "byte_size",
+        "repository_path",
+        "url",
+        "cache_control"
+      ],
+      "properties": {
+        "width": { "enum": [640, 1280, 2400] },
+        "height": { "type": "integer", "minimum": 1 },
+        "mime_type": { "const": "image/webp" },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "byte_size": { "type": "integer", "minimum": 1 },
+        "repository_path": {
+          "type": "string",
+          "pattern": "^media/accessions/6529NM\\.[0-9]{4}\\.[0-9]{3}/6529NM-W-[0-9]{4}/[0-9a-f]{64}/webp-v2-q82-m6-fixed-icc/(640|1280|2400)\\.webp$"
+        },
+        "url": {
+          "type": "string",
+          "pattern": "^https://d3lqz0a4bldqgf\\.cloudfront\\.net/museum/accessions/6529NM\\.[0-9]{4}\\.[0-9]{3}/"
+        },
+        "cache_control": { "const": "public, max-age=31536000, immutable" }
+      }
+    }
+  }
+}
