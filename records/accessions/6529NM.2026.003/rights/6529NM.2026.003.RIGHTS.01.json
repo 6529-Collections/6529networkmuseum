@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x177069c987738708460ab45292496e422a638435030b7b481669da28c6fbbc34"
+      "digest": "0x5b1a8db104aabd638e7dae5baff2f4f929412ed147f65a4141b1ecdf488c434c"
     },
     "effectiveAt": 1787478417,
     "recordType": "RIGHTS_STATEMENT",
@@ -92,28 +92,17 @@
     },
     "object_id": "6529NM.2026.003.01",
     "observed_at": "2026-08-23T09:46:57.326Z",
-    "payload_sha256": "sha256:c8eaee762281dce7d77ada61ff25c038b6b640dbc47ebfa1185dcab4d296534d",
+    "payload_sha256": "sha256:6605a23ac56524ca6989e1bede8f0f34130cb61c451550bd2f2ce6bc376dc804",
     "record_id": "6529NM.2026.003.RIGHTS.01",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "RIGHTS_STATEMENT",
     "record_version": "1.0.0",
     "references": [
       "6529NM.2026.003",
       "6529NM.2026.003.01"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-reviewer:museum-publication-2026-08-23-independent",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-23T15:10:17.867Z",
-      "reviewed_commit": "3eab50914a90c079fe0383624e760fc0a954e709",
-      "reviewed_manifest_keccak": "0xd3b728ca1bdbbf99602d626df93b6903bbacf624f2ef71e064412654e71cf313",
-      "reviewed_manifest_sha256": "sha256:f672c3503baa823cf4af5eac3bf0513b6b25de6e2674902273cb778f4e771080",
-      "reviewer_ids": [
-        "codex-reviewer:museum-publication-2026-08-23-independent"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "rights_holder_reference": "Vera Molnár / Martin Grasser; legal rights-holder chain not separately asserted",
     "schema_id": "0xdfdea1c86219c12e182b4023d399be35bd5602461ef1dc727784c18d7742b967",
     "source": {

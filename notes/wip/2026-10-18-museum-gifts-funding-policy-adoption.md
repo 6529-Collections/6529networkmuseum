@@ -135,3 +135,65 @@ Visitors see the policy only after a reviewed catalog activates it.
   `6529NM-GOV-1052812` as the gift pathway's authority. Adding
   `6529NM-GOV-1282091` is a separate graph change.
 - The frontend has not been checked for rendering a fourth policy document.
+
+## Candidate A checkpoint
+
+The branch's second commit is publication candidate A. It is review-pending
+and is not publishable. It differs from the governance commit only in review
+state and in the regenerated bundle and release manifest:
+
+- `python scripts/migrate_public_entities.py` regenerated the 370 public graph
+  records (136 entities, 233 relations, and the 2026-08-08 Wave status
+  observation) as review-pending.
+- `python scripts/finalize_vera_accession.py --pending` returned the seven Vera
+  direct records (six accession records and the `6529NM-PG-2026-002` Wave
+  status observation) to review-pending.
+- The Vera presentation manifest returned to `constructed`, with delivery
+  status `prepared_for_contextual_museum_display_pending_review`. Its bytes
+  equal the version in Vera candidate A
+  `3eab50914a90c079fe0383624e760fc0a954e709`.
+- In those 377 records only review fields, `entity_status`,
+  `status_observation.status_label`, payload commitments, and envelope content
+  hashes changed. The publication inventory is unchanged from the governance
+  commit.
+- Candidate A release manifest: SHA-256
+  `sha256:74eea95ef31da7f314f1d1d9935b2e4d0775010dde8ceab0205c27918dcdd866`,
+  Keccak `0x64a95512f8901579e36a6d443e534e6335dcf04cb75c2916115a003c7b30cc02`.
+
+Bootstrap and full validators, deterministic replay, inventory, bundle,
+manifest, media, rights, Casey, Vera, Magnum corpus, link, and Unicode checks,
+and the complete test suite pass on this state.
+
+## Reviewed B requirements
+
+1. An independent reviewer, not the constructor, reviews the exact candidate A
+   commit: the policy transcription against the retained part text, the
+   projection and its privacy boundary, the decision record, the evidence
+   package and script, the notes, and the unchanged content of the re-pended
+   graph.
+2. The review time must be later than every record's `created_at`; the latest
+   is the decision record's `2026-10-18T08:30:00Z`. One reviewer panel and one
+   review time cover all 377 records.
+3. B is the single-parent child of A. It is produced only by:
+   `migrate_public_entities.py --reviewed` and
+   `finalize_vera_accession.py --reviewed`, each with `--reviewer-id`,
+   `--reviewed-at`, `--reviewed-commit <A>`, `--reviewed-manifest-sha256`, and
+   `--reviewed-manifest-keccak` set to the candidate A values above;
+   `generate_vera_molnar_media.py --promote-reviewed` with the reviewer ID,
+   time, and A commit; then `generate_public_publication_bundle.py` and
+   `generate_manifest.py`.
+4. B may change only those 377 records, the Vera presentation manifest, the
+   bundle, the inventory, and the release manifest. Notes, the index, and
+   `6529NM-GOV-1282091` cannot change in B.
+
+## Catalog C requirements
+
+- `python scripts/build_publication_catalog.py --write-release --commit <B>
+  --created-at <time> --actor <release actor> --activated-at <time>`.
+- C contains exactly `release-artifacts/catalog/6529NM-PUBCAT-<B>.json` and
+  `release-artifacts/latest/publication-catalog-pointer.json`.
+- Verify with `--check --commit <B> --created-at <time>` and
+  `--check-transition --previous-commit 3926d78faacf67a62b8d9b48e15d26c43b52eae9
+  --current-commit <C>`.
+- Ledger updates and the decision record's reviewer binding follow C in a
+  separate commit.
