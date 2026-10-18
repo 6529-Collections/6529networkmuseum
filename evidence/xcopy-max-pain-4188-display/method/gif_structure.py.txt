@@ -1,0 +1,306 @@
+"""Pure-stdlib GIF structure parser with an LZW decoder.
+
+Usage: python -I gif_structure.py <gif path> <out json> [--decode]
+
+Walks every block of a GIF89a/87a stream and records header, logical
+screen descriptor, global colour table, every extension (graphic control,
+application, comment, plain text), every image descriptor, local colour
+tables and LZW data sizes. With --decode it also LZW-decodes each frame's
+index stream, counts distinct indices used and composites frames (honouring
+disposal) to RGB, writing per-frame SHA-256 of the composited canvas so the
+result can be reconciled against Pillow.
+"""
+
+from __future__ import annotations
+
+import hashlib
+import json
+import re
+import struct
+import sys
+
+
+def read_subblocks(buf: bytes, pos: int) -> tuple[bytes, int, int]:
+    """Return (concatenated data, new pos, number of sub-blocks)."""
+    out = bytearray()
+    n = 0
+    while True:
+        size = buf[pos]
+        pos += 1
+        if size == 0:
+            return bytes(out), pos, n
+        out += buf[pos:pos + size]
+        pos += size
+        n += 1
+
+
+def lzw_decode(data: bytes, min_code_size: int, npix: int) -> bytes:
+    """Variable-width GIF LZW decoder using a table of byte strings."""
+    clear = 1 << min_code_size
+    eoi = clear + 1
+    base = [bytes([i]) for i in range(clear)] + [b"", b""]
+    table = list(base)
+    code_size = min_code_size + 1
+    mask = (1 << code_size) - 1
+    out = bytearray()
+    bitbuf = 0
+    bitcnt = 0
+    prev = None
+    pos = 0
+    n = len(data)
+    while True:
+        while bitcnt < code_size:
+            if pos >= n:
+                return bytes(out[:npix])
+            bitbuf |= data[pos] << bitcnt
+            pos += 1
+            bitcnt += 8
+        code = bitbuf & mask
+        bitbuf >>= code_size
+        bitcnt -= code_size
+        if code == clear:
+            table = list(base)
+            code_size = min_code_size + 1
+            mask = (1 << code_size) - 1
+            prev = None
+            continue
+        if code == eoi:
+            break
+        if prev is None:
+            entry = table[code]
+            out += entry
+            prev = entry
+            continue
+        if code < len(table):
+            entry = table[code]
+        elif code == len(table):
+            entry = prev + prev[:1]
+        else:
+            raise ValueError(f"bad LZW code {code} (table {len(table)})")
+        out += entry
+        if len(table) < 4096:
+            table.append(prev + entry[:1])
+            if len(table) == (1 << code_size) and code_size < 12:
+                code_size += 1
+                mask = (1 << code_size) - 1
+        prev = entry
+    return bytes(out[:npix])
+
+
+def deinterlace(idx: bytes, w: int, h: int) -> bytes:
+    rows = [idx[i * w:(i + 1) * w] for i in range(h)]
+    order = list(range(0, h, 8)) + list(range(4, h, 8)) + list(range(2, h, 4)) + list(range(1, h, 2))
+    out = [b""] * h
+    for src, dst in enumerate(order):
+        out[dst] = rows[src]
+    return b"".join(out)
+
+
+def parse(path: str, decode: bool, on_frame=None) -> dict:
+    buf = open(path, "rb").read()
+    result: dict = {"file_bytes": len(buf), "sha256": hashlib.sha256(buf).hexdigest()}
+    sig = buf[0:6].decode("ascii", "replace")
+    result["signature"] = sig
+    w, h, packed, bg, aspect = struct.unpack("<HHBBB", buf[6:13])
+    gct_flag = bool(packed & 0x80)
+    color_res = ((packed >> 4) & 7) + 1
+    sort_flag = bool(packed & 0x08)
+    gct_size = 2 ** ((packed & 7) + 1) if gct_flag else 0
+    result["logical_screen"] = {
+        "width": w, "height": h, "global_color_table": gct_flag,
+        "color_resolution_bits": color_res, "gct_sorted": sort_flag,
+        "gct_entries": gct_size, "background_color_index": bg,
+        "pixel_aspect_ratio_byte": aspect,
+    }
+    pos = 13
+    gct = None
+    if gct_flag:
+        gct = buf[pos:pos + 3 * gct_size]
+        pos += 3 * gct_size
+        result["logical_screen"]["gct_sha256"] = hashlib.sha256(gct).hexdigest()
+    frames = []
+    extensions = []
+    pending_gce = None
+    trailer_found = False
+    canvas = None
+    EMPTY = 255  # sentinel: never painted / transparent (palette has < 256 entries)
+    if decode:
+        canvas = bytearray([EMPTY]) * (w * h)
+        result["composite_note"] = ("index-space compositing; unpainted/transparent pixels kept "
+                                    "transparent (RGBA 0,0,0,0) as browsers do, not filled with the background index")
+    prev_canvas_for_restore = None
+    while pos < len(buf):
+        b = buf[pos]
+        if b == 0x3B:
+            trailer_found = True
+            result["trailer_offset"] = pos
+            pos += 1
+            break
+        if b == 0x21:
+            label = buf[pos + 1]
+            start = pos
+            pos += 2
+            if label == 0xF9:
+                bs = buf[pos]
+                p, delay, tidx = struct.unpack("<BHB", buf[pos + 1:pos + 5])
+                pos += 1 + bs
+                term = buf[pos]
+                pos += 1
+                pending_gce = {
+                    "offset": start,
+                    "disposal": (p >> 2) & 7,
+                    "user_input": bool(p & 2),
+                    "transparent_flag": bool(p & 1),
+                    "delay_cs": delay,
+                    "transparent_index": tidx,
+                    "terminator_ok": term == 0,
+                }
+            elif label == 0xFF:
+                bs = buf[pos]
+                ident = buf[pos + 1:pos + 1 + bs]
+                pos += 1 + bs
+                data, pos, nsub = read_subblocks(buf, pos)
+                ext = {"type": "application", "offset": start,
+                       "identifier": ident.decode("latin-1"), "data_len": len(data), "subblocks": nsub}
+                if ident[:11] == b"NETSCAPE2.0" or ident[:11] == b"ANIMEXTS1.0":
+                    if len(data) >= 3 and data[0] == 1:
+                        ext["loop_count"] = struct.unpack("<H", data[1:3])[0]
+                elif ident.startswith(b"XMP Data"):
+                    # GIF XMP is stored raw (not sub-blocked) and closed by a
+                    # 258-byte "magic trailer"; extract the raw packet.
+                    raw = buf[start + 3 + bs:pos - 1]
+                    cut = raw.find(bytes([0x01, 0xFF, 0xFE, 0xFD]))
+                    packet = raw[:cut] if cut >= 0 else raw
+                    ext["xmp_packet_bytes"] = len(packet)
+                    ext["xmp_magic_trailer_bytes"] = len(raw) - len(packet) + 1 if cut >= 0 else None
+                    ext["xmp_packet"] = packet.decode("utf-8", "replace")
+                else:
+                    ext["data_head_hex"] = data[:32].hex()
+                extensions.append(ext)
+            elif label == 0xFE:
+                data, pos, nsub = read_subblocks(buf, pos)
+                extensions.append({"type": "comment", "offset": start,
+                                   "text": data.decode("latin-1")[:2000], "len": len(data)})
+            elif label == 0x01:
+                bs = buf[pos]
+                pos += 1 + bs
+                data, pos, nsub = read_subblocks(buf, pos)
+                extensions.append({"type": "plain_text", "offset": start, "len": len(data)})
+            else:
+                data, pos, nsub = read_subblocks(buf, pos)
+                extensions.append({"type": f"unknown_0x{label:02x}", "offset": start, "len": len(data)})
+            continue
+        if b == 0x2C:
+            start = pos
+            x, y, fw, fh, p = struct.unpack("<HHHHB", buf[pos + 1:pos + 10])
+            pos += 10
+            lct_flag = bool(p & 0x80)
+            interlace = bool(p & 0x40)
+            lct_size = 2 ** ((p & 7) + 1) if lct_flag else 0
+            lct = None
+            if lct_flag:
+                lct = buf[pos:pos + 3 * lct_size]
+                pos += 3 * lct_size
+            min_code = buf[pos]
+            pos += 1
+            data, pos, nsub = read_subblocks(buf, pos)
+            fr = {
+                "index": len(frames), "offset": start, "left": x, "top": y,
+                "width": fw, "height": fh, "interlaced": interlace,
+                "local_color_table": lct_flag, "lct_entries": lct_size,
+                "lct_sha256": hashlib.sha256(lct).hexdigest() if lct else None,
+                "lzw_min_code_size": min_code, "lzw_bytes": len(data), "lzw_subblocks": nsub,
+                "gce": pending_gce,
+            }
+            if decode:
+                npix = fw * fh
+                idx = lzw_decode(data, min_code, npix)
+                fr["decoded_pixels"] = len(idx)
+                if interlace:
+                    idx = deinterlace(idx, fw, fh)
+                used = set(idx)
+                pal = lct if lct else gct
+                g = pending_gce or {}
+                tflag = g.get("transparent_flag", False)
+                tind = g.get("transparent_index", -1)
+                opaque_used = used - ({tind} if tflag else set())
+                fr["indices_used"] = len(used)
+                fr["opaque_indices_used"] = len(opaque_used)
+                fr["transparent_pixel_count"] = idx.count(bytes([tind])) if tflag else 0
+                cols = {pal[i * 3:i * 3 + 3] for i in opaque_used}
+                fr["distinct_rgb_in_frame_rect"] = len(cols)
+                disposal = g.get("disposal", 0)
+                if disposal == 3:
+                    prev_canvas_for_restore = bytes(canvas)
+                tpat = re.compile(b"[^" + re.escape(bytes([tind])) + b"]+") if tflag else None
+                painted = 0
+                for row in range(fh):
+                    cy = y + row
+                    if cy >= h:
+                        break
+                    seg = idx[row * fw:(row + 1) * fw][: max(0, w - x)]
+                    o = cy * w + x
+                    if tpat is None:
+                        canvas[o:o + len(seg)] = seg
+                        painted += len(seg)
+                    else:
+                        for m in tpat.finditer(seg):
+                            canvas[o + m.start():o + m.end()] = m.group()
+                            painted += m.end() - m.start()
+                fr["opaque_pixels_painted"] = painted
+                fr["composited_index_sha256"] = hashlib.sha256(bytes(canvas)).hexdigest()
+                if on_frame is not None:
+                    on_frame(len(frames), bytes(canvas), w, h, gct)
+                rgba = bytearray(w * h * 4)
+                for ch in range(3):
+                    tbl = bytearray(256)
+                    for i in range(len(pal) // 3):
+                        tbl[i] = pal[i * 3 + ch]
+                    tbl[EMPTY] = 0
+                    rgba[ch::4] = bytes(canvas).translate(bytes(tbl))
+                atbl = bytearray([255]) * 256
+                atbl[EMPTY] = 0
+                rgba[3::4] = bytes(canvas).translate(bytes(atbl))
+                fr["composited_rgba_sha256"] = hashlib.sha256(bytes(rgba)).hexdigest()
+                fr["composited_transparent_pixels"] = canvas.count(EMPTY)
+                fr["composited_distinct_indices"] = len(set(canvas) - {EMPTY})
+                if disposal == 2:
+                    for row in range(fh):
+                        o = (y + row) * w + x
+                        canvas[o:o + fw] = bytearray([EMPTY]) * fw
+                elif disposal == 3 and prev_canvas_for_restore is not None:
+                    canvas[:] = prev_canvas_for_restore
+            frames.append(fr)
+            pending_gce = None
+            continue
+        result["unexpected_byte"] = {"offset": pos, "value": b}
+        break
+    result["trailer_found"] = trailer_found
+    result["bytes_after_trailer"] = len(buf) - pos if trailer_found else None
+    result["extensions"] = extensions
+    result["frames"] = frames
+    delays = [(f["gce"] or {}).get("delay_cs", 0) for f in frames]
+    result["summary"] = {
+        "frame_count": len(frames),
+        "delays_cs_distinct": sorted(set(delays)),
+        "total_delay_cs": sum(delays),
+        "disposals_distinct": sorted({(f["gce"] or {}).get("disposal") for f in frames}),
+        "frames_with_lct": sum(1 for f in frames if f["local_color_table"]),
+        "frames_with_transparency": sum(1 for f in frames if (f["gce"] or {}).get("transparent_flag")),
+        "full_canvas_frames": sum(1 for f in frames if (f["left"], f["top"], f["width"], f["height"]) == (0, 0, w, h)),
+        "interlaced_frames": sum(1 for f in frames if f["interlaced"]),
+    }
+    return result
+
+
+if __name__ == "__main__":
+    path, out = sys.argv[1], sys.argv[2]
+    decode = "--decode" in sys.argv[3:]
+    res = parse(path, decode)
+    with open(out, "w", encoding="utf-8", newline="\n") as fh:
+        json.dump(res, fh, indent=1)
+        fh.write("\n")
+    print(json.dumps({k: v for k, v in res.items() if k not in ("frames", "extensions")}, indent=1))
+    print("extensions:", json.dumps(res["extensions"], indent=1)[:3000])
+    for f in res["frames"]:
+        print(json.dumps({k: v for k, v in f.items() if k != "gce"}), json.dumps(f["gce"]))

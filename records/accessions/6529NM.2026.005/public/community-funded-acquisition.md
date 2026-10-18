@@ -1,0 +1,70 @@
+# *MAX PAIN* #4188/7394: A Community-Funded Acquisition
+
+A rounded teal head fills a black square. A broad hot-pink band clamps across the middle of the face, and on it sit two large black eyes, each crowned by a curling mint-green flame. Below, rows of teal blocks form a grille-like mouth, and thin black-and-white checkered streaks run down across the whole face. The animation is eight frames long and lasts four tenths of a second. On every frame the band switches between hot pink and magenta, the streaks flicker, and the flames are redrawn.[^looking]
+
+This is XCOPY's *MAX PAIN*, edition 4188 of 7,394, from a ten-minute open edition sold on Nifty Gateway on 24 March 2022.[^drop] On 2 September 2026, with money raised in twenty-five equal shares from members of the 6529 network, it was bought and transferred to the 6529 Network Museum's wallet.
+
+*MAX PAIN* is usually remembered as market history: a mass drop, and later the raw material for XCOPY's burns. That history is the work's subject. XCOPY sold one image to thousands of collectors and later asked them to spend it, and a third of the edition has since been destroyed. Edition 4188 came through intact, and in 2026 twenty-five people paid for it so that a museum could keep it.
+
+## Looking
+
+The distortion is drawn into the face. The teal is laid down in scraped strokes and coarse dither, and pink slashes cut across the dome; there is no smooth face beneath for the streaks to have corrupted. About four-fifths of the image never changes: the teal head, the grille, a telephone handset at the left, the ring around a small skull at the upper right. Nearly all the flicker sits in the band, the streaks, and the burning eyes, where a viewer looks first, while smaller pink accents, the skull among them, switch color in step. The loop has no climax. It repeats two and a half times a second, and the face holds its shape through the interference without settling into a portrait.
+
+The title echoes a term from options trading, where "max pain" is the strike price at which the greatest value of open contracts would expire worthless, the outcome that costs option holders the most.[^maxpain] XCOPY described the drop in broader terms: in a question-and-answer piece Nifty Gateway published the day before the sale, the artist said it was inspired by "the chaos, adrenaline and risk in this space."[^qa] Read beside the trading term, the face looks held at the point of greatest loss, the band clamped across its eyes and the loop running on without reaching a still frame.
+
+## The edition
+
+The sale ran from 22:30 to 22:40 UTC at US$3,108, about 1 ETH at the time, and Nifty Gateway issued 7,394 editions.[^drop] About an hour after the sale closed, Nifty Gateway minted them to its own custody address, and buyers withdrew them to their own wallets from there; edition 4188 left on 25 March.[^mint] Owning one placed a collector among thousands who held the same face. In October 2026 the editions sat in 3,225 addresses.[^count]
+
+Four months after the sale, on 1 August 2022, XCOPY dedicated all existing XCOPY works, *MAX PAIN* among them, to the public domain under CC0.[^cc0] The open edition had already given up scarcity, and the dedication gave up control over copies. XCOPY's pseudonymity withholds the remaining support, a life story that might explain the image's mood.
+
+An edition that size made the image a common unit among XCOPY's collectors, and XCOPY later used it as one. From December 2023 to November 2024 the artist released *DAMAGE CONTROL*, ten works priced in *MAX PAIN* editions: each was redeemed by burning one or two editions and paying ETH, usually 0.1.[^dc] By the close of redemption on 31 December 2024, collectors had burned 2,545 editions to redeem 2,283 tokens of the ten new works, in 2,139 transactions from 1,215 addresses. In 2026 a third-party contract began buying editions on the market in order to destroy them, and two more were burned. On 18 October 2026, 4,847 remained.[^count]
+
+Edition 4188 records that history closely. One wallet held it from 26 March 2022 to 1 September 2026, through all ten redemptions, and it was never burned.[^provenance]
+
+## The acquisition
+
+The Museum Wave is the network's voting forum for the Museum. On 24 August 2026 Shelby posted a proposal there to acquire one original *MAX PAIN*. Every member who voted for it committed to an equal share of the final cost, and contributors would receive no individual or fractional ownership interest. Twenty-five members voted in favor. The proposal crossed its threshold of 69,000,000 TDH (Total Days Held, the network's time-weighted measure of collecting) on 26 August and was declared a winner on 27 August.[^wave]
+
+The shares were set at 0.021 ETH, and contributions reached the organizer's acquisition wallet from 28 August.[^funding] The vote approved one edition without naming it; the organizer chose edition 4188 at purchase. On 2 September the acquisition wallet bought it for 0.459 ETH, and twenty-eight minutes later it transferred the token to the Museum's wallet.[^chain] The twenty-five shares raised 0.525 ETH, more than the price. Three contributions arrived after the purchase, and on 14 September the organizer sent the remaining 0.0685 ETH to the Museum's wallet.[^residual]
+
+Twenty-five people paid for an XCOPY none of them would own, so that the Museum could hold one. Receipt ended the purchase and began the Museum's obligations: to keep the token, its file, and the record of how it was paid for.
+
+On 1 September 2026, the third-party contract bought edition 3265 of *MAX PAIN* and burned it. Days earlier, that edition had belonged to the same wallet that sold edition 4188 to the acquisition wallet the next day.[^3265] The two tokens carried the same flickering face. One survives as an entry in a burn record. The other is in the Museum's wallet, and its image remains free for anyone to copy.
+
+## Museum note
+
+The Museum received edition 4188 in its wallet, `networkmuseum.6529.eth`, on 2 September 2026 and accessioned it on 18 October 2026 as object `6529NM.2026.005.01`, recording the acquisition as a community-funded purchase. The organizer announced it as the first XCOPY donated to the Museum.[^announce] The Museum's wallet, in use since February 2026, had held no XCOPY before it, and no XCOPY appears in the Museum's earlier accessions.[^wallet] On 14 September the wallet also received 0.0685 ETH left over from the contributions, with the organizer's request that it fund future XCOPY purchases. The Museum has received the funds but has not accepted them, and has asked the organizer how they should be held. The token's metadata points its image to a Nifty Gateway server, and Nifty Gateway closed in April 2026. The Museum keeps the original file, which matches the IPFS hash recorded in the token contract. Shown large, the animation exceeds the WCAG limit for flashing content, so the Museum shows a still image first and plays the animation only on request, at a limited size. The Museum credits the organizer and all twenty-five contributors by name, because the proposal asked the same of each.
+
+— 6529 Network Museum
+
+## Credits
+
+**Organizer:** Shelby
+
+**Community acquisition group (25):** Shelby (@ShelbyCollects), Ruskin (@ruskin1819), johndoe8891 (@Johndoe8891), MadaCollects (@MadaCollects), Thor (@Punk8868), DGMD (@DGMD22), david (@punk8164), gpebbles, EzMonet (@ezmonet_momonet), RegularDad (@aRegularDad), punk6529 (@punk6529), Conviction (@ArtofConviction), chrisroc (@ChrizRoc), Cuttle (@0xCuttlefish), Tharwin (@Tharwiiin), SunRunner (@eksponensiell), AEZY (@eitzisart), pinkapewife (@pinkapewife), arsonic (@Ars0nic), HasanGoktepe (@hasangoktepe3d), meysvm (@Meysvm), calikauai (@Calikauai_eth), hittman (@hittman_), Voojdab (@Voojdab), Benji (@8888Benji).
+
+## Notes
+
+[^looking]: Museum observation and measurement of the token's image file (IPFS `QmTcTzTPgCyvF933oeFvB4GkPgaXtF6dKuQgvg32qqLYGF`; SHA-256 `3ba2c6c6a7b7da940b5780da8fe301e61366a0b5c738be16e537ee122630be2e`), 18 October 2026: an animated GIF, 4000 × 4000 px, eight frames of 50 ms each, looping indefinitely; about 81 percent of pixels are identical in every frame. See the condition and technical record `6529NM.2026.005.COND.01`.
+[^drop]: Nifty Gateway, *MAX PAIN AND FRENS OPEN EDITION* drop data, [Wayback Machine snapshot of 5 September 2025](https://web.archive.org/web/20250905032040/https://www.niftygateway.com/marketplace/collection/0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde/1/); XCOPY, [*MAX PAIN*](https://xcopy.art/works/max-pain). Nifty Gateway reserved one of the 7,394 editions for a giveaway, and its data does not separate sold and given editions.
+[^maxpain]: Adam Hayes, "[Max Pain](https://www.investopedia.com/terms/m/maxpain.asp)," *Investopedia*, updated 29 July 2026. No artist statement linking the title to options trading was found among the sources cited here.
+[^qa]: Nifty Gateway, "MAX PAIN AND FRENS by XCOPY. GM FRENS!", *Medium*, 23 March 2022, [Wayback Machine snapshot](https://web.archive.org/web/20220518011554/https://medium.com/nifty-gateway/max-pain-and-frens-by-xcopy-959350e0fc70).
+[^mint]: Contract `0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde`: 21 mint transactions in blocks 14,451,975–14,451,998 (24 March 2022, 23:38–23:43 UTC) to Nifty Gateway's custody address. Edition 4188 was withdrawn in transaction `0x7df8b1b0da758522d551d23981abb98d85117be1f9c5c3e89161db264a96366d` (25 March 2022, 01:44 UTC).
+[^count]: Museum reading of the contract, 18 October 2026. `ownerOf` across all 7,394 token ids at block 26,218,159 returns 4,847 existing editions held by 3,225 addresses. Burns: 2,545 through the *DAMAGE CONTROL* redemption contract `0xfc29813beeb3c7395c7a5f8dfc3352491d5ea0e2` between 11 December 2023 and 31 December 2024; two by contract `0x7aca5424c570c2ad530ee3d4dbfd731a9aebacff` on 1 February and 1 September 2026. XCOPY's work page shows 4,849, which does not count the 2026 burns.
+[^cc0]: XCOPY (@XCOPYART), [CC0 announcement](https://x.com/XCOPYART/status/1554112748816109569), 1 August 2022; XCOPY, [Creative Commons](https://xcopy.art/creative-commons) and [Legal & Privacy](https://xcopy.art/privacy), which states that independent uses imply no affiliation or endorsement.
+[^dc]: XCOPY, [*DAMAGE CONTROL*](https://xcopy.art/series/damage-control), with news posts of [10 February 2024](https://xcopy.art/news/damage-control-1), [25 July 2024](https://xcopy.art/news/damage-control-part-2), and [11 November 2024](https://xcopy.art/news/damage-control-full-set). Redemption counts from the Museum's reading of the redemption contract and the *DAMAGE CONTROL* contract `0x3e34ff1790bf0a13efd7d77e75870cb525687338`.
+[^provenance]: Transactions `0xa941bb0dc42444e50052a7d886c208eb76df798a01595ce8573bf2785bef4935` (26 March 2022), `0x6a1793ad3a5fef87a88bac482a184149d31f3ef6463e5b0bf4e96579b2978bcb` and `0x922415bb553845ae9df5289819ce2995988e0ccf5a6cd4c3460971194a98b915` (1 September 2026). See the source and chronology record.
+[^wave]: 6529 Network Museum Wave, "[Proposal: MAX PAIN by XCOPY](https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=87e1fc3a-deef-4d1d-bf36-b2a44507f17b)," drop `87e1fc3a-deef-4d1d-bf36-b2a44507f17b`; Wave API status and vote log observed 18 October 2026.
+[^funding]: The organizer's call in the Museum Wave, 28 August 2026; 24 incoming transfers to the organizer's acquisition wallet between 28 August and 8 September 2026, totaling 0.5276 ETH. One transfer covered two shares, and four exceeded 0.021 ETH by 0.0026 ETH in all.
+[^chain]: Transactions `0xdf8b07004bfed397920355ac80991a9dd592c896ca77b1fadb5655f8c85aa4d6` (purchase through Seaport 1.6, block 25,889,852) and `0xe7511598bbdabd1d4ff1c5bb7e6d1f9157a413fbcf305f0392cc30c92252ea03` (transfer to the Museum, block 25,889,990).
+[^residual]: Transaction `0x7d7b7733c696858dda93374395a978a4f7cb0cf4b631e2a81ab595f70d5debef` (block 25,975,418); the organizer's message in the Museum Wave, 14 September 2026.
+[^3265]: Transactions `0xfd84dfc72eb17f80c15948c7fccccac53147203477021eccbfab0fd22bf76001` (29 August 2026, edition 3265 sold to the burning program) and `0x4f99a83d0001ba00013d99f5076ccae55d1cd1d1337749aaed6c7eda1a19bda9` (1 September 2026, 04:04 UTC, edition 3265 burned); transaction `0x922415bb553845ae9df5289819ce2995988e0ccf5a6cd4c3460971194a98b915` (1 September 2026, the same wallet acquires edition 4188).
+[^announce]: Shelby, [post on X](https://x.com/shelbycollects/status/2096959130174968263), 7 September 2026.
+[^wallet]: Museum reading of the NFT transfer history of `0xbECfa2bA5a782D11E1a0e821E8F2e30b6684178c` from its creation on 21 February 2026 to block 26,217,714; Museum accession register, lots `6529NM.2026.001`–`6529NM.2026.003`.
+
+## Publication details
+
+By SonOfLasG. Edited by the 6529 Network Museum, which wrote the Museum note and checked the notes. Version 1, 18 October 2026. Research cutoff: 18 October 2026. Revised from the contributor's text of 18 September 2026, which the organizer approved on 26 September 2026.
+
+Suggested citation: SonOfLasG, "*MAX PAIN* #4188/7394: A Community-Funded Acquisition," 6529 Network Museum, version 1, 18 October 2026.
