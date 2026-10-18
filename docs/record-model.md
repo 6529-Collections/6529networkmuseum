@@ -22,6 +22,8 @@ GitHub is the Museum's transitional publication and review layer. The repository
 - Accession lot: `6529NM.<year>.<sequence>`
 - Object within an accession: `6529NM.<year>.<sequence>.<item>`
 - Gift acceptance authorization: `6529NM.<year>.<sequence>.GAA-<NN>`
+- Acquisition authorization (purchase): `6529NM.<year>.<sequence>.AQA-<NN>`
+- Proposed acquisition (purchase proposal): `6529NM-PA-<year>-<NNN>`
 - Visual observation set: `6529NM.<year>.<sequence>.VO-<NN>`
 - Associated documentation: append `-MD01`, `-IMG01`, `-VID01`, `-TECH01`, `-TX01`, or another registered suffix.
 

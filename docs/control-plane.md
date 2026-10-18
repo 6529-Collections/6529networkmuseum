@@ -42,6 +42,14 @@ that need the whole repository or need to compare values:
   and its authority-evidence limitations without substituting for a pending
   Stream `ACCESSION` completion certificate; its constructed/review-pending
   state is documentation QA, not a reversal of the stated decision;
+- `ACQUISITION_AUTHORIZATION` records a formally accepted purchase: the
+  governing Wave decision, the executing agent, the seller's address, the
+  consideration and payment transaction, the funding basis, and the custody
+  receipts. Payment and Museum receipt must be separate transactions running
+  seller to agent and agent to Museum, the native payment value must equal the
+  recorded amount, the basis must include an adopted `WINNER` decision, and
+  the credit line may not describe a gift; an `ACCESSION` purchase title
+  declaration is valid only for a purchase;
 - object workflow history starts at `offered`, follows only the controlled
   transitions, never regresses or repeats a state, and agrees with
   `current_state`;
