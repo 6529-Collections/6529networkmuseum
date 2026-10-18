@@ -2707,6 +2707,42 @@ def validate_public_graph(
     return issues
 
 
+PROPOSED_ACQUISITION_SCHEMA = "../../../schemas/proposed-acquisition.schema.json"
+PROPOSED_ACQUISITIONS_DIR = ("records", "proposed-acquisitions")
+
+
+def validate_proposed_acquisition_layout(root: Path, records: Iterable[tuple[Path, Any]]) -> list[str]:
+    """Keep purchase proposals in their own family, one record per candidate directory.
+
+    A proposed acquisition is never filed as a proposed gift: proposed-gift
+    tooling reads only records/proposed-gifts/, so a misplaced purchase
+    proposal would escape both families' checks.
+    """
+    issues: list[str] = []
+    for path, record in records:
+        if not isinstance(record, dict):
+            continue
+        try:
+            relative = path.relative_to(root)
+        except ValueError:
+            continue
+        parts = relative.parts
+        in_family = parts[:2] == PROPOSED_ACQUISITIONS_DIR
+        declares_family = record.get("$schema") == PROPOSED_ACQUISITION_SCHEMA or record.get("record_type") == "PROPOSED_ACQUISITION"
+        is_proposal_file = in_family and len(parts) == 4 and parts[3] == "proposal.json"
+        label = relative.as_posix()
+        if declares_family and not is_proposal_file:
+            issues.append(f"{label}: a proposed acquisition record must live at records/proposed-acquisitions/<proposal_id>/proposal.json")
+            continue
+        if not is_proposal_file:
+            continue
+        if record.get("$schema") != PROPOSED_ACQUISITION_SCHEMA:
+            issues.append(f"{label}: proposal.json under records/proposed-acquisitions must declare the proposed-acquisition schema")
+        if record.get("proposal_id") != parts[2]:
+            issues.append(f"{label}: proposed acquisition directory must equal proposal_id")
+    return issues
+
+
 def validate_records(root: Path) -> list[str]:
     issues: list[str] = []
     schema_root = root if (root / "schemas").is_dir() else REPO_ROOT
@@ -2881,6 +2917,12 @@ def validate_records(root: Path) -> list[str]:
         if isinstance(record.get("envelope"), dict):
             issues.extend(f"{relative}: {message}" for message in validate_semantics(record, vocabularies, identity_inventory, root))
         records.append((path, record, payload))
+    issues.extend(
+        validate_proposed_acquisition_layout(
+            root,
+            ((path, record) for path, record, payload in records if payload is None),
+        )
+    )
     aliases = {}
     has_public_entities = any(
         isinstance(payload, dict) and payload.get("record_type") == PUBLIC_ENTITY_TYPE

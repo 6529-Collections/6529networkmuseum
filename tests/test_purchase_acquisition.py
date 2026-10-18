@@ -16,12 +16,14 @@ REPO_ROOT = TESTS_DIR.parent
 sys.path.insert(0, str(REPO_ROOT / "scripts"))
 
 from canonical import canonicalize  # noqa: E402
+from proposed_gifts import proposed_gift_issues  # noqa: E402
 from validate import (  # noqa: E402
     keccak256,
     load_json,
     load_schemas,
     validate_acquisition_authorization,
     validate_event_history,
+    validate_proposed_acquisition_layout,
     validate_public_payload,
     validate_records,
     validator_for,
@@ -33,6 +35,7 @@ AQA_SCHEMA_ID = "0x00686e3e460412351a57431a74bd46252c84df12db5df0715748d46b7404e
 AQA_SCHEMA_URI = "https://6529networkmuseum.org/schemas/acquisition-authorization-v1.json"
 ACCESSION_SCHEMA_URI = "https://6529networkmuseum.org/schemas/accession-v1.json"
 REGISTER_SCHEMA_URI = "https://6529.network/museum/schemas/accession-register/v1"
+PROPOSAL_SCHEMA_URI = "https://6529.network/museum/schemas/proposed-acquisition/v1"
 PUBLIC_ENTITY_SCHEMA_URI = "https://6529networkmuseum.org/schemas/public-entity-v1.json"
 PURCHASE_ENVELOPE_FIXTURES = ("accession-lot.json", "accession.json", "object-record.json", "acquisition-authorization.json")
 
@@ -268,6 +271,75 @@ class PurchaseAcquisitionTests(unittest.TestCase):
         bad = copy.deepcopy(payload)
         bad["acquisition_authorization_record"] = "6529NM.2026.001.GAA-01"
         self.assertTrue(self.schema_errors("https://6529networkmuseum.org/schemas/accession-lot-v1.json", bad))
+
+    # Proposed acquisitions
+
+    def test_proposed_acquisition_schema(self) -> None:
+        proposal = load_fixture("proposed-acquisition.json")
+        self.assertEqual([], self.schema_errors(PROPOSAL_SCHEMA_URI, proposal))
+
+        def variant(change) -> dict:
+            value = copy.deepcopy(proposal)
+            change(value)
+            return value
+
+        invalid = {
+            "donation method": variant(lambda p: p["acquisition"].__setitem__("acquisition_method", "donation")),
+            "selected while participatory": variant(lambda p: p["wave_source"].__setitem__("observed_status", "PARTICIPATORY")),
+            "winner without decision record": variant(lambda p: p["wave_source"].pop("governance_decision_id")),
+            "winner without decision time": variant(lambda p: p["wave_source"].__setitem__("decision_time", None)),
+            "open while winner": variant(lambda p: p.__setitem__("status", "open")),
+            "token claimed for named work": variant(lambda p: p["acquisition"].__setitem__("exact_token_specified", True)),
+            "contributor ownership": variant(lambda p: p["acquisition"].__setitem__("contributor_ownership_interest", "fractional")),
+            "proposer name": variant(lambda p: p["proposer"].__setitem__("name", "Example Member")),
+            "missing transcription path": variant(lambda p: p["proposal_text"].pop("transcription_path")),
+            "gift proposal id": variant(lambda p: p.__setitem__("proposal_id", "6529NM-PG-2026-901")),
+            "wrong schema path": variant(lambda p: p.__setitem__("$schema", "../../../schemas/proposed-gift.schema.json")),
+        }
+        for label, value in invalid.items():
+            with self.subTest(label=label):
+                self.assertTrue(self.schema_errors(PROPOSAL_SCHEMA_URI, value), label)
+
+        participatory = variant(
+            lambda p: (
+                p.__setitem__("status", "open"),
+                p["wave_source"].__setitem__("observed_status", "PARTICIPATORY"),
+                p["wave_source"].__setitem__("decision_time", None),
+                p["wave_source"].pop("governance_decision_id"),
+            )
+        )
+        self.assertEqual([], self.schema_errors(PROPOSAL_SCHEMA_URI, participatory))
+
+    def test_proposed_acquisition_layout_is_closed(self) -> None:
+        proposal = load_fixture("proposed-acquisition.json")
+        with tempfile.TemporaryDirectory(prefix="museum-proposed-acquisition-") as temporary:
+            root = Path(temporary)
+            good = root / "records/proposed-acquisitions/6529NM-PA-2026-901/proposal.json"
+            good.parent.mkdir(parents=True)
+            self.assertEqual([], validate_proposed_acquisition_layout(root, [(good, proposal)]))
+
+            renamed = root / "records/proposed-acquisitions/6529NM-PA-2026-902/proposal.json"
+            self.assertTrue(any("directory must equal proposal_id" in issue for issue in validate_proposed_acquisition_layout(root, [(renamed, proposal)])))
+
+            misplaced = root / "records/proposed-gifts/6529NM-PA-2026-901/proposal.json"
+            self.assertTrue(any("must live at records/proposed-acquisitions" in issue for issue in validate_proposed_acquisition_layout(root, [(misplaced, proposal)])))
+
+            other_name = root / "records/proposed-acquisitions/6529NM-PA-2026-901/notes.json"
+            self.assertTrue(any("must live at records/proposed-acquisitions" in issue for issue in validate_proposed_acquisition_layout(root, [(other_name, proposal)])))
+
+            gift_schema = dict(proposal)
+            gift_schema["$schema"] = "../../../schemas/proposed-gift.schema.json"
+            self.assertTrue(any("must declare the proposed-acquisition schema" in issue for issue in validate_proposed_acquisition_layout(root, [(good, gift_schema)])))
+
+    def test_proposed_gift_tooling_ignores_proposed_acquisitions(self) -> None:
+        proposal = load_fixture("proposed-acquisition.json")
+        with tempfile.TemporaryDirectory(prefix="museum-proposed-acquisition-gift-tools-") as temporary:
+            root = Path(temporary)
+            path = root / "records/proposed-acquisitions/6529NM-PA-2026-901/proposal.json"
+            path.parent.mkdir(parents=True)
+            path.write_text(json.dumps(proposal), encoding="utf-8")
+            (root / "records/proposed-gifts").mkdir(parents=True)
+            self.assertEqual([], proposed_gift_issues(root, {path: proposal}))
 
     # Public graph: purchase Curated Acquisition
 

@@ -61,8 +61,9 @@ EXCLUDED_PUBLIC_MARKDOWN = {
 # admits only current scholarship below public/scholarship/. This general
 # boundary prevents a future proposal from silently publishing voting copy,
 # superseded descriptions, or restricted media links as collection scholarship.
+# Proposed acquisitions (purchases) follow the same boundary.
 PROPOSED_GIFT_DECISION_HISTORY = re.compile(
-    r"^records/proposed-gifts/[^/]+/public/(?:"
+    r"^records/proposed-(?:gifts|acquisitions)/[^/]+/public/(?:"
     r"wave-storm/|status-amendments/|voter-dossier\.md$|wave-resolution\.md$)"
 )
 

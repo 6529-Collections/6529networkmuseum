@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529.network/museum/schemas/proposed-acquisition/v1",
+  "title": "6529 Network Museum proposed-acquisition source record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "record_control",
+    "record_type",
+    "schema_profile",
+    "proposal_id",
+    "title",
+    "status",
+    "status_as_of",
+    "proposer",
+    "acquisition",
+    "wave_source",
+    "proposal_text",
+    "non_claims"
+  ],
+  "properties": {
+    "$schema": {"const": "../../../schemas/proposed-acquisition.schema.json"},
+    "record_control": {"$ref": "https://6529.network/museum/schemas/proposed-gift-register/v1#/$defs/recordControl"},
+    "amendment_history": {
+      "type": "array",
+      "items": {"$ref": "https://6529.network/museum/schemas/proposed-gift-register/v1#/$defs/amendmentHistory"}
+    },
+    "record_type": {"const": "PROPOSED_ACQUISITION"},
+    "schema_profile": {"const": "6529NM_PROPOSED_ACQUISITION_V1"},
+    "proposal_id": {"type": "string", "pattern": "^6529NM-PA-[0-9]{4}-[0-9]{3}$"},
+    "title": {"type": "string", "minLength": 1},
+    "status": {"enum": ["open", "selected", "closed_without_selection", "withdrawn", "superseded"]},
+    "status_as_of": {"type": "string", "format": "date-time"},
+    "proposer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "museum_prepared"],
+      "properties": {
+        "role": {"enum": ["community_member", "museum_constructor", "artist", "rights_holder"]},
+        "museum_prepared": {"type": "boolean"}
+      }
+    },
+    "acquisition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "acquisition_method",
+        "object_scope",
+        "object_count",
+        "exact_token_specified",
+        "funding_model",
+        "contributor_ownership_interest",
+        "price_cap_specified",
+        "excess_contribution_handling_specified",
+        "conditions"
+      ],
+      "properties": {
+        "acquisition_method": {"const": "purchase"},
+        "object_scope": {"enum": ["exact_token", "one_token_of_named_work"]},
+        "object_count": {"type": "integer", "minimum": 1},
+        "exact_token_specified": {"type": "boolean"},
+        "funding_model": {"type": "string", "minLength": 1},
+        "contributor_ownership_interest": {"const": "none"},
+        "price_cap_specified": {"type": "boolean"},
+        "excess_contribution_handling_specified": {"type": "boolean"},
+        "conditions": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"object_scope": {"const": "exact_token"}}, "required": ["object_scope"]},
+          "then": {"properties": {"exact_token_specified": {"const": true}}},
+          "else": {"properties": {"exact_token_specified": {"const": false}}}
+        }
+      ]
+    },
+    "wave_source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "wave_id",
+        "wave_name",
+        "drop_id",
+        "serial_no",
+        "source_url",
+        "drop_created_at",
+        "decision_time",
+        "observed_status",
+        "status_observed_at",
+        "api_reported_is_signed",
+        "rating",
+        "realtime_rating",
+        "rater_count",
+        "evidence_refs"
+      ],
+      "properties": {
+        "wave_id": {"type": "string", "format": "uuid"},
+        "wave_name": {"const": "6529 Network Museum"},
+        "drop_id": {"type": "string", "format": "uuid"},
+        "serial_no": {"type": "integer", "minimum": 1},
+        "source_url": {"type": "string", "pattern": "^https://6529\\.io/waves/[0-9a-f-]{36}\\?drop=[0-9a-f-]{36}$"},
+        "drop_created_at": {"type": "string", "format": "date-time"},
+        "decision_time": {"type": ["string", "null"], "format": "date-time"},
+        "observed_status": {"enum": ["PARTICIPATORY", "WINNER", "WITHDRAWN", "UNKNOWN"]},
+        "status_observed_at": {"type": "string", "format": "date-time"},
+        "api_reported_is_signed": {"type": "boolean"},
+        "rating": {"type": "integer"},
+        "realtime_rating": {"type": "integer"},
+        "rater_count": {"type": "integer", "minimum": 0},
+        "governance_decision_id": {"type": "string", "pattern": "^6529NM-GOV-[0-9]+$"},
+        "evidence_refs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/evidenceRef"}
+        }
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"observed_status": {"const": "WINNER"}}, "required": ["observed_status"]},
+          "then": {"required": ["governance_decision_id"], "properties": {"decision_time": {"type": "string"}}}
+        }
+      ]
+    },
+    "proposal_text": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source", "sha256", "retention"],
+      "properties": {
+        "source": {"const": "wave_drop_part_content"},
+        "sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "retention": {"enum": ["public_transcription", "hash_only"]},
+        "transcription_path": {"type": "string", "pattern": "^public/[A-Za-z0-9._/-]+\\.md$"}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"retention": {"const": "public_transcription"}}, "required": ["retention"]},
+          "then": {"required": ["transcription_path"]}
+        }
+      ]
+    },
+    "non_claims": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"status": {"const": "selected"}}, "required": ["status"]},
+      "then": {"properties": {"wave_source": {"properties": {"observed_status": {"const": "WINNER"}}}}}
+    },
+    {
+      "if": {"properties": {"wave_source": {"properties": {"observed_status": {"const": "WINNER"}}, "required": ["observed_status"]}}, "required": ["wave_source"]},
+      "then": {"properties": {"status": {"enum": ["selected", "superseded"]}}}
+    }
+  ]
+}

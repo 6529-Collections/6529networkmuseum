@@ -1,0 +1,69 @@
+{
+  "$schema": "../../../schemas/proposed-acquisition.schema.json",
+  "record_control": {
+    "revision": 1,
+    "record_status": "constructed",
+    "constructor": {
+      "actor_id": "fixture-constructor",
+      "role": "constructor",
+      "constructed_at": "2026-08-01T00:00:00Z"
+    },
+    "review": null
+  },
+  "record_type": "PROPOSED_ACQUISITION",
+  "schema_profile": "6529NM_PROPOSED_ACQUISITION_V1",
+  "proposal_id": "6529NM-PA-2026-901",
+  "title": "Proposal: example purchase",
+  "status": "selected",
+  "status_as_of": "2026-08-01T00:00:00Z",
+  "proposer": {
+    "role": "community_member",
+    "museum_prepared": false
+  },
+  "acquisition": {
+    "acquisition_method": "purchase",
+    "object_scope": "one_token_of_named_work",
+    "object_count": 1,
+    "exact_token_specified": false,
+    "funding_model": "Equal shares of the final acquisition cost from affirmative voters.",
+    "contributor_ownership_interest": "none",
+    "price_cap_specified": false,
+    "excess_contribution_handling_specified": false,
+    "conditions": [
+      "Subject to the Museum's ordinary provenance, title, custody, and accession procedures."
+    ]
+  },
+  "wave_source": {
+    "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d",
+    "wave_name": "6529 Network Museum",
+    "drop_id": "d65befc2-65dc-4362-8ddd-75f867338669",
+    "serial_no": 1052604,
+    "source_url": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=d65befc2-65dc-4362-8ddd-75f867338669",
+    "drop_created_at": "2026-07-20T00:00:00Z",
+    "decision_time": "2026-07-24T00:00:00Z",
+    "observed_status": "WINNER",
+    "status_observed_at": "2026-08-01T00:00:00Z",
+    "api_reported_is_signed": true,
+    "rating": 1000,
+    "realtime_rating": 1000,
+    "rater_count": 3,
+    "governance_decision_id": "6529NM-GOV-1052604",
+    "evidence_refs": [
+      {
+        "label": "Wave API drop readback",
+        "uri": "ipfs://bafybeigdyrzt5examplewaveapi",
+        "observed_at": "2026-08-01T00:00:00Z",
+        "evidence_class": "B"
+      }
+    ]
+  },
+  "proposal_text": {
+    "source": "wave_drop_part_content",
+    "sha256": "sha256:ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+    "retention": "public_transcription",
+    "transcription_path": "public/proposal-text.md"
+  },
+  "non_claims": [
+    "A WINNER status authorizes the purchase; it does not select a token or establish title, custody, or accession."
+  ]
+}
