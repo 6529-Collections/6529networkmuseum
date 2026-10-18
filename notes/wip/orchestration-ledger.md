@@ -4166,3 +4166,25 @@ at `2026-10-18T09:39:49Z`. Reviewed B is
 transition check from `3926d78f`, and the full validation set pass. A later
 commit applies the review binding to `6529NM-GOV-1282091`. Nothing has been
 pushed or deployed.
+
+### 2026-10-18 - MAX PAIN #4188/7394 accessioned as a community-funded purchase
+
+Branch `max-pain-4188-accession` combines the contributor's submission
+(`5d241715`, authorship preserved), the purchase record model
+(`ACQUISITION_AUTHORIZATION`, purchase title declaration, purchase register
+lots, the `records/proposed-acquisitions/` family, and the per-accession
+publication table), and the evidence and media work (GIF raw evidence, the
+custody, source, technical, and funding packages, and media schema v3 with
+first-frame posters and a token-linked animation). It then constructs
+accession `6529NM.2026.005`, object `6529NM.2026.005.01`, Acquisition
+Authorization `6529NM.2026.005.AQA-01`, Accession Certificate
+`6529NM-ACC-2026-005`, governance decision `6529NM-GOV-1336667`, proposal
+record `6529NM-PA-2026-001`, the flash-analysis evidence package, the public
+manuscripts, register revision 6, and the Work, Artist, Project, Curated
+Acquisition, Accession, and two Media entities with eight relations. A
+purchase seller is now recorded by role, with its address only in the lot's
+provenance schedule. The 0.068496911687069084 ETH residual is outside the
+accession: the Museum has received the funds but has not accepted them, and
+has asked the organizer how they should be held. Candidate A is the branch's
+final commit; status, open items, and the regeneration sequence are in
+`notes/wip/2026-10-18-max-pain-4188-accession-and-release.md`.

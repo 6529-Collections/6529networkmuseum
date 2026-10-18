@@ -291,7 +291,10 @@ class PurchaseAcquisitionTests(unittest.TestCase):
             with self.subTest(label=label):
                 self.assertTrue(lot_errors(lot), label)
 
-        gift_lot = register["lots"][-1]
+        gift_lot = next(lot for lot in register["lots"] if lot["accession_lot_id"] == "6529NM.2026.003")
+        self.assertEqual("formally_accepted", gift_lot["donation_status"])
+        purchase_lots = [lot for lot in register["lots"] if lot.get("acquisition_method") == "purchase"]
+        self.assertEqual(["6529NM.2026.005"], [lot["accession_lot_id"] for lot in purchase_lots])
         invalid_gift = {
             "purchase authorization on gift": {**gift_lot, "acquisition_authorization_record": "6529NM.2026.003.AQA-01"},
             "purchase method on gift": {**gift_lot, "acquisition_method": "purchase"},

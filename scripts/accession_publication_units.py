@@ -71,6 +71,26 @@ ACCESSION_PUBLICATION_UNITS: tuple[AccessionPublicationUnit, ...] = (
             "scripts/publication_catalog.py",
         ),
     ),
+    AccessionPublicationUnit(
+        accession_lot_id="6529NM.2026.005",
+        presentation_manifest_path=presentation_manifest_path("6529NM.2026.005"),
+        review_bound_record_paths=(
+            "records/accessions/6529NM.2026.005/accession-certificate.json",
+            "records/accessions/6529NM.2026.005/accession-statement.json",
+            "records/accessions/6529NM.2026.005/acquisition-authorization.json",
+            "records/accessions/6529NM.2026.005/objects/6529NM.2026.005.01.json",
+            "records/accessions/6529NM.2026.005/rights/6529NM.2026.005.RIGHTS.01.json",
+            "records/accessions/6529NM.2026.005/technical/6529NM.2026.005.01.json",
+        ),
+        review_bound_presentation=True,
+        deterministic_generator_paths=(
+            "scripts/accession_publication_units.py",
+            "scripts/finalize_max_pain_accession.py",
+            "scripts/generate_max_pain_media.py",
+            "scripts/migrate_public_entities.py",
+            "scripts/publication_catalog.py",
+        ),
+    ),
 )
 
 

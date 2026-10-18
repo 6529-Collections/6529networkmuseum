@@ -1,6 +1,6 @@
 {
     "$schema":  "https://6529networkmuseum.org/schemas/public-relation-identity-inventory-v1.json",
-    "inventory_version":  "1.5.0",
+    "inventory_version":  "1.6.0",
     "identity_policy":  "Relation identity is bound to a semantic predicate and typed endpoints; source emission order and mutable assertion qualifiers never allocate a public relation ID. Withdrawn assertions retain append-only identity tombstones and their IDs are never reused.",
     "relation_key_format":  "relation_type|source_entity_id|target_entity_id",
     "relation_bindings":  [
@@ -935,6 +935,38 @@
                               {
                                   "relation_id":  "6529NM-REL-0239",
                                   "source_key":  "AGENT_PLAYS_ROLE|6529NM-ART-0023|6529NM-PRJ-0007"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0280",
+                                  "source_key":  "ARTIST_CREATES_WORK|6529NM-ART-0025|6529NM-W-0036"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0281",
+                                  "source_key":  "PROJECT_CONTEXTUALIZES_WORK|6529NM-PRJ-0009|6529NM-W-0036"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0282",
+                                  "source_key":  "CURATED_ACQUISITION_BRINGS_TOGETHER_WORK|6529NM-CA-2026-006|6529NM-W-0036"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0283",
+                                  "source_key":  "ACCESSION_ADMITS_WORK|6529NM-ACC-ENT-0005|6529NM-W-0036"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0284",
+                                  "source_key":  "COLLECTION_CONTAINS_WORK|6529NM-C-0001|6529NM-W-0036"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0285",
+                                  "source_key":  "ENTITY_HAS_MEDIA|6529NM-W-0036|6529NM-MED-0061"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0286",
+                                  "source_key":  "ENTITY_HAS_MEDIA|6529NM-W-0036|6529NM-MED-0060"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0287",
+                                  "source_key":  "AGENT_PLAYS_ROLE|6529NM-ART-0025|6529NM-PRJ-0009"
                               }
                           ],
     "retired_relation_ids":  [

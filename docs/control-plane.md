@@ -93,17 +93,17 @@ that need the whole repository or need to compare values:
   pending or reviewed state already committed. This replay does not grant
   approval; publication activation separately verifies the exact candidate-A
   parent, reviewer binding, and review-only A-to-B delta. The command verifies
-  the Stream-shaped public projection: 136 `PUBLIC_ENTITY` records, 233 closed
+  the Stream-shaped public projection: 143 `PUBLIC_ENTITY` records, 241 closed
   `PUBLIC_RELATION` records, and one append-only `WAVE_STATUS_OBSERVATION`
-  (370 generated records in total). Six withdrawn draft relation assertions
+  (385 generated records in total). Six withdrawn draft relation assertions
   retain append-only identity tombstones and their identifiers cannot be
   reused.
-  The graph gate covers 21 Artist entities, 2 Organization entities, 6
-  Project/Series entities, 28 acquisition-independent Work entities, two
+  The graph gate covers 24 Artist entities, 2 Organization entities, 8
+  Project/Series entities, 30 acquisition-independent Work entities, two
   Acquisition Programs, exact slug/route families, typed Artist
-  creator relations, 13 permanent Collection memberships across the completed
-  Casey and Magnum accessions, and 16 Keys and Gates selections outside the
-  Collection.
+  creator relations, 14 permanent Collection memberships across the completed
+  Casey, Magnum, Vera Molnár, and MAX PAIN accessions, and 16 Keys and Gates
+  selections outside the Collection.
 - `tests/test_public_entity_layer.py` verifies every Work/media join against its
   governed presentation state: all 7 Casey Works have an official visual still
   and sandboxed live generator, while the 16 Keys and Gates derivatives and

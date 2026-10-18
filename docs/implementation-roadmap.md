@@ -549,3 +549,36 @@ Reviewed B `17bb167cc948666e527feb2ffb7287de980cbb42` and catalog C
 policy text. The decision record `6529NM-GOV-1282091` carries the same review
 binding. Merge, frontend binding, and deployment remain open. The other
 follow-ups listed in the previous entry are unchanged.
+
+## 2026-10-18 — MAX PAIN #4188/7394, a community-funded purchase
+
+Museum Wave proposal serial `1336667` ("Proposal: MAX PAIN by XCOPY") is
+`WINNER` with decision time `2026-08-27T18:30:18.491Z`. It authorized one
+original *MAX PAIN* bought with equal shares from the affirmative voters. The
+organizer's acquisition wallet bought edition 4188/7394 through Seaport 1.6 on
+2 September 2026 and transferred it to `networkmuseum.6529.eth` 28 minutes
+later. At the owner's direction the Museum accepted the token on 18 October
+2026 as object `6529NM.2026.005.01` in accession `6529NM.2026.005`, the first
+purchase accession.
+
+The repository now models purchases: `ACQUISITION_AUTHORIZATION`
+(`6529NM.<year>.<seq>.AQA-<NN>`), the `institutional_purchase_title_declaration`
+title instrument, purchase register lots, the proposed-acquisition family
+(`6529NM-PA-<year>-<NNN>`), and a seller recorded by role, with its address
+only in the lot's provenance schedule. Media schema v3 admits an animated GIF
+source with first-frame WebP posters and a token-linked animation reference
+whose display constraints (poster first, no autoplay, play on request after a
+flashing warning, poster only under reduced motion, at most 768 CSS pixels, no
+enlarged or full-screen animation until a flash review) rest on a retained
+flash analysis. The accession publication table replaces per-accession path
+literals in the inventory and catalog.
+
+Open decisions and follow-ups: independent review of candidate A and the
+reviewed B and catalog C sequence after the governance policy PR's own B and C;
+the independent flash review; the organizer's and contributor's review of the
+revised essay; the organizer's answer on the 0.068496911687069084 ETH residual,
+which the Museum has received but not accepted
+(`notes/wip/2026-10-18-max-pain-residual-funding.md`); re-reading the cited X
+posts on x.com; owner authorization for the CDN upload of the three posters;
+and review of `6529NM-GOV-1336667` after the catalog. The ledger is
+`notes/wip/2026-10-18-max-pain-4188-accession-and-release.md`.

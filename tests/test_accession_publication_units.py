@@ -27,20 +27,29 @@ VERA_DIRECT_RECORD_PATHS = (
     "records/accessions/6529NM.2026.003/technical/6529NM.2026.003.01.json",
     "records/proposed-gifts/6529NM-PG-2026-002/wave-status-observation.json",
 )
+MAX_PAIN_DIRECT_RECORD_PATHS = (
+    "records/accessions/6529NM.2026.005/accession-certificate.json",
+    "records/accessions/6529NM.2026.005/accession-statement.json",
+    "records/accessions/6529NM.2026.005/acquisition-authorization.json",
+    "records/accessions/6529NM.2026.005/objects/6529NM.2026.005.01.json",
+    "records/accessions/6529NM.2026.005/rights/6529NM.2026.005.RIGHTS.01.json",
+    "records/accessions/6529NM.2026.005/technical/6529NM.2026.005.01.json",
+)
 
 
 class AccessionPublicationUnitTests(unittest.TestCase):
     def test_units_reproduce_the_published_accession_sets(self) -> None:
-        self.assertEqual(("6529NM.2026.002", "6529NM.2026.003"), units.ACCESSION_MEDIA_LOT_IDS)
+        self.assertEqual(("6529NM.2026.002", "6529NM.2026.003", "6529NM.2026.005"), units.ACCESSION_MEDIA_LOT_IDS)
         self.assertEqual(
             (
                 "records/accessions/6529NM.2026.002/public/presentation-manifest.json",
                 "records/accessions/6529NM.2026.003/public/presentation-manifest.json",
+                "records/accessions/6529NM.2026.005/public/presentation-manifest.json",
             ),
             units.ACCESSION_PRESENTATION_MANIFEST_PATHS,
         )
-        self.assertEqual(VERA_DIRECT_RECORD_PATHS, units.REVIEW_BOUND_ACCESSION_RECORD_PATHS)
-        self.assertEqual(["6529NM.2026.003"], [unit.accession_lot_id for unit in units.REVIEW_BOUND_PRESENTATION_UNITS])
+        self.assertEqual((*VERA_DIRECT_RECORD_PATHS, *MAX_PAIN_DIRECT_RECORD_PATHS), units.REVIEW_BOUND_ACCESSION_RECORD_PATHS)
+        self.assertEqual(["6529NM.2026.003", "6529NM.2026.005"], [unit.accession_lot_id for unit in units.REVIEW_BOUND_PRESENTATION_UNITS])
         self.assertEqual(
             (
                 "scripts/finalize_vera_accession.py",
@@ -50,9 +59,20 @@ class AccessionPublicationUnitTests(unittest.TestCase):
             ),
             units.REVIEW_BOUND_PRESENTATION_UNITS[0].deterministic_generator_paths,
         )
+        self.assertEqual(
+            (
+                "scripts/accession_publication_units.py",
+                "scripts/finalize_max_pain_accession.py",
+                "scripts/generate_max_pain_media.py",
+                "scripts/migrate_public_entities.py",
+                "scripts/publication_catalog.py",
+            ),
+            units.REVIEW_BOUND_PRESENTATION_UNITS[1].deterministic_generator_paths,
+        )
 
     def test_inventory_and_catalog_consume_the_same_rows(self) -> None:
         self.assertTrue(set(VERA_DIRECT_RECORD_PATHS).issubset(inventory.ASSEMBLY_CONTROL_PATHS))
+        self.assertTrue(set(MAX_PAIN_DIRECT_RECORD_PATHS).issubset(inventory.ASSEMBLY_CONTROL_PATHS))
         self.assertEqual(
             (
                 "media/programs/6529NM-AP-01/accessibility.json",
@@ -61,8 +81,9 @@ class AccessionPublicationUnitTests(unittest.TestCase):
             ),
             inventory.MEDIA_SOURCE_MANIFEST_PATHS,
         )
-        for path in VERA_DIRECT_RECORD_PATHS:
+        for path in (*VERA_DIRECT_RECORD_PATHS, *MAX_PAIN_DIRECT_RECORD_PATHS):
             self.assertTrue(catalog._is_public_graph_record_path(path), path)
+        self.assertFalse(catalog._is_public_graph_record_path("records/governance/6529NM-GOV-1336667.json"))
         self.assertTrue(catalog._is_public_graph_record_path("records/entities/6529NM-W-0029.json"))
         self.assertTrue(catalog._is_public_graph_record_path("records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json"))
         self.assertFalse(catalog._is_public_graph_record_path("records/accessions/6529NM.2026.002/accession-certificate.json"))
@@ -72,7 +93,7 @@ class AccessionPublicationUnitTests(unittest.TestCase):
         committed = json.loads((ROOT / "schemas/public-publication-inventory.json").read_text(encoding="utf-8"))
         self.assertEqual(committed, inventory.generate(ROOT))
         entries = {entry["path"]: entry for entry in committed["entries"]}
-        for path in VERA_DIRECT_RECORD_PATHS:
+        for path in (*VERA_DIRECT_RECORD_PATHS, *MAX_PAIN_DIRECT_RECORD_PATHS):
             self.assertEqual("public_assembly_control_document", entries[path]["kind"])
         for path in units.ACCESSION_PRESENTATION_MANIFEST_PATHS:
             self.assertEqual("public_media_source_manifest", entries[path]["kind"])
@@ -133,7 +154,8 @@ class AccessionPublicationUnitTests(unittest.TestCase):
             units._validate_units((replace(vera, review_bound_record_paths=()),))
 
     def test_public_graph_lot_list_drives_source_resolution(self) -> None:
-        self.assertEqual(("6529NM.2026.001", "6529NM.2026.002", "6529NM.2026.003"), migration.PUBLIC_GRAPH_ACCESSION_LOT_IDS)
+        self.assertEqual(("6529NM.2026.001", "6529NM.2026.002", "6529NM.2026.003", "6529NM.2026.005"), migration.PUBLIC_GRAPH_ACCESSION_LOT_IDS)
+        self.assertEqual("records/accessions/6529NM.2026.005/technical/6529NM.2026.005.01.json", migration.source_repository_path("6529NM.2026.005.COND.01"))
         self.assertEqual("records/accessions/6529NM.2026.003/objects/6529NM.2026.003.01.json", migration.source_repository_path("6529NM.2026.003.01"))
         self.assertEqual("records/accessions/6529NM.2026.002/rights/6529NM.2026.002.RIGHTS.05.json", migration.source_repository_path("6529NM.2026.002.RIGHTS.05"))
         self.assertEqual("records/accessions/6529NM.2026.001/technical/6529NM.2026.001.07.json", migration.source_repository_path("6529NM.2026.001.COND.07"))
@@ -156,6 +178,11 @@ class AccessionPublicationUnitTests(unittest.TestCase):
             self.assertEqual("records/proposed-acquisitions/6529NM-PA-2026-905/proposal.json", migration.source_repository_path("6529NM-PA-2026-905"))
             self.assertEqual("B", migration.source_record_evidence_class("6529NM-PA-2026-905"))
         self.assertEqual((migration.VERA_CONSTRUCTOR_ID, migration.VERA_AT), migration.construction_scope("6529NM-W-0029"))
+        self.assertEqual((migration.MAX_PAIN_CONSTRUCTOR_ID, migration.MAX_PAIN_AT), migration.construction_scope("6529NM-W-0036"))
+        self.assertEqual("records/accessions/6529NM.2026.005/acquisition-authorization.json", migration.source_repository_path("6529NM.2026.005.AQA-01"))
+        self.assertEqual("records/governance/6529NM-GOV-1336667.json", migration.source_repository_path("6529NM-GOV-1336667"))
+        self.assertEqual("records/governance/6529NM-GOV-1282091.json", migration.source_repository_path("6529NM-GOV-1282091"))
+        self.assertEqual("records/proposed-acquisitions/6529NM-PA-2026-001/proposal.json", migration.source_repository_path("6529NM-PA-2026-001"))
         self.assertEqual((migration.CONSTRUCTOR_ID, migration.GENERATED_AT), migration.construction_scope("6529NM-W-0001"))
 
 

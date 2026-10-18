@@ -11,3 +11,15 @@ This package documents execution of the existing community acquisition decision;
 The essay is contributor interpretation, not a Museum determination of artist intention. The options-market definition, circulation history, and DAMAGE CONTROL comparison require claim-level source review before institutional publication. The approved prose is retained unchanged for review.
 
 No media bytes are included. Exact token metadata, animation fixity, accessibility, and presentation records remain to be prepared. Approval of text does not establish title, accession, technical verification, preservation completion, or display readiness.
+
+## Superseded by the accession files (2026-10-18)
+
+This staging package is retained unchanged as the contributor's submission. It
+is superseded by accession `6529NM.2026.005`. The revised, signed essay is
+published as
+[`records/accessions/6529NM.2026.005/public/community-funded-acquisition.md`](../../../records/accessions/6529NM.2026.005/public/community-funded-acquisition.md),
+and the object entry, chronology, and accession records live under
+[`records/accessions/6529NM.2026.005/`](../../../records/accessions/6529NM.2026.005/).
+The release ledger is
+[`notes/wip/2026-10-18-max-pain-4188-accession-and-release.md`](../2026-10-18-max-pain-4188-accession-and-release.md).
+Nothing in this directory is published.
