@@ -1,0 +1,1 @@
+{"id":"museum_receipt_transfer-receipt","jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["0xe7511598bbdabd1d4ff1c5bb7e6d1f9157a413fbcf305f0392cc30c92252ea03"]}
