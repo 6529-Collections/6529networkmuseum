@@ -1,0 +1,1 @@
+{"id":"provenance-02-receipt","jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["0xa941bb0dc42444e50052a7d886c208eb76df798a01595ce8573bf2785bef4935"]}

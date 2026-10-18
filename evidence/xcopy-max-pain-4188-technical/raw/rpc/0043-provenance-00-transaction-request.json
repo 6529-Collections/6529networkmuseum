@@ -1,0 +1,1 @@
+{"id":"provenance-00-transaction","jsonrpc":"2.0","method":"eth_getTransactionByHash","params":["0x0b2da2a60e43772a73dc49383ca40da2d46ecf6ee9ba1669727aa03a78f3e6f8"]}
