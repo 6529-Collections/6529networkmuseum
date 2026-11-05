@@ -1,0 +1,253 @@
+{
+  "record_type": "contributor_research_readings",
+  "observed_on": "2026-11-05",
+  "prepared_by": "sonoflasg",
+  "scope": "Read-only transaction, receipt and block observations for the Squiggle manuscript; not a full custody audit, title determination or full-history transfer census.",
+  "providers": [
+    {
+      "endpoint": "https://ethereum-rpc.publicnode.com",
+      "response": [
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "result": null
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "result": null
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 3,
+          "result": {
+            "type": "0x2",
+            "chainId": "0x1",
+            "nonce": "0x217",
+            "gas": "0x35934",
+            "maxFeePerGas": "0x35f5c820",
+            "maxPriorityFeePerGas": "0x23c34600",
+            "to": "0x059edd72cd353df5106d2b9cc5ab83a52287ac3a",
+            "value": "0x0",
+            "accessList": [],
+            "input": "0x42842e0e00000000000000000000000011a15784a229ec5a5001c67b8bf76cb2c88f03b6000000000000000000000000becfa2ba5a782d11e1a0e821e8f2e30b6684178c0000000000000000000000000000000000000000000000000000000000001981",
+            "r": "0xbc363ad101cc8950ef1eeb444d4ca477d71f33de9e59a50ac168db4a84f82a66",
+            "s": "0x3dc953013ec1ff56db1d36d486af5cb0a0ba5c9bbe9ab711d0efb56a6f51ea14",
+            "yParity": "0x1",
+            "v": "0x1",
+            "hash": "0xcafeb32bd326e9e466e88eaafba67f20e968ffd53eb667ee957c503415d4abe6",
+            "blockHash": "0x8fb50bb5a1cdb3cd732aab9ae82ec9e53e9ca71a97a80903d41bf202b12f5028",
+            "blockNumber": "0x1903169",
+            "transactionIndex": "0x69",
+            "from": "0x11a15784a229ec5a5001c67b8bf76cb2c88f03b6",
+            "gasPrice": "0x30731c65",
+            "blockTimestamp": "0x6ad62103"
+          }
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 4,
+          "result": null
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 5,
+          "result": {
+            "type": "0x2",
+            "chainId": "0x1",
+            "nonce": "0x0",
+            "gas": "0x5208",
+            "maxFeePerGas": "0x1cd01940",
+            "maxPriorityFeePerGas": "0x8f0d180",
+            "to": "0xb37b10229f92741aa21e122fdb0c33d2a46b9247",
+            "value": "0x29c5ab0d65ed0000",
+            "accessList": [],
+            "input": "0x",
+            "r": "0x82cc456c6920266ee9503d5fab4564fbecf99daae995baca9d40ccb6e7d3751b",
+            "s": "0x13b8252cfbfdce39fc047509441aa77cad794f2e141797ee5c7fc6a0bda496a1",
+            "yParity": "0x1",
+            "v": "0x1",
+            "hash": "0x8895c9e85bd2e38f1527d95ddd384a5734ac925631a0a66750909c0159ebb59e",
+            "blockHash": "0xb4ffc2cf0b5ff39550beb8a138b088b0f488224359768ec9cf4a3e9d5c9530e3",
+            "blockNumber": "0x19032c4",
+            "transactionIndex": "0xee",
+            "from": "0x4616575b0fb13c2ea80b24d9236b9031fd8af8c2",
+            "gasPrice": "0x1958b0b7",
+            "blockTimestamp": "0x6ad6315f"
+          }
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 6,
+          "result": null
+        }
+      ],
+      "note": "Returned transaction objects for receipt/payment, but null for requested receipts and mint. Nulls are retained; they are not interpreted as absence of the events."
+    },
+    {
+      "endpoint": "https://eth.drpc.org",
+      "response": [
+        {
+          "id": 13,
+          "jsonrpc": "2.0",
+          "result": {
+            "type": "0x2",
+            "status": "0x1",
+            "cumulativeGasUsed": "0xe7d2fb",
+            "logs": [
+              {
+                "address": "0x059edd72cd353df5106d2b9cc5ab83a52287ac3a",
+                "topics": [
+                  "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                  "0x00000000000000000000000011a15784a229ec5a5001c67b8bf76cb2c88f03b6",
+                  "0x000000000000000000000000becfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+                  "0x0000000000000000000000000000000000000000000000000000000000001981"
+                ],
+                "data": "0x",
+                "blockHash": "0x8fb50bb5a1cdb3cd732aab9ae82ec9e53e9ca71a97a80903d41bf202b12f5028",
+                "blockNumber": "0x1903169",
+                "blockTimestamp": "0x6ad62103",
+                "transactionHash": "0xcafeb32bd326e9e466e88eaafba67f20e968ffd53eb667ee957c503415d4abe6",
+                "transactionIndex": "0x69",
+                "logIndex": "0x18a",
+                "removed": false
+              }
+            ],
+            "logsBloom": "0x00000000000000000000000000000000000000004000000000000000000000200000000000000000000020000000000000000000000000000000000000000000000000000000000000000008000004000000000000000000000000000000000000000000000000000000000000001000000000000000000000000010000000000004000000000000000080000000002000000000000000200000000000000000000000000000000000000000000010000000000000000000000000000000000000000002000000000000000000000000000000000000000001000000000000000000000000000000000100000000000000000000000000000000000000000000",
+            "transactionHash": "0xcafeb32bd326e9e466e88eaafba67f20e968ffd53eb667ee957c503415d4abe6",
+            "transactionIndex": "0x69",
+            "blockHash": "0x8fb50bb5a1cdb3cd732aab9ae82ec9e53e9ca71a97a80903d41bf202b12f5028",
+            "blockNumber": "0x1903169",
+            "gasUsed": "0x211c0",
+            "effectiveGasPrice": "0x30731c65",
+            "from": "0x11a15784a229ec5a5001c67b8bf76cb2c88f03b6",
+            "to": "0x059edd72cd353df5106d2b9cc5ab83a52287ac3a",
+            "contractAddress": null
+          }
+        },
+        {
+          "id": 14,
+          "jsonrpc": "2.0",
+          "result": {
+            "type": "0x2",
+            "status": "0x1",
+            "cumulativeGasUsed": "0x192d96a",
+            "logs": [],
+            "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "transactionHash": "0x8895c9e85bd2e38f1527d95ddd384a5734ac925631a0a66750909c0159ebb59e",
+            "transactionIndex": "0xee",
+            "blockHash": "0xb4ffc2cf0b5ff39550beb8a138b088b0f488224359768ec9cf4a3e9d5c9530e3",
+            "blockNumber": "0x19032c4",
+            "gasUsed": "0x5208",
+            "effectiveGasPrice": "0x1958b0b7",
+            "from": "0x4616575b0fb13c2ea80b24d9236b9031fd8af8c2",
+            "to": "0xb37b10229f92741aa21e122fdb0c33d2a46b9247",
+            "contractAddress": null
+          }
+        }
+      ],
+      "note": "Direct successful receipts for Museum transfer and ETH payment."
+    },
+    {
+      "endpoint": "https://eth.drpc.org",
+      "response": [
+        {
+          "id": 11,
+          "jsonrpc": "2.0",
+          "result": {
+            "number": "0x1903169",
+            "hash": "0x8fb50bb5a1cdb3cd732aab9ae82ec9e53e9ca71a97a80903d41bf202b12f5028",
+            "timestamp": "0x6ad62103"
+          }
+        },
+        {
+          "id": 12,
+          "jsonrpc": "2.0",
+          "result": {
+            "number": "0x19032c4",
+            "hash": "0xb4ffc2cf0b5ff39550beb8a138b088b0f488224359768ec9cf4a3e9d5c9530e3",
+            "timestamp": "0x6ad6315f"
+          }
+        },
+        {
+          "id": 15,
+          "jsonrpc": "2.0",
+          "result": {
+            "blockHash": "0xbd484a27a86f462f3ea7d7b7bb7e9c71b313b6892c167ba74870e51ebd807120",
+            "blockNumber": "0xb1e6dc",
+            "transactionHash": "0x321dd57f1ac6f1ba32c997fe153bbc05523cc41b6f019f41fefe7ef33c850853",
+            "transactionIndex": "0x3b",
+            "from": "0x11a15784a229ec5a5001c67b8bf76cb2c88f03b6",
+            "to": "0x059edd72cd353df5106d2b9cc5ab83a52287ac3a",
+            "type": "0x0",
+            "gasUsed": "0x41abb",
+            "cumulativeGasUsed": "0x932a73",
+            "contractAddress": null,
+            "logs": [
+              {
+                "address": "0x059edd72cd353df5106d2b9cc5ab83a52287ac3a",
+                "topics": [
+                  "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                  "0x0000000000000000000000000000000000000000000000000000000000000000",
+                  "0x00000000000000000000000011a15784a229ec5a5001c67b8bf76cb2c88f03b6",
+                  "0x0000000000000000000000000000000000000000000000000000000000001981"
+                ],
+                "data": "0x",
+                "blockNumber": "0xb1e6dc",
+                "transactionHash": "0x321dd57f1ac6f1ba32c997fe153bbc05523cc41b6f019f41fefe7ef33c850853",
+                "transactionIndex": "0x3b",
+                "blockHash": "0xbd484a27a86f462f3ea7d7b7bb7e9c71b313b6892c167ba74870e51ebd807120",
+                "logIndex": "0xb2",
+                "removed": false,
+                "blockTimestamp": "0x6001654f"
+              },
+              {
+                "address": "0x059edd72cd353df5106d2b9cc5ab83a52287ac3a",
+                "topics": [
+                  "0x94c792774c59479f7bd68442f3af3691c02123a5aabee8b6f9116d8af8aa6669",
+                  "0x00000000000000000000000011a15784a229ec5a5001c67b8bf76cb2c88f03b6",
+                  "0x0000000000000000000000000000000000000000000000000000000000001981",
+                  "0x0000000000000000000000000000000000000000000000000000000000000000"
+                ],
+                "data": "0x0000000000000000000000000000000000000000000000000000000000001982000000000000000000000000000000000000000000000000007c585087238000",
+                "blockNumber": "0xb1e6dc",
+                "transactionHash": "0x321dd57f1ac6f1ba32c997fe153bbc05523cc41b6f019f41fefe7ef33c850853",
+                "transactionIndex": "0x3b",
+                "blockHash": "0xbd484a27a86f462f3ea7d7b7bb7e9c71b313b6892c167ba74870e51ebd807120",
+                "logIndex": "0xb3",
+                "removed": false,
+                "blockTimestamp": "0x6001654f"
+              }
+            ],
+            "logsBloom": "0x00200000000000000002000000000000000000004000000000000000000000200000000000000000000020000000000000000000000000000000000000000000000000000000000000000008000000000000010000000000000000000000000000000000020000000000000000000800000000000000000000000010000000000004000000000000000080000000000000000000000000200000000000000000000000000000000000000000000010000000000000000000000000000000000000000002000000000000000000000000000000000000000001000000000020000000000000000000000100000000000000000000000000000000000000000000",
+            "effectiveGasPrice": "0x861c46800",
+            "status": "0x1"
+          }
+        }
+      ],
+      "note": "Block responses projected to number/hash/timestamp by jq; mint receipt retained. These projected block records are not represented as full raw response byte streams."
+    }
+  ],
+  "verified": [
+    {
+      "event": "mint",
+      "block": 11658972,
+      "utc": "2021-01-15T09:50:07Z",
+      "basis": "Successful receipt and zero-address Transfer log; timestamp is provider-supplied log blockTimestamp. The full block was not separately fetched for this mint in this pass."
+    },
+    {
+      "event": "Museum receipt",
+      "block": 26227049,
+      "utc": "2026-10-19T13:54:11Z",
+      "basis": "Successful receipt, exact token Transfer log to Museum address, matching block hash and block timestamp."
+    },
+    {
+      "event": "payment",
+      "block": 26227396,
+      "utc": "2026-10-19T15:03:59Z",
+      "eth": "3.01",
+      "wei": "3010000000000000000",
+      "basis": "Transaction value, successful receipt and block timestamp."
+    }
+  ]
+}

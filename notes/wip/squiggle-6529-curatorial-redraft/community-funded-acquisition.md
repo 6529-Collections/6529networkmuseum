@@ -1,0 +1,75 @@
+# Chromie Squiggle #6529: A Community-Funded Acquisition
+
+*By sonoflasg, building on RegularDad's acquisition research and manuscript*
+
+A thick grey line folds across a white field. Its curves bunch together, open into deep troughs, and rise again toward a round endpoint. Fine bands of colour run across parts of its surface. At some turns they almost disappear into the grey; elsewhere they gather into bright, closely spaced striations. In the live browser work, interaction sets the colours moving through these bands while the outline holds. The eye follows two rhythms: the broad course of the line and the small changes passing across it.[^1]
+
+This is Snowfro's *Chromie Squiggle #6529*, a Ribbed work from the project with which he launched Art Blocks in November 2020. The platform's familiar rainbow line appears here in a more subdued form. Grey gives the figure weight, while the coloured marks interrupt its apparent solidity. The image can be recognised quickly, but its internal movement takes longer to follow. A still preserves one arrangement of colour within that encounter.[^2]
+
+The 6529 Network Museum acquired the work in October 2026 through an initiative organised by RegularDad, with funds designated for the purchase through Meme Card #550, a supplementary contribution from MadaCollects, and a private sale facilitated by SquiggleDAO. Its token number gave the community a particular reason to pursue it. The acquisition brings a further responsibility: caring for a work whose instructions can be recovered independently of the website on which it is usually seen.[^3]
+
+## A line and its procedure
+
+Snowfro, the artist Erick Calderon, describes each Squiggle as his signature as an artist, developer, and tinkerer. The description brings together activities that the work itself makes difficult to separate. He designed the program that draws the line, the range of differences it can produce, and the platform through which those differences became individual works.[^2]
+
+Each token has a recorded hash from which the program derives its particular configuration. A common procedure produces differences in curvature, thickness, texture, and colour. In #6529, repeated coloured marks articulate a continuous grey figure. The broad curve carries the eye forward; the striations divide that movement into intervals. Colour makes some passages conspicuous and allows others to recede.
+
+Writing for Glitch Marfa's 2023 exhibition of another Squiggle, #9951, Derek Edwards and Malte Rauch locate the work between the shared algorithm and the singularity of its outputs. That relation is useful for looking at #6529. Its grey body and restrained passages of colour are one possibility within a system better known for exuberant gradients. Comparison with other Squiggles makes its particularity clearer; sustained attention reveals differences within the work itself.[^4]
+
+The procedure also changed the moment at which a collector encountered an individual work. In an interview with Malte Rauch, Calderon describes the difficulty of choosing among generative outputs and his wish to embrace the range an algorithm could produce. At mint, a collector received a work whose particular configuration had not been selected from a finished inventory. Later purchasers, including the Museum, choose among works that already exist. The history of #6529 therefore joins two collecting situations: its emergence at mint and this community's subsequent choice of an existing work.[^5]
+
+## A work beyond its website
+
+Derek Edws describes Squiggles as “Networked art, with few external dependencies.” The phrase identifies an important feature of their construction. The artist's script and each token's hash are recorded on Ethereum. Art Blocks also documents an on-chain copy of the p5.js library used by the project and a method for assembling these materials into a page that a browser can render. The information needed to draw a Squiggle is consequently recoverable through a route that does not require the continued operation of its usual website.[^6]
+
+For the Museum, this changes the terms of care. A browser still executes the program; screens, interaction, and software environments shape the encounter. Retaining the script, hash, and software dependencies gives conservators a basis for reconstructing the work as those environments change. Their availability also allows people outside the collecting institution to examine how a particular line is made.
+
+Calderon's own account of preservation is practical. Speaking to LACMA about *Chromie Squiggle #9999*, he favours an interactive presentation and discusses providing a printable algorithm that could be entered into a browser again. The record of a work and the experience it makes possible require different forms of attention.[^7] An institution must retain the relevant software, understand its operation, and make considered decisions about how visitors encounter it.
+
+This gives #6529 a specific place in a museum organised through a network. Ownership of the token can be recorded in one institutional wallet while the program remains accessible for study and rendering elsewhere. The Museum's contribution is to sustain a public account of this particular work: its changing appearance, the procedure that produces it, and the circumstances through which it was collected. Technical distribution and institutional stewardship support different parts of that task.
+
+## Choosing 6529
+
+The acquisition began with a benefit work. RegularDad submitted a card to the 6529.io Main Stage in September 2026, dedicating its ETH receipts to a Museum acquisition. It became Meme Card #550. He subsequently reported a purchase budget of 2.513 ETH and coordinated the search for a Chromie Squiggle through a dedicated Wave. Members including cheesebiz and reno99 compared listings and shared possible purchases.[^8]
+
+SquiggleDAO introduced the possibility of #6529 through its relationship with the holder: “Imagine the 6529 Museum gets the 6529 Squiggle.” RegularDad welcomed the match between the number and the institution, alongside the proposed direct transfer. The number became a reason for selecting this work through the community's discussion. It supplies an association made by the collectors, additional to the forms generated by Snowfro's program.[^9]
+
+MadaCollects supplied a further 0.5 ETH, and SquiggleDAO reported the seller's agreement to a price of 3.01 ETH. The seller asked to be credited as Anonymous Collector. On 19 October, the token was transferred directly to the Museum wallet; payment followed separately about seventy minutes later.[^10]
+
+The discussion also made the intended duration of the acquisition explicit. When SquiggleDAO asked about future sale, MadaCollects and Shelby replied that the Museum would never sell; RegularDad added, “the network museum is never selling.” These statements record the participants' understanding of the destination they were choosing for the work.[^11]
+
+In #6529, the line holds its shape as colour changes across it. Preserving that encounter requires access to the program, attention to its interaction, and a record explaining how this particular Squiggle was selected and acquired.
+
+## Acquisition credits
+
+Organised by RegularDad (@aRegularDad), with funds designated for the purchase through Meme Card #550 and a supplementary contribution of 0.5 ETH from MadaCollects (@MadaCollects). Private acquisition facilitated by SquiggleDAO. Community scouting included cheesebiz and reno99. Seller credited, at their request, as Anonymous Collector. Purchase price: 3.01 ETH.
+
+## Notes
+
+[^1]: Contributor observation of the [official live generator for #6529](https://generator.artblocks.io/1/0x059edd72cd353df5106d2b9cc5ab83a52287ac3a/6529), 5 November 2026. Qualitative screenshot comparison at a 1280 × 720 viewport showed a stable outer contour and changing internal colours and endpoint after click interaction. The opening is interpretation based on that encounter; it makes no exact timing, pixel-count, or complete interaction claim. See [Sources and Chronology](source-and-chronology.md#observation-and-verification-boundary).
+
+[^2]: [Art Blocks token record for #6529](https://api.artblocks.io/token/6529), observed 5 November 2026, identifies Snowfro, Type Ribbed, p5.js 1.0.0, and the artist's signature description. [Art Blocks project page](https://www.artblocks.io/collection/chromie-squiggle-by-snowfro) dates release to 27 November 2020. The token was minted on 15 January 2021; project release and token mint are separate dates.
+
+[^3]: RegularDad's [original submission, PR #75](https://github.com/6529-Collections/6529networkmuseum/pull/75), and the primary messages and transaction records cited in notes 8–11. This essay documents the purchase and receipt, without asserting completion of an accession act.
+
+[^4]: Derek Edwards and Malte Rauch, [“The Rainbow Soul of Generative Art”](https://www.glitchmarfa.com/e30dgallery/the-chromie-squiggle/), Glitch Marfa, September 2023; edited by Madison Page. The essay accompanied the exhibition of #9951. Its discussion of algorithm and output informs this reading; the description and interpretation of #6529 are the contributor's.
+
+[^5]: Malte Rauch interviews Snowfro, [“100 Untitled Spaces by Snowfro”](https://www.brightmoments.io/quarterly/snowfro), *Bright Moments Quarterly*, November 2022. The page identifies the issue and interviewer. Calderon discusses selecting outputs, the Art Blocks interface, and the unplanned development of its community. This paragraph interprets the difference between minting and selecting an existing token; it does not claim that minting gives a collector authorship of the program.
+
+[^6]: Derek Edws, [“On Chromie Squiggle”](https://www.artblocks.io/articles/on-chromie-squiggle), Art Blocks, 8 August 2025. For current technical capabilities, [Art Blocks, “NFT Metadata Storage at Art Blocks”](https://docs.artblocks.io/protocol/on-chain-storage/), especially the original-contract Project 0 retrieval examples and January 2024 p5.js 1.0.0 storage; and [“The Art Blocks Generator”](https://docs.artblocks.io/protocol/on-chain-generator/). These are platform-documented capabilities, not a claim that this contribution has completed an independent chain-only reconstruction of #6529. Technical recoverability does not grant unrestricted reuse: the [Chromie Squiggles NFT License](https://www.squigglefoundation.org/squigglelicense) reserves the artist's intellectual property and specifies permitted uses. Derek's earlier [“Storing Value in Digital Objects”](https://medium.com/collab-currency/storing-value-in-digital-objects-a92f54fa98cc), 6 February 2023, supplies context for his dependency framework; its investment conclusions are not adopted here.
+
+[^7]: Dhyandra Lawson interviews Erick Calderon, [“Erick Calderon’s Chromie Squiggle 9,999”](https://unframed.lacma.org/2024/08/21/erick-calderon%E2%80%99s-chromie-squiggle-9999), LACMA *Unframed*, 21 August 2024. This is testimony concerning preservation and display; it is not an authorisation for the Network Museum to migrate or remint #6529.
+
+[^8]: RegularDad's [Main Stage submission](https://6529.io/waves/b6128077-ea78-4dd9-b381-52c4eadb2077?drop=21864547-9df2-46f0-9ef9-c6bf13814b5c), serial 1400081, states “All ETH for 6529 Museum acquisition”; the API reports WINNER, with decision time 16 September 2026. [Meme Card #550](https://6529.io/memes/550). [Budget message](https://6529.io/waves/49f96d04-e6a2-49b3-9694-432d563d7b34?drop=9c4bcbc2-598c-4e9b-a575-735fb55e366e), serial 1455346: 2.513 ETH. Community scouting included [cheesebiz](https://6529.io/waves/49f96d04-e6a2-49b3-9694-432d563d7b34?drop=dfc4d586-48ae-4b5f-9427-f80b8c566a07), serial 1501052, and [reno99](https://6529.io/waves/49f96d04-e6a2-49b3-9694-432d563d7b34?drop=ed4087c4-7baf-4d11-a5e5-ebb9564a525e), serial 1519697. The budget is an organiser's statement, not a completed reconciliation of gross mint revenue, artist receipts, or subsequent expenditure.
+
+[^9]: SquiggleDAO's [proposal of #6529](https://6529.io/waves/49f96d04-e6a2-49b3-9694-432d563d7b34?drop=477f2b52-9f25-4541-b426-0f9db1771e7c), serial 1528982; RegularDad's [response](https://6529.io/waves/49f96d04-e6a2-49b3-9694-432d563d7b34?drop=a7e21044-9653-4cdc-be3e-841669f069bf), serial 1533814. The number's meaning is documented community interpretation, not an asserted intention of Snowfro's generator.
+
+[^10]: SquiggleDAO's [confirmation of the agreed price](https://6529.io/waves/49f96d04-e6a2-49b3-9694-432d563d7b34?drop=e797b1af-504e-4aca-9fa1-80df42f81640), serial 1531957; [acknowledgment of MadaCollects's contribution](https://6529.io/waves/49f96d04-e6a2-49b3-9694-432d563d7b34?drop=cd2597b0-94b9-4c10-90e5-034e538c3905), serial 1533918; [seller credit request](https://6529.io/waves/49f96d04-e6a2-49b3-9694-432d563d7b34?drop=42949ebd-74ca-42a2-8f2d-0bc5fad3a80b), serial 1539756. [Museum receipt transaction](https://etherscan.io/tx/0xcafeb32bd326e9e466e88eaafba67f20e968ffd53eb667ee957c503415d4abe6), 19 October 2026, 13:54:11 UTC; [payment transaction](https://etherscan.io/tx/0x8895c9e85bd2e38f1527d95ddd384a5734ac925631a0a66750909c0159ebb59e), 15:03:59 UTC, 3.01 ETH. Transaction data, successful receipts and dated block records were checked through public RPC during preparation of this redraft. See the retained verification responses linked in the chronology.
+
+[^11]: Purchase Wave: [SquiggleDAO's question](https://6529.io/waves/49f96d04-e6a2-49b3-9694-432d563d7b34?drop=9c7c2bfb-13aa-44e8-9d2e-25a81d32c572), serial 1528997; [MadaCollects, “never”](https://6529.io/waves/49f96d04-e6a2-49b3-9694-432d563d7b34?drop=d3c32fc8-7bd0-4fc0-bd3e-77094fe7ffc9), serial 1528999; [Shelby, “Ever”](https://6529.io/waves/49f96d04-e6a2-49b3-9694-432d563d7b34?drop=1b60c507-85d5-4e9d-a800-0681401c5ca2), serial 1529001; [MadaCollects, “Ever ever”](https://6529.io/waves/49f96d04-e6a2-49b3-9694-432d563d7b34?drop=8b9fc036-1543-437f-829e-1f328595f162), serial 1529002; [RegularDad, “the network museum is never selling”](https://6529.io/waves/49f96d04-e6a2-49b3-9694-432d563d7b34?drop=4cb35016-e9ff-493e-8e9b-547b6ca8df61), serial 1529003, directly replying to SquiggleDAO's question. The attribution, serial, reply target and Wave identity were rechecked against the public API on 6 November 2026; see the [verification note](verification/never-sell-check.md). Their statements record the acquisition discussion; formal title and institutional obligations require their own records.
+
+## Publication details
+
+Contributor manuscript for review, 6 November 2026. By sonoflasg, building on RegularDad's acquisition research and manuscript in PR #75. Research cutoff: 5 November 2026. Version 1 of this redraft. This is not a Museum-issued or admitted publication.
+
+Suggested citation after publication details are confirmed: sonoflasg, “Chromie Squiggle #6529: A Community-Funded Acquisition,” version 1, 6 November 2026, contributor manuscript.
