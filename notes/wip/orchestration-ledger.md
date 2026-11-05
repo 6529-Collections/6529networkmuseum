@@ -4129,3 +4129,14 @@ record occurrences. Bootstrap validation (911 JSON files), deterministic
 entity replay (370 records), publication inventory and bundle checks, Vera
 media validation, release-manifest validation, and the complete Museum/Casey
 validator all pass on the correction branch.
+
+### 2026-11-06 — Squiggle contributor manuscript
+
+sonoflasg prepared an indexed companion manuscript under
+`notes/wip/squiggle-6529-curatorial-redraft/`, building on RegularDad's PR #75.
+The package separates the acquisition essay, object label and extended entry,
+and supporting source chronology. It retains the original contributor's credit,
+documents the evidence and observation boundaries, assigns no accession number,
+and makes no institutional publication, title, display or preservation approval.
+Next step: collaborative interpretation, credit and funding review by RegularDad
+and Museum maintainers. No Wave post is part of this contribution.

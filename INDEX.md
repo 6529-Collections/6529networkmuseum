@@ -244,6 +244,12 @@ Status vocabulary:
 | [`schemas/program-outcome.schema.json`](schemas/program-outcome.schema.json) | active local schema | Individual selected-work registrar outcome contract |
 | [`schemas/program-media-presentation.schema.json`](schemas/program-media-presentation.schema.json) | active local schema | Strict source-safe browser projection for authority-bound responsive program media |
 
+## Contributor manuscripts under review
+
+| File | Status | Contents |
+|---|---|---|
+| [Chromie Squiggle #6529 contributor redraft](notes/wip/squiggle-6529-curatorial-redraft/README.md) | WIP contributor scholarship | sonoflasg's acquisition essay, object label and entry, sources and chronology, and supporting chain observations; builds on RegularDad's PR #75 for collaborative review without assigning accession or publication authority |
+
 ## Maintenance rule
 
 Before ending a substantive design or research turn:
