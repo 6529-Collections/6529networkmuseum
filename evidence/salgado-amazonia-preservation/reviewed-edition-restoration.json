@@ -1,0 +1,336 @@
+{
+  "record_type": "SALGADO_REVIEWED_EDITION_RESTORATION",
+  "source_commit": "b13543128fd8551a6c82ac9a7fb952b89d02aab4",
+  "archive_sha256": "sha256:8977005c920837ee478962e2cd76888214203d6eb8ae3e09d9c68be5b318036f",
+  "archive_bytes": 54036412,
+  "package_manifest_sha256": "sha256:d5bad6f1a450697f2b60607c64e7cda2f96d5ad59fa58b156c85d32f8d8b2424",
+  "scope": "Exact reviewed accession edition, catalogue, public media, records and review receipts; original 70-file approved intake; six source JPEGs and metadata. This is a scoped package, not a complete repository export.",
+  "prior_source_archive_sha256": "sha256:cc8f174cab25232ea8469862183e7f47ab3dc3239e30be5ed9998fb32728fecc",
+  "pillow_version": "12.3.0",
+  "webp_version": "1.6.0",
+  "replicas": [
+    {
+      "custodial_alias": "MUSEUM-PRESERVATION-REGION-01",
+      "restore_method": "Version-specific cloud download; archive SHA-256; ZIP CRC; every member length/SHA-256; extraction; six full JPEG decodes; offline regeneration with archived transform code, equal to all eighteen committed display files.",
+      "archive_match": true,
+      "manifest_members_verified": 632,
+      "all_source_files_verified": true,
+      "display_regeneration": [
+        {
+          "object_id": "6529NM.2026.004.01",
+          "token_id": 226,
+          "source_sha256": "sha256:e0f0424be7d6c837ebf4d649f42ad0bac32c1b20f2f51376d3fb24032bd4f281",
+          "derivatives": [
+            {
+              "width": 640,
+              "height": 427,
+              "sha256": "sha256:94dcea0acb0698e86a2ae0ba72e0c5fe32f088d8d01bd152bfda21450a1f5ffb",
+              "byte_identical": true
+            },
+            {
+              "width": 1280,
+              "height": 853,
+              "sha256": "sha256:be435f7a85ae533547226127d580c5f87a6db3bceef952413a317a4c1b8df721",
+              "byte_identical": true
+            },
+            {
+              "width": 2400,
+              "height": 1600,
+              "sha256": "sha256:29ee0015b4f10ce28679e3b16d693faed7446364791d1cc1227520debbeb20fe",
+              "byte_identical": true
+            }
+          ]
+        },
+        {
+          "object_id": "6529NM.2026.004.02",
+          "token_id": 1117,
+          "source_sha256": "sha256:7b3d738ed098d1622658141782a28d1dc4e23d8e864ed74bbea50b03afdf28be",
+          "derivatives": [
+            {
+              "width": 640,
+              "height": 427,
+              "sha256": "sha256:7dee1980b0615d3bd724d04dd555cb6a1eea7e2c889cff2df861566a93c97d16",
+              "byte_identical": true
+            },
+            {
+              "width": 1280,
+              "height": 853,
+              "sha256": "sha256:13b2db44ef3c098ab9a7b21e9d05675c9eb3535a1185b3c5ef60a0675342ed2d",
+              "byte_identical": true
+            },
+            {
+              "width": 2400,
+              "height": 1600,
+              "sha256": "sha256:d5aaca1e12387198d9ef762becba4257e94515c395c8357397b5e67c3e75f006",
+              "byte_identical": true
+            }
+          ]
+        },
+        {
+          "object_id": "6529NM.2026.004.03",
+          "token_id": 2059,
+          "source_sha256": "sha256:29ecd8ee4657f93c2978be0a3e14db813d12efecf606b00c7eda15185870e2f6",
+          "derivatives": [
+            {
+              "width": 640,
+              "height": 427,
+              "sha256": "sha256:21fb44afa279d2dd971bf65987b0b92b53d05122f8f842021186863e4cca303a",
+              "byte_identical": true
+            },
+            {
+              "width": 1280,
+              "height": 853,
+              "sha256": "sha256:3e167ca316d11466266b6b8a65d12d03b9dbff9cdfbded3f5a66b5e9ae47d8fb",
+              "byte_identical": true
+            },
+            {
+              "width": 2400,
+              "height": 1600,
+              "sha256": "sha256:ce0f165a29162aedeaee7a9a1e0af15e9a2937964e694b6173042817ef1c414e",
+              "byte_identical": true
+            }
+          ]
+        },
+        {
+          "object_id": "6529NM.2026.004.04",
+          "token_id": 2216,
+          "source_sha256": "sha256:ba579adb2c267310d2e44ef7bc0c2d41bc77e9cc747f19cbcb75be2f3e642e7e",
+          "derivatives": [
+            {
+              "width": 640,
+              "height": 960,
+              "sha256": "sha256:33c1a995e83e2cb79f89a50e0093b0dc60a5e71980a285f903f10053be31bd56",
+              "byte_identical": true
+            },
+            {
+              "width": 1280,
+              "height": 1920,
+              "sha256": "sha256:581cf037268851c2e6188a671a3819ee4903abba872e7a534d8b769356f39982",
+              "byte_identical": true
+            },
+            {
+              "width": 2400,
+              "height": 3600,
+              "sha256": "sha256:6963684765227af5d02185b3b4d8c3bc20c40f340e0ff739ec6fc1e8623c1cff",
+              "byte_identical": true
+            }
+          ]
+        },
+        {
+          "object_id": "6529NM.2026.004.05",
+          "token_id": 2768,
+          "source_sha256": "sha256:8f31c3934909f5faf24f4a29c8debf9fa1be79d908fcb8182622117a5a24a7f9",
+          "derivatives": [
+            {
+              "width": 640,
+              "height": 427,
+              "sha256": "sha256:38c6011b2ec600c904443f68b44b926859355f737ac5a8a6abbcb6629144bf56",
+              "byte_identical": true
+            },
+            {
+              "width": 1280,
+              "height": 853,
+              "sha256": "sha256:3f380c486db86789508d26ec3fdbac8f01d8e81814698b52b765ca1e7a6619cb",
+              "byte_identical": true
+            },
+            {
+              "width": 2400,
+              "height": 1600,
+              "sha256": "sha256:27cf0aa7d41355c3838a919ae8739d61cb94e1b84e034ad86af821e9e5000fd3",
+              "byte_identical": true
+            }
+          ]
+        },
+        {
+          "object_id": "6529NM.2026.004.06",
+          "token_id": 4697,
+          "source_sha256": "sha256:b351555579a65ae81aaf4cf72c15ce186d120cea5709a07e34e68ee47d2f207d",
+          "derivatives": [
+            {
+              "width": 640,
+              "height": 427,
+              "sha256": "sha256:e8fe7bdc5a509723f020c838d81e09fb6b850ea750664911226acd510a365dd7",
+              "byte_identical": true
+            },
+            {
+              "width": 1280,
+              "height": 853,
+              "sha256": "sha256:53f394065270638984a9f81575e9942846b5cf20282a018bbb446845e7b72479",
+              "byte_identical": true
+            },
+            {
+              "width": 2400,
+              "height": 1600,
+              "sha256": "sha256:ba8e523968a4a83d46728dd4c670ab05de850b75c9249bc233fb188a6ac16811",
+              "byte_identical": true
+            }
+          ]
+        }
+      ],
+      "verified_at": "2026-09-13T23:19:35.629Z"
+    },
+    {
+      "custodial_alias": "MUSEUM-PRESERVATION-REGION-02",
+      "restore_method": "Version-specific cloud download; archive SHA-256; ZIP CRC; every member length/SHA-256; extraction; six full JPEG decodes; offline regeneration with archived transform code, equal to all eighteen committed display files.",
+      "archive_match": true,
+      "manifest_members_verified": 632,
+      "all_source_files_verified": true,
+      "display_regeneration": [
+        {
+          "object_id": "6529NM.2026.004.01",
+          "token_id": 226,
+          "source_sha256": "sha256:e0f0424be7d6c837ebf4d649f42ad0bac32c1b20f2f51376d3fb24032bd4f281",
+          "derivatives": [
+            {
+              "width": 640,
+              "height": 427,
+              "sha256": "sha256:94dcea0acb0698e86a2ae0ba72e0c5fe32f088d8d01bd152bfda21450a1f5ffb",
+              "byte_identical": true
+            },
+            {
+              "width": 1280,
+              "height": 853,
+              "sha256": "sha256:be435f7a85ae533547226127d580c5f87a6db3bceef952413a317a4c1b8df721",
+              "byte_identical": true
+            },
+            {
+              "width": 2400,
+              "height": 1600,
+              "sha256": "sha256:29ee0015b4f10ce28679e3b16d693faed7446364791d1cc1227520debbeb20fe",
+              "byte_identical": true
+            }
+          ]
+        },
+        {
+          "object_id": "6529NM.2026.004.02",
+          "token_id": 1117,
+          "source_sha256": "sha256:7b3d738ed098d1622658141782a28d1dc4e23d8e864ed74bbea50b03afdf28be",
+          "derivatives": [
+            {
+              "width": 640,
+              "height": 427,
+              "sha256": "sha256:7dee1980b0615d3bd724d04dd555cb6a1eea7e2c889cff2df861566a93c97d16",
+              "byte_identical": true
+            },
+            {
+              "width": 1280,
+              "height": 853,
+              "sha256": "sha256:13b2db44ef3c098ab9a7b21e9d05675c9eb3535a1185b3c5ef60a0675342ed2d",
+              "byte_identical": true
+            },
+            {
+              "width": 2400,
+              "height": 1600,
+              "sha256": "sha256:d5aaca1e12387198d9ef762becba4257e94515c395c8357397b5e67c3e75f006",
+              "byte_identical": true
+            }
+          ]
+        },
+        {
+          "object_id": "6529NM.2026.004.03",
+          "token_id": 2059,
+          "source_sha256": "sha256:29ecd8ee4657f93c2978be0a3e14db813d12efecf606b00c7eda15185870e2f6",
+          "derivatives": [
+            {
+              "width": 640,
+              "height": 427,
+              "sha256": "sha256:21fb44afa279d2dd971bf65987b0b92b53d05122f8f842021186863e4cca303a",
+              "byte_identical": true
+            },
+            {
+              "width": 1280,
+              "height": 853,
+              "sha256": "sha256:3e167ca316d11466266b6b8a65d12d03b9dbff9cdfbded3f5a66b5e9ae47d8fb",
+              "byte_identical": true
+            },
+            {
+              "width": 2400,
+              "height": 1600,
+              "sha256": "sha256:ce0f165a29162aedeaee7a9a1e0af15e9a2937964e694b6173042817ef1c414e",
+              "byte_identical": true
+            }
+          ]
+        },
+        {
+          "object_id": "6529NM.2026.004.04",
+          "token_id": 2216,
+          "source_sha256": "sha256:ba579adb2c267310d2e44ef7bc0c2d41bc77e9cc747f19cbcb75be2f3e642e7e",
+          "derivatives": [
+            {
+              "width": 640,
+              "height": 960,
+              "sha256": "sha256:33c1a995e83e2cb79f89a50e0093b0dc60a5e71980a285f903f10053be31bd56",
+              "byte_identical": true
+            },
+            {
+              "width": 1280,
+              "height": 1920,
+              "sha256": "sha256:581cf037268851c2e6188a671a3819ee4903abba872e7a534d8b769356f39982",
+              "byte_identical": true
+            },
+            {
+              "width": 2400,
+              "height": 3600,
+              "sha256": "sha256:6963684765227af5d02185b3b4d8c3bc20c40f340e0ff739ec6fc1e8623c1cff",
+              "byte_identical": true
+            }
+          ]
+        },
+        {
+          "object_id": "6529NM.2026.004.05",
+          "token_id": 2768,
+          "source_sha256": "sha256:8f31c3934909f5faf24f4a29c8debf9fa1be79d908fcb8182622117a5a24a7f9",
+          "derivatives": [
+            {
+              "width": 640,
+              "height": 427,
+              "sha256": "sha256:38c6011b2ec600c904443f68b44b926859355f737ac5a8a6abbcb6629144bf56",
+              "byte_identical": true
+            },
+            {
+              "width": 1280,
+              "height": 853,
+              "sha256": "sha256:3f380c486db86789508d26ec3fdbac8f01d8e81814698b52b765ca1e7a6619cb",
+              "byte_identical": true
+            },
+            {
+              "width": 2400,
+              "height": 1600,
+              "sha256": "sha256:27cf0aa7d41355c3838a919ae8739d61cb94e1b84e034ad86af821e9e5000fd3",
+              "byte_identical": true
+            }
+          ]
+        },
+        {
+          "object_id": "6529NM.2026.004.06",
+          "token_id": 4697,
+          "source_sha256": "sha256:b351555579a65ae81aaf4cf72c15ce186d120cea5709a07e34e68ee47d2f207d",
+          "derivatives": [
+            {
+              "width": 640,
+              "height": 427,
+              "sha256": "sha256:e8fe7bdc5a509723f020c838d81e09fb6b850ea750664911226acd510a365dd7",
+              "byte_identical": true
+            },
+            {
+              "width": 1280,
+              "height": 853,
+              "sha256": "sha256:53f394065270638984a9f81575e9942846b5cf20282a018bbb446845e7b72479",
+              "byte_identical": true
+            },
+            {
+              "width": 2400,
+              "height": 1600,
+              "sha256": "sha256:ba8e523968a4a83d46728dd4c670ab05de850b75c9249bc233fb188a6ac16811",
+              "byte_identical": true
+            }
+          ]
+        }
+      ],
+      "verified_at": "2026-09-13T23:19:56.223Z"
+    }
+  ],
+  "administrative_limit": "Both regional copies share one AWS account and its administration.",
+  "public_location_policy": "Exact locations, object versions and access receipts remain restricted.",
+  "completed_at": "2026-09-13T23:19:56.223Z"
+}

@@ -253,3 +253,11 @@ Before ending a substantive design or research turn:
 3. update this index;
 4. never promote WIP to adopted policy without a governance record;
 5. run repository validation once the tooling exists.
+
+- 2026-11-05 Salgado normal pages: [narrow implementation and review record](notes/wip/2026-11-05-salgado-normal-pages.md). One acquisition and six work pages reuse verified accession evidence and concise labels; local integration and rendered review are in progress.
+
+- 2026-11-05 Salgado local review completed: [implementation and review record](notes/wip/2026-11-05-salgado-normal-pages.md#local-review-completed--5-november-2026). One acquisition and six work pages are implemented; thirty actual Museum-page captures verify desktop/tablet/mobile display. CDN upload was automatically denied pending specific file/destination approval; nothing is published.
+
+- 2026-11-05 Salgado display delivery: [activation amendment](notes/wip/2026-11-05-salgado-normal-pages.md#display-delivery-activated--5-november-2026). The user approved the exact eighteen display WebPs; all eighteen are uploaded and independently hash-verified through the public Museum CDN. The candidate pages remain pending publication integration.
+
+- 5 November: Salgado copy approved and staging/production requested; additional catalogue metadata renewal awaits explicit approval. [Status](notes/wip/2026-11-05-salgado-normal-pages.md).

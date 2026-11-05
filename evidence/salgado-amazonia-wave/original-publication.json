@@ -1,0 +1,76 @@
+{
+  "record_type": "SALGADO_ORIGINAL_PUBLICATION_READBACK",
+  "original_receipt_sha256": "sha256:2a907696fb6c7c1de34fa10a27a75d202c01f650b922dd5362dfdff7b45b1a2f",
+  "completed_at": "2026-08-25T21:56:48.461Z",
+  "drop": {
+    "observed_at": "2026-08-25T21:56:48.461Z",
+    "drop_id": "4eeb759a-74e8-43b6-a155-f9b015f003df",
+    "serial_no": 1344468,
+    "created_at": 1787694743158,
+    "title": "Proposed gift: Sebastião Salgado, Amazônia",
+    "drop_type": "PARTICIPATORY",
+    "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d",
+    "author_handle": "punk6529bot",
+    "author_primary_address": "0xf58fe66af1a8c792cd64d8d706eddabadfcb2fd0",
+    "is_signed": true,
+    "parts_count": 6,
+    "part_content_sha256": [
+      "63db45355dd65e99f5f67a1275c789d0d179e8cd43add75039b64cc9b55fe076",
+      "fe84877a367f9b041da724294125ab5dca15a00b6303d526a3395dc95af023ae",
+      "dbff962aa24010831dc99b44d34fc58ef24a911b49c9a9d69a55ac6b0de1ff41",
+      "8c0c2c577ae1d099490a23763f4bf29ebe2a1b3400757d59b37a542cfd9b7127",
+      "ad6c314122fc163ff87ef2069680dc5a2ca08c4933da0a2c5d011490d02187ae",
+      "fbd5fdadb28c31770cf3583a9b399c4a5209238aec2391b9fe54e64d59f256a4"
+    ],
+    "bundle_sha256": "ca31b0acc34e47f8f1ccbfa4722269661e0f1d21db418b10c3dda3c0654a5c29",
+    "media": [
+      {
+        "part_number": 1,
+        "url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/f9c90fd2-4e0f-454a-9e2b-4343b354be65/sebastiao-salgado-amazonia-2059-cover.jpg",
+        "mime_type": "image/jpeg",
+        "media_status": "ready"
+      },
+      {
+        "part_number": 4,
+        "url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/b7ae9842-08f2-45fb-8455-eaeeaffa43da/sebastiao-salgado-amazonia-226.jpg",
+        "mime_type": "image/jpeg",
+        "media_status": "ready"
+      },
+      {
+        "part_number": 4,
+        "url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/6250b460-693f-4c21-822f-6e262e16e4e5/sebastiao-salgado-amazonia-1117.jpg",
+        "mime_type": "image/jpeg",
+        "media_status": "ready"
+      },
+      {
+        "part_number": 4,
+        "url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/1638c44e-6926-4fde-971c-f9f4d1ddfd88/sebastiao-salgado-amazonia-2059.jpg",
+        "mime_type": "image/jpeg",
+        "media_status": "ready"
+      },
+      {
+        "part_number": 4,
+        "url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/ddc38535-59d1-4fe9-8f13-6efc764c899b/sebastiao-salgado-amazonia-2768.jpg",
+        "mime_type": "image/jpeg",
+        "media_status": "ready"
+      },
+      {
+        "part_number": 5,
+        "url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/540f6d12-10d9-46b8-bded-547c7b2b0b45/sebastiao-salgado-amazonia-2216.jpg",
+        "mime_type": "image/jpeg",
+        "media_status": "ready"
+      },
+      {
+        "part_number": 5,
+        "url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/5a8a9c64-251d-4acc-9101-2a2dd2d0b108/sebastiao-salgado-amazonia-4697.jpg",
+        "mime_type": "image/jpeg",
+        "media_status": "ready"
+      }
+    ],
+    "rating": 0,
+    "realtime_rating": 0,
+    "raters_count": 0,
+    "url": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=4eeb759a-74e8-43b6-a155-f9b015f003df"
+  },
+  "derivation": "Public readback fields extracted from retained publication receipt; private operational fields excluded."
+}

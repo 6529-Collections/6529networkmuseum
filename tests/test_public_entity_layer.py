@@ -256,17 +256,17 @@ class PublicEntityLayerTests(unittest.TestCase):
 
     def test_exact_projection_counts_and_profile_counts(self) -> None:
         counts = Counter(payload["record_type"] for payload in self.payloads())
-        self.assertEqual(counts, Counter({"PUBLIC_ENTITY": 136, "PUBLIC_RELATION": 233, "WAVE_STATUS_OBSERVATION": 1}))
+        self.assertEqual(counts, Counter({"PUBLIC_ENTITY": 152, "PUBLIC_RELATION": 271, "WAVE_STATUS_OBSERVATION": 1}))
         entities = self.entities()
-        self.assertEqual(sum(payload["entity_type"] == "ARTIST" for payload in entities.values()), 23)
+        self.assertEqual(sum(payload["entity_type"] == "ARTIST" for payload in entities.values()), 24)
         self.assertEqual(sum(payload["entity_type"] == "ORGANIZATION" for payload in entities.values()), 2)
-        self.assertEqual(sum(payload["entity_type"] == "PROJECT_OR_SERIES" for payload in entities.values()), 7)
-        self.assertEqual(sum(payload["entity_type"] == "WORK" for payload in entities.values()), 29)
+        self.assertEqual(sum(payload["entity_type"] == "PROJECT_OR_SERIES" for payload in entities.values()), 8)
+        self.assertEqual(sum(payload["entity_type"] == "WORK" for payload in entities.values()), 35)
         self.assertEqual(sum(payload["entity_type"] == "AGENT" for payload in entities.values()), 21)
-        self.assertEqual(sum(payload["entity_type"] == "MEDIA_REFERENCE" for payload in entities.values()), 40)
+        self.assertEqual(sum(payload["entity_type"] == "MEDIA_REFERENCE" for payload in entities.values()), 46)
         self.assertEqual(sum(payload["entity_type"] == "ACQUISITION_PROGRAM" for payload in entities.values()), 2)
         self.assertEqual(sum(payload["entity_type"] == "RESEARCH_PUBLICATION" for payload in entities.values()), 3)
-        self.assertEqual(len(self.relations()), 233)
+        self.assertEqual(len(self.relations()), 271)
         sample = next(iter(entities.values()))
         self.assertEqual(sample["reviewer"]["reviewed_at"], TEST_REVIEWED_AT)
         self.assertEqual(sample["reviewer"]["reviewed_commit"], TEST_REVIEWED_COMMIT)
@@ -274,6 +274,45 @@ class PublicEntityLayerTests(unittest.TestCase):
         self.assertEqual(sample["reviewer"]["reviewed_manifest_keccak"], TEST_REVIEWED_MANIFEST_KECCAK)
         self.assertEqual(sample["constructor"]["observed_at"], GENERATED_AT)
         self.assertNotEqual(sample["reviewer"]["reviewed_at"], sample["constructor"]["observed_at"])
+
+    def test_salgado_projection_does_not_inherit_earlier_publication_approval(self) -> None:
+        # Asking the generator to replay the earlier reviewed graph cannot
+        # approve a newly constructed Salgado display projection.
+        import salgado_public_entities
+
+        pending = [record["payload"] for path, record in self.records.items()
+                   if Path(path).stem in salgado_public_entities.CONSTRUCTED_RECORD_IDS]
+        self.assertEqual(len(pending), 56)
+        self.assertTrue(all(payload["record_status"] == "review_pending" for payload in pending))
+        self.assertTrue(all(payload["reviewer"] is None for payload in pending))
+        self.assertNotIn("6529NM-RP-0004", self.entities())
+        self.assertEqual(self.entities()["6529NM-CA-2026-005"]["profile"]["public_credit"], "Gift of punk6529")
+
+    def test_explicit_salgado_review_promotes_and_replays_one_binding(self) -> None:
+        records = build_records(
+            reviewed=True, review_salgado=True,
+            reviewer_id="codex-review:test-independent",
+            reviewed_at="2026-11-06T00:00:00Z",
+            reviewed_commit=TEST_REVIEWED_COMMIT,
+            reviewed_manifest_sha256=TEST_REVIEWED_MANIFEST_SHA256,
+            reviewed_manifest_keccak=TEST_REVIEWED_MANIFEST_KECCAK,
+        )
+        self.assertTrue(all(r["payload"]["record_status"] == "reviewed" for r in records.values()))
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for relative, record in records.items():
+                destination = root / relative
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                destination.write_text(json.dumps(record), encoding="utf8")
+            arguments = infer_existing_review_arguments(records, root=root)
+            self.assertTrue(arguments["review_salgado"])
+            self.assertEqual(build_records(**arguments), records)
+            changed = root / "records/entities/6529NM-W-0030.json"
+            value = json.loads(changed.read_text(encoding="utf8"))
+            value["payload"]["reviewer"]["reviewed_commit"] = "d" * 40
+            changed.write_text(json.dumps(value), encoding="utf8")
+            with self.assertRaises(ValueError):
+                infer_existing_review_arguments(records, root=root)
 
     def test_keys_and_gates_research_publication_is_governed_and_explicitly_bound(self) -> None:
         entities = self.entities()
@@ -295,7 +334,7 @@ class PublicEntityLayerTests(unittest.TestCase):
         relation_bindings = load_json(ROOT / "schemas/public-relation-identity-inventory.json")["relation_bindings"]
         relation_ids = [row["relation_id"] for row in relation_bindings]
         self.assertEqual(relation_ids[:158], [f"6529NM-REL-{index:04d}" for index in range(1, 159)])
-        self.assertEqual(relation_ids[158:], [f"6529NM-REL-{index:04d}" for index in range(165, 240)])
+        self.assertEqual(relation_ids[158:], [*[f"6529NM-REL-{index:04d}" for index in range(165, 277)], "6529NM-REL-0279"])
         retired = load_json(ROOT / "schemas/public-relation-identity-inventory.json")["retired_relation_ids"]
         self.assertEqual([row["relation_id"] for row in retired], [f"6529NM-REL-{index:04d}" for index in range(159, 165)])
         self.assertEqual(retired[0]["superseded_by"], "6529NM-REL-0047")
@@ -499,13 +538,13 @@ class PublicEntityLayerTests(unittest.TestCase):
     def test_canonical_ids_slugs_routes_and_artist_relations_are_closed(self) -> None:
         entities = self.entities()
         works = {key: value for key, value in entities.items() if value["entity_type"] == "WORK"}
-        self.assertEqual(set(works), {f"6529NM-W-{index:04d}" for index in range(1, 30)})
+        self.assertEqual(set(works), {f"6529NM-W-{index:04d}" for index in range(1, 36)})
         for work_id, work in works.items():
             expected_slug = work_id
             self.assertEqual(work["public_slug"], expected_slug)
             self.assertEqual(work["canonical_route"], f"/museum/network/works/{expected_slug}")
         artists = {payload["entity_id"]: payload for payload in entities.values() if payload["entity_type"] == "ARTIST"}
-        self.assertEqual(len(artists), 23)
+        self.assertEqual(len(artists), 24)
         self.assertNotIn("artist-", " ".join(payload["public_slug"] for payload in artists.values()))
         expected_artist_slugs = {row["entity_id"]: row["public_slug"] for row in self.inventory["public_slug_inventory"] if row["entity_type"] == "ARTIST"}
         self.assertEqual({key: value["public_slug"] for key, value in artists.items()}, expected_artist_slugs)
@@ -523,7 +562,7 @@ class PublicEntityLayerTests(unittest.TestCase):
         self.assertIn("public/scholarship/entities/magnum-photos-75.md", json.dumps(magnum_project))
         self.assertIn(migration.WINNER_SOURCE_URL, json.dumps(magnum_project))
         creator_relations = [relation for relation in self.relations() if relation["relation_type"] == "ARTIST_CREATES_WORK"]
-        self.assertEqual(len(creator_relations), 30)
+        self.assertEqual(len(creator_relations), 36)
         self.assertTrue(all(entities[relation["source_entity_id"]]["entity_type"] == "ARTIST" for relation in creator_relations))
         hugo = next(payload for payload in artists.values() if payload["preferred_label"] == "HugoFaz")
         self.assertEqual({relation["target_entity_id"] for relation in creator_relations if relation["source_entity_id"] == hugo["entity_id"]}, {"6529NM-W-0009", "6529NM-W-0018"})
@@ -635,7 +674,7 @@ class PublicEntityLayerTests(unittest.TestCase):
         entities = self.entities()
         media = {key: value for key, value in entities.items() if value["entity_type"] == "MEDIA_REFERENCE"}
         media_relations = [relation for relation in self.relations() if relation["relation_type"] == "ENTITY_HAS_MEDIA" and entities[relation["source_entity_id"]]["entity_type"] == "WORK"]
-        self.assertEqual({relation["source_entity_id"] for relation in media_relations}, {f"6529NM-W-{index:04d}" for index in range(1, 30)})
+        self.assertEqual({relation["source_entity_id"] for relation in media_relations}, {f"6529NM-W-{index:04d}" for index in range(1, 36)})
         target_counts = Counter(relation["target_entity_id"] for relation in media_relations)
         self.assertTrue(all(count == 1 for count in target_counts.values()))
         for relation in media_relations:
@@ -746,11 +785,11 @@ class PublicEntityLayerTests(unittest.TestCase):
         )["payload"]
         corrections = amendment["presentation_corrections"]
 
-        self.assertEqual(len(entities), 136)
-        self.assertEqual(len(relations), 233)
+        self.assertEqual(len(entities), 152)
+        self.assertEqual(len(relations), 271)
         self.assertEqual(
             len([entity for entity in entities.values() if entity["entity_type"] == "MEDIA_REFERENCE"]),
-            40,
+            46,
         )
         self.assertEqual(len(corrections), 7)
 
@@ -843,7 +882,7 @@ class PublicEntityLayerTests(unittest.TestCase):
             mutated["payload"]["presentation_corrections"][0][surface]["allowed_ui_affordances"].append("unsafe_unknown_affordance")
             self.assertTrue(self.local_schema_issues(mutated["payload"], schema_path), surface)
 
-    def test_collection_membership_is_exactly_the_three_completed_accessions(self) -> None:
+    def test_collection_membership_is_exactly_the_four_completed_accessions(self) -> None:
         entities = self.entities()
         relations = self.relations()
         collection_relations = [relation for relation in relations if relation["relation_type"] == "COLLECTION_CONTAINS_WORK"]
@@ -851,10 +890,10 @@ class PublicEntityLayerTests(unittest.TestCase):
         expected = {
             *{f"6529NM-W-{index:04d}" for index in range(1, 8)},
             *{f"6529NM-W-{index:04d}" for index in range(24, 29)},
-            "6529NM-W-0029",
+            *{f"6529NM-W-{index:04d}" for index in range(29, 36)},
         }
-        self.assertEqual(len(collection_relations), 13)
-        self.assertEqual(len(accession_relations), 13)
+        self.assertEqual(len(collection_relations), 19)
+        self.assertEqual(len(accession_relations), 19)
         self.assertEqual({relation["target_entity_id"] for relation in collection_relations}, expected)
         self.assertTrue(all(entities[relation["target_entity_id"]]["profile"]["collection_membership"]["status"] == "permanent_collection" for relation in collection_relations))
         permanent_work_ids = {entity_id for entity_id, payload in entities.items() if payload["entity_type"] == "WORK" and payload["profile"]["collection_membership"]["status"] == "permanent_collection"}
@@ -943,7 +982,7 @@ class PublicEntityLayerTests(unittest.TestCase):
         }
         self.assertEqual(programs["6529NM-AP-ENT-0001"]["profile"]["program_status"], "active")
         self.assertEqual(entities["6529NM-CA-2026-002"]["profile"]["thesis"], "The program’s selected group brings together photographs of access, exclusion, permission, surveillance, custody, autonomy, and exit; selection is complete, while acquisition and minting remain pending.")
-        self.assertEqual(produced["6529NM-AP-ENT-0001"], {"6529NM-CA-2026-001", "6529NM-CA-2026-003", "6529NM-CA-2026-004"})
+        self.assertEqual(produced["6529NM-AP-ENT-0001"], {"6529NM-CA-2026-001", "6529NM-CA-2026-003", "6529NM-CA-2026-004", "6529NM-CA-2026-005"})
         self.assertEqual(programs["6529NM-AP-ENT-0001"]["profile"]["produced_acquisition_entity_ids"], sorted(produced["6529NM-AP-ENT-0001"]))
         self.assertEqual(produced["6529NM-AP-ENT-0002"], {"6529NM-CA-2026-002"})
         self.assertEqual(entities["6529NM-CA-2026-001"]["profile"]["program_or_pathway"]["entity_ids"], ["6529NM-AP-ENT-0001"])
@@ -964,7 +1003,7 @@ class PublicEntityLayerTests(unittest.TestCase):
     def test_project_agents_have_source_backed_bidirectional_role_relations(self) -> None:
         entities = self.entities()
         relations = [relation for relation in self.relations() if relation["relation_type"] in {"AGENT_PLAYS_ROLE", "ORGANIZATION_ORIGINATES_PROJECT"}]
-        self.assertEqual(len(relations), 8)
+        self.assertEqual(len(relations), 9)
         for project_id, project in entities.items():
             if project["entity_type"] != "PROJECT_OR_SERIES":
                 continue
@@ -1022,7 +1061,7 @@ class PublicEntityLayerTests(unittest.TestCase):
                         self.assertEqual(reference["source_record_id"], target["authoritative_record_id"])
                         expected_authority_type = (
                             "WORK_DESCRIPTION"
-                            if work_id == "6529NM-W-0029"
+                            if work_id in {f"6529NM-W-{i:04d}" for i in range(29, 36)}
                             else "PROPOSED_GIFT"
                         )
                         self.assertEqual(target["authoritative_record_type"], expected_authority_type)
@@ -1125,7 +1164,7 @@ class PublicEntityLayerTests(unittest.TestCase):
     def test_review_pending_candidate_state_is_not_archived_and_cannot_be_final(self) -> None:
         candidate = build_records()
         candidate_entities = [record["payload"] for record in candidate.values() if record["payload"].get("record_type") == "PUBLIC_ENTITY"]
-        self.assertEqual(len(candidate_entities), 136)
+        self.assertEqual(len(candidate_entities), 152)
         self.assertTrue(all(payload["entity_status"] == "review_pending" for payload in candidate_entities))
         self.assertTrue(all(payload["record_status"] == "review_pending" for payload in candidate_entities))
         self.assertTrue(all(payload["reviewer"] is None for payload in candidate_entities))
@@ -1139,10 +1178,10 @@ class PublicEntityLayerTests(unittest.TestCase):
 
     def test_control_plane_projection_totals_and_presentation_states_are_current(self) -> None:
         control_plane = (ROOT / "docs/control-plane.md").read_text(encoding="utf-8")
-        self.assertIn("136 `PUBLIC_ENTITY` records, 233 closed", control_plane)
-        self.assertIn("(370 generated records in total)", control_plane)
+        self.assertIn("152 `PUBLIC_ENTITY` records, 271 closed", control_plane)
+        self.assertIn("(424 generated records in total)", control_plane)
         self.assertIn("all 7 Casey Works have an official visual still", control_plane)
-        self.assertIn("13 permanent Collection memberships", control_plane)
+        self.assertIn("19 permanent Collection memberships", control_plane)
         self.assertIn("five accessioned Magnum", control_plane)
         self.assertNotIn("120 `PUBLIC_ENTITY` records, 205 closed", control_plane)
         self.assertNotIn("(326 generated records in total)", control_plane)
@@ -1214,9 +1253,9 @@ class PublicEntityLayerTests(unittest.TestCase):
             for observation in work["profile"]["lifecycle_observations"]
         }
         expected = {row["entity_id"] for row in self.inventory["identity_bindings"]["WORK_LIFECYCLE_OBSERVATION"]}
-        self.assertEqual(len(observations), 39)
+        self.assertEqual(len(observations), 45)
         self.assertEqual(set(observations), expected)
-        self.assertEqual(len(set(observations)), 39)
+        self.assertEqual(len(set(observations)), 45)
         for observation_id, work_id in observations.items():
             self.assertIn(work_id, self.entities())
 
@@ -1235,7 +1274,7 @@ class PublicEntityLayerTests(unittest.TestCase):
         expected_static = {
             "INSTITUTION": {"6529NM-I-0001"},
             "COLLECTION": {"6529NM-C-0001"},
-            "ACCESSION": {"6529NM-ACC-ENT-0001", "6529NM-ACC-ENT-0002", "6529NM-ACC-ENT-0003"},
+            "ACCESSION": {"6529NM-ACC-ENT-0001", "6529NM-ACC-ENT-0002", "6529NM-ACC-ENT-0003", "6529NM-ACC-ENT-0004"},
             "RESEARCH_PUBLICATION": {"6529NM-RP-0001", "6529NM-RP-0002", "6529NM-RP-0003"},
         }
         indexes = identity_binding_indexes(self.inventory)

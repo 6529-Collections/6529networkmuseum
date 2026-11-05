@@ -515,3 +515,17 @@ qualification. It must now receive exact-head independent review, hosted PR
 gates, and merge. A direct reviewed child B and immutable catalog activation C
 must follow before frontend PR #3695 is rebound. No catalog activation is
 inferred here.
+
+## 2026-11-05 — Salgado normal accession pages
+
+The narrow local integration follows the Magnum acquisition/work pattern and reuses the completed six-work accession. See [implementation and review record](../notes/wip/2026-11-05-salgado-normal-pages.md) for exact bases, historical source lineage, scope and pending checks. No new research or archive project is included.
+
+### Salgado local review completion — 5 November 2026
+
+The ordinary acquisition and six work pages are implemented and captured at three widths, with concise labels and the normal collection/artist/project links. Source, focused frontend and deterministic checks pass; the broader unrelated mutation suite remains incomplete. Specific CDN upload approval and ordinary publication integration remain outstanding. See the [dated review record](../notes/wip/2026-11-05-salgado-normal-pages.md#local-review-completed--5-november-2026).
+
+### Salgado display delivery — 5 November 2026
+
+Explicit approval for the eighteen approved display WebPs is recorded. All eighteen files are uploaded and verified through the existing Museum CDN. See the [activation amendment](../notes/wip/2026-11-05-salgado-normal-pages.md#display-delivery-activated--5-november-2026). Source/publication integration and website release remain pending.
+
+5 November 2026: Salgado visitor-copy cleanup approved and staging/production requested. No deployment yet; the existing catalogue protocol requires additional metadata renewal, which automatic approval review rejected pending explicit approval. Current status: notes/wip/2026-11-05-salgado-normal-pages.md.

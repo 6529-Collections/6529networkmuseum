@@ -1,0 +1,12 @@
+{
+  "hash_algorithm": "sha256",
+  "byte_mode": "raw",
+  "entries": [
+    {
+      "path": "ofac-address-screening.json",
+      "sha256": "febfb62df0c84c8b796ee5fd1ae8e4ee791065f3f90d65244be48962cd78df8d",
+      "media_type": "application/json",
+      "size": 4509
+    }
+  ]
+}

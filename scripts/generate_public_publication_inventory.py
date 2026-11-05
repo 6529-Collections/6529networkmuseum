@@ -81,6 +81,13 @@ EXPLICIT_MANUSCRIPTS = (
 # These JSON controls are required by the frontend assembler.  They are
 # assembly documents, not source manuscripts and not the inventory itself.
 ASSEMBLY_CONTROL_PATHS = (
+    "records/accessions/6529NM.2026.004/accession-certificate.json",
+    "records/accessions/6529NM.2026.004/accession-statement.json",
+    "records/accessions/6529NM.2026.004/gift-acceptance-authorization.json",
+    "records/proposed-gifts/6529NM-PG-2026-003/wave-status-observation.json",
+    *(f"records/accessions/6529NM.2026.004/objects/6529NM.2026.004.{i:02d}.json" for i in range(1, 7)),
+    *(f"records/accessions/6529NM.2026.004/rights/6529NM.2026.004.RIGHTS.{i:02d}.json" for i in range(1, 7)),
+    *(f"records/accessions/6529NM.2026.004/technical/6529NM.2026.004.{i:02d}.json" for i in range(1, 7)),
     "records/accessions/6529NM.2026.003/accession-certificate.json",
     "records/accessions/6529NM.2026.003/accession-statement.json",
     "records/accessions/6529NM.2026.003/gift-acceptance-authorization.json",
@@ -118,6 +125,7 @@ MEDIA_SOURCE_MANIFEST_PATHS = (
     "records/programs/6529NM-AP-01/public/presentation-manifest.json",
     "records/accessions/6529NM.2026.002/public/presentation-manifest.json",
     "records/accessions/6529NM.2026.003/public/presentation-manifest.json",
+    "records/accessions/6529NM.2026.004/public/presentation-manifest.json",
 )
 
 EXCLUDED_LEGACY_CASEY_CONTROLS = {
@@ -417,7 +425,7 @@ def _accession_media_paths_for(root: Path, accession_id: str) -> set[str]:
 
 def _accession_media_paths(root: Path) -> set[str]:
     paths: set[str] = set()
-    for accession_id in ("6529NM.2026.002", "6529NM.2026.003"):
+    for accession_id in ("6529NM.2026.002", "6529NM.2026.003", "6529NM.2026.004"):
         paths.update(_accession_media_paths_for(root, accession_id))
     return paths
 

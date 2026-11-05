@@ -1,0 +1,12 @@
+{
+  "hash_algorithm": "sha256",
+  "byte_mode": "raw",
+  "entries": [
+    {
+      "path": "reviewed-edition-restoration.json",
+      "sha256": "15f96d77dacd942d2be81e3f5e273b87f1a4d50073df774f68872bbdd5e5a787",
+      "media_type": "application/json",
+      "size": 12878
+    }
+  ]
+}

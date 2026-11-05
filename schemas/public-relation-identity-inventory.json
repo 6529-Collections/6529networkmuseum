@@ -1,6 +1,6 @@
 {
     "$schema":  "https://6529networkmuseum.org/schemas/public-relation-identity-inventory-v1.json",
-    "inventory_version":  "1.5.0",
+    "inventory_version":  "1.6.0",
     "identity_policy":  "Relation identity is bound to a semantic predicate and typed endpoints; source emission order and mutable assertion qualifiers never allocate a public relation ID. Withdrawn assertions retain append-only identity tombstones and their IDs are never reused.",
     "relation_key_format":  "relation_type|source_entity_id|target_entity_id",
     "relation_bindings":  [
@@ -935,8 +935,160 @@
                               {
                                   "relation_id":  "6529NM-REL-0239",
                                   "source_key":  "AGENT_PLAYS_ROLE|6529NM-ART-0023|6529NM-PRJ-0007"
-                              }
-                          ],
+                              },
+      {
+        "relation_id": "6529NM-REL-0240",
+        "source_key": "ARTIST_CREATES_WORK|6529NM-ART-0024|6529NM-W-0030"
+      },
+      {
+        "relation_id": "6529NM-REL-0241",
+        "source_key": "PROJECT_CONTEXTUALIZES_WORK|6529NM-PRJ-0008|6529NM-W-0030"
+      },
+      {
+        "relation_id": "6529NM-REL-0242",
+        "source_key": "CURATED_ACQUISITION_BRINGS_TOGETHER_WORK|6529NM-CA-2026-005|6529NM-W-0030"
+      },
+      {
+        "relation_id": "6529NM-REL-0243",
+        "source_key": "ACCESSION_ADMITS_WORK|6529NM-ACC-ENT-0004|6529NM-W-0030"
+      },
+      {
+        "relation_id": "6529NM-REL-0244",
+        "source_key": "COLLECTION_CONTAINS_WORK|6529NM-C-0001|6529NM-W-0030"
+      },
+      {
+        "relation_id": "6529NM-REL-0245",
+        "source_key": "ENTITY_HAS_MEDIA|6529NM-W-0030|6529NM-MED-0054"
+      },
+      {
+        "relation_id": "6529NM-REL-0246",
+        "source_key": "ARTIST_CREATES_WORK|6529NM-ART-0024|6529NM-W-0031"
+      },
+      {
+        "relation_id": "6529NM-REL-0247",
+        "source_key": "PROJECT_CONTEXTUALIZES_WORK|6529NM-PRJ-0008|6529NM-W-0031"
+      },
+      {
+        "relation_id": "6529NM-REL-0248",
+        "source_key": "CURATED_ACQUISITION_BRINGS_TOGETHER_WORK|6529NM-CA-2026-005|6529NM-W-0031"
+      },
+      {
+        "relation_id": "6529NM-REL-0249",
+        "source_key": "ACCESSION_ADMITS_WORK|6529NM-ACC-ENT-0004|6529NM-W-0031"
+      },
+      {
+        "relation_id": "6529NM-REL-0250",
+        "source_key": "COLLECTION_CONTAINS_WORK|6529NM-C-0001|6529NM-W-0031"
+      },
+      {
+        "relation_id": "6529NM-REL-0251",
+        "source_key": "ENTITY_HAS_MEDIA|6529NM-W-0031|6529NM-MED-0055"
+      },
+      {
+        "relation_id": "6529NM-REL-0252",
+        "source_key": "ARTIST_CREATES_WORK|6529NM-ART-0024|6529NM-W-0032"
+      },
+      {
+        "relation_id": "6529NM-REL-0253",
+        "source_key": "PROJECT_CONTEXTUALIZES_WORK|6529NM-PRJ-0008|6529NM-W-0032"
+      },
+      {
+        "relation_id": "6529NM-REL-0254",
+        "source_key": "CURATED_ACQUISITION_BRINGS_TOGETHER_WORK|6529NM-CA-2026-005|6529NM-W-0032"
+      },
+      {
+        "relation_id": "6529NM-REL-0255",
+        "source_key": "ACCESSION_ADMITS_WORK|6529NM-ACC-ENT-0004|6529NM-W-0032"
+      },
+      {
+        "relation_id": "6529NM-REL-0256",
+        "source_key": "COLLECTION_CONTAINS_WORK|6529NM-C-0001|6529NM-W-0032"
+      },
+      {
+        "relation_id": "6529NM-REL-0257",
+        "source_key": "ENTITY_HAS_MEDIA|6529NM-W-0032|6529NM-MED-0056"
+      },
+      {
+        "relation_id": "6529NM-REL-0258",
+        "source_key": "ARTIST_CREATES_WORK|6529NM-ART-0024|6529NM-W-0033"
+      },
+      {
+        "relation_id": "6529NM-REL-0259",
+        "source_key": "PROJECT_CONTEXTUALIZES_WORK|6529NM-PRJ-0008|6529NM-W-0033"
+      },
+      {
+        "relation_id": "6529NM-REL-0260",
+        "source_key": "CURATED_ACQUISITION_BRINGS_TOGETHER_WORK|6529NM-CA-2026-005|6529NM-W-0033"
+      },
+      {
+        "relation_id": "6529NM-REL-0261",
+        "source_key": "ACCESSION_ADMITS_WORK|6529NM-ACC-ENT-0004|6529NM-W-0033"
+      },
+      {
+        "relation_id": "6529NM-REL-0262",
+        "source_key": "COLLECTION_CONTAINS_WORK|6529NM-C-0001|6529NM-W-0033"
+      },
+      {
+        "relation_id": "6529NM-REL-0263",
+        "source_key": "ENTITY_HAS_MEDIA|6529NM-W-0033|6529NM-MED-0057"
+      },
+      {
+        "relation_id": "6529NM-REL-0264",
+        "source_key": "ARTIST_CREATES_WORK|6529NM-ART-0024|6529NM-W-0034"
+      },
+      {
+        "relation_id": "6529NM-REL-0265",
+        "source_key": "PROJECT_CONTEXTUALIZES_WORK|6529NM-PRJ-0008|6529NM-W-0034"
+      },
+      {
+        "relation_id": "6529NM-REL-0266",
+        "source_key": "CURATED_ACQUISITION_BRINGS_TOGETHER_WORK|6529NM-CA-2026-005|6529NM-W-0034"
+      },
+      {
+        "relation_id": "6529NM-REL-0267",
+        "source_key": "ACCESSION_ADMITS_WORK|6529NM-ACC-ENT-0004|6529NM-W-0034"
+      },
+      {
+        "relation_id": "6529NM-REL-0268",
+        "source_key": "COLLECTION_CONTAINS_WORK|6529NM-C-0001|6529NM-W-0034"
+      },
+      {
+        "relation_id": "6529NM-REL-0269",
+        "source_key": "ENTITY_HAS_MEDIA|6529NM-W-0034|6529NM-MED-0058"
+      },
+      {
+        "relation_id": "6529NM-REL-0270",
+        "source_key": "ARTIST_CREATES_WORK|6529NM-ART-0024|6529NM-W-0035"
+      },
+      {
+        "relation_id": "6529NM-REL-0271",
+        "source_key": "PROJECT_CONTEXTUALIZES_WORK|6529NM-PRJ-0008|6529NM-W-0035"
+      },
+      {
+        "relation_id": "6529NM-REL-0272",
+        "source_key": "CURATED_ACQUISITION_BRINGS_TOGETHER_WORK|6529NM-CA-2026-005|6529NM-W-0035"
+      },
+      {
+        "relation_id": "6529NM-REL-0273",
+        "source_key": "ACCESSION_ADMITS_WORK|6529NM-ACC-ENT-0004|6529NM-W-0035"
+      },
+      {
+        "relation_id": "6529NM-REL-0274",
+        "source_key": "COLLECTION_CONTAINS_WORK|6529NM-C-0001|6529NM-W-0035"
+      },
+      {
+        "relation_id": "6529NM-REL-0275",
+        "source_key": "ENTITY_HAS_MEDIA|6529NM-W-0035|6529NM-MED-0059"
+      },
+      {
+        "relation_id": "6529NM-REL-0276",
+        "source_key": "ACQUISITION_PROGRAM_PRODUCES_ACQUISITION|6529NM-AP-ENT-0001|6529NM-CA-2026-005"
+      },
+      {
+        "relation_id": "6529NM-REL-0279",
+        "source_key": "AGENT_PLAYS_ROLE|6529NM-ART-0024|6529NM-PRJ-0008"
+      }
+  ],
     "retired_relation_ids":  [
                                   {
                                       "relation_id":  "6529NM-REL-0159",

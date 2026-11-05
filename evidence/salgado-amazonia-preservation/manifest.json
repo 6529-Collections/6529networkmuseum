@@ -1,0 +1,18 @@
+{
+  "hash_algorithm": "sha256",
+  "byte_mode": "raw",
+  "entries": [
+    {
+      "path": "display-preparation.json",
+      "sha256": "29fc862a8764c7648fba1aff344e99f13020cdb734706bdfd72cd969148587ea",
+      "media_type": "application/json",
+      "size": 8177
+    },
+    {
+      "path": "restoration-summary.json",
+      "sha256": "2af890d73e3e2b4de6d5aaa5356b67dcdf6049c4a833becd3ccbe0018992df23",
+      "media_type": "application/json",
+      "size": 12932
+    }
+  ]
+}

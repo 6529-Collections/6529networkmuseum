@@ -1,0 +1,107 @@
+{
+  "schema_version": "6529nm.salgado-ofac-address-screening.v1",
+  "screening_id": "6529NM.2026.004.OFAC-20260913",
+  "subject_id": "6529NM.2026.004",
+  "observed_at": "2026-09-13T22:14:05.515Z",
+  "authority": {
+    "publisher": "United States Department of the Treasury, Office of Foreign Assets Control",
+    "ui_uri": "https://sanctionssearch.ofac.treas.gov/",
+    "sdn_list_update_display": "9/10/2026 2:31:49 PM",
+    "non_sdn_list_update_display": "7/27/2026 1:01:50 PM",
+    "display_timezone": "not stated"
+  },
+  "method": {
+    "interface": "official_web_ui",
+    "field": "ID # / Digital Currency Address",
+    "matching": "exact_address",
+    "minimum_name_score": 100,
+    "other_filters": "all_or_blank",
+    "capture": "Structured observations of rendered official UI, not retained raw HTTP bytes. Each search verified the exact entered address and the rendered count/result after submission.",
+    "control_rule": "Known listed ETH positive control checked first."
+  },
+  "positive_control": {
+    "role": "positive_control",
+    "address": "0x67d40ee1a85bf4a4bb7ffae16de985e8427b6b45",
+    "observed_at": "2026-09-13T22:13:42.978Z",
+    "result": "Lookup Results: 1 Found",
+    "entity": "CHATEX",
+    "program": "CYBER2",
+    "list": "SDN",
+    "detail_uri": "https://sanctionssearch.ofac.treas.gov/Details.aspx?id=33854",
+    "control_passed": true
+  },
+  "screened_addresses": [
+    {
+      "role": "donor_and_transfer_source",
+      "address": "0x6daa633c23615a29471deafae351727867e7dad1",
+      "observed_at": "2026-09-13T22:14:01.698Z",
+      "result": "Lookup Results: 0 Found; Your search has not returned any results.",
+      "classification": "no_exact_match"
+    },
+    {
+      "role": "museum_custody",
+      "address": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+      "observed_at": "2026-09-13T22:14:02.294Z",
+      "result": "Lookup Results: 0 Found; Your search has not returned any results.",
+      "classification": "no_exact_match"
+    },
+    {
+      "role": "token_contract",
+      "address": "0xf1f036cebb4b64f138e4f57754edbceb64fb80fc",
+      "observed_at": "2026-09-13T22:14:02.745Z",
+      "result": "Lookup Results: 0 Found; Your search has not returned any results.",
+      "classification": "no_exact_match"
+    },
+    {
+      "role": "implementation",
+      "address": "0x659d80ce8ac5cad5ab2fdd7137caf3d06d246289",
+      "observed_at": "2026-09-13T22:14:03.205Z",
+      "result": "Lookup Results: 0 Found; Your search has not returned any results.",
+      "classification": "no_exact_match"
+    },
+    {
+      "role": "owner",
+      "address": "0xd6f740695e8b7fd75950fbceaef801e4eae6934a",
+      "observed_at": "2026-09-13T22:14:03.673Z",
+      "result": "Lookup Results: 0 Found; Your search has not returned any results.",
+      "classification": "no_exact_match"
+    },
+    {
+      "role": "admin",
+      "address": "0xc0b070c3c2cbcddacad7ff8982353aea17590106",
+      "observed_at": "2026-09-13T22:14:04.041Z",
+      "result": "Lookup Results: 0 Found; Your search has not returned any results.",
+      "classification": "no_exact_match"
+    },
+    {
+      "role": "admin",
+      "address": "0x568f28ec36502a4f7fa2865f648155c9842b7c76",
+      "observed_at": "2026-09-13T22:14:04.429Z",
+      "result": "Lookup Results: 0 Found; Your search has not returned any results.",
+      "classification": "no_exact_match"
+    },
+    {
+      "role": "admin",
+      "address": "0x849b8580d93f0ef9af4f069656dc14ed2a930dc5",
+      "observed_at": "2026-09-13T22:14:04.796Z",
+      "result": "Lookup Results: 0 Found; Your search has not returned any results.",
+      "classification": "no_exact_match"
+    },
+    {
+      "role": "admin",
+      "address": "0x1a3fd7c340d36662d3414f38649391f618bbd078",
+      "observed_at": "2026-09-13T22:14:05.161Z",
+      "result": "Lookup Results: 0 Found; Your search has not returned any results.",
+      "classification": "no_exact_match"
+    },
+    {
+      "role": "extension",
+      "address": "0x55a989449cc4330132a0b064d1a16ce9325c9452",
+      "observed_at": "2026-09-13T22:14:05.515Z",
+      "result": "Lookup Results: 0 Found; Your search has not returned any results.",
+      "classification": "no_exact_match"
+    }
+  ],
+  "evidence_boundary": "Point-in-time exact-address screen only. No civil identity verification, fuzzy-name screen, 50 Percent Rule analysis, historical transaction-exposure trace, non-OFAC list search or legal opinion is asserted.",
+  "constructor": "codex-task:01a087a1-5e64-7280-b5f8-82d0df4ec066"
+}

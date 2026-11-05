@@ -4129,3 +4129,17 @@ record occurrences. Bootstrap validation (911 JSON files), deterministic
 entity replay (370 records), publication inventory and bundle checks, Vera
 media validation, release-manifest validation, and the complete Museum/Casey
 validator all pass on the correction branch.
+
+## 2026-11-05 — Salgado scope reset implementation
+
+One ordinary acquisition and six work pages are being integrated in isolated source/frontend branches from refreshed main refs. Historical accession evidence and short labels are retained; normal artist/project/collection links are added. See [dated implementation and review record](2026-11-05-salgado-normal-pages.md). New derived projections and rendered verification remain pending at this checkpoint. Earlier archive/PR-ready/review-bot automatic approval-review denials are preserved.
+
+### Salgado local review completion — 5 November 2026
+
+Thirty actual frontend captures cover the acquisition, six works, artist, project and collection at desktop/tablet/mobile widths. All Salgado photographs load locally, with no overflow or page errors. Canonical new projections remain pending; historical reviews are preserved. Automatic approval review denied the exact eighteen-file public CDN upload; zero uploaded. No PR-ready/review-bot, archive, merge or deploy action occurred. See [completion evidence and remaining publication boundary](2026-11-05-salgado-normal-pages.md#local-review-completed--5-november-2026).
+
+### Salgado display delivery — 5 November 2026
+
+The user explicitly approved the exact eighteen approved display WebPs and existing public Museum CDN destination. All eighteen files were uploaded conditionally and verified by S3 checksum/header readback and exact CDN GET hashes. Delivery totals 9,787,776 bytes; no cache invalidation was required. Source and frontend candidates remain local, with publication integration pending. See the [delivery amendment](2026-11-05-salgado-normal-pages.md#display-delivery-activated--5-november-2026).
+
+5 November 2026: Salgado visitor-copy cleanup approved and staging/production requested. No deployment yet; the existing catalogue protocol requires additional metadata renewal, which automatic approval review rejected pending explicit approval. Current status: notes/wip/2026-11-05-salgado-normal-pages.md.
